@@ -1,0 +1,191 @@
+{
+  "main": {
+    "id": "e3742af5d31863ff",
+    "type": "split",
+    "children": [
+      {
+        "id": "94d4d435b5da02e6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "08dd816ad19c929c",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "330549cb35ea627c",
+    "type": "split",
+    "children": [
+      {
+        "id": "a82cae5ffe42a6ee",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0fdb3dc2c7a8cceb",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "38468fe336bd4cf5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0080901cb85dfbe0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "f7f837de25161fe1",
+    "type": "split",
+    "children": [
+      {
+        "id": "9f78986d49b1405d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b1fd48310231ada3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e2a39f7fa4429616",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "df7ded234da300ff",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "63100d80b6c48a04",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "08dd816ad19c929c",
+  "lastOpenFiles": [
+    "未命名.canvas",
+    "C++算法/入门笔记.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/预处理数组加速.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/长方形中任意矩阵的累加和.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/荷兰国旗问题.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/求数组中的逆序对数量.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/树型dp解决二叉树问题.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/数组替代系统自有结构.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/数组前后两部分快速翻转算法.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/数组L...R范围上的累加和计算.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/拓扑贡献记录.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/字符串的基本功操作.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/只有加减乘除的表达式计算.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/双指针-首尾指针法.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/压缩数组技巧.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/单调栈.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/前缀和数组.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/利用快慢指针返回链表的中点.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/利用归并排序做信息统计.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/判断数字是否是2的某次幂的简单写法.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/两个有环链表返回第一个相交节点.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/两个无环链表返回第一个相交节点.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/下标循环怼.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/Morris遍历解决二叉树问题.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/ICPC风格.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具",
+    "算法笔记/zuoAlgorithm/010. 代码模板/随机生成双向链表.md",
+    "算法笔记/zuoAlgorithm/010. 代码模板",
+    "算法笔记/zuoAlgorithm/300. 算法题目分类总结/系统设计相关",
+    "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类",
+    "算法笔记/zuoAlgorithm/300. 算法题目分类总结",
+    "算法笔记/zuoAlgorithm/000. 学习大纲",
+    "算法笔记/zuoAlgorithm/000.Pending",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾/01. 难点释疑",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾/00. 需要熟记的知识点",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾",
+    "算法笔记/zuoAlgorithm/appendix/scanning.svg",
+    "算法笔记/zuoAlgorithm/appendix/prim.gif",
+    "算法笔记/zuoAlgorithm/appendix/Pasted image 27.png",
+    "算法笔记/zuoAlgorithm/appendix/Pasted image 26.png",
+    "算法笔记/zuoAlgorithm/appendix/Pasted image 25.png",
+    "算法笔记/zuoAlgorithm/appendix/Pasted image 24.png",
+    "算法笔记/zuoAlgorithm/appendix/Pasted image 23.png",
+    "算法笔记/zuoAlgorithm/appendix/Pasted image 22.png",
+    "算法笔记/zuoAlgorithm/appendix/Pasted image 21.png",
+    "算法笔记/zuoAlgorithm/appendix/Pasted image 20221010142905.png"
+  ]
+}
