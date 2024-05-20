@@ -1,0 +1,11 @@
+# 1218-LeetCode-459.重复的子字符串
+
+---
+
+459.[[重复的子字符串]] [E]
+https://leetcode-cn.com/problems/repeated-substring-pattern/
+
+就是KMP，而且只需要kmp的next数组概念
+
+
+
