@@ -8,12 +8,24 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c62f1727b839ed5f",
+            "id": "49c0d8860d325483",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/04 归并排序.md",
+                "file": "C++算法/必备.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9e647be8915df39b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "归并",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/04 归并排序.md",
+                "file": "C++算法/必备.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/04 归并排序.md",
+                "file": "C++算法/必备.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/04 归并排序.md"
+                "file": "C++算法/必备.md"
               }
             }
           }
@@ -147,13 +159,22 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "c62f1727b839ed5f",
+  "active": "49c0d8860d325483",
   "lastOpenFiles": [
     "C++算法/必备.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/03 归并排序与随机快排.md",
+    "荷兰国旗问题 1.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/08 归并排序和快排.md",
+    "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程题目汇总.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/33. 经典面试题讲解/经典面试题目6.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班.md",
+    "C++算法/入门笔记.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班题目汇总.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/05 归并改写解决的面试题(续)、快速排序.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/04 归并排序.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/求数组小和.md",
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/求数组中的逆序对数量.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/04 归并排序.md",
-    "C++算法/入门笔记.md",
     "README.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/归并排序代码.md",
     "算法笔记/zuoAlgorithm/000.Pending/Pending.md",
@@ -164,17 +185,8 @@
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/链表归并排序.md",
     "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/排序算法的稳定性.md",
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/利用归并排序做信息统计.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/03 归并排序与随机快排.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/基础班课程.md",
     "算法笔记/zuoAlgorithm/001. 难点重点照顾/00. 需要熟记的知识点/基础知识点.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/后缀数组.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/工程上对排序的改进.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/归并排序.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/09 链表问题在面试中的考察重点.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/08 归并排序和快排.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/05 trie、桶排序、排序总结.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/05 归并改写解决的面试题(续)、快速排序.md",
     "未命名.canvas",
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具",
     "算法笔记/zuoAlgorithm/010. 代码模板",
