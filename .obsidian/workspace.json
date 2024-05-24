@@ -60,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "荷兰",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -77,12 +77,12 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -159,11 +159,11 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "49c0d8860d325483",
+  "active": "38468fe336bd4cf5",
   "lastOpenFiles": [
+    "荷兰国旗问题 1.md",
     "C++算法/必备.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/03 归并排序与随机快排.md",
-    "荷兰国旗问题 1.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/08 归并排序和快排.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程题目汇总.md",
