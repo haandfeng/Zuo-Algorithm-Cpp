@@ -13,19 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++算法/必备.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9e647be8915df39b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
+                "file": "C++算法/入门笔记.md",
                 "mode": "source",
                 "source": false
               }
@@ -60,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "荷兰",
+                "query": "tag:#快速排序",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -82,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -98,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++算法/必备.md",
+                "file": "C++算法/入门笔记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++算法/必备.md",
+                "file": "C++算法/入门笔记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++算法/必备.md"
+                "file": "C++算法/入门笔记.md"
               }
             }
           }
@@ -159,13 +148,16 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "38468fe336bd4cf5",
+  "active": "49c0d8860d325483",
   "lastOpenFiles": [
-    "荷兰国旗问题 1.md",
     "C++算法/必备.md",
+    "算法笔记/zuoAlgorithm/010. 代码模板/改写快排的方法求无序数组中的第k小.md",
+    "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/荷兰国旗问题.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/链表随机节点.md",
+    "荷兰国旗问题 1.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/03 归并排序与随机快排.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/08 归并排序和快排.md",
-    "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程题目汇总.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/33. 经典面试题讲解/经典面试题目6.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班.md",
@@ -184,9 +176,6 @@
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/平面最近点对.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/链表归并排序.md",
     "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/排序算法的稳定性.md",
-    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/利用归并排序做信息统计.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/基础班课程.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/00. 需要熟记的知识点/基础知识点.md",
     "未命名.canvas",
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具",
     "算法笔记/zuoAlgorithm/010. 代码模板",
