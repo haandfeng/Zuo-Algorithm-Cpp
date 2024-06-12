@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "857f7d9da0f318f8",
+        "id": "a411907a4b282dfe",
         "type": "tabs",
         "children": [
           {
-            "id": "227a4bb265e74e37",
+            "id": "27d77e3eefb7fb25",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,36 +20,12 @@
             }
           },
           {
-            "id": "6e3ed9d1e260d3ea",
+            "id": "481a0efedea53248",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/缺失数字.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "75c05a483a4c4e5e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/缺失数字.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "56de6c55b1ebbce4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "一些新题/不用任何判断语句和比较操作，返回两个数的最大值.md",
+                "file": "2166.设计位集.md",
                 "mode": "source",
                 "source": false
               }
@@ -84,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "B树",
+                "query": "位图",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -183,10 +159,23 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "227a4bb265e74e37",
+  "active": "27d77e3eefb7fb25",
   "lastOpenFiles": [
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/一个数组中有一种数出现K次，其他数都出现了M次.md",
+    "2166.设计位集.md",
     "C++算法/必备.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/位图.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/00. 编程语言相关/Java中位图的实现.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/05 位图跟位运算.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班题目汇总.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最美子字符串的数目.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班.md",
+    "一些新题/返回一个数二进制中有几个1.md",
+    "一些新题/反转一个二进制的状态.md",
+    "一些新题/区间[left, right]内所有数字 & 的结果.md",
+    "一些新题/返回大于等于n的最小的2的幂.md",
+    "一些新题/判断一个整数是不是3的幂.md",
+    "一些新题/判断一个整数是不是2的幂.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/一个数组中有一种数出现K次，其他数都出现了M次.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/一个数组中出现奇数次的两个数.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/一个数组中出现了奇数次的数.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/提取整形数最右侧的1.md",
@@ -198,20 +187,7 @@
     "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班14.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/10 二叉树常见面试题（上）.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/11 二叉树常见面试题（下）.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/红黑树.md",
-    "一些新题/判断一个整数是不是2的幂.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
-    "一些新题/返回一个数二进制中有几个1.md",
-    "一些新题/反转一个二进制的状态.md",
-    "一些新题/区间[left, right]内所有数字 & 的结果.md",
-    "一些新题/返回大于等于n的最小的2的幂.md",
     "一些新题",
-    "一些新题/判断一个整数是不是3的幂.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/00. 编程语言相关/Java 运算符优先级.md",
-    "算法笔记/算法笔记新手班.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/00. 编程语言相关/Java中位图的实现.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/与数组中元素的最大异或值.md",
     "未命名.canvas",
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具",
     "算法笔记/zuoAlgorithm/010. 代码模板",
