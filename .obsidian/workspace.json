@@ -8,42 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "27d77e3eefb7fb25",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "算法笔记/zuoAlgorithm/001. 难点重点照顾/01. 难点释疑/两个可能有环的单链表相交的第一个节点-难点释疑.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ee9fa1d322164d46",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "04db3367090c6f01",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "一些新题/最大频率栈.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "67df6b6b6d56f0de",
             "type": "leaf",
             "state": {
@@ -54,17 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "180d9bd358401d11",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -130,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "C++算法/必备.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "C++算法/必备.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "C++算法/必备.md"
+              }
             }
           }
         ]
@@ -187,17 +146,20 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "180d9bd358401d11",
+  "active": "67df6b6b6d56f0de",
   "lastOpenFiles": [
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/用位运算实现加减乘除.md",
+    "C++算法/必备.md",
     "一些新题/最大频率栈.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾/01. 难点释疑/两个可能有环的单链表相交的第一个节点-难点释疑.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/_每周算法营养课题目汇总.md",
     "一些新题/2166.设计位集.md",
     "一些新题/全O(1)的数据结构.md",
-    "C++算法/必备.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/实现最小栈.md",
     "算法笔记/zuoAlgorithm/004. 刷题经验总结/数据结构的设计题目.md",
     "算法笔记/zuoAlgorithm/001. 难点重点照顾/00. 需要熟记的知识点/高级知识点.md",
     "一些新题/在链表上排序.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班36.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/设计高效查询的数据结构.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/LRU内存替换算法的实现.md",
@@ -210,11 +172,8 @@
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断链表是否为回文结构.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/找到链表第一个入环节点.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/复制带随机指针的链表.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/01. 难点释疑/两个可能有环的单链表相交的第一个节点-难点释疑.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/04 单链表跟双链表.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/K个逆序对数组.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/K个节点的组内逆序调整.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班题目汇总.md",
     "一些新题",
     "未命名.canvas",
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具",
