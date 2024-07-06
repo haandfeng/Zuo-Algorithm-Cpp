@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "a411907a4b282dfe",
+        "id": "564997a407ee952a",
         "type": "tabs",
         "children": [
           {
-            "id": "67df6b6b6d56f0de",
+            "id": "4524342ebfa9417d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C++算法/必备.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -69,7 +65,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -85,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++算法/必备.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +98,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++算法/必备.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,12 +119,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "C++算法/必备.md"
-              }
+              "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -146,10 +140,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "67df6b6b6d56f0de",
+  "active": "4524342ebfa9417d",
   "lastOpenFiles": [
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断链表是否为回文结构.md",
     "C++算法/必备.md",
+    "算法笔记/zuoAlgorithm/010. 代码模板/LRU内存替换算法的实现.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/LRU缓存机制.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数据结构设计之O(1)实现setAll.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断链表是否为回文结构.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/判断链表是否有环.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/找到链表第一个入环节点.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/复制带随机指针的链表.md",
@@ -168,12 +165,9 @@
     "一些新题/在链表上排序.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班36.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/设计高效查询的数据结构.md",
-    "算法笔记/zuoAlgorithm/010. 代码模板/LRU内存替换算法的实现.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数据流的中位数.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/常数时间插入、删除和获取随机元素.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/LRU缓存机制.md",
     "算法笔记/zuoAlgorithm/001. 难点重点照顾/_常考高频题.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/算法群面试题/1116-阿里.md",
     "一些新题",
     "未命名.canvas",
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具",
