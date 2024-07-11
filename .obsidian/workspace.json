@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "564997a407ee952a",
+        "id": "9aa38710b790dfa1",
         "type": "tabs",
         "children": [
           {
-            "id": "4524342ebfa9417d",
+            "id": "d0e44afe8b8ed96d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "C++算法/必备.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -44,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "数据结构",
+                "query": "第k",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -82,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "C++算法/必备.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "C++算法/必备.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "C++算法/必备.md"
+              }
             }
           }
         ],
@@ -140,9 +148,19 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "4524342ebfa9417d",
+  "active": "d0e44afe8b8ed96d",
   "lastOpenFiles": [
+    "算法笔记/zuoAlgorithm/010. 代码模板/bfprt代码.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/bfprt算法.md",
+    "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾/_常考高频题.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班题目汇总.md",
     "C++算法/必备.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数据流的中位数.md",
+    "一些新题/常数时间插入、删除和获取重复元素.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/常数时间插入、删除和获取随机元素.md",
+    "常数时间插入、删除和获取重复.md",
+    "C++算法/入门笔记.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/LRU内存替换算法的实现.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/LRU缓存机制.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数据结构设计之O(1)实现setAll.md",
@@ -158,16 +176,6 @@
     "算法笔记/zuoAlgorithm/001. 难点重点照顾/01. 难点释疑/两个可能有环的单链表相交的第一个节点-难点释疑.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/_每周算法营养课题目汇总.md",
     "一些新题/2166.设计位集.md",
-    "一些新题/全O(1)的数据结构.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/实现最小栈.md",
-    "算法笔记/zuoAlgorithm/004. 刷题经验总结/数据结构的设计题目.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/00. 需要熟记的知识点/高级知识点.md",
-    "一些新题/在链表上排序.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班36.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/设计高效查询的数据结构.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数据流的中位数.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/常数时间插入、删除和获取随机元素.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/_常考高频题.md",
     "一些新题",
     "未命名.canvas",
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具",
