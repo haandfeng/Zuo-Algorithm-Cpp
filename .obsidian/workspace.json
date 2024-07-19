@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ecad8ed6209b2fa8",
+        "id": "bf97687f96f56177",
         "type": "tabs",
         "children": [
           {
-            "id": "aa256d802cb49eae",
+            "id": "ea3b4ba24f80b572",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -148,10 +148,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "aa256d802cb49eae",
+  "active": "ea3b4ba24f80b572",
   "lastOpenFiles": [
-    "C++算法/入门笔记.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/求完全二叉树节点的个数.md",
     "C++算法/必备.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断二叉树是不是完全二叉树.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/二叉树概念汇总.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/从前序与中序遍历序列构造二叉树.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的最小深度.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/序列化和反序列化 N 叉树.md",
+    "一些新题/二叉树最大特殊宽度.md",
+    "C++算法/入门笔记.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/图的拓扑排序算法.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/求数组中的逆序对数量代码.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/基数排序代码.md",
@@ -164,18 +171,11 @@
     "算法笔记/zuoAlgorithm/010. 代码模板/不使用加减乘除算符实现加减乘除(仅位运算).md",
     "算法笔记/zuoAlgorithm/010. 代码模板/并查集代码.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/比较器.md",
-    "一些新题/二叉树最大特殊宽度.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的锯齿形层次遍历.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班题目汇总.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/求完全二叉树节点的个数.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班14.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/序列化和反序列化 N 叉树.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/06 比较器、优先级队列和二叉树.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/07 二叉树的基本算法.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的最小深度.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/返回一棵树的最大深度.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班题目汇总.md",
     "img/Pasted image 20240712110918.png",
     "img",
     "一些新题",
