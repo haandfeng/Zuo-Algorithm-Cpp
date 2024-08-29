@@ -8,17 +8,10 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "file:入门笔记",
+      "query": "file:大纲",
       "color": {
         "a": 1,
         "rgb": 14048348
-      }
-    },
-    {
-      "query": "file:必备",
-      "color": {
-        "a": 1,
-        "rgb": 6079190
       }
     }
   ],
