@@ -4,16 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "093a162ba60cc3c5",
+        "id": "3b14d4afbdb2e9eb",
         "type": "tabs",
         "children": [
           {
-            "id": "a35f28e7646ffddc",
+            "id": "41c99abe11cb6207",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "C++算法/必备.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "73760bc1d6c48c2b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++算法/入门笔记.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "最近公共祖先",
+                "query": "修剪",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,11 +77,13 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -147,34 +161,34 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "0fdb3dc2c7a8cceb",
+  "active": "41c99abe11cb6207",
   "lastOpenFiles": [
-    "一些新题/搜索二叉树的最近公共祖先.md",
-    "C++算法/必备.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的最近公共祖先.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/07 二叉树的相关题目.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/收集达标路径和.md",
-    "一些新题/收集累加和等于aim的所有路径.md",
-    "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类/打家劫舍系列问题.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打家劫舍 II.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打家劫舍.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断二叉树是不是搜索二叉树.md",
+    "C++算法/必备.md",
     "C++算法/入门笔记.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断二叉树是不是平衡二叉树.md",
-    "修剪搜索二叉树.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/搜索二叉树.md",
+    "一些新题/修剪搜索二叉树.md",
+    "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类/打家劫舍系列问题.md",
+    "README.md",
+    "递归排序一个栈.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/递归逆序一个栈.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串无重复的全部子序列.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/组合总和.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/17 认识一些经典递归过程.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列，要求不要出现重复的排列.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部子序列.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数组中任选数量的元素和为目标值有多少种.md",
+    "算法笔记/zuoAlgorithm/004. 刷题经验总结/数据量与算法的选择.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/全排列.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班题目汇总.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班23.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班33.md",
-    "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类/二叉树的最近公共祖先问题.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/倍增法.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最近公共祖先-时间O(N)空间O(1)解法.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程题目汇总.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树节点间最近公共祖先的批量查询问题.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/33. 经典面试题讲解/经典面试题目29.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题+Top100题目汇总.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/Tarjan算法.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/组合总和 Ⅳ.md",
+    "算法笔记/zuoAlgorithm/010. 代码模板/组合数代码.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/10. 数学基础/排列组合.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班37.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/最小生成树算法之Prim.md",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾/链表相关问题.md",
+    "一些新题/搜索二叉树的最近公共祖先.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的最近公共祖先.md",
     "300. 算法题目分类总结",
     "img/Pasted image 20240712110918.png",
     "img",
