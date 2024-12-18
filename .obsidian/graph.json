@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "",
+  "search": "滑动窗口(双指针)",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
@@ -16,7 +16,7 @@
     }
   ],
   "collapse-display": false,
-  "showArrow": false,
+  "showArrow": true,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
@@ -25,6 +25,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.14880049616560043,
-  "close": true
+  "scale": 0.1791369319760357,
+  "close": false
 }

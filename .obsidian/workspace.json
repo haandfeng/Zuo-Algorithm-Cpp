@@ -4,31 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "3b14d4afbdb2e9eb",
+        "id": "e1b76eb120b8b582",
         "type": "tabs",
         "children": [
           {
-            "id": "73760bc1d6c48c2b",
+            "id": "82b3757dad7bec6c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++算法/必备/常见递归题目.md",
+                "file": "零茶山艾府/滑动窗口(同向双指针).md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "滑动窗口(同向双指针)"
             }
           },
           {
-            "id": "65519dc402c117c2",
+            "id": "7167cdcfb5564530",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印n层汉诺塔从最左边移动到最右边的全部过程.md",
+                "file": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/无重复字符的最长子串.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "无重复字符的最长子串"
             }
           }
         ]
@@ -51,7 +55,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
             }
           },
           {
@@ -60,13 +66,15 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#前缀和",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
             }
           },
           {
@@ -74,7 +82,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
             }
           }
         ]
@@ -98,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++算法/必备/常见递归题目.md",
+                "file": "零茶山艾府/滑动窗口(同向双指针).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +116,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "滑动窗口(同向双指针) 的反向链接列表"
             }
           },
           {
@@ -115,10 +127,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++算法/必备/常见递归题目.md",
+                "file": "零茶山艾府/滑动窗口(同向双指针).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "滑动窗口(同向双指针) 的出链列表"
             }
           },
           {
@@ -129,7 +143,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
             }
           },
           {
@@ -138,17 +154,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++算法/必备/常见递归题目.md"
-              }
+                "file": "零茶山艾府/滑动窗口(同向双指针).md"
+              },
+              "icon": "lucide-list",
+              "title": "滑动窗口(同向双指针) 的大纲"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -160,35 +176,36 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "73760bc1d6c48c2b",
+  "active": "82b3757dad7bec6c",
   "lastOpenFiles": [
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印n层汉诺塔从最左边移动到最右边的全部过程.md",
-    "C++算法/必备/常见递归题目.md",
-    "一些新题/递归排序一个栈.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/递归逆序一个栈.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列，要求不要出现重复的排列.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串无重复的全部子序列.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/组合总和.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部子序列.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/10. 数学基础/排列组合.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/无重复字符的最长子串.md",
+    "零茶山艾府/滑动窗口(同向双指针).md",
+    "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类/子数组, 子串, 子序列.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题+Top100题目汇总.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/子数组最小乘积的最大值.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/双指针-首尾指针法.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/滑动窗口中位数.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/40 子数组达到规定累加和的最大长度系列问题.md",
+    "零茶山艾府/双向双指针.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/接雨水.md",
+    "未命名.md",
+    "接雨 水.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/平方之后的结果数.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数组中不同数字的个数.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/长度最小的子数组.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/正整数组子数组累加和等于K的最大长度.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/三数之和.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/两数之和.md",
+    "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类/数组三连问题.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/盛最多水的容器.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/接雨水 II.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/10. 数学基础/三角形判定.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/四数相加 II.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/两整数之和.md",
     "C++算法/必备/大纲.md",
-    "C++算法/必备/归并.md",
-    "C++算法/必备/数据结构设计高频题.md",
-    "C++算法/入门笔记.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/基础班课程题目汇总.md",
-    "C++算法/未命名.md",
-    "C++算法/必备/二叉树经典问题.md",
-    "C++算法/必备/链表高频题和必备技巧.md",
-    "C++算法/必备/位运算.md",
-    "C++算法/必备/排序总结.md",
-    "C++算法/必备/基数排序.md",
-    "C++算法/必备/快排.md",
-    "C++算法/必备/堆 优先队列.md",
+    "零茶山艾府",
     "C++算法/必备",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断二叉树是不是搜索二叉树.md",
-    "一些新题/修剪搜索二叉树.md",
-    "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类/打家劫舍系列问题.md",
     "300. 算法题目分类总结",
     "img/Pasted image 20240712110918.png",
     "img",
@@ -199,7 +216,6 @@
     "算法笔记/zuoAlgorithm/300. 算法题目分类总结/系统设计相关",
     "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类",
     "算法笔记/zuoAlgorithm/300. 算法题目分类总结",
-    "算法笔记/zuoAlgorithm/000. 学习大纲",
     "算法笔记/zuoAlgorithm/appendix/scanning.svg",
     "算法笔记/zuoAlgorithm/appendix/prim.gif",
     "算法笔记/zuoAlgorithm/appendix/Pasted image 27.png",
