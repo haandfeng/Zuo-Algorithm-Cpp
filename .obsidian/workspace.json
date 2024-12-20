@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e1b76eb120b8b582",
+        "id": "cfa24331a4dd336c",
         "type": "tabs",
         "children": [
           {
-            "id": "82b3757dad7bec6c",
+            "id": "6d7617676b915761",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,20 +19,6 @@
               },
               "icon": "lucide-file",
               "title": "滑动窗口(同向双指针)"
-            }
-          },
-          {
-            "id": "7167cdcfb5564530",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/无重复字符的最长子串.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "无重复字符的最长子串"
             }
           }
         ]
@@ -85,6 +71,22 @@
               "state": {},
               "icon": "lucide-bookmark",
               "title": "书签"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d160e0a61737f4e7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "95e49e28ac1dfdce",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {},
+              "icon": "clock",
+              "title": "Recent Files"
             }
           }
         ]
@@ -160,11 +162,13 @@
               "title": "滑动窗口(同向双指针) 的大纲"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -173,13 +177,17 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "smart-connections:Open: View Smart Connections": false,
+      "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "82b3757dad7bec6c",
+  "active": "6d7617676b915761",
   "lastOpenFiles": [
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/无重复字符的最长子串.md",
+    "STL 类的使用笔记.md",
     "零茶山艾府/滑动窗口(同向双指针).md",
+    "零茶山艾府/双向双指针.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/无重复字符的最长子串.md",
     "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类/子数组, 子串, 子序列.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题+Top100题目汇总.md",
@@ -187,9 +195,7 @@
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/双指针-首尾指针法.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/滑动窗口中位数.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/40 子数组达到规定累加和的最大长度系列问题.md",
-    "零茶山艾府/双向双指针.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/接雨水.md",
-    "未命名.md",
     "接雨 水.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/平方之后的结果数.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数组中不同数字的个数.md",

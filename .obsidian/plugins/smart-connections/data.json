@@ -1,0 +1,26 @@
+{
+  "new_user": false,
+  "legacy_transformers": false,
+  "enable_mobile": true,
+  "actions": {
+    "lookup": true
+  },
+  "smart_notices": {
+    "muted": {
+      "done_initial_scan": true,
+      "Notice_muted": true
+    }
+  },
+  "system_prompts_folder": "smart prompts",
+  "smart_chat_folder": "smart-chats",
+  "smart_chat_folder_last": "smart-chats",
+  "chat_model_platform_key": "open_router",
+  "open_router": {},
+  "api_key": "",
+  "excluded_headings": "",
+  "folder_exclusions": "smart-chats",
+  "show_full_path": false,
+  "expanded_view": true,
+  "language": "en",
+  "version": "2.3.46"
+}
