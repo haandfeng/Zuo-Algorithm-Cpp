@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "滑动窗口(双指针)",
+  "search": "",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
@@ -12,6 +12,13 @@
       "color": {
         "a": 1,
         "rgb": 14048348
+      }
+    },
+    {
+      "query": "tag:#0x3f  ",
+      "color": {
+        "a": 1,
+        "rgb": 6084190
       }
     }
   ],
@@ -25,6 +32,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.1791369319760357,
+  "scale": 0.19753788254932117,
   "close": false
 }
