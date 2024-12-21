@@ -27,6 +27,8 @@
 
 ps: 一些理论课，没代码的部分，我就没有怎么写了。如果发现缺了某些课的笔记，应该是理论课，直接看老师的视频就好了。
 
+ps: 最近在看别的博主的视频刷题，应该会稳步更新，应该是27fall 美国ng或者中国应届，求交流
+
 课程链接 https://space.bilibili.com/8888480?spm_id_from=333.337.0.0
 
 ![Visitor Count](https://profile-counter.glitch.me/zuoAlgorithm/count.svg)
