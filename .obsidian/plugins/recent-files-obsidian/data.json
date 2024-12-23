@@ -1,20 +1,156 @@
 {
   "recentFiles": [
     {
-      "basename": "README",
-      "path": "README.md"
+      "basename": "二分查找",
+      "path": "零茶山艾府/二分查找.md"
+    },
+    {
+      "basename": "区间查询-修改总结",
+      "path": "算法笔记/zuoAlgorithm/004. 刷题经验总结/区间查询-修改总结.md"
+    },
+    {
+      "basename": "在无序数组中求第K小的数",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在无序数组中求第K小的数.md"
+    },
+    {
+      "basename": "无序数组找第k小或第k大(重要!)",
+      "path": "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md"
+    },
+    {
+      "basename": "改写快排的方法求无序数组中的第k小",
+      "path": "算法笔记/zuoAlgorithm/010. 代码模板/改写快排的方法求无序数组中的第k小.md"
+    },
+    {
+      "basename": "在排序数组中查找元素的第一个和最后一个位置",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在排序数组中查找元素的第一个和最后一个位置.md"
+    },
+    {
+      "basename": "入门笔记",
+      "path": "C++算法/入门笔记.md"
+    },
+    {
+      "basename": "在一个有序数组中，找小于等于某个数最右侧的位置",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在一个有序数组中，找小于等于某个数最右侧的位置.md"
+    },
+    {
+      "basename": "__算法数据结构体系学习班题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班题目汇总.md"
     },
     {
       "basename": "滑动窗口(同向双指针)",
       "path": "零茶山艾府/滑动窗口(同向双指针).md"
     },
     {
-      "basename": "STL 类的使用笔记",
-      "path": "STL 类的使用笔记.md"
+      "basename": "双向双指针",
+      "path": "零茶山艾府/双向双指针.md"
+    },
+    {
+      "basename": "___★算法课笔记★",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/___★算法课笔记★.md"
+    },
+    {
+      "basename": "LeetCodeTop100Like",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCodeTop100Like.md"
+    },
+    {
+      "basename": "LeetCode高频题+Top100题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题+Top100题目汇总.md"
+    },
+    {
+      "basename": "LeetCode高频题",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题.md"
+    },
+    {
+      "basename": "算法群题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/算法群题目汇总.md"
+    },
+    {
+      "basename": "经典面试题课程题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程题目汇总.md"
+    },
+    {
+      "basename": "经典面试题课程",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程.md"
+    },
+    {
+      "basename": "进阶班课程题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/进阶班课程题目汇总.md"
+    },
+    {
+      "basename": "进阶班课程",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/进阶班课程.md"
+    },
+    {
+      "basename": "_每周算法营养课题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/_每周算法营养课题目汇总.md"
+    },
+    {
+      "basename": "_大厂刷题班之LeetCodeTop100题汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班之LeetCodeTop100题汇总.md"
+    },
+    {
+      "basename": "___算法数据结构新手班",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班.md"
+    },
+    {
+      "basename": "___算法数据结构新手班题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班题目汇总.md"
+    },
+    {
+      "basename": "___课程题目Summary",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/___课程题目Summary.md"
+    },
+    {
+      "basename": "01 认识复杂度、对数器、二分法",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/01 认识复杂度、对数器、二分法.md"
+    },
+    {
+      "basename": "不是必须有序才能二分",
+      "path": "算法笔记/zuoAlgorithm/004. 刷题经验总结/不是必须有序才能二分.md"
+    },
+    {
+      "basename": "二分法模板",
+      "path": "算法笔记/zuoAlgorithm/010. 代码模板/二分法模板.md"
+    },
+    {
+      "basename": "二分法",
+      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/二分法.md"
+    },
+    {
+      "basename": "在一个有序数组中，找大于等于某个数最左侧的位置",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在一个有序数组中，找大于等于某个数最左侧的位置.md"
+    },
+    {
+      "basename": "在一个有序数组中，找某个数是否存在",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在一个有序数组中，找某个数是否存在.md"
+    },
+    {
+      "basename": "链表高频题和必备技巧",
+      "path": "C++算法/必备/链表高频题和必备技巧.md"
+    },
+    {
+      "basename": "在链表上排序",
+      "path": "一些新题/在链表上排序.md"
+    },
+    {
+      "basename": "算法笔记新手班",
+      "path": "算法笔记/算法笔记新手班.md"
+    },
+    {
+      "basename": "滑动窗口",
+      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/滑动窗口.md"
     },
     {
       "basename": "最小覆盖子串",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最小覆盖子串.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "STL 类的使用笔记",
+      "path": "STL 类的使用笔记.md"
     },
     {
       "basename": "第1节 滑动窗口和单调栈",
@@ -31,10 +167,6 @@
     {
       "basename": "滑动窗口中位数",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/滑动窗口中位数.md"
-    },
-    {
-      "basename": "滑动窗口",
-      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/滑动窗口.md"
     },
     {
       "basename": "滑动窗口最大值",
@@ -67,38 +199,6 @@
     {
       "basename": "得到连续 K 个 1 的最少相邻交换次数",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/得到连续 K 个 1 的最少相邻交换次数.md"
-    },
-    {
-      "basename": "大小为 K 且平均值大于等于阈值的子数组数目",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/大小为 K 且平均值大于等于阈值的子数组数目.md"
-    },
-    {
-      "basename": "C++ 语法",
-      "path": "C++ 语法.md"
-    },
-    {
-      "basename": "货币数组组成面值的最少货币数",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/货币数组组成面值的最少货币数.md"
-    },
-    {
-      "basename": "加油站的良好出发点问题",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/加油站的良好出发点问题.md"
-    },
-    {
-      "basename": "双向双指针",
-      "path": "零茶山艾府/双向双指针.md"
-    },
-    {
-      "basename": "基础班课程题目汇总",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/基础班课程题目汇总.md"
-    },
-    {
-      "basename": "最大连续1的个数",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最大连续1的个数.md"
-    },
-    {
-      "basename": "重复的子字符串",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/重复的子字符串.md"
     }
   ],
   "omittedPaths": [],

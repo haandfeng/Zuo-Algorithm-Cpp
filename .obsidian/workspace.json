@@ -4,49 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "aedcee7c7c030257",
+        "id": "05a8f75460513bb6",
         "type": "tabs",
         "children": [
           {
-            "id": "8d3aa1c752ab52b1",
+            "id": "f70a74edc10bd911",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "零茶山艾府/二分查找.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
-            }
-          },
-          {
-            "id": "74a08e4ce1ecb8a3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最小覆盖子串.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "最小覆盖子串"
-            }
-          },
-          {
-            "id": "d32076a53db28121",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/滑动窗口.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "滑动窗口"
+              "title": "二分查找"
             }
           }
         ]
@@ -61,6 +33,7 @@
       {
         "id": "a82cae5ffe42a6ee",
         "type": "tabs",
+        "dimension": 72.83813747228382,
         "children": [
           {
             "id": "0fdb3dc2c7a8cceb",
@@ -80,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#滑动窗口  ",
+                "query": "荷兰",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -101,11 +74,13 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
         "type": "tabs",
+        "dimension": 27.161862527716185,
         "children": [
           {
             "id": "95e49e28ac1dfdce",
@@ -121,7 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 235.5,
+    "width": 598.5,
     "collapsed": true
   },
   "right": {
@@ -138,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "零茶山艾府/滑动窗口(同向双指针).md",
+                "file": "零茶山艾府/二分查找.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -148,7 +123,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "滑动窗口(同向双指针) 的反向链接列表"
+              "title": "二分查找 的反向链接列表"
             }
           },
           {
@@ -157,12 +132,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "零茶山艾府/滑动窗口(同向双指针).md",
+                "file": "零茶山艾府/二分查找.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "滑动窗口(同向双指针) 的出链列表"
+              "title": "二分查找 的出链列表"
             }
           },
           {
@@ -184,14 +159,14 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "零茶山艾府/滑动窗口(同向双指针).md"
+                "file": "零茶山艾府/二分查找.md"
               },
               "icon": "lucide-list",
-              "title": "滑动窗口(同向双指针) 的大纲"
+              "title": "二分查找 的大纲"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -208,34 +183,34 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "8d3aa1c752ab52b1",
+  "active": "f70a74edc10bd911",
   "lastOpenFiles": [
+    "算法笔记/zuoAlgorithm/004. 刷题经验总结/区间查询-修改总结.md",
+    "零茶山艾府/二分查找.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在无序数组中求第K小的数.md",
+    "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md",
+    "算法笔记/zuoAlgorithm/010. 代码模板/改写快排的方法求无序数组中的第k小.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在排序数组中查找元素的第一个和最后一个位置.md",
+    "C++算法/入门笔记.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在一个有序数组中，找小于等于某个数最右侧的位置.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班题目汇总.md",
     "零茶山艾府/滑动窗口(同向双指针).md",
-    "STL 类的使用笔记.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最小覆盖子串.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/21. 训练营第1期/第1节 滑动窗口和单调栈.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/滑动窗口 & 单调栈.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/滑动窗口内的最大值.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/滑动窗口中位数.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/滑动窗口.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/滑动窗口最大值.md",
-    "算法笔记/zuoAlgorithm/010. 代码模板/滑动窗口模板.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/单调队列.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/整形数组中子数组最大值减最小值达标的子数组个数.md",
-    "算法笔记/zuoAlgorithm/004. 刷题经验总结/窗口的三种类型总结.md",
-    "算法笔记/zuoAlgorithm/004. 刷题经验总结/窗口的开闭区间规定.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/至少有K个重复字符的最长子串.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/得到连续 K 个 1 的最少相邻交换次数.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/大小为 K 且平均值大于等于阈值的子数组数目.md",
-    "C++ 语法.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/货币数组组成面值的最少货币数.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/加油站的良好出发点问题.md",
     "零茶山艾府/双向双指针.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/基础班课程题目汇总.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最大连续1的个数.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/重复的子字符串.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/无重复字符的最长子串.md",
-    "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类/子数组, 子串, 子序列.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/___★算法课笔记★.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCodeTop100Like.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题+Top100题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/算法群题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/进阶班课程题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/进阶班课程.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/_每周算法营养课题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班之LeetCodeTop100题汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/___课程题目Summary.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/01 认识复杂度、对数器、二分法.md",
     "零茶山艾府",
     "C++算法/必备",
     "300. 算法题目分类总结",
