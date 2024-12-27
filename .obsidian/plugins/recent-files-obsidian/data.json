@@ -1,12 +1,132 @@
 {
   "recentFiles": [
     {
-      "basename": "二分查找",
-      "path": "零茶山艾府/二分查找.md"
+      "basename": "C++ 语法",
+      "path": "C++ 语法.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "链表",
+      "path": "零茶山艾府/链表.md"
+    },
+    {
+      "basename": "链表高频题和必备技巧",
+      "path": "C++算法/必备/链表高频题和必备技巧.md"
+    },
+    {
+      "basename": "K个节点的组内逆序调整",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/K个节点的组内逆序调整.md"
+    },
+    {
+      "basename": "___算法数据结构新手班题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班题目汇总.md"
+    },
+    {
+      "basename": "链表相关问题",
+      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/链表相关问题.md"
+    },
+    {
+      "basename": "反转链表",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/反转链表.md"
+    },
+    {
+      "basename": "算法笔记新手班",
+      "path": "算法笔记/算法笔记新手班.md"
+    },
+    {
+      "basename": "双向链表实现栈和队列",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/双向链表实现栈和队列.md"
+    },
+    {
+      "basename": "数据结构设计高频题",
+      "path": "C++算法/必备/数据结构设计高频题.md"
+    },
+    {
+      "basename": "数据结构的设计题目",
+      "path": "算法笔记/zuoAlgorithm/004. 刷题经验总结/数据结构的设计题目.md"
+    },
+    {
+      "basename": "练习Coding的题目",
+      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/练习Coding的题目.md"
+    },
+    {
+      "basename": "大纲",
+      "path": "C++算法/必备/大纲.md"
+    },
+    {
+      "basename": "09 链表问题在面试中的考察重点",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/09 链表问题在面试中的考察重点.md"
+    },
+    {
+      "basename": "不给单链表的头节点删除指定节点",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/不给单链表的头节点删除指定节点.md"
+    },
+    {
+      "basename": "06 链表相关面试题",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/06 链表相关面试题.md"
+    },
+    {
+      "basename": "06 比较器、优先级队列和二叉树",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/06 比较器、优先级队列和二叉树.md"
+    },
+    {
+      "basename": "04 单链表跟双链表",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/04 单链表跟双链表.md"
+    },
+    {
+      "basename": "03 链表结构、栈、队列、递归行为、哈希表和有序表",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/03 链表结构、栈、队列、递归行为、哈希表和有序表.md"
+    },
+    {
+      "basename": "02 链表结构、栈、队列、递归行为、哈希表和有序表",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/02 链表结构、栈、队列、递归行为、哈希表和有序表.md"
+    },
+    {
+      "basename": "_需要反复看的题目",
+      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/_需要反复看的题目.md"
+    },
+    {
+      "basename": "_算法学习Tips",
+      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/_算法学习Tips.md"
+    },
+    {
+      "basename": "_算法水平快速提高的难题",
+      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/_算法水平快速提高的难题.md"
+    },
+    {
+      "basename": "___算法数据结构新手班",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班.md"
+    },
+    {
+      "basename": "数组实现栈和队列",
+      "path": "算法笔记/zuoAlgorithm/010. 代码模板/数组实现栈和队列.md"
     },
     {
       "basename": "入门笔记",
       "path": "C++算法/入门笔记.md"
+    },
+    {
+      "basename": "单链表和双链表如何反转",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/单链表和双链表如何反转.md"
+    },
+    {
+      "basename": "基础知识点",
+      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/00. 需要熟记的知识点/基础知识点.md"
+    },
+    {
+      "basename": "大厂刷题班33",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班33.md"
+    },
+    {
+      "basename": "_大厂刷题班题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md"
+    },
+    {
+      "basename": "二分查找",
+      "path": "零茶山艾府/二分查找.md"
     },
     {
       "basename": "在排序数组中查找元素的第一个和最后一个位置",
@@ -31,10 +151,6 @@
     {
       "basename": "归并",
       "path": "C++算法/必备/归并.md"
-    },
-    {
-      "basename": "算法笔记新手班",
-      "path": "算法笔记/算法笔记新手班.md"
     },
     {
       "basename": "区间查询-修改总结",
@@ -79,122 +195,6 @@
     {
       "basename": "LeetCode高频题+Top100题目汇总",
       "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题+Top100题目汇总.md"
-    },
-    {
-      "basename": "LeetCode高频题",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题.md"
-    },
-    {
-      "basename": "算法群题目汇总",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/算法群题目汇总.md"
-    },
-    {
-      "basename": "经典面试题课程题目汇总",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程题目汇总.md"
-    },
-    {
-      "basename": "经典面试题课程",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程.md"
-    },
-    {
-      "basename": "进阶班课程题目汇总",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/进阶班课程题目汇总.md"
-    },
-    {
-      "basename": "进阶班课程",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/进阶班课程.md"
-    },
-    {
-      "basename": "_每周算法营养课题目汇总",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/_每周算法营养课题目汇总.md"
-    },
-    {
-      "basename": "_大厂刷题班之LeetCodeTop100题汇总",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班之LeetCodeTop100题汇总.md"
-    },
-    {
-      "basename": "___算法数据结构新手班",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班.md"
-    },
-    {
-      "basename": "___算法数据结构新手班题目汇总",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班题目汇总.md"
-    },
-    {
-      "basename": "___课程题目Summary",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/___课程题目Summary.md"
-    },
-    {
-      "basename": "01 认识复杂度、对数器、二分法",
-      "path": "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/01 认识复杂度、对数器、二分法.md"
-    },
-    {
-      "basename": "不是必须有序才能二分",
-      "path": "算法笔记/zuoAlgorithm/004. 刷题经验总结/不是必须有序才能二分.md"
-    },
-    {
-      "basename": "二分法模板",
-      "path": "算法笔记/zuoAlgorithm/010. 代码模板/二分法模板.md"
-    },
-    {
-      "basename": "二分法",
-      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/二分法.md"
-    },
-    {
-      "basename": "在一个有序数组中，找大于等于某个数最左侧的位置",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在一个有序数组中，找大于等于某个数最左侧的位置.md"
-    },
-    {
-      "basename": "在一个有序数组中，找某个数是否存在",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在一个有序数组中，找某个数是否存在.md"
-    },
-    {
-      "basename": "链表高频题和必备技巧",
-      "path": "C++算法/必备/链表高频题和必备技巧.md"
-    },
-    {
-      "basename": "在链表上排序",
-      "path": "一些新题/在链表上排序.md"
-    },
-    {
-      "basename": "滑动窗口",
-      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/滑动窗口.md"
-    },
-    {
-      "basename": "最小覆盖子串",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最小覆盖子串.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "STL 类的使用笔记",
-      "path": "STL 类的使用笔记.md"
-    },
-    {
-      "basename": "第1节 滑动窗口和单调栈",
-      "path": "算法笔记/zuoAlgorithm/100. 算法课程/21. 训练营第1期/第1节 滑动窗口和单调栈.md"
-    },
-    {
-      "basename": "滑动窗口 & 单调栈",
-      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/滑动窗口 & 单调栈.md"
-    },
-    {
-      "basename": "滑动窗口内的最大值",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/滑动窗口内的最大值.md"
-    },
-    {
-      "basename": "滑动窗口中位数",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/滑动窗口中位数.md"
-    },
-    {
-      "basename": "滑动窗口最大值",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/滑动窗口最大值.md"
-    },
-    {
-      "basename": "滑动窗口模板",
-      "path": "算法笔记/zuoAlgorithm/010. 代码模板/滑动窗口模板.md"
     }
   ],
   "omittedPaths": [],
