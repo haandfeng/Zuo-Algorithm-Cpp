@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++ 语法.md",
+                "file": "零茶山艾府/链表.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++ 语法"
+              "title": "链表"
             }
           },
           {
@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/K个节点的组内逆序调整.md",
+                "file": "零茶山艾府/二分查找.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "K个节点的组内逆序调整"
+              "title": "二分查找"
             }
           }
         ]
@@ -123,7 +123,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 294.5
+    "width": 294.5,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -196,7 +197,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -210,15 +212,19 @@
   },
   "active": "4f17e158c6d67c94",
   "lastOpenFiles": [
-    "K个.md",
-    "C++ 语法.md",
-    "README.md",
+    "img/Pasted image 20241230202917.png",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/反转链表.md",
     "零茶山艾府/链表.md",
+    "零茶山艾府/滑动窗口(同向双指针).md",
+    "零茶山艾府/双向双指针.md",
+    "C++ 语法.md",
     "C++算法/必备/链表高频题和必备技巧.md",
+    "零茶山艾府/二分查找.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/K个节点的组内逆序调整.md",
+    "K个.md",
+    "README.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班题目汇总.md",
     "算法笔记/zuoAlgorithm/001. 难点重点照顾/链表相关问题.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/反转链表.md",
     "算法笔记/算法笔记新手班.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/双向链表实现栈和队列.md",
     "C++算法/必备/数据结构设计高频题.md",
@@ -232,10 +238,6 @@
     "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/04 单链表跟双链表.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/03 链表结构、栈、队列、递归行为、哈希表和有序表.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/02 链表结构、栈、队列、递归行为、哈希表和有序表.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/_需要反复看的题目.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/_算法学习Tips.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/_算法水平快速提高的难题.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班.md",
     "img/Pasted image 20241223140404.png",
     "img/Pasted image 20241223140350.png",
     "零茶山艾府",
