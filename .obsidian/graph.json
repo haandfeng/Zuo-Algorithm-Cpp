@@ -15,15 +15,22 @@
       }
     },
     {
+      "query": "file:入门笔记",
+      "color": {
+        "a": 1,
+        "rgb": 8057934
+      }
+    },
+    {
       "query": "tag:#0x3f  ",
       "color": {
         "a": 1,
-        "rgb": 6084190
+        "rgb": 6084290
       }
     }
   ],
   "collapse-display": false,
-  "showArrow": true,
+  "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
@@ -32,6 +39,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.33712214111052163,
+  "scale": 0.27347037723262096,
   "close": false
 }

@@ -58,3 +58,5 @@ public static void reverse(ListNode s, ListNode e) {
    s.next = e;  
 }
 ```
+
+![[链表#[25. K 个一组翻转链表](https //leetcode.cn/problems/reverse-nodes-in-k-group/)]]

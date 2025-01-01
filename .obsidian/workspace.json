@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4f17e158c6d67c94",
+            "id": "9ef7af6c3c091aac",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -22,7 +22,7 @@
             }
           },
           {
-            "id": "b9b5ebada8b4bfba",
+            "id": "1ac29723d84e83a6",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -36,17 +36,55 @@
             }
           },
           {
-            "id": "08d2a2b5c489c421",
+            "id": "08ab0b14aa01e698",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "零茶山艾府/二分查找.md",
+                "file": "算法笔记/zuoAlgorithm/010. 代码模板/找到链表第一个入环节点.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "二分查找"
+              "title": "找到链表第一个入环节点"
+            }
+          },
+          {
+            "id": "1ee4eca449c7fe1a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/环形链表.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "环形链表"
+            }
+          },
+          {
+            "id": "3a05a6c2cc636494",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++算法/必备/链表高频题和必备技巧.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "链表高频题和必备技巧"
+            }
+          },
+          {
+            "id": "814840735e1e4cdb",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
         ]
@@ -81,7 +119,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "回文",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -102,7 +140,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
@@ -140,17 +179,17 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++ 语法.md",
+                "file": "零茶山艾府/链表.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "C++ 语法 的反向链接列表"
+              "title": "链表 的反向链接列表"
             }
           },
           {
@@ -159,12 +198,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++ 语法.md",
+                "file": "零茶山艾府/链表.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "C++ 语法 的出链列表"
+              "title": "链表 的出链列表"
             }
           },
           {
@@ -186,10 +225,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++ 语法.md"
+                "file": "零茶山艾府/链表.md"
               },
               "icon": "lucide-list",
-              "title": "C++ 语法 的大纲"
+              "title": "链表 的大纲"
             }
           }
         ],
@@ -210,34 +249,35 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "4f17e158c6d67c94",
+  "active": "9ef7af6c3c091aac",
   "lastOpenFiles": [
-    "img/Pasted image 20241230202917.png",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/反转链表.md",
     "零茶山艾府/链表.md",
-    "零茶山艾府/滑动窗口(同向双指针).md",
-    "零茶山艾府/双向双指针.md",
-    "C++ 语法.md",
     "C++算法/必备/链表高频题和必备技巧.md",
-    "零茶山艾府/二分查找.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/K个节点的组内逆序调整.md",
-    "K个.md",
-    "README.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班题目汇总.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/链表相关问题.md",
-    "算法笔记/算法笔记新手班.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/双向链表实现栈和队列.md",
-    "C++算法/必备/数据结构设计高频题.md",
-    "算法笔记/zuoAlgorithm/004. 刷题经验总结/数据结构的设计题目.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/练习Coding的题目.md",
-    "C++算法/必备/大纲.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/09 链表问题在面试中的考察重点.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/不给单链表的头节点删除指定节点.md",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾/00. 需要熟记的知识点/基础知识点.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/06 链表相关面试题.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/06 比较器、优先级队列和二叉树.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/04 单链表跟双链表.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/03 链表结构、栈、队列、递归行为、哈希表和有序表.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/02 链表结构、栈、队列、递归行为、哈希表和有序表.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/环形链表.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班题目汇总.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/重排链表.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/回文链表.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断链表是否为回文结构.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/两个可能有环的单链表相交的第一个节点.md",
+    "算法笔记/zuoAlgorithm/010. 代码模板/判断链表是否有环.md",
+    "算法笔记/zuoAlgorithm/010. 代码模板/找到链表第一个入环节点.md",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾/01. 难点释疑/两个可能有环的单链表相交的第一个节点-难点释疑.md",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾/_需要反复看的题目.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/环形链表 II.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/利用快慢指针返回链表的中点.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/K个节点的组内逆序调整.md",
+    "C++算法/入门笔记.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/两个链表相加.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/两数之和.md",
+    "零茶山艾府/双向双指针.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/两数相加.md",
+    "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/双指针-首尾指针法.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(15).md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班31.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/___算法数据结构新手班题目汇总.md",
+    "img/Pasted image 20241230202917.png",
     "img/Pasted image 20241223140404.png",
     "img/Pasted image 20241223140350.png",
     "零茶山艾府",
@@ -257,7 +297,6 @@
     "算法笔记/zuoAlgorithm/appendix/Pasted image 27.png",
     "算法笔记/zuoAlgorithm/appendix/Pasted image 26.png",
     "算法笔记/zuoAlgorithm/appendix/Pasted image 25.png",
-    "算法笔记/zuoAlgorithm/appendix/Pasted image 24.png",
-    "算法笔记/zuoAlgorithm/appendix/Pasted image 23.png"
+    "算法笔记/zuoAlgorithm/appendix/Pasted image 24.png"
   ]
 }
