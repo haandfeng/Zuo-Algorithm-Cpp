@@ -20,6 +20,16 @@
               "icon": "lucide-file",
               "title": "二叉树"
             }
+          },
+          {
+            "id": "9d50700c8326df69",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
+            }
           }
         ]
       }
@@ -112,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "零茶山艾府/链表.md",
+                "file": "零茶山艾府/二叉树.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +132,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "链表 的反向链接列表"
+              "title": "二叉树 的反向链接列表"
             }
           },
           {
@@ -131,12 +141,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "零茶山艾府/链表.md",
+                "file": "零茶山艾府/二叉树.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "链表 的出链列表"
+              "title": "二叉树 的出链列表"
             }
           },
           {
@@ -158,14 +168,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "零茶山艾府/链表.md"
+                "file": "零茶山艾府/二叉树.md"
               },
               "icon": "lucide-list",
-              "title": "链表 的大纲"
+              "title": "二叉树 的大纲"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -184,8 +193,24 @@
   },
   "active": "721518e5b2e60ed3",
   "lastOpenFiles": [
-    "零茶山艾府/链表.md",
     "零茶山艾府/二叉树.md",
+    "零茶山艾府/双向双指针.md",
+    "零茶山艾府/链表.md",
+    "零茶山艾府/滑动窗口(同向双指针).md",
+    "零茶山艾府/二分查找.md",
+    "https.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断二叉树是不是搜索二叉树.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/验证二叉搜索树.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/搜索二叉树.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/对称二叉树.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断两颗树是否结构相同.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/06 比较器、优先级队列和二叉树.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断二叉树是不是平衡二叉树.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断是否是平衡搜索二叉树.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/二叉树概念汇总.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/07 二叉树的相关题目.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/路径总和 III.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/08 二叉树的递归套路.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/把链表中的给定值都删除.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/删除链表中的节点.md",
@@ -193,23 +218,7 @@
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/删除排序数组中的重复项.md",
     "算法笔记/zuoAlgorithm/004. 刷题经验总结/二叉树的递归套路.md",
     "求二叉树中符合BST的最大拓扑结构的大小.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/二叉树概念汇总.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/07 二叉树的基本算法.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/基础班课程.md",
-    "C++算法/必备/二叉树经典问题.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的最大深度.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/按要求调整多叉树.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的序列化和反序列化.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/根据二叉树后序遍历结果生成整颗树.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/实现二叉树的按层遍历.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/如何设计一个打印整棵树的打印函数.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树中指定节点的后继节点.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/求二叉树最宽的层有多少个节点.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/删除排序链表中的重复元素.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/删除链表的倒数第N个节点.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/链表相关问题.md",
-    "C++算法/必备/链表高频题和必备技巧.md",
     "img/Pasted image 20241230202917.png",
     "img/Pasted image 20241223140404.png",
     "img/Pasted image 20241223140350.png",
