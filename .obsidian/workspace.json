@@ -25,10 +25,14 @@
             "id": "9d50700c8326df69",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "C++算法/入门笔记.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "入门笔记"
             }
           }
         ]
@@ -63,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#二叉树的递归套路",
+                "query": "验证",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -84,7 +88,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
@@ -193,7 +198,17 @@
   },
   "active": "721518e5b2e60ed3",
   "lastOpenFiles": [
+    "img/Pasted image 20250110112018.png",
+    "img/Pasted image 20250110111940.png",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/合并二叉树.md",
     "零茶山艾府/二叉树.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/翻转二叉树.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/递归方式实现二叉树的三序遍历.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的中序遍历.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/非递归方式实现二叉树的三序遍历.md",
+    "C++算法/入门笔记.md",
+    "C++算法/必备/二叉树经典问题.md",
+    "C++算法/必备/常见递归题目.md",
     "零茶山艾府/双向双指针.md",
     "零茶山艾府/链表.md",
     "零茶山艾府/滑动窗口(同向双指针).md",
@@ -210,15 +225,6 @@
     "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/二叉树概念汇总.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/00. 新手班/07 二叉树的相关题目.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/路径总和 III.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/08 二叉树的递归套路.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/把链表中的给定值都删除.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/删除链表中的节点.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/不给头结点,删除单链表上的节点.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/删除排序数组中的重复项.md",
-    "算法笔记/zuoAlgorithm/004. 刷题经验总结/二叉树的递归套路.md",
-    "求二叉树中符合BST的最大拓扑结构的大小.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/07 二叉树的基本算法.md",
     "img/Pasted image 20241230202917.png",
     "img/Pasted image 20241223140404.png",
     "img/Pasted image 20241223140350.png",
@@ -238,7 +244,6 @@
     "算法笔记/zuoAlgorithm/appendix/prim.gif",
     "算法笔记/zuoAlgorithm/appendix/Pasted image 27.png",
     "算法笔记/zuoAlgorithm/appendix/Pasted image 26.png",
-    "算法笔记/zuoAlgorithm/appendix/Pasted image 25.png",
-    "算法笔记/zuoAlgorithm/appendix/Pasted image 24.png"
+    "算法笔记/zuoAlgorithm/appendix/Pasted image 25.png"
   ]
 }
