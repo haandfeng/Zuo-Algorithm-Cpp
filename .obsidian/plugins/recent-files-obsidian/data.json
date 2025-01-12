@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
       "basename": "二叉树",
       "path": "零茶山艾府/二叉树.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "二叉树的序列化和反序列化",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的序列化和反序列化.md"
-    },
-    {
-      "basename": "根据二叉树后序遍历结果生成整颗树",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/根据二叉树后序遍历结果生成整颗树.md"
     }
   ],
   "omittedPaths": [],
