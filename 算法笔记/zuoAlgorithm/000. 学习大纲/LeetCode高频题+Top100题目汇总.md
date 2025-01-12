@@ -1,6 +1,8 @@
 # LeetCode高频题+Top100题目汇总
 
 ---
+
+```
 1. [[两数之和]] [E]    
 https://leetcode-cn.com/problems/two-sum/
 
@@ -544,3 +546,6 @@ https://leetcode-cn.com/problems/best-meeting-point/
 1. [[棋盘染色问题]]  
 1. [[一个数组中有一种数出现K次，其他数都出现了M次]] 
  
+
+```
+

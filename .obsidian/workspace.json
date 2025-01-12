@@ -27,12 +27,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的层序遍历.md",
+                "file": "零茶山艾府/二叉树.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "二叉树的层序遍历"
+              "title": "二叉树"
+            }
+          },
+          {
+            "id": "faeb1655b7da48e8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/求完全二叉树节点的个数.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "求完全二叉树节点的个数"
             }
           },
           {
@@ -45,7 +59,8 @@
               "title": "关系图谱"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -77,7 +92,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "验证",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -98,7 +113,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
@@ -136,7 +152,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "零茶山艾府/二叉树.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +161,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "二叉树 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -155,12 +170,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "零茶山艾府/二叉树.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "二叉树 的出链列表"
+              "title": "出链"
             }
           },
           {
@@ -181,20 +195,16 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "README 的大纲"
+              "title": "大纲"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,38 +216,40 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d0c4e52689640727",
+  "active": "ac055e4d66483d1f",
   "lastOpenFiles": [
-    "零茶山艾府/二叉树.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的锯齿形层次遍历.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的层序遍历.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树按层遍历并收集节点.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/算法群题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班课程.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/__每周算法营养课.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/03. 算法营养课/2021年12月第3周.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/CMU入学申请考试题.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/43 状态压缩的动态规划.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/进阶班课程题目汇总.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班35.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班01.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/基础班课程题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/经典面试题课程.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班题目汇总.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题+Top100题目汇总.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/递归方式实现二叉树的三序遍历.md",
-    "一些新题/搜索二叉树的最近公共祖先.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/_每周算法营养课题目汇总.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/单调队列.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/求完全二叉树节点的个数.md",
+    "零茶山艾府/二叉树.md",
+    "img/Pasted image 20250112155623.png",
     "C++算法/必备/二叉树经典问题.md",
-    "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类/二叉树的最近公共祖先问题.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树上两个节点的最低公共祖先.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的最近公共祖先.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最近公共祖先-时间O(N)空间O(1)解法.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树节点间最近公共祖先的批量查询问题.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/倍增法.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/03. 算法营养课/2022年3月第2周.md",
+    "img/Pasted image 20250112155617.png",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/从前序与中序遍历序列构造二叉树.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/已知中序遍历数组和先序遍历数组，返回后序遍历数组.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/30. 训练营第3期/第4节.md",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾/_需要反复看的题目.md",
+    "零茶山艾府/二分查找.md",
     "img/Pasted image 20250110232841.png",
     "img/Pasted image 20250110232453.png",
-    "C++算法/入门笔记.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/非递归方式实现二叉树的三序遍历.md",
-    "零茶山艾府/双向双指针.md",
-    "零茶山艾府/链表.md",
     "img/Pasted image 20250110112018.png",
     "img/Pasted image 20250110111940.png",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/合并二叉树.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/翻转二叉树.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树的中序遍历.md",
-    "C++算法/必备/常见递归题目.md",
-    "零茶山艾府/滑动窗口(同向双指针).md",
-    "零茶山艾府/二分查找.md",
-    "https.md",
     "img/Pasted image 20241230202917.png",
     "img/Pasted image 20241223140404.png",
     "img/Pasted image 20241223140350.png",
@@ -252,8 +264,6 @@
     "算法笔记/zuoAlgorithm/010. 代码模板",
     "算法笔记/zuoAlgorithm/300. 算法题目分类总结/系统设计相关",
     "算法笔记/zuoAlgorithm/300. 算法题目分类总结/按题目系列分类",
-    "算法笔记/zuoAlgorithm/300. 算法题目分类总结",
-    "算法笔记/zuoAlgorithm/appendix/scanning.svg",
-    "算法笔记/zuoAlgorithm/appendix/prim.gif"
+    "算法笔记/zuoAlgorithm/300. 算法题目分类总结"
   ]
 }
