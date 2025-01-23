@@ -1,12 +1,44 @@
 {
   "recentFiles": [
     {
+      "basename": "回溯",
+      "path": "零茶山艾府+代码随想录/回溯.md"
+    },
+    {
       "basename": "二叉树",
       "path": "零茶山艾府+代码随想录/二叉树.md"
     },
     {
-      "basename": "回溯",
-      "path": "零茶山艾府+代码随想录/回溯.md"
+      "basename": "填充每个节点的下一个右侧节点指针",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/填充每个节点的下一个右侧节点指针.md"
+    },
+    {
+      "basename": "链表",
+      "path": "零茶山艾府+代码随想录/链表.md"
+    },
+    {
+      "basename": "字符串的子串、子序列 & 全排列",
+      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/字符串的子串、子序列 & 全排列.md"
+    },
+    {
+      "basename": "全排列",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/全排列.md"
+    },
+    {
+      "basename": "排列组合",
+      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/10. 数学基础/排列组合.md"
+    },
+    {
+      "basename": "大厂刷题班28",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班28.md"
+    },
+    {
+      "basename": "_算法学习Tips",
+      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/_算法学习Tips.md"
+    },
+    {
+      "basename": "_大厂刷题班题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md"
     },
     {
       "basename": "二叉树上两个节点的最低公共祖先",
@@ -39,10 +71,6 @@
     {
       "basename": "原地旋转正方形矩阵",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/原地旋转正方形矩阵.md"
-    },
-    {
-      "basename": "链表",
-      "path": "零茶山艾府+代码随想录/链表.md"
     },
     {
       "basename": "算法群题目汇总",
@@ -103,10 +131,6 @@
     {
       "basename": "LeetCode高频题+Top100题目汇总",
       "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题+Top100题目汇总.md"
-    },
-    {
-      "basename": "_大厂刷题班题目汇总",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md"
     },
     {
       "basename": "_每周算法营养课题目汇总",
@@ -175,30 +199,6 @@
     {
       "basename": "二叉树节点间最近公共祖先的批量查询问题",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树节点间最近公共祖先的批量查询问题.md"
-    },
-    {
-      "basename": "倍增法",
-      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/倍增法.md"
-    },
-    {
-      "basename": "2022年3月第2周",
-      "path": "算法笔记/zuoAlgorithm/100. 算法课程/03. 算法营养课/2022年3月第2周.md"
-    },
-    {
-      "basename": "入门笔记",
-      "path": "C++算法/入门笔记.md"
-    },
-    {
-      "basename": "非递归方式实现二叉树的三序遍历",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/非递归方式实现二叉树的三序遍历.md"
-    },
-    {
-      "basename": "合并二叉树",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/合并二叉树.md"
-    },
-    {
-      "basename": "翻转二叉树",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/翻转二叉树.md"
     }
   ],
   "omittedPaths": [],
