@@ -4,24 +4,53 @@
     "type": "split",
     "children": [
       {
-        "id": "fe496117753ab006",
+        "id": "f974b8d5c09cad45",
         "type": "tabs",
         "children": [
           {
-            "id": "2f40569d2b9eebac",
+            "id": "41887b0e698fd0e3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "零茶山艾府+代码随想录/回溯.md",
+                "file": "零茶山艾府+代码随想录/字符串.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "回溯"
+              "title": "字符串"
+            }
+          },
+          {
+            "id": "6350a80458aed642",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "零茶山艾府+代码随想录/哈希表.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "哈希表"
+            }
+          },
+          {
+            "id": "468d21fbe59626b4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "栈和队列.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "栈和队列"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -95,7 +124,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 294.5
+    "width": 294.5,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -111,7 +141,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "零茶山艾府+代码随想录/回溯.md",
+                "file": "栈和队列.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +151,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "回溯 的反向链接列表"
+              "title": "栈和队列 的反向链接列表"
             }
           },
           {
@@ -130,12 +160,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "零茶山艾府+代码随想录/回溯.md",
+                "file": "零茶山艾府+代码随想录/哈希表.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "回溯 的出链列表"
+              "title": "哈希表 的出链列表"
             }
           },
           {
@@ -157,18 +187,18 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "零茶山艾府+代码随想录/回溯.md"
+                "file": "栈和队列.md"
               },
               "icon": "lucide-list",
-              "title": "回溯 的大纲"
+              "title": "栈和队列 的大纲"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -180,11 +210,21 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "2f40569d2b9eebac",
+  "active": "468d21fbe59626b4",
   "lastOpenFiles": [
+    "栈和队列.md",
+    "零茶山艾府+代码随想录/字符串.md",
+    "零茶山艾府+代码随想录/字符串.md",
+    "双指针.md",
+    "零茶山艾府+代码随想录/双向双指针.md",
+    "零茶山艾府+代码随想录/哈希表.md",
+    "零茶山艾府+代码随想录/回溯.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/33 与哈希函数有关的结构.md",
+    "算法笔记/zuoAlgorithm/004. 刷题经验总结/前缀树跟哈希表的复杂度对比.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/有效的字母异位词.md",
+    "STL 类的使用笔记.md",
     "零茶山艾府+代码随想录/二叉树.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/填充每个节点的下一个右侧节点指针.md",
-    "零茶山艾府+代码随想录/回溯.md",
     "零茶山艾府+代码随想录/链表.md",
     "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/字符串的子串、子序列 & 全排列.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/全排列.md",
@@ -198,17 +238,7 @@
     "零茶山艾府+代码随想录/二分查找.md",
     "零茶山艾府+代码随想录/滑动窗口(同向双指针).md",
     "C++算法/必备/二叉树经典问题.md",
-    "零茶山艾府+代码随想录/双向双指针.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/螺旋矩阵.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/原地旋转正方形矩阵.md",
-    "零茶山艾府/数组.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/算法群题目汇总.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/__算法数据结构体系学习班.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班课程.md",
-    "算法笔记/zuoAlgorithm/000. 学习大纲/__每周算法营养课.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/03. 算法营养课/2021年12月第3周.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/CMU入学申请考试题.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/43 状态压缩的动态规划.md",
     "img/Pasted image 20250112155623.png",
     "img/Pasted image 20250112155617.png",
     "img/Pasted image 20250110232841.png",
