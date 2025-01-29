@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "f974b8d5c09cad45",
+        "id": "f0dee278dff44ec3",
         "type": "tabs",
         "children": [
           {
-            "id": "41887b0e698fd0e3",
+            "id": "39e340a383970af5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "零茶山艾府+代码随想录/字符串.md",
+                "file": "零茶山艾府+代码随想录/回溯.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "字符串"
-            }
-          },
-          {
-            "id": "468d21fbe59626b4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "栈和队列.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "栈和队列"
+              "title": "回溯"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -89,8 +74,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "d160e0a61737f4e7",
@@ -128,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "零茶山艾府+代码随想录/哈希表.md",
+                "file": "零茶山艾府+代码随想录/回溯.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +122,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "哈希表 的反向链接列表"
+              "title": "回溯 的反向链接列表"
             }
           },
           {
@@ -147,12 +131,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "零茶山艾府+代码随想录/哈希表.md",
+                "file": "零茶山艾府+代码随想录/回溯.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "哈希表 的出链列表"
+              "title": "回溯 的出链列表"
             }
           },
           {
@@ -174,14 +158,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "零茶山艾府+代码随想录/哈希表.md"
+                "file": "零茶山艾府+代码随想录/回溯.md"
               },
               "icon": "lucide-list",
-              "title": "哈希表 的大纲"
+              "title": "回溯 的大纲"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -198,10 +181,22 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "468d21fbe59626b4",
+  "active": "39e340a383970af5",
   "lastOpenFiles": [
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/子集.md",
+    "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题+Top100题目汇总.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/10. 数学基础/集合.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串无重复的全部子序列.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(10).md",
+    "零茶山艾府+代码随想录/回溯.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/分割回文串.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/电话号码的字母组合.md",
+    "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(3).md",
+    "零茶山艾府+代码随想录/栈和队列.md",
+    "零茶山艾府+代码随想录/双向双指针.md",
+    "零茶山艾府+代码随想录/链表.md",
+    "求二叉树中符合BST的最大拓扑结构的大小.md",
     "零茶山艾府+代码随想录/字符串.md",
-    "栈和队列.md",
     "零茶山艾府+代码随想录/哈希表.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/接受服务的最早时间.md",
     "C++算法/必备/堆 优先队列.md",
@@ -214,18 +209,6 @@
     "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/单调队列.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/滑动窗口最大值.md",
     "算法笔记/zuoAlgorithm/000.Pending/重点算法题.md",
-    "算法笔记/zuoAlgorithm/004. 刷题经验总结/范围和问题本身建立单调性.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/逆波兰表达式求值.md",
-    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/逆波兰表达式.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/判断括号有效性.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/有效的括号.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/括号有效配对问题.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/如何用队列结构实现栈结构.md",
-    "C++算法/入门笔记.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/02 链表结构、栈、队列、递归行为、哈希表和有序表.md",
-    "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/03 链表结构、栈、队列、递归行为、哈希表和有序表.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/如何用栈结构实现队列结构.md",
-    "算法笔记/zuoAlgorithm/010. 代码模板/KMP算法代码.md",
     "未命名",
     "img/Pasted image 20250112155623.png",
     "img/Pasted image 20250112155617.png",

@@ -1,8 +1,52 @@
 {
   "recentFiles": [
     {
+      "basename": "回溯",
+      "path": "零茶山艾府+代码随想录/回溯.md"
+    },
+    {
+      "basename": "子集",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/子集.md"
+    },
+    {
+      "basename": "LeetCode高频题+Top100题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题+Top100题目汇总.md"
+    },
+    {
+      "basename": "集合",
+      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/10. 数学基础/集合.md"
+    },
+    {
+      "basename": "打印一个字符串无重复的全部子序列",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串无重复的全部子序列.md"
+    },
+    {
+      "basename": "leetcode高频题目全讲(10)",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(10).md"
+    },
+    {
+      "basename": "分割回文串",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/分割回文串.md"
+    },
+    {
+      "basename": "电话号码的字母组合",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/电话号码的字母组合.md"
+    },
+    {
+      "basename": "leetcode高频题目全讲(3)",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(3).md"
+    },
+    {
       "basename": "栈和队列",
-      "path": "栈和队列.md"
+      "path": "零茶山艾府+代码随想录/栈和队列.md"
+    },
+    {
+      "basename": "双向双指针",
+      "path": "零茶山艾府+代码随想录/双向双指针.md"
+    },
+    {
+      "basename": "链表",
+      "path": "零茶山艾府+代码随想录/链表.md"
     },
     {
       "basename": "字符串",
@@ -113,10 +157,6 @@
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/反转字符串.md"
     },
     {
-      "basename": "双向双指针",
-      "path": "零茶山艾府+代码随想录/双向双指针.md"
-    },
-    {
       "basename": "滑动窗口(同向双指针)",
       "path": "零茶山艾府+代码随想录/滑动窗口(同向双指针).md"
     },
@@ -145,10 +185,6 @@
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/两数之和.md"
     },
     {
-      "basename": "回溯",
-      "path": "零茶山艾府+代码随想录/回溯.md"
-    },
-    {
       "basename": "33 与哈希函数有关的结构",
       "path": "算法笔记/zuoAlgorithm/100. 算法课程/01. 体系学习班/33 与哈希函数有关的结构.md"
     },
@@ -163,42 +199,6 @@
     {
       "basename": "二叉树",
       "path": "零茶山艾府+代码随想录/二叉树.md"
-    },
-    {
-      "basename": "填充每个节点的下一个右侧节点指针",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/填充每个节点的下一个右侧节点指针.md"
-    },
-    {
-      "basename": "链表",
-      "path": "零茶山艾府+代码随想录/链表.md"
-    },
-    {
-      "basename": "字符串的子串、子序列 & 全排列",
-      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/字符串的子串、子序列 & 全排列.md"
-    },
-    {
-      "basename": "全排列",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/全排列.md"
-    },
-    {
-      "basename": "排列组合",
-      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/10. 数学基础/排列组合.md"
-    },
-    {
-      "basename": "大厂刷题班28",
-      "path": "算法笔记/zuoAlgorithm/100. 算法课程/02. 大厂刷题班/大厂刷题班28.md"
-    },
-    {
-      "basename": "_算法学习Tips",
-      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/_算法学习Tips.md"
-    },
-    {
-      "basename": "_大厂刷题班题目汇总",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md"
-    },
-    {
-      "basename": "二叉树上两个节点的最低公共祖先",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/二叉树上两个节点的最低公共祖先.md"
     }
   ],
   "omittedPaths": [],
