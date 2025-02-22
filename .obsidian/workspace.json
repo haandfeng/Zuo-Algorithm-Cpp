@@ -11,10 +11,14 @@
             "id": "db778d9ded62577c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "零茶山艾府+代码随想录/动态规划.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "动态规划"
             }
           }
         ]
@@ -92,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 294.5
+    "width": 294.5,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -108,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "零茶山艾府+代码随想录/贪心.md",
+                "file": "零茶山艾府+代码随想录/动态规划.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +123,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "贪心 的反向链接列表"
+              "title": "动态规划 的反向链接列表"
             }
           },
           {
@@ -127,12 +132,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "零茶山艾府+代码随想录/贪心.md",
+                "file": "零茶山艾府+代码随想录/动态规划.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "贪心 的出链列表"
+              "title": "动态规划 的出链列表"
             }
           },
           {
@@ -156,22 +161,20 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "零茶山艾府+代码随想录/贪心.md",
+                "file": "零茶山艾府+代码随想录/动态规划.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "贪心 的大纲"
+              "title": "动态规划 的大纲"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -186,6 +189,10 @@
   "active": "db778d9ded62577c",
   "lastOpenFiles": [
     "零茶山艾府+代码随想录/贪心.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/划分字母区间.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/根据身高重建队列.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/加油站.md",
+    "零茶山艾府+代码随想录/动态规划.md",
     "零茶山艾府+代码随想录/链表.md",
     "零茶山艾府+代码随想录/滑动窗口(同向双指针).md",
     "零茶山艾府+代码随想录/回溯.md",
@@ -195,7 +202,6 @@
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最大波动的子字符串.md",
     "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/贪心算法.md",
     "零茶山艾府+代码随想录/双向双指针.md",
-    "零茶山艾府+代码随想录/动态规划.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列，要求不要出现重复的排列.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/解数独.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/移除最多的同行或同列石头.md",
@@ -208,9 +214,6 @@
     "C++算法/必备/常见递归题目.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/组合总和.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串无重复的全部子序列.md",
-    "C++算法/必备/二叉树经典问题.md",
-    "C++算法/入门笔记.md",
     "未命名",
     "img/Pasted image 20250112155623.png",
     "img/Pasted image 20250112155617.png",
