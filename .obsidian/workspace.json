@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "86d7086a76f0856d",
+        "id": "3d5e751ce943288f",
         "type": "tabs",
         "children": [
           {
-            "id": "db778d9ded62577c",
+            "id": "ac6525644b39b506",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "零茶山艾府+代码随想录/动态规划.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "动态规划"
+              "title": "新标签页"
             }
           }
         ]
@@ -174,7 +170,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -186,13 +183,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "db778d9ded62577c",
+  "active": "ac6525644b39b506",
   "lastOpenFiles": [
+    "零茶山艾府+代码随想录/动态规划.md",
     "零茶山艾府+代码随想录/贪心.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/划分字母区间.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/根据身高重建队列.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/加油站.md",
-    "零茶山艾府+代码随想录/动态规划.md",
     "零茶山艾府+代码随想录/链表.md",
     "零茶山艾府+代码随想录/滑动窗口(同向双指针).md",
     "零茶山艾府+代码随想录/回溯.md",
