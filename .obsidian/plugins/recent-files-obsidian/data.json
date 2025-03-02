@@ -5,6 +5,26 @@
       "path": "零茶山艾府+代码随想录/动态规划.md"
     },
     {
+      "basename": "整数拆分",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/整数拆分.md"
+    },
+    {
+      "basename": "不同的二叉搜索树",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/不同的二叉搜索树.md"
+    },
+    {
+      "basename": "N个无差别节点有多少种组成二叉数的方式",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/N个无差别节点有多少种组成二叉数的方式.md"
+    },
+    {
+      "basename": "矩阵中的最小路径和",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/矩阵中的最小路径和.md"
+    },
+    {
+      "basename": "组合总和 Ⅳ",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/组合总和 Ⅳ.md"
+    },
+    {
       "basename": "回溯",
       "path": "零茶山艾府+代码随想录/回溯.md"
     },
@@ -179,26 +199,6 @@
     {
       "basename": "leetcode高频题目全讲(10)",
       "path": "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(10).md"
-    },
-    {
-      "basename": "分割回文串",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/分割回文串.md"
-    },
-    {
-      "basename": "电话号码的字母组合",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/电话号码的字母组合.md"
-    },
-    {
-      "basename": "leetcode高频题目全讲(3)",
-      "path": "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(3).md"
-    },
-    {
-      "basename": "栈和队列",
-      "path": "零茶山艾府+代码随想录/栈和队列.md"
-    },
-    {
-      "basename": "字符串",
-      "path": "零茶山艾府+代码随想录/字符串.md"
     }
   ],
   "omittedPaths": [],
