@@ -27,6 +27,13 @@
         "a": 1,
         "rgb": 6084290
       }
+    },
+    {
+      "query": "file:Hot100",
+      "color": {
+        "a": 1,
+        "rgb": 8871126
+      }
     }
   ],
   "collapse-display": false,
@@ -39,6 +46,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.12905108619216926,
-  "close": true
+  "scale": 0.08778568256204072,
+  "close": false
 }
