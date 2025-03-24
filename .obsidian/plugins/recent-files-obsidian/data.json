@@ -5,6 +5,14 @@
       "path": "Hot100.md"
     },
     {
+      "basename": "改写快排的方法求无序数组中的第k小",
+      "path": "算法笔记/zuoAlgorithm/010. 代码模板/改写快排的方法求无序数组中的第k小.md"
+    },
+    {
+      "basename": "数组中的第K个最大元素",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数组中的第K个最大元素.md"
+    },
+    {
       "basename": "链表",
       "path": "零茶山艾府+代码随想录/链表.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "归并",
       "path": "C++算法/必备/归并.md"
-    },
-    {
-      "basename": "堆 优先队列",
-      "path": "C++算法/必备/堆 优先队列.md"
-    },
-    {
-      "basename": "大纲",
-      "path": "C++算法/必备/大纲.md"
     }
   ],
   "omittedPaths": [],

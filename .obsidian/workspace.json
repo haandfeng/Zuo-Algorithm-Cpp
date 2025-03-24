@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "最小覆盖子",
+                "query": "数组中第",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +75,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
@@ -161,13 +162,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "零茶山艾府+代码随想录/回溯.md",
+                "file": "Hot100.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "回溯 的大纲"
+              "title": "Hot100 的大纲"
             }
           }
         ],
@@ -190,8 +191,10 @@
   },
   "active": "84d67af46fe66dab",
   "lastOpenFiles": [
-    "零茶山艾府+代码随想录/链表.md",
+    "算法笔记/zuoAlgorithm/010. 代码模板/改写快排的方法求无序数组中的第k小.md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数组中的第K个最大元素.md",
     "Hot100.md",
+    "零茶山艾府+代码随想录/链表.md",
     "零茶山艾府+代码随想录/回溯.md",
     "零茶山艾府+代码随想录/二分查找.md",
     "img/Pasted image 20250319233249.png",
@@ -221,7 +224,6 @@
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/加油站.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/买卖股票的最佳时机 II.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最大子数组和.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最大波动的子字符串.md",
     "未命名",
     "img/Pasted image 20250112155623.png",
     "img/Pasted image 20250112155617.png",
