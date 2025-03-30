@@ -27,16 +27,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hot100.md",
+                "file": "零茶山艾府+代码随想录/链表.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Hot100"
+              "title": "链表"
+            }
+          },
+          {
+            "id": "6dea3e5967386ac1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Java代码.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Java代码"
+            }
+          },
+          {
+            "id": "cc1a4bd63fb507db",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++代码.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "C++代码"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -176,13 +204,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Hot100.md",
+                "file": "Java代码.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Hot100 的大纲"
+              "title": "Java代码 的大纲"
             }
           }
         ],
@@ -190,7 +218,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,12 +231,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "e3fd92a3a8b3ce35",
+  "active": "6dea3e5967386ac1",
   "lastOpenFiles": [
-    "img/Pasted image 20250327125950.png",
+    "C++代码.md",
+    "Java代码.md",
     "零茶山艾府+代码随想录/动态规划.md",
-    "Hot100.md",
     "零茶山艾府+代码随想录/链表.md",
+    "Hot100.md",
+    "img/Pasted image 20250327125950.png",
     "零茶山艾府+代码随想录/单调栈.md",
     "零茶山艾府+代码随想录/单调队列.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/改写快排的方法求无序数组中的第k小.md",
@@ -228,7 +259,6 @@
     "README.md",
     "C++ 语法.md",
     "STL 类的使用笔记.md",
-    "未命名.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/整数拆分.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/不同的二叉搜索树.md",
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/N个无差别节点有多少种组成二叉数的方式.md",
@@ -240,7 +270,6 @@
     "未命名",
     "img/Pasted image 20250112155623.png",
     "img/Pasted image 20250112155617.png",
-    "img/Pasted image 20250110232841.png",
     "零茶山艾府+代码随想录",
     "C++算法/必备",
     "300. 算法题目分类总结",
