@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "TikTok面经",
+      "path": "TAG/TikTok/TikTok面经.md"
+    },
+    {
+      "basename": "贪心",
+      "path": "零茶山艾府+代码随想录/贪心.md"
+    },
+    {
+      "basename": "动态规划",
+      "path": "零茶山艾府+代码随想录/动态规划.md"
+    },
+    {
+      "basename": "双向双指针",
+      "path": "零茶山艾府+代码随想录/双向双指针.md"
+    },
+    {
+      "basename": "二分查找",
+      "path": "零茶山艾府+代码随想录/二分查找.md"
+    },
+    {
+      "basename": "哈希表",
+      "path": "零茶山艾府+代码随想录/哈希表.md"
+    },
+    {
+      "basename": "C++ 语法",
+      "path": "C++ 语法.md"
+    },
+    {
+      "basename": "Hot100",
+      "path": "Hot100.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
       "basename": "Java代码",
       "path": "Java代码.md"
     },
@@ -9,16 +45,28 @@
       "path": "C++代码.md"
     },
     {
-      "basename": "动态规划",
-      "path": "零茶山艾府+代码随想录/动态规划.md"
+      "basename": "图",
+      "path": "零茶山艾府+代码随想录/图.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "未命名.md"
+    },
+    {
+      "basename": "栈和队列",
+      "path": "零茶山艾府+代码随想录/栈和队列.md"
     },
     {
       "basename": "链表",
       "path": "零茶山艾府+代码随想录/链表.md"
     },
     {
-      "basename": "Hot100",
-      "path": "Hot100.md"
+      "basename": "滑动窗口(同向双指针)",
+      "path": "零茶山艾府+代码随想录/滑动窗口(同向双指针).md"
+    },
+    {
+      "basename": "字符串",
+      "path": "零茶山艾府+代码随想录/字符串.md"
     },
     {
       "basename": "单调栈",
@@ -41,36 +89,8 @@
       "path": "零茶山艾府+代码随想录/回溯.md"
     },
     {
-      "basename": "二分查找",
-      "path": "零茶山艾府+代码随想录/二分查找.md"
-    },
-    {
-      "basename": "双向双指针",
-      "path": "零茶山艾府+代码随想录/双向双指针.md"
-    },
-    {
       "basename": "二叉树",
       "path": "零茶山艾府+代码随想录/二叉树.md"
-    },
-    {
-      "basename": "滑动窗口(同向双指针)",
-      "path": "零茶山艾府+代码随想录/滑动窗口(同向双指针).md"
-    },
-    {
-      "basename": "贪心",
-      "path": "零茶山艾府+代码随想录/贪心.md"
-    },
-    {
-      "basename": "哈希表",
-      "path": "零茶山艾府+代码随想录/哈希表.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
-      "basename": "C++ 语法",
-      "path": "C++ 语法.md"
     },
     {
       "basename": "STL 类的使用笔记",
@@ -179,26 +199,6 @@
     {
       "basename": "二叉树经典问题",
       "path": "C++算法/必备/二叉树经典问题.md"
-    },
-    {
-      "basename": "入门笔记",
-      "path": "C++算法/入门笔记.md"
-    },
-    {
-      "basename": "位运算",
-      "path": "C++算法/必备/位运算.md"
-    },
-    {
-      "basename": "数据结构设计高频题",
-      "path": "C++算法/必备/数据结构设计高频题.md"
-    },
-    {
-      "basename": "嵌套类问题的递归解体套路",
-      "path": "C++算法/必备/嵌套类问题的递归解体套路.md"
-    },
-    {
-      "basename": "排序总结",
-      "path": "C++算法/必备/排序总结.md"
     }
   ],
   "omittedPaths": [],
