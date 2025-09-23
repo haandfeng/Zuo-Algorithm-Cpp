@@ -1,14 +1,6 @@
 {
   "recentFiles": [
     {
-      "basename": "TikTok面经",
-      "path": "TAG/TikTok/TikTok面经.md"
-    },
-    {
-      "basename": "贪心",
-      "path": "零茶山艾府+代码随想录/贪心.md"
-    },
-    {
       "basename": "动态规划",
       "path": "零茶山艾府+代码随想录/动态规划.md"
     },
@@ -17,8 +9,64 @@
       "path": "零茶山艾府+代码随想录/双向双指针.md"
     },
     {
+      "basename": "单调栈",
+      "path": "零茶山艾府+代码随想录/单调栈.md"
+    },
+    {
+      "basename": "滑动窗口(同向双指针)",
+      "path": "零茶山艾府+代码随想录/滑动窗口(同向双指针).md"
+    },
+    {
+      "basename": "贪心",
+      "path": "零茶山艾府+代码随想录/贪心.md"
+    },
+    {
+      "basename": "二叉树",
+      "path": "零茶山艾府+代码随想录/二叉树.md"
+    },
+    {
+      "basename": "TikTok面经",
+      "path": "TAG/TikTok/TikTok面经.md"
+    },
+    {
+      "basename": "Hot100",
+      "path": "Hot100.md"
+    },
+    {
       "basename": "二分查找",
       "path": "零茶山艾府+代码随想录/二分查找.md"
+    },
+    {
+      "basename": "扫描线",
+      "path": "零茶山艾府+代码随想录/扫描线.md"
+    },
+    {
+      "basename": "单调队列",
+      "path": "零茶山艾府+代码随想录/单调队列.md"
+    },
+    {
+      "basename": "图",
+      "path": "零茶山艾府+代码随想录/图.md"
+    },
+    {
+      "basename": "前缀和",
+      "path": "零茶山艾府+代码随想录/前缀和.md"
+    },
+    {
+      "basename": "dict的使用",
+      "path": "python语法/dict的使用.md"
+    },
+    {
+      "basename": "heapq的使用",
+      "path": "python语法/heapq的使用.md"
+    },
+    {
+      "basename": "回溯",
+      "path": "零茶山艾府+代码随想录/回溯.md"
+    },
+    {
+      "basename": "打印一个字符串的全部排列，要求不要出现重复的排列",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列，要求不要出现重复的排列.md"
     },
     {
       "basename": "哈希表",
@@ -27,10 +75,6 @@
     {
       "basename": "C++ 语法",
       "path": "C++ 语法.md"
-    },
-    {
-      "basename": "Hot100",
-      "path": "Hot100.md"
     },
     {
       "basename": "README",
@@ -45,14 +89,6 @@
       "path": "C++代码.md"
     },
     {
-      "basename": "图",
-      "path": "零茶山艾府+代码随想录/图.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "未命名.md"
-    },
-    {
       "basename": "栈和队列",
       "path": "零茶山艾府+代码随想录/栈和队列.md"
     },
@@ -61,20 +97,8 @@
       "path": "零茶山艾府+代码随想录/链表.md"
     },
     {
-      "basename": "滑动窗口(同向双指针)",
-      "path": "零茶山艾府+代码随想录/滑动窗口(同向双指针).md"
-    },
-    {
       "basename": "字符串",
       "path": "零茶山艾府+代码随想录/字符串.md"
-    },
-    {
-      "basename": "单调栈",
-      "path": "零茶山艾府+代码随想录/单调栈.md"
-    },
-    {
-      "basename": "单调队列",
-      "path": "零茶山艾府+代码随想录/单调队列.md"
     },
     {
       "basename": "改写快排的方法求无序数组中的第k小",
@@ -83,14 +107,6 @@
     {
       "basename": "数组中的第K个最大元素",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数组中的第K个最大元素.md"
-    },
-    {
-      "basename": "回溯",
-      "path": "零茶山艾府+代码随想录/回溯.md"
-    },
-    {
-      "basename": "二叉树",
-      "path": "零茶山艾府+代码随想录/二叉树.md"
     },
     {
       "basename": "STL 类的使用笔记",
@@ -145,10 +161,6 @@
       "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/贪心算法.md"
     },
     {
-      "basename": "打印一个字符串的全部排列，要求不要出现重复的排列",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列，要求不要出现重复的排列.md"
-    },
-    {
       "basename": "解数独",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/解数独.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "打印一个字符串的全部排列",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列.md"
-    },
-    {
-      "basename": "组合总和",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/组合总和.md"
-    },
-    {
-      "basename": "打印一个字符串无重复的全部子序列",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串无重复的全部子序列.md"
-    },
-    {
-      "basename": "二叉树经典问题",
-      "path": "C++算法/必备/二叉树经典问题.md"
     }
   ],
   "omittedPaths": [],
