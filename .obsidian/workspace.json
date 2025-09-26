@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0d71ad0590fffdbf",
+        "id": "9816e5ffa8f236f3",
         "type": "tabs",
         "children": [
           {
-            "id": "91198028e3c0e89d",
+            "id": "f59d5a7ed8feafdd",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -164,7 +164,7 @@
                 "file": "零茶山艾府+代码随想录/动态规划.md",
                 "followCursor": false,
                 "showSearch": true,
-                "searchQuery": "24"
+                "searchQuery": ""
               },
               "icon": "lucide-list",
               "title": "动态规划 的大纲"
@@ -175,8 +175,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 437.5,
-    "collapsed": true
+    "width": 437.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -189,21 +188,28 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "91198028e3c0e89d",
+  "active": "f59d5a7ed8feafdd",
   "lastOpenFiles": [
+    "img/Pasted image 20250925135613.png",
+    "img/Pasted image 20250925135549.png",
+    "img/Pasted image 20250925133048.png",
+    "img/Pasted image 20250925132949.png",
+    "零茶山艾府+代码随想录/滑动窗口(同向双指针).md",
+    "零茶山艾府+代码随想录/栈和队列.md",
+    "零茶山艾府+代码随想录/扫描线.md",
+    "零茶山艾府+代码随想录/动态规划.md",
+    "img/Pasted image 20250923165747.png",
+    "img/Pasted image 20250923165635.png",
     "img/Pasted image 20250921175132.png",
     "零茶山艾府+代码随想录/双向双指针.md",
     "零茶山艾府+代码随想录/单调栈.md",
-    "零茶山艾府+代码随想录/滑动窗口(同向双指针).md",
     "零茶山艾府+代码随想录/贪心.md",
-    "零茶山艾府+代码随想录/动态规划.md",
     "img/Pasted image 20250920084830.png",
     "img/Pasted image 20250920083302.png",
     "零茶山艾府+代码随想录/二叉树.md",
     "TAG/TikTok/TikTok面经.md",
     "Hot100.md",
     "零茶山艾府+代码随想录/二分查找.md",
-    "零茶山艾府+代码随想录/扫描线.md",
     "零茶山艾府+代码随想录/单调队列.md",
     "零茶山艾府+代码随想录/图.md",
     "零茶山艾府+代码随想录/未命名",
@@ -222,15 +228,8 @@
     "Java代码.md",
     "PS.md",
     "C++代码.md",
-    "零茶山艾府+代码随想录/栈和队列.md",
     "零茶山艾府+代码随想录/链表.md",
     "img/Pasted image 20250608170422.png",
-    "img/Pasted image 20250327125950.png",
-    "img/Pasted image 20250319233249.png",
-    "img/Pasted image 20250311105413.png",
-    "img/Pasted image 20250311103137.png",
-    "img/Pasted image 20250308203354.png",
-    "img/Pasted image 20250307155115.png",
     "零茶山艾府+代码随想录",
     "C++算法/必备",
     "300. 算法题目分类总结",
