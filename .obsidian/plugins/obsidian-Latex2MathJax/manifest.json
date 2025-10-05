@@ -1,0 +1,11 @@
+{
+	"id": "obsidian-Latex2MathJax",
+	"name": "Latex2MathJax",
+	"version": "1.1.1",
+	"minAppVersion": "0.15.0",
+	"description": "The Latex2MathJax plugin automatically converts LaTeX math delimiters to MathJax format in Obsidian. It can replace LaTeX formulas when pasted into the editor and also provides commands to manually replace LaTeX math markers in selected text or the entire document.",
+	"author": "Obsidian",
+	"authorUrl": "https://obsidian.md",
+	"fundingUrl": "https://obsidian.md/pricing",
+	"isDesktopOnly": false
+}

@@ -1,8 +1,10 @@
 [
-  "better-export-pdf",
-  "mousewheel-image-zoom",
-  "cmdr",
-  "number-headings-obsidian",
   "obsidian-outliner",
+  "mousewheel-image-zoom",
+  "convert-katex-to-mathjax",
+  "obsidian-excalidraw-plugin",
+  "obsidian-custom-frames",
+  "convert-url-to-iframe",
+  "better-export-pdf",
   "recent-files-obsidian"
 ]

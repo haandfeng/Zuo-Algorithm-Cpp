@@ -20,6 +20,20 @@
               "icon": "lucide-file",
               "title": "动态规划"
             }
+          },
+          {
+            "id": "9f0bdeed56bc6343",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
           }
         ]
       }
@@ -96,8 +110,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5,
-    "collapsed": true
+    "width": 287.5
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -161,13 +174,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "零茶山艾府+代码随想录/动态规划.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": "22"
               },
               "icon": "lucide-list",
-              "title": "动态规划 的大纲"
+              "title": "README 的大纲"
             }
           }
         ],
@@ -186,12 +199,21 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "ed16c50a29cf681c",
   "lastOpenFiles": [
+    "img/Pasted image 20251004235157.png",
+    "img/Pasted image 20251004235110.png",
+    "README.md",
     "零茶山艾府+代码随想录/动态规划.md",
+    "img/Pasted image 20251002143407.png",
+    "Java代码.md",
+    "零茶山艾府+代码随想录/贪心.md",
+    "零茶山艾府+代码随想录/单调队列.md",
+    "零茶山艾府+代码随想录/单调栈.md",
     "img/Pasted image 20250929221123.png",
     "img/Pasted image 20250928224128.png",
     "img/Pasted image 20250927230834.png",
@@ -200,19 +222,14 @@
     "img/Pasted image 20250927160216.png",
     "img/Pasted image 20250927140643.png",
     "img/Pasted image 20250925135613.png",
-    "img/Pasted image 20250925135549.png",
-    "img/Pasted image 20250925133048.png",
     "零茶山艾府+代码随想录/滑动窗口(同向双指针).md",
     "零茶山艾府+代码随想录/栈和队列.md",
     "零茶山艾府+代码随想录/扫描线.md",
     "零茶山艾府+代码随想录/双向双指针.md",
-    "零茶山艾府+代码随想录/单调栈.md",
-    "零茶山艾府+代码随想录/贪心.md",
     "零茶山艾府+代码随想录/二叉树.md",
     "TAG/TikTok/TikTok面经.md",
     "Hot100.md",
     "零茶山艾府+代码随想录/二分查找.md",
-    "零茶山艾府+代码随想录/单调队列.md",
     "零茶山艾府+代码随想录/图.md",
     "零茶山艾府+代码随想录/未命名",
     "零茶山艾府+代码随想录/前缀和.md",
@@ -225,8 +242,6 @@
     "C++ 语法.md",
     "TAG/TikTok",
     "TAG",
-    "README.md",
-    "Java代码.md",
     "PS.md",
     "C++代码.md",
     "零茶山艾府+代码随想录/链表.md",

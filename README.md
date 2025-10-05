@@ -1,6 +1,8 @@
 # 算法笔记C++版
 
 这份笔记建议用obsidian打开
+需要安装插件
+
 根据之前的左程云java算法笔记，和b站上课内容，改写的自己c++版本
 
 算法笔记里的文件夹，内容很乱是之前老师的笔记。我根据现在新的b战课基础，重新对内容排序，写了这个笔记
@@ -29,9 +31,33 @@ ps: 一些理论课，没代码的部分，我就没有怎么写了。如果发�
 
 ps: 最近在看别的博主的视频刷题（代码随想录和零茶山艾府），应该会稳步更新，应该是27fall 美国ng或者中国应届，求交流
 
-26.3.2  update
+25.3.2  update
 最近不刷代码随想录和零茶山艾府先，先把hot100刷完，要准备找工/好吧，先老实代码随想录吧
+
+25.9.30(US Time)  update
+准备北美找工，题目有点难，可能会刷公司对应的tag/Acwing/左老四比较难的章节
 
 课程链接 https://space.bilibili.com/8888480?spm_id_from=333.337.0.0
 
 ![Visitor Count](https://profile-counter.glitch.me/zuoAlgorithm/count.svg)
+
+
+
+# Obsidian 插件清单
+
+## 已安装插件状态
+
+- [x] Recent Files  
+- [ ] Smart Connections  
+- [x] Better Export PDF  
+- [ ] Commander  
+- [x] Excalidraw  
+- [x] KaTeX to MathJax  
+- [ ] Latex2MathJax  
+- [ ] Link Favicons  
+- [x] Mousewheel Image zoom  
+- [x] Number Headings  
+- [x] Outliner  
+
+
+![[Pasted image 20251002143407.png]]

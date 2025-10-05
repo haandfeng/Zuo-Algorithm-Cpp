@@ -1,0 +1,11 @@
+{
+	"id": "convert-katex-to-mathjax",
+	"name": "KaTeX to MathJax",
+	"version": "1.0.9",
+	"minAppVersion": "0.15.0",
+	"description": "Converts KaTeX format to MathJax format.",
+	"author": "Darko Pejakovic",
+	"authorUrl": "https://github.com/pejakovic",
+	"fundingUrl": "",
+	"isDesktopOnly": false
+}
