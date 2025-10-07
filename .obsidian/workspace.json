@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "零茶山艾府+代码随想录/动态规划.md",
+                "file": "零茶山艾府+代码随想录/单调栈.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "动态规划"
+              "title": "单调栈"
             }
           },
           {
@@ -110,7 +110,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5
+    "width": 287.5,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -205,10 +206,10 @@
   },
   "active": "ed16c50a29cf681c",
   "lastOpenFiles": [
+    "零茶山艾府+代码随想录/动态规划.md",
     "img/Pasted image 20251004235157.png",
     "img/Pasted image 20251004235110.png",
     "README.md",
-    "零茶山艾府+代码随想录/动态规划.md",
     "img/Pasted image 20251002143407.png",
     "Java代码.md",
     "零茶山艾府+代码随想录/贪心.md",
@@ -221,7 +222,6 @@
     "img/Pasted image 20250927222453.png",
     "img/Pasted image 20250927160216.png",
     "img/Pasted image 20250927140643.png",
-    "img/Pasted image 20250925135613.png",
     "零茶山艾府+代码随想录/滑动窗口(同向双指针).md",
     "零茶山艾府+代码随想录/栈和队列.md",
     "零茶山艾府+代码随想录/扫描线.md",
