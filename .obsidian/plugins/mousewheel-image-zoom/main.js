@@ -57,7 +57,7 @@ class Util {
          * @private
          */
     static isInTable(searchString, fileValue) {
-        return fileValue.search(new RegExp(`^\\|.+${searchString}.+\\|$`, "m")) !== -1;
+        return fileValue.search(new RegExp(`^\\|.+${escapeRegex(searchString)}.+\\|$`, "m")) !== -1;
     }
     /**
      * Get the image name from a given src uri of a local image
@@ -90,12 +90,12 @@ class Util {
         const sizeSeparator = isInTable ? "\\|" : "|";
         // Separator to use for the regex: isInTable ? \\\| : \|
         const regexSeparator = isInTable ? "\\\\\\|" : "\\|";
-        const imageAttributes = this.getImageAttributes(imageName, fileText);
-        imageName = `${imageName}${imageAttributes}`;
         // check character before the imageName to check if markdown link or obsidian link
         const imageNamePosition = fileText.indexOf(imageName);
         const isObsidianLink = fileText.charAt(imageNamePosition - 1) === "[";
         if (isObsidianLink) {
+            const imageAttributes = this.getImageAttributes(imageName, fileText);
+            imageName = `${imageName}${imageAttributes}`;
             return Util.generateReplaceTermForObsidianSyntax(imageName, regexSeparator, sizeSeparator);
         }
         else {
@@ -243,8 +243,10 @@ var ModifierKey;
 const DEFAULT_SETTINGS = {
     modifierKey: ModifierKey.ALT,
     stepSize: 25,
-    initialSize: 500
+    initialSize: 500,
+    resizeInCanvas: true,
 };
+const CtrlCanvasConflictWarning = "Warning: Using Ctrl as the modifier key conflicts with default canvas zooming behavior when 'Resize in canvas' is enabled. Consider using another modifier key or disabling 'Resize in canvas'.";
 class MouseWheelZoomPlugin extends obsidian.Plugin {
     constructor() {
         super(...arguments);
@@ -259,7 +261,39 @@ class MouseWheelZoomPlugin extends obsidian.Plugin {
             this.registerEvents(window);
             this.addSettingTab(new MouseWheelZoomSettingsTab(this.app, this));
             console.log("Loaded: Mousewheel image zoom");
+            this.checkExistingUserConflict();
         });
+    }
+    checkExistingUserConflict() {
+        const noticeShownKey = 'mousewheel-zoom-ctrl-warning-shown'; // Key for localStorage flag
+        const isCtrl = this.settings.modifierKey === ModifierKey.CTRL || this.settings.modifierKey === ModifierKey.CTRL_RIGHT;
+        // Only show the notice if the conflict exists AND the user hasn't dismissed it before (using localStorage flag)
+        if (isCtrl && this.settings.resizeInCanvas && !localStorage.getItem(noticeShownKey)) {
+            const fragment = document.createDocumentFragment();
+            const titleEl = document.createElement('strong');
+            titleEl.textContent = "Mousewheel Image Zoom";
+            fragment.appendChild(titleEl);
+            fragment.appendChild(document.createElement('br'));
+            const messageEl = document.createElement('span');
+            messageEl.textContent = CtrlCanvasConflictWarning;
+            fragment.appendChild(messageEl);
+            fragment.appendChild(document.createElement('br'));
+            const settingsButton = document.createElement('button');
+            settingsButton.textContent = "Open Settings";
+            settingsButton.style.marginTop = "5px";
+            settingsButton.onclick = () => {
+                // settings is a private property of the app object, so we need to cast it to any to access it
+                // See https://forum.obsidian.md/t/open-settings-for-my-plugin-community-plugin-settings-deeplink/61563/4
+                const setting = this.app.setting;
+                setting.open();
+                setting.openTabById(this.manifest.id);
+            };
+            fragment.appendChild(settingsButton);
+            new obsidian.Notice(fragment, 0);
+            // Set the flag in localStorage so the notice doesn't appear again
+            // unless the user clears their localStorage or the key changes.
+            localStorage.setItem(noticeShownKey, 'true');
+        }
     }
     /**
      * When the config key is released, we enable the scroll again and reset the key held down flag.
@@ -280,7 +314,13 @@ class MouseWheelZoomPlugin extends obsidian.Plugin {
     registerEvents(currentWindow) {
         const doc = currentWindow.document;
         this.registerDomEvent(doc, "keydown", (evt) => {
+            var _a;
             if (evt.code === this.settings.modifierKey.toString()) {
+                // When canvas mode is enabled we just ignore the keydown event if the canvas is active
+                const isActiveViewCanvas = ((_a = this.app.workspace.getActiveViewOfType(obsidian.View)) === null || _a === void 0 ? void 0 : _a.getViewType()) === "canvas";
+                if (isActiveViewCanvas && !this.settings.resizeInCanvas) {
+                    return;
+                }
                 this.isKeyHeldDown = true;
                 if (this.settings.modifierKey !== ModifierKey.SHIFT && this.settings.modifierKey !== ModifierKey.SHIFT_RIGHT) { // Ignore shift to allow horizontal scrolling
                     // Disable the normal scrolling behavior when the key is held down
@@ -309,7 +349,7 @@ class MouseWheelZoomPlugin extends obsidian.Plugin {
                 if (targetIsCanvas || targetIsCanvasNode || targetIsImage) {
                     this.disableScroll(currentWindow);
                 }
-                if (targetIsCanvas) {
+                if (targetIsCanvas && this.settings.resizeInCanvas) {
                     // seems we're trying to zoom on some canvas node.                    
                     this.handleZoomForCanvas(evt, eventTarget);
                 }
@@ -319,6 +359,12 @@ class MouseWheelZoomPlugin extends obsidian.Plugin {
                     this.handleZoom(evt, eventTarget);
                 }
             }
+        });
+        this.registerDomEvent(currentWindow, "blur", () => {
+            // When the window loses focus, ensure scrolling is re-enabled for this window
+            // and reset the key held state defensively, although the keyup should ideally handle it.
+            this.isKeyHeldDown = false;
+            this.enableScroll(currentWindow);
         });
     }
     /**
@@ -357,36 +403,44 @@ class MouseWheelZoomPlugin extends obsidian.Plugin {
         return __awaiter(this, void 0, void 0, function* () {
             const imageUri = eventTarget.attributes.getNamedItem("src").textContent;
             const activeFile = yield this.getActivePaneWithImage(eventTarget);
-            let fileText = yield this.app.vault.read(activeFile);
-            const originalFileText = fileText;
-            // Get parameters like the regex or the replacement terms based on the fact if the image is locally stored or not.
-            const zoomParams = this.getZoomParams(imageUri, fileText, eventTarget);
-            // Check if there is already a size parameter for this image.
-            const sizeMatches = fileText.match(zoomParams.sizeMatchRegExp);
-            // Element already has a size entry
-            if (sizeMatches !== null) {
-                const oldSize = parseInt(sizeMatches[1]);
-                let newSize = oldSize;
-                if (evt.deltaY < 0) {
-                    newSize += this.settings.stepSize;
+            yield this.app.vault.process(activeFile, (fileText) => {
+                let frontmatter = "";
+                let body = fileText;
+                const frontmatterRegex = /^---\s*([\s\S]*?)\s*---\n*/;
+                const match = fileText.match(frontmatterRegex);
+                if (match) {
+                    frontmatter = match[0]; // Keep the full matched frontmatter block including delimiters and trailing newline
+                    body = fileText.slice(frontmatter.length); // The rest is the body
                 }
-                else if (evt.deltaY > 0 && newSize > this.settings.stepSize) {
-                    newSize -= this.settings.stepSize;
+                const zoomParams = this.getZoomParams(imageUri, body, eventTarget);
+                // Perform replacements ONLY on the body
+                let modifiedBody = body;
+                const sizeMatches = body.match(zoomParams.sizeMatchRegExp);
+                // Element already has a size entry in the body
+                if (sizeMatches !== null) {
+                    const oldSize = parseInt(sizeMatches[1]);
+                    let newSize = oldSize;
+                    if (evt.deltaY < 0) {
+                        newSize += this.settings.stepSize;
+                    }
+                    else if (evt.deltaY > 0 && newSize > this.settings.stepSize) {
+                        newSize -= this.settings.stepSize;
+                    }
+                    // Replace within the body
+                    modifiedBody = body.replace(zoomParams.replaceSizeExist.getReplaceFromString(oldSize), zoomParams.replaceSizeExist.getReplaceWithString(newSize));
                 }
-                fileText = fileText.replace(zoomParams.replaceSizeExist.getReplaceFromString(oldSize), zoomParams.replaceSizeExist.getReplaceWithString(newSize));
-            }
-            else { // Element has no size entry -> give it an initial size
-                const initialSize = this.settings.initialSize;
-                var image = new Image();
-                image.src = imageUri;
-                var width = image.naturalWidth;
-                var minWidth = Math.min(width, initialSize);
-                fileText = fileText.replace(zoomParams.replaceSizeNotExist.getReplaceFromString(0), zoomParams.replaceSizeNotExist.getReplaceWithString(minWidth));
-            }
-            // Save changed size
-            if (fileText !== originalFileText) {
-                yield this.app.vault.modify(activeFile, fileText);
-            }
+                else { // Element has no size entry in the body -> give it an initial size
+                    const initialSize = this.settings.initialSize;
+                    const image = new Image();
+                    image.src = imageUri;
+                    const width = image.naturalWidth || initialSize;
+                    const minWidth = Math.min(width, initialSize);
+                    // Replace within the body
+                    modifiedBody = body.replace(zoomParams.replaceSizeNotExist.getReplaceFromString(0), zoomParams.replaceSizeNotExist.getReplaceWithString(minWidth));
+                }
+                // Combine original frontmatter with the modified body
+                return frontmatter + modifiedBody;
+            });
         });
     }
     /**
@@ -420,6 +474,11 @@ class MouseWheelZoomPlugin extends obsidian.Plugin {
         }
         else if (imageUri.contains("app://")) {
             const imageName = Util.getLocalImageNameFromUri(imageUri);
+            return Util.getLocalImageZoomParams(imageName, fileText);
+        }
+        else if (imageUri.contains("data:image/")) { // for image generated by PDF++ extension
+            // example: data:image/png;base64,iVB...
+            const imageName = Util.getLocalImageNameFromUri(target.parentElement.getAttribute("src"));
             return Util.getLocalImageZoomParams(imageName, fileText);
         }
         throw new Error("Image is not zoomable");
@@ -469,6 +528,23 @@ class MouseWheelZoomSettingsTab extends obsidian.PluginSettingTab {
         super(app, plugin);
         this.plugin = plugin;
     }
+    // Helper function to update the warning message
+    updateWarningMessage(modifierKey, resizeInCanvas) {
+        if (!this.warningEl)
+            return;
+        const isCtrl = modifierKey === ModifierKey.CTRL || modifierKey === ModifierKey.CTRL_RIGHT;
+        const conflict = isCtrl && resizeInCanvas;
+        if (conflict) {
+            this.warningEl.setText(CtrlCanvasConflictWarning);
+            this.warningEl.style.display = 'block';
+            this.warningEl.style.color = 'var(--text-warning)';
+            this.warningEl.style.marginTop = '10px';
+        }
+        else {
+            this.warningEl.setText("");
+            this.warningEl.style.display = 'none';
+        }
+    }
     display() {
         let { containerEl } = this;
         containerEl.empty();
@@ -486,6 +562,7 @@ class MouseWheelZoomSettingsTab extends obsidian.PluginSettingTab {
             .setValue(this.plugin.settings.modifierKey)
             .onChange((value) => __awaiter(this, void 0, void 0, function* () {
             this.plugin.settings.modifierKey = value;
+            this.updateWarningMessage(this.plugin.settings.modifierKey, this.plugin.settings.resizeInCanvas);
             yield this.plugin.saveSettings();
         })));
         new obsidian.Setting(containerEl)
@@ -516,6 +593,20 @@ class MouseWheelZoomSettingsTab extends obsidian.PluginSettingTab {
                 yield this.plugin.saveSettings();
             }));
         });
+        new obsidian.Setting(containerEl)
+            .setName('Resize in canvas')
+            .setDesc('When enabled, all nodes on the Obsidian canvas can also be resized using the Modifier key')
+            .addToggle((toggle) => {
+            toggle.setValue(this.plugin.settings.resizeInCanvas)
+                .onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.plugin.settings.resizeInCanvas = value;
+                this.updateWarningMessage(this.plugin.settings.modifierKey, value);
+                yield this.plugin.saveSettings();
+            }));
+        });
+        this.warningEl = containerEl.createDiv({ cls: 'mousewheel-zoom-warning' });
+        this.warningEl.style.display = 'none';
+        this.updateWarningMessage(this.plugin.settings.modifierKey, this.plugin.settings.resizeInCanvas);
     }
 }
 
