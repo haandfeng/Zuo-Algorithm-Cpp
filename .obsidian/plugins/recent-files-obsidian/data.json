@@ -1,20 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "单调栈",
-      "path": "零茶山艾府+代码随想录/单调栈.md"
+      "basename": "Grind75",
+      "path": "Grind75.md"
     },
     {
-      "basename": "动态规划",
-      "path": "零茶山艾府+代码随想录/动态规划.md"
+      "basename": "单调队列",
+      "path": "零茶山艾府+代码随想录/单调队列.md"
+    },
+    {
+      "basename": "数据结构",
+      "path": "零茶山艾府+代码随想录/数据结构.md"
+    },
+    {
+      "basename": "单调栈",
+      "path": "零茶山艾府+代码随想录/单调栈.md"
     },
     {
       "basename": "哈希表",
       "path": "零茶山艾府+代码随想录/哈希表.md"
     },
     {
-      "basename": "Grind75",
-      "path": "Grind75.md"
+      "basename": "动态规划",
+      "path": "零茶山艾府+代码随想录/动态规划.md"
     },
     {
       "basename": "Blind75",
@@ -23,10 +31,6 @@
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "单调队列",
-      "path": "零茶山艾府+代码随想录/单调队列.md"
     },
     {
       "basename": "滑动窗口(同向双指针)",
@@ -195,10 +199,6 @@
     {
       "basename": "09 贪心算法",
       "path": "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/09 贪心算法.md"
-    },
-    {
-      "basename": "_贪心算法Memo",
-      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/_贪心算法Memo.md"
     }
   ],
   "omittedPaths": [],
