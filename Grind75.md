@@ -907,7 +907,58 @@ class MinStack:
 
 # [981. 基于时间的键值存储](https://leetcode.cn/problems/time-based-key-value-store/)
 
+## 方法1
+```python
+class TimeMap:
+    def __init__(self):
+        # key -> list of (timestamp, value)
+        self.m = defaultdict(list)
 
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        self.m[key].append((timestamp, value))
+
+    def get(self, key: str, timestamp: int) -> str:
+        pairs = self.m[key]
+        # bisect_left(a, x) 在第一个等于 x 的位置前插入  即bisect_left：返回 “第一个 ≥ x” 的位置；
+        # bisect_left(a, x) 在最后一个等于 x 的位置前插入 即bisect_right：返回 “第一个 > x” 的位置。
+        # chr(127) 生成一个“比所有 value 都大的虚拟值”)
+        # bisect_right 返回第一个 > (timestamp, dummy_value) 的位置
+        i = bisect.bisect_right(pairs, (timestamp, chr(127)))
+        if i > 0:
+            return pairs[i - 1][1]
+        return ""
+```
+
+## 方法2
+会超时，但这个存的方法不错。把搜索改成二分查找应该可以过
+```python
+class TimeMap:
+    def __init__(self):
+        self.key_time_map = {}
+
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        # If the 'key' does not exist in dictionary.
+        if not key in self.key_time_map:
+            self.key_time_map[key] = {}
+            
+        # Store '(timestamp, value)' pair in 'key' bucket.
+        self.key_time_map[key][timestamp] = value
+        
+
+    def get(self, key: str, timestamp: int) -> str:
+        # If the 'key' does not exist in dictionary we will return empty string.
+        if not key in self.key_time_map:
+            return ""
+        
+        # Iterate on time from 'timestamp' to '1'.
+        for curr_time in reversed(range(1, timestamp + 1)):
+            # If a value for current time is stored in key's bucket we return the value.
+            if curr_time in self.key_time_map[key]:
+                return self.key_time_map[key][curr_time]
+            
+        # Otherwise no time <= timestamp was stored in key's bucket.
+        return ""
+```
 # [542. 01 矩阵](https://leetcode.cn/problems/01-matrix/)
 
 
@@ -996,4 +1047,389 @@ class Solution:
                     seen.add((ni, nj))
 
         return dist
+```
+
+
+# [543. 二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree/)
+
+相关题目看0x3f的课
+```python
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        self.maxR = 0
+        def dfs(root: Optional[TreeNode]) -> int:
+            if root == None:
+                return -1
+            left = dfs(root.left) + 1
+            right = dfs(root.right) + 1
+            self.maxR = max(self.maxR,left+right)
+            return max(left,right)
+        dfs(root)
+        return self.maxR
+```
+
+
+## [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/)
+做过很多遍了
+
+```python
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        numsSum  = sum(nums)
+        if numsSum % 2 == 1 :
+            return False
+        dp = [0] * (numsSum // 2 + 1)
+        for num in nums:
+            for j in range(numsSum // 2, num-1, -1):
+                dp[j] = max(dp[j],dp[j-num] + num)
+        if dp[-1] == numsSum // 2 :
+            return  True
+        return False
+```
+
+
+# [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
+## 前置题: [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/solution/by-endlesscheng-owgd/)
+这里对left和right的定义是一样的，但是我们只要找到旋转的点就好了，旋转的点就是最小值，所以mid只需要和nums 0比较
+```python
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        left,right = -1, len(nums)
+        if nums[0] <= nums[-1]: return nums[0]
+        while left+1<right:
+            mid = (left+right)//2
+            if nums[mid] >= nums[0]:
+                left = mid
+            else:
+                right = mid
+        return nums[right]
+
+```
+
+
+难点是把边界条件写清楚
+```python
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        # left's left is target's left, right's right is target or target's right
+        left, right = 0, len(nums) -1
+        while left <= right:
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                return mid
+            if nums[0] <= nums[-1]:
+                if nums[mid] < target:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+            else:
+                if nums[mid] > target and target >= nums[0]:
+                    right = mid -1
+                elif nums[mid] < nums[0] and target >= nums[0]:
+                    right = mid -1
+                elif nums[mid] > target and nums[mid] < nums[0] and target < nums[0] :
+                    right = mid -1
+                else:
+                    left = mid + 1
+        return left if  left < len(nums) and nums[left] == target else -1
+```
+
+
+
+
+
+
+# [39. 组合总和](https://leetcode.cn/problems/combination-sum/)
+思路大致差不多，但没办法区分，什么时候用回溯，什么时候用dp
+```python
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        ans = []
+        path = []
+
+        def dfs(i: int, left: int) -> None:
+            if left == 0:
+                # 找到一个合法组合
+                ans.append(path.copy())
+                return
+
+            if i == len(candidates) or left < 0:
+                return
+
+            # 不选
+            dfs(i + 1, left)
+
+            # 选
+            path.append(candidates[i])
+            dfs(i, left - candidates[i])
+            path.pop()  # 恢复现场
+
+        dfs(0, target)
+        return ans
+```
+
+## [40. 组合总和 II](https://leetcode.cn/problems/combination-sum-ii/)
+解决重复的问题
+```python
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        ans = []
+        path = []
+        candidates.sort()
+        def dfs(i: int, left: int) -> None:
+            if left == 0:
+                # 找到一个合法组合
+                ans.append(path.copy())
+                return
+
+            if i == len(candidates) or left < 0:
+                return
+
+            # 选
+            path.append(candidates[i])
+            dfs(i + 1, left - candidates[i])
+            path.pop()  # 恢复现场
+
+            # 不选
+            while i < len(candidates) - 1 and candidates[i] == candidates[i+1]:
+                i+=1
+            dfs(i + 1, left)
+
+
+        dfs(0, target)
+        return ans
+```
+
+
+## [216. 组合总和 III](https://leetcode.cn/problems/combination-sum-iii/)
+
+两种方法
+
+和前面1 和 2 一样的方法
+
+```python
+class Solution:
+    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
+        ans = []
+        path = []
+
+        def dfs(i: int, left_sum: int) -> None:
+            d = k - len(path)  # 还要选 d 个数
+            if left_sum < 0 or left_sum > (i * 2 - d + 1) * d // 2:  # 剪枝
+                return
+            if d == 0:  # 找到一个合法组合
+                ans.append(path.copy())
+                return
+
+            # 不选 i
+            if i > d:
+                dfs(i - 1, left_sum)
+
+            # 选 i
+            path.append(i)
+            dfs(i - 1, left_sum - i)
+            path.pop()
+
+        dfs(9, n)
+        return ans
+```
+
+
+
+## [377. 组合总和 Ⅳ](https://leetcode.cn/problems/combination-sum-iv/)
+
+```python
+class Solution:
+    def combinationSum4(self, nums: List[int], target: int) -> int:
+        f = [1] + [0] * target
+        for i in range(1, target + 1):
+            f[i] = sum(f[i - x] for x in nums if x <= i)
+        return f[target]
+```
+# [295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream/)
+
+
+```python
+import heapq
+
+class MedianFinder:
+    def __init__(self):
+        # leftMaxHeap 保存较小的一半，作为大根堆（通过存负数）
+        self.leftMaxHeap = []   # store negatives, so heapq is min-heap of negatives => max-heap behavior
+        # rightMinHeap 保存较大的一半，作为普通小根堆
+        self.rightMinHeap = []  # store positives, min-heap
+
+    def addNum(self, num: int) -> None:
+        # 首先决定把 num 放到哪个堆：
+        # 如果 left 为空或 num <= 左堆的最大值（即 -leftMaxHeap[0]），放左堆；否则放右堆
+        if not self.leftMaxHeap or num <= -self.leftMaxHeap[0]:
+            heapq.heappush(self.leftMaxHeap, -num)
+        else:
+            heapq.heappush(self.rightMinHeap, num)
+
+        # 之后保持平衡：left 允许比 right 多 1，否则调整
+        if len(self.leftMaxHeap) > len(self.rightMinHeap) + 1:
+            # left 太大，移动一个到 right
+            val = -heapq.heappop(self.leftMaxHeap)
+            heapq.heappush(self.rightMinHeap, val)
+        elif len(self.rightMinHeap) > len(self.leftMaxHeap):
+            # right 太大，移动一个到 left
+            val = heapq.heappop(self.rightMinHeap)
+            heapq.heappush(self.leftMaxHeap, -val)
+
+    def findMedian(self) -> float:
+        # sizes
+        leftSize = len(self.leftMaxHeap)
+        rightSize = len(self.rightMinHeap)
+
+        if leftSize == rightSize:
+            if leftSize == 0:
+                return 0.0  # 或抛出异常，视你需求
+            # 两堆顶的平均
+            return (-self.leftMaxHeap[0] + self.rightMinHeap[0]) / 2.0
+        else:
+            # left 比 right 多 1 时中位数为 left 的最大值
+            return float(-self.leftMaxHeap[0])
+```
+
+
+#  [169. 多数元素](https://leetcode.cn/problems/majority-element/)
+
+```python
+class Solution:
+    def majorityElement(self, nums):
+        # Counter([1, 2, 2, 3, 3, 3])
+        # 输出：Counter({3: 3, 2: 2, 1: 1})
+        counts = collections.Counter(nums)
+        # counts.keys() 获取所有不同的元素（字典的键）。
+        # max(iterable, key=function) 从一个可迭代对象（如列表、字典的键等）中找出使得 function(x) 最大的那个元素。
+        return max(counts.keys(), key=counts.get)
+```
+
+
+
+
+# [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/)
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        stack = []
+        ans = 0
+        for i in range(len(height)):
+            while stack and height[i] > height[stack[-1]]:
+                right  = i
+                mid = stack.pop()
+                if stack:
+                    left = stack[-1]
+                else:
+                    break
+                ans += (right - left - 1) * (min(height[left],height[right]) - height[mid])
+            stack.append(i)
+        return ans
+```
+
+
+# [297. 二叉树的序列化与反序列化](https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/)
+
+
+
+# [46. 全排列](https://leetcode.cn/problems/permutations/)
+
+```python
+from typing import List
+class Solution(object):
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        n = len(nums)
+        ans = []
+        path = [0] * n
+        on_path = [False] * n
+        def dfs(i:int) -> None:
+            if i == n:
+                ans.append(path.copy())
+                return
+            for j,on in enumerate(on_path):
+                if not on:
+                    path[i] = nums[j]
+                    on_path[j] = True
+                    dfs(i+1)
+                    on_path[j] = False
+        dfs(0)
+        return ans
+```
+
+## [47. 全排列 II](https://leetcode.cn/problems/permutations-ii/)
+
+树干去重复，看的是nums[j] == nums[j-1]的 前一个数字和当前的数字是否一样，并且这个数字是已经被访问过了（false）
+```python
+class Solution(object):
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        n = len(nums)
+        ans = []
+        path = [0] * n
+        on_path = [False] * n
+        def dfs(i:int) -> None:
+            if i == n:
+                ans.append(path.copy())
+                return
+            for j,on in enumerate(on_path):
+                if j >= 1  and nums[j] == nums[j-1] and on_path[j-1] == False:
+                    continue
+                if not on:
+                    path[i] = nums[j]
+                    on_path[j] = True
+                    dfs(i + 1)
+                    on_path[j] = False
+        dfs(0)
+        return ans
+
+```
+# [53. 最大子数组和](https://leetcode.cn/problems/maximum-subarray/)
+
+
+有很多方法，想到方法不重要，想到一开始的思路不重要，重要的是怎么去实现它
+
+
+https://leetcode.cn/problems/maximum-subarray/solutions/2533977/qian-zhui-he-zuo-fa-ben-zhi-shi-mai-mai-abu71/
+
+可以看看灵茶山艾府的题解
+
+
+
+# [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix/)
+
+```python
+class Solution(object):
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        left,right,up,down = 0, len(matrix[0])-1,0,len(matrix)-1
+        ans = []
+        while True:
+            for i in range(left,right+1):
+                ans.append(matrix[up][i])
+            up += 1
+            if up > down:
+                break
+
+            for i in range(up, down + 1):
+                ans.append(matrix[i][right])
+            right -= 1
+            if left > right:
+                break
+
+            for i in range(right, left-1, -1):
+                ans.append(matrix[down][i])
+            down-=1
+            if up > down:
+                break
+            for i in range(down, up-1, -1):
+                ans.append(matrix[i][left])
+            left += 1
+            if left > right:
+                break
+        return ans
 ```
