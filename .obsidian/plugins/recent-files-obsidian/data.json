@@ -5,12 +5,48 @@
       "path": "Grind75.md"
     },
     {
-      "basename": "回溯",
-      "path": "零茶山艾府+代码随想录/回溯.md"
+      "basename": "快速排序",
+      "path": "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md"
+    },
+    {
+      "basename": "03 归并排序与随机快排",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/03 归并排序与随机快排.md"
+    },
+    {
+      "basename": "无序数组找第k小或第k大(重要!)",
+      "path": "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md"
+    },
+    {
+      "basename": "快排",
+      "path": "C++算法/必备/快排.md"
+    },
+    {
+      "basename": "在无序数组中求第K小的数",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在无序数组中求第K小的数.md"
+    },
+    {
+      "basename": "哈希表",
+      "path": "零茶山艾府+代码随想录/哈希表.md"
+    },
+    {
+      "basename": "荷兰国旗问题",
+      "path": "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/荷兰国旗问题.md"
+    },
+    {
+      "basename": "荷兰国旗问题代码",
+      "path": "算法笔记/zuoAlgorithm/010. 代码模板/荷兰国旗问题代码.md"
+    },
+    {
+      "basename": "荷兰国旗问题 1",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/荷兰国旗问题 1.md"
     },
     {
       "basename": "动态规划",
       "path": "零茶山艾府+代码随想录/动态规划.md"
+    },
+    {
+      "basename": "回溯",
+      "path": "零茶山艾府+代码随想录/回溯.md"
     },
     {
       "basename": "单调栈",
@@ -47,10 +83,6 @@
     {
       "basename": "Hot100",
       "path": "Hot100.md"
-    },
-    {
-      "basename": "哈希表",
-      "path": "零茶山艾府+代码随想录/哈希表.md"
     },
     {
       "basename": "README",
@@ -167,38 +199,6 @@
     {
       "basename": "根据身高重建队列",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/根据身高重建队列.md"
-    },
-    {
-      "basename": "加油站",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/加油站.md"
-    },
-    {
-      "basename": "买卖股票的最佳时机 II",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/买卖股票的最佳时机 II.md"
-    },
-    {
-      "basename": "最大子数组和",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最大子数组和.md"
-    },
-    {
-      "basename": "最大波动的子字符串",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/最大波动的子字符串.md"
-    },
-    {
-      "basename": "贪心算法",
-      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/贪心算法.md"
-    },
-    {
-      "basename": "解数独",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/解数独.md"
-    },
-    {
-      "basename": "移除最多的同行或同列石头",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/移除最多的同行或同列石头.md"
-    },
-    {
-      "basename": "动态规划中的斜率优化",
-      "path": "算法笔记/zuoAlgorithm/004. 刷题经验总结/动态规划中的斜率优化.md"
     }
   ],
   "omittedPaths": [],
