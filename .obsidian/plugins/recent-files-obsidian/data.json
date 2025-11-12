@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "Blind75",
+      "path": "Blind75.md"
+    },
+    {
       "basename": "Grind75",
       "path": "Grind75.md"
     },
     {
+      "basename": "动态规划",
+      "path": "零茶山艾府+代码随想录/动态规划.md"
+    },
+    {
       "basename": "快速排序",
       "path": "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md"
+    },
+    {
+      "basename": "贪心",
+      "path": "零茶山艾府+代码随想录/贪心.md"
+    },
+    {
+      "basename": "二叉树",
+      "path": "零茶山艾府+代码随想录/二叉树.md"
     },
     {
       "basename": "03 归并排序与随机快排",
@@ -41,10 +57,6 @@
       "path": "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/荷兰国旗问题 1.md"
     },
     {
-      "basename": "动态规划",
-      "path": "零茶山艾府+代码随想录/动态规划.md"
-    },
-    {
       "basename": "回溯",
       "path": "零茶山艾府+代码随想录/回溯.md"
     },
@@ -59,10 +71,6 @@
     {
       "basename": "堆的构建",
       "path": "堆的构建.md"
-    },
-    {
-      "basename": "Blind75",
-      "path": "Blind75.md"
     },
     {
       "basename": "单调队列",
@@ -101,10 +109,6 @@
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/两数之和.md"
     },
     {
-      "basename": "贪心",
-      "path": "零茶山艾府+代码随想录/贪心.md"
-    },
-    {
       "basename": "栈和队列",
       "path": "零茶山艾府+代码随想录/栈和队列.md"
     },
@@ -115,10 +119,6 @@
     {
       "basename": "双向双指针",
       "path": "零茶山艾府+代码随想录/双向双指针.md"
-    },
-    {
-      "basename": "二叉树",
-      "path": "零茶山艾府+代码随想录/二叉树.md"
     },
     {
       "basename": "TikTok面经",

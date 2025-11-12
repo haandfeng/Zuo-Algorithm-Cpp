@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
+                "file": "Blind75.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "快速排序"
+              "title": "Blind75"
             }
           },
           {
@@ -36,17 +36,20 @@
             }
           },
           {
-            "id": "7794aea9f4d97fd5",
+            "id": "a703229f30d81e4c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "零茶山艾府+代码随想录/动态规划.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "动态规划"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -79,7 +82,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "第k大",
+                "query": "最长回文子串",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -100,7 +103,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
@@ -186,13 +190,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Grind75.md",
+                "file": "Blind75.md",
                 "followCursor": false,
                 "showSearch": true,
-                "searchQuery": ""
+                "searchQuery": "克隆"
               },
               "icon": "lucide-list",
-              "title": "Grind75 的大纲"
+              "title": "Blind75 的大纲"
             }
           }
         ],
@@ -215,11 +219,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "4b207f407ac5b678",
+  "active": "3e8b9dc3ee6c1551",
   "lastOpenFiles": [
-    "img/Pasted image 20251104234555.png",
-    "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
     "Grind75.md",
+    "Blind75.md",
+    "零茶山艾府+代码随想录/动态规划.md",
+    "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
+    "零茶山艾府+代码随想录/贪心.md",
+    "零茶山艾府+代码随想录/二叉树.md",
+    "img/Pasted image 20251104234555.png",
     "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/03 归并排序与随机快排.md",
     "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md",
     "C++算法/必备/快排.md",
@@ -228,7 +236,6 @@
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/荷兰国旗问题.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/荷兰国旗问题代码.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/荷兰国旗问题 1.md",
-    "零茶山艾府+代码随想录/动态规划.md",
     "零茶山艾府+代码随想录/回溯.md",
     "零茶山艾府+代码随想录/单调栈.md",
     "零茶山艾府+代码随想录/二分查找.md",
@@ -236,7 +243,6 @@
     "img/Pasted image 20251018173229.png",
     "img/Pasted image 20251018144157.png",
     "img/Pasted image 20251018143732.png",
-    "Blind75.md",
     "零茶山艾府+代码随想录/单调队列.md",
     "一些新题/287. 寻找重复数.md",
     "img/Pasted image 20251015203953.png",
@@ -249,12 +255,10 @@
     "README.md",
     "零茶山艾府+代码随想录/滑动窗口(同向双指针).md",
     "Leetcode150.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/两数之和.md",
     "img/Pasted image 20251004235157.png",
     "img/Pasted image 20251004235110.png",
     "img/Pasted image 20251002143407.png",
     "img/Pasted image 20250929221123.png",
-    "img/Pasted image 20250928224128.png",
     "零茶山艾府+代码随想录/未命名",
     "python语法",
     "TAG/TikTok",

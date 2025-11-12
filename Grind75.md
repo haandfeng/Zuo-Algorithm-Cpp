@@ -2527,3 +2527,368 @@ class Solution:
             return 0
         return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right))
 ```
+
+
+
+
+# [232. 用栈实现队列](https://leetcode.cn/problems/implement-queue-using-stacks/)
+栈A倒出来之后，当B是空的才需要再倒，不然没必要再倒出来。因为B已经调整好顺序了，A只要继续按照顺序添加就好了
+```python
+class MyQueue:
+
+    def __init__(self):
+        self.A, self.B = [], []
+
+    def push(self, x: int) -> None:
+        self.A.append(x)
+
+    def pop(self) -> int:
+        peek = self.peek()
+        self.B.pop()
+        return peek
+
+    def peek(self) -> int:
+        if self.B: return self.B[-1]
+        if not self.A: return -1
+        # 将栈 A 的元素依次移动至栈 B
+        while self.A:
+            self.B.append(self.A.pop())
+        return self.B[-1]
+
+    def empty(self) -> bool:
+        return not self.A and not self.B
+
+```
+
+
+# [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+
+前序的第一个元素总是树的root，这个root 对应中序遍历的数组里就是左半子树和右半子树的切割点，依次递归就好了。
+
+```python
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        index = {x: i for i, x in enumerate(inorder)}
+
+        def dfs(pre_l: int, pre_r: int, in_l: int, in_r: int) -> Optional[TreeNode]:
+            if pre_l == pre_r:  # 空节点
+                return None
+            left_size = index[preorder[pre_l]] - in_l  # 左子树的大小
+            left = dfs(pre_l + 1, pre_l + 1 + left_size, in_l, in_l + left_size)
+            right = dfs(pre_l + 1 + left_size, pre_r, in_l + 1 + left_size, in_r)
+            return TreeNode(preorder[pre_l], left, right)
+
+        return dfs(0, len(preorder), 0, len(inorder))  # 左闭右开区间
+```
+
+
+## [106. 从中序与后序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
+一样的思路，这次改成最后一个元素是root
+我写的左闭 右闭的算法，感觉没写好边界条件，主要还是构建RootNode这一步的问题
+```python
+class Solution:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        index = {x: i for i, x in enumerate(inorder)}
+        # [9 15 7 20 3]
+        # [9 3 15 20 7]
+        def dfs(post_l: int, post_r: int, in_l: int, in_r: int) -> Optional[TreeNode]:
+            if post_l > post_r:
+                return None
+            root_index = index[postorder[post_r]]
+            left_size = root_index - in_l
+            right_size = in_r - root_index
+            root = TreeNode(postorder[post_r])
+            # get left node
+            root.left = dfs(post_l,post_l+left_size-1,in_l,root_index-1)
+            # get right node
+            root.right = dfs(post_l+left_size,post_l+left_size+right_size-1,root_index+1,in_r)
+            return root
+        return dfs(0,len(inorder)-1,0,len(inorder)-1)
+
+```
+## [889. 根据前序和后序遍历构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)
+首先说明，如果只知道前序遍历和后序遍历，这棵二叉树不一定是唯一
+如果二叉树的每个非叶节点都有两个儿子，知道前序和后序就能唯一确定这棵二叉树。
+已知道preorder 的第一个节点是root，第一个节点+1是左子树的头节点。
+通过这种方式，在postorder里就可以找到左子树的大小和右子树的大小
+
+```python
+class Solution:
+    def constructFromPrePost(self, preorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
+        index = {x: i for i, x in enumerate(postorder)}
+
+        # 注意 post_r 可以省略
+        def dfs(pre_l: int, pre_r: int, post_l: int) -> Optional[TreeNode]:
+            if pre_l == pre_r:  # 空节点
+                return None
+            if pre_l + 1 == pre_r:  # 叶子节点
+                return TreeNode(preorder[pre_l])
+            left_size = index[preorder[pre_l + 1]] - post_l + 1  # 左子树的大小
+            left = dfs(pre_l + 1, pre_l + 1 + left_size, post_l)
+            right = dfs(pre_l + 1 + left_size, pre_r, post_l + left_size)
+            return TreeNode(preorder[pre_l], left, right)
+
+        return dfs(0, len(preorder), 0)  # 左闭右开区间
+```
+
+
+# [235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+
+只要这个root 比一个大比一个小或者等于某一个，那他就是公共祖先
+如果比两个都大，那就右子树，比两个都小往左子树
+
+
+```python
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        x = root.val
+        if p.val < x and q.val < x:  # p 和 q 都在左子树
+            return self.lowestCommonAncestor(root.left, p, q)
+        if p.val > x and q.val > x:  # p 和 q 都在右子树
+            return self.lowestCommonAncestor(root.right, p, q)
+        return root  # 其它
+```
+
+
+# [236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+一直往下看，如果遇到自己就返回自己，如果遇到none就返回none，如果左右子树都是none，返回none，如果左右子树有一个不是none，返回不是none的值，如果都不是none，返回自己。
+
+如果首先遇到自己，说明自己可能是两个节点里的公共祖先，也有可能不是，但这个时候不需要往下看了
+
+如果返回非空值，说明左子树/右子树遇到了自己/找到了他们的公共节点。二个都不是none，说明自己就是最近公共祖先。一个none，一个不是none，说明自己只是某一个节点的公共祖先
+```python
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if root in (None, p, q):  # 找到 p 或 q 就不往下递归了，原因见上面答疑
+            return root
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        if left and right:  # 左右都找到
+            return root  # 当前节点是最近公共祖先
+        # 如果只有左子树找到，就返回左子树的返回值
+        # 如果只有右子树找到，就返回右子树的返回值
+        # 如果左右子树都没有找到，就返回 None（注意此时 right = None）
+        return left or right
+```
+
+
+
+# [621. 任务调度器](https://leetcode.cn/problems/task-scheduler/)
+
+贪心算法，但自己算法写的一坨狗屎。优先移除个数最多的任务，这样才可以用其他个数更少的任务，填补造成的idle。
+```python
+import heapq
+from collections import Counter
+from typing import List
+
+class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        cnt = Counter(tasks)
+        # 用最大堆（Python 默认小堆，取负数模拟）
+        heap = [-v for v in cnt.values()]
+        heapq.heapify(heap)
+        
+        time = 0
+        while heap:
+            temp = []
+            # 一轮最多执行 n+1 个任务
+            for _ in range(n + 1):
+                if heap:
+                    x = heapq.heappop(heap)
+                    x += 1  # 因为是负的，+1 表示执行一次
+                    if x < 0:
+                        temp.append(x)
+                time += 1
+                if not heap and not temp:
+                    break
+            # 重新入堆
+            for item in temp:
+                heapq.heappush(heap, item)
+        return time
+```
+
+# [110. 平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/)
+
+用-1标志错误
+```python
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        def get_height(node: Optional[TreeNode]) -> int:
+            if node is None:
+                return 0
+            left_h = get_height(node.left)
+            right_h = get_height(node.right)
+            if left_h == -1 or right_h == -1 or abs(left_h - right_h) > 1:
+                return -1
+            return max(left_h, right_h) + 1
+        return get_height(root) != -1
+```
+
+
+
+# [238. 除自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/)
+
+
+answer[i] 等于 nums 中除了 nums[i] 之外其余各元素的乘积。换句话说，如果知道了 i 左边所有数的乘积，以及 i 右边所有数的乘积，就可以算出 answer[i]。
+
+于是：
+
+定义 pre[i] 表示从 nums[0] 到 nums[i−1] 的乘积。
+定义 suf[i] 表示从 nums[i+1] 到 nums[n−1] 的乘积。
+我们可以先计算出从 nums[0] 到 nums[i−2] 的乘积 pre[i−1]，再乘上 nums[i−1]，就得到了 pre[i]，即
+
+pre[i]=pre[i−1]⋅nums[i−1]
+同理有
+
+suf[i]=suf[i+1]⋅nums[i+1]
+初始值：pre[0]=suf[n−1]=1。按照上文的定义，pre[0] 和 suf[n−1] 都是空子数组的元素乘积，我们规定这是 1，因为 1 乘以任何数 x 都等于 x，这样可以方便递推计算 pre[1]，suf[n−2] 等。
+
+算出 pre 数组和 suf 数组后，有
+
+answer[i]=pre[i]⋅suf[i]
+
+感觉没想到这一步就做不出来，没意识到这一点
+
+
+```python
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        suf = [1] * n
+        for i in range(n - 2, -1, -1):
+            suf[i] = suf[i + 1] * nums[i + 1]
+
+        pre = 1
+        for i, x in enumerate(nums):
+            # 此时 pre 为 nums[0] 到 nums[i-1] 的乘积，直接乘到 suf[i] 中
+            suf[i] *= pre
+            pre *= x
+
+        return suf
+```
+
+
+
+# [973. 最接近原点的 K 个点](https://leetcode.cn/problems/k-closest-points-to-origin/)
+
+
+堆的事
+```python
+class Solution:
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        q = [(-x ** 2 - y ** 2, i) for i, (x, y) in enumerate(points[:k])]
+        heapq.heapify(q)
+        
+        n = len(points)
+        for i in range(k, n):
+            x, y = points[i]
+            dist = -x ** 2 - y ** 2
+            heapq.heappushpop(q, (dist, i))
+        
+        ans = [points[identity] for (_, identity) in q]
+        return ans
+```
+
+
+# [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
+
+dp，定义好持有和不持有两个状态就好了，只能买一次，所以是不持有和第一次持有。状态的变化是
+持有  = Max（ 前一天持有  ， 前一天不持有=0 -price -> = -price）->  因为只能买卖一次，所以不能从不持有再变成持有,所以前一天不持有一定要是0
+不持有 = Max （前一天不持有， 前一天持有+price）
+
+如果可以买多次的话，
+
+dp是当天持有 和 不持有的最大值
+
+持有  = Max（ 前一天持有  ， 前一天不持有 -price）
+不持有 = Max （前一天不持有， 前一天持有+price）
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        @cache  # 缓存装饰器，避免重复计算 dfs 的结果
+        def dfs(i: int, hold: bool) -> int:
+            if i < 0:
+                return -inf if hold else 0
+            if hold:
+                return max(dfs(i - 1, True), - prices[i])
+            return max(dfs(i - 1, False), dfs(i - 1, True) + prices[i])
+        return dfs(n - 1, False)
+```
+
+
+# [125. 验证回文串](https://leetcode.cn/problems/valid-palindrome/)
+双指针，只有function的调用
+
+```python
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        i, j = 0, len(s) - 1
+        while i < j:
+            if not s[i].isalnum():
+                i += 1
+            elif not s[j].isalnum():
+                j -= 1
+            elif s[i].lower() == s[j].lower():
+                i += 1
+                j -= 1
+            else:
+                return False
+        return True
+```
+
+
+# [127. 单词接龙](https://leetcode.cn/problems/word-ladder/)
+
+
+首先题目中并没有给出点与点之间的连线，而是要我们自己去连，条件是字符只能差一个，所以判断点与点之间的关系，要自己判断是不是差一个字符，如果差一个字符，那就是有链接。
+
+然后就是求起点和终点的最短路径长度，这里无向图求最短路，广搜最为合适，广搜只要搜到了终点，那么一定是最短的路径。因为广搜就是以起点中心向四周扩散的搜索。
+
+本题如果用深搜，会非常麻烦。
+
+另外需要有一个注意点：
+
+本题是一个无向图，需要用标记位，标记着节点是否走过，否则就会死循环！
+本题给出集合是数组型的，可以转成set结构，查找更快一些
+
+
+其实时间复杂度没有想象中的
+```python
+from collections import deque
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        wordSet = set(wordList)
+        if len(wordSet) == 0 or endWord not in wordSet:
+            return 0
+        
+        #记录word是否访问过
+        visitMap = dict()
+        #初始化队列
+        queue = deque()
+        queue.append(beginWord)
+        #初始化visitMap
+        visitMap[beginWord] = 1
+        
+        while queue:
+            word = queue.popleft()
+            #path为当前word的路径长度
+            path = visitMap[word]
+            for i in range(len(word)):
+                #用一个新单词替换word，因为每次置换一个字母
+                word_list = list(word)
+                for j in range(26):
+                    word_list[i] = chr(ord('a') + j)
+                    newWord = ''.join(word_list)
+                    #找到endWord，返回path+1
+                    if newWord == endWord:
+                        return path + 1
+                    #如果wordSet中出现了newWord而且newWord没有访问过
+                    if newWord in wordSet and newWord not in visitMap:
+                        #添加访问信息
+                        visitMap[newWord] = path + 1
+                        queue.append(newWord)
+        return 0
+```
