@@ -1,6 +1,4 @@
 https://leetcode.com/problem-list/oq45f3x3/
-
-test commit
 # [128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/)
 
 用哈希表占位置，遍历，找到序列的开始点一个个往前看
