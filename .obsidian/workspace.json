@@ -49,7 +49,8 @@
               "title": "动态规划"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -220,11 +221,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3e8b9dc3ee6c1551",
+  "active": "4b207f407ac5b678",
   "lastOpenFiles": [
+    "Blind75.md",
     "零茶山艾府+代码随想录/动态规划.md",
     "Grind75.md",
-    "Blind75.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
     "零茶山艾府+代码随想录/贪心.md",
     "零茶山艾府+代码随想录/二叉树.md",
