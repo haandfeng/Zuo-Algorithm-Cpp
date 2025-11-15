@@ -2345,6 +2345,9 @@ class Trie:
 
 https://leetcode.cn/problems/most-stones-removed-with-same-row-or-column/solutions/560610/tu-jie-bing-cha-ji-by-yexiso-nbcz/
 
+可以看看图片，我觉得我说不清楚
+
+
 # [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/)
 
 想不出收汁的办法
