@@ -82,7 +82,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "最长回文子串",
+                "query": "tag:#。",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -209,6 +209,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
       "bases:创建新数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
@@ -221,9 +222,9 @@
   },
   "active": "3e8b9dc3ee6c1551",
   "lastOpenFiles": [
+    "零茶山艾府+代码随想录/动态规划.md",
     "Grind75.md",
     "Blind75.md",
-    "零茶山艾府+代码随想录/动态规划.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
     "零茶山艾府+代码随想录/贪心.md",
     "零茶山艾府+代码随想录/二叉树.md",
