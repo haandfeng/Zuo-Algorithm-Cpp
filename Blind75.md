@@ -241,3 +241,43 @@ class Solution:
         return ans
 
 ```
+
+
+# [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
+
+需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
+
+
+```python
+class Solution:
+    # 代码逻辑同 104. 二叉树的最大深度
+    def getHeight(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        left_h = self.getHeight(root.left)
+        right_h = self.getHeight(root.right)
+        return max(left_h, right_h) + 1
+
+    # 100. 相同的树
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if p is None or q is None:
+            return p is q  # 必须都是 None
+        return p.val == q.val and \
+            self.isSameTree(p.left, q.left) and \
+            self.isSameTree(p.right, q.right)
+
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        hs = self.getHeight(subRoot)
+
+        # 返回 node 的高度，以及是否找到了 subRoot
+        def dfs(node: Optional[TreeNode]) -> (int, bool):
+            if node is None:
+                return 0, False
+            left_h, left_found = dfs(node.left)
+            right_h, right_found = dfs(node.right)
+            if left_found or right_found:
+                return 0, True
+            node_h = max(left_h, right_h) + 1
+            return node_h, node_h == hs and self.isSameTree(node, subRoot)
+        return dfs(root)[1]
+```

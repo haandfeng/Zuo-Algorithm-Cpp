@@ -63,8 +63,7 @@
               "title": "图"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,7 +206,7 @@
                 "file": "Blind75.md",
                 "followCursor": false,
                 "showSearch": true,
-                "searchQuery": "克隆"
+                "searchQuery": "21"
               },
               "icon": "lucide-list",
               "title": "Blind75 的大纲"
@@ -224,12 +223,11 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 437.5,
-    "collapsed": true
+    "width": 437.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -244,11 +242,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "5f3314dfebe62029",
+  "active": "3e8b9dc3ee6c1551",
   "lastOpenFiles": [
-    "零茶山艾府+代码随想录/动态规划.md",
     "Grind75.md",
     "Blind75.md",
+    "零茶山艾府+代码随想录/图.md",
+    "零茶山艾府+代码随想录/动态规划.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
     "零茶山艾府+代码随想录/贪心.md",
     "零茶山艾府+代码随想录/二叉树.md",
@@ -279,7 +278,6 @@
     "其他题",
     "README.md",
     "零茶山艾府+代码随想录/滑动窗口(同向双指针).md",
-    "Leetcode150.md",
     "img/Pasted image 20251004235157.png",
     "img/Pasted image 20251004235110.png",
     "img/Pasted image 20251002143407.png",
