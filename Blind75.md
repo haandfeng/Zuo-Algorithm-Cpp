@@ -243,6 +243,44 @@ class Solution:
 ```
 
 
+#  [143. 重排链表](https://leetcode.cn/problems/reorder-list/)
+
+问：循环条件 while head2.next 为什么不能写成 while head2？
+
+答：如果链表长度为偶数，例如链表由 [1,2,3,4] 四个节点组成，那么找中间节点并反转后，我们得到的两个链表分别为 head=[1,2,3] 和 head 2 =[4,3]。注意它俩都包含节点 3，具体请看视频 06:01 处的图。如果写成 while head2，会导致最后一轮循环中 3 指向它自己。
+
+
+```python
+class Solution:
+    # 876. 链表的中间结点
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+
+    # 206. 反转链表
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        pre, cur = None, head
+        while cur:
+            nxt = cur.next
+            cur.next = pre
+            pre = cur
+            cur = nxt
+        return pre
+
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        mid = self.middleNode(head)
+        head2 = self.reverseList(mid)
+        while head2.next:
+            nxt = head.next
+            nxt2 = head2.next
+            head.next = head2
+            head2.next = nxt
+            head = nxt
+            head2 = nxt2
+```
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
