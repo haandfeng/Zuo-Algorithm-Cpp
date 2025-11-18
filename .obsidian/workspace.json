@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "零茶山艾府+代码随想录/动态规划.md",
+                "file": "零茶山艾府+代码随想录/单调队列.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "动态规划"
+              "title": "单调队列"
             }
           },
           {
@@ -139,7 +139,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5
+    "width": 287.5,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -245,10 +246,10 @@
   },
   "active": "a703229f30d81e4c",
   "lastOpenFiles": [
+    "零茶山艾府+代码随想录/动态规划.md",
     "Grind75.md",
     "Blind75.md",
     "零茶山艾府+代码随想录/图.md",
-    "零茶山艾府+代码随想录/动态规划.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
     "零茶山艾府+代码随想录/贪心.md",
     "零茶山艾府+代码随想录/二叉树.md",
