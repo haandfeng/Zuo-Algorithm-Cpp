@@ -357,8 +357,36 @@ class Solution:
 
 
 
+# [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
+
+删除节点都要考虑到dummy node
+```python
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        """
+        0 1 2 3 4 5
+        2 steps  -> 2
+        then go until null, go 3 step
+        dummy to 3, fast to 5
+        """
+        dummy = ListNode(0)
+        dummy.next = head
+        fast = dummy
+        slow = dummy
+        for _ in range(n):
+            fast = fast.next
+        while fast.next != None:
+            fast = fast.next
+            slow = slow.next
+        # slow in front of the last one
+        slow.next = slow.next.next
+        return dummy.next
+```
 
 
+# [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/) 
+
+参考glind75， 用栈
 
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 

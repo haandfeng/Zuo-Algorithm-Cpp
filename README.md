@@ -1,4 +1,4 @@
-# 算法学习笔记 | Algorithm Study Notes
+# 算法学习笔记
 
 <div align="center">
 
@@ -6,15 +6,13 @@
 
 **基于左程云算法课程的 C++ 版本学习笔记与刷题记录**
 
-**C++ Implementation of Algorithm Study Notes Based on Zuo Cheng Yun's Algorithm Course**
+[English](README_EN.md) | 中文
 
 </div>
 
 ---
 
-## 📖 简介 | Introduction
-
-### 中文
+## 📖 简介
 
 这是一个基于左程云老师算法课程的 C++ 版本学习笔记仓库。本仓库整理了算法学习的核心内容，包括课程笔记、代码实现、题目解析以及刷题记录，旨在帮助算法学习者系统性地掌握数据结构与算法知识。
 
@@ -25,25 +23,14 @@
 - 📝 结构化的知识点总结
 - 🎯 涵盖热门题单（LeetCode Hot 100、Blind 75 等）
 
-### English
-
-This is a C++ implementation repository of algorithm study notes based on Zuo Cheng Yun's algorithm course. The repository organizes core algorithm learning content, including course notes, code implementations, problem solutions, and practice records, aiming to help learners systematically master data structures and algorithms.
-
-**Key Features:**
-- 📚 Systematic algorithm learning path
-- 💻 C++ code implementations with detailed comments
-- 🔗 Complete problem links and test cases
-- 📝 Structured knowledge summaries
-- 🎯 Coverage of popular problem lists (LeetCode Hot 100, Blind 75, etc.)
-
 ---
 
-## 📁 仓库结构 | Repository Structure
+## 📁 仓库结构
 
 ```
-├── C++算法/                    # C++ Algorithm Notes
-│   ├── 入门笔记.md             # Beginner Notes
-│   └── 必备/                   # Essential Topics
+├── C++算法/                    # C++ 算法笔记
+│   ├── 入门笔记.md             # 入门课程笔记
+│   └── 必备/                   # 必备知识点
 │       ├── 二叉树经典问题.md
 │       ├── 位运算.md
 │       ├── 堆 优先队列.md
@@ -51,40 +38,39 @@ This is a C++ implementation repository of algorithm study notes based on Zuo Ch
 │       ├── 归并.md
 │       └── ...
 │
-├── 算法笔记/                   # Algorithm Notes
-│   └── zuoAlgorithm/          # Zuo's Algorithm Course Materials
-│       ├── 000. 学习大纲/      # Learning Outline
-│       ├── 001. 难点重点照顾/  # Key Difficult Points
-│       ├── 002. 知识点总结/    # Knowledge Summary
-│       ├── 010. 代码模板/      # Code Templates
-│       ├── 100. 算法课程/      # Algorithm Courses
-│       └── 200. ★算法题目汇总★/ # Problem Collection (960+ problems)
+├── 算法笔记/                   # 算法笔记
+│   └── zuoAlgorithm/          # 左程云算法课程材料
+│       ├── 000. 学习大纲/      # 学习大纲
+│       ├── 001. 难点重点照顾/  # 难点重点
+│       ├── 002. 知识点总结/    # 知识点总结
+│       ├── 010. 代码模板/      # 代码模板
+│       ├── 100. 算法课程/      # 算法课程
+│       └── 200. ★算法题目汇总★/ # 题目汇总（960+ 道题）
 │
-├── 零茶山艾府+代码随想录/      # Additional Learning Resources
+├── 零茶山艾府+代码随想录/      # 补充学习资源
 │   ├── 二分查找.md
 │   ├── 二叉树.md
 │   ├── 动态规划.md
 │   └── ...
 │
-├── 一些新题/                   # New Problems
-│   └── [Various problem solutions]
+├── 一些新题/                   # 新题目
+│   └── [各种题目解答]
 │
-├── Blind75.md                  # Blind 75 Problem List
-├── Grind75.md                  # Grind 75 Problem List
+├── Blind75.md                  # Blind 75 题单
+├── Grind75.md                  # Grind 75 题单
 ├── Hot100.md                   # LeetCode Hot 100
 ├── Leetcode150.md              # LeetCode 150
-└── README.md                   # This file
+├── README.md                   # 本文件（中文版）
+└── README_EN.md                # 英文版 README
 ```
 
 ---
 
-## 🎯 主要内容 | Main Content
-
-### 中文
+## 🎯 主要内容
 
 #### 1. **C++ 算法笔记** (`C++算法/`)
-- 入门笔记：包含入门课程 1-20 节的代码实现
-- 必备知识点：核心算法与数据结构的详细讲解
+- **入门笔记**：包含入门课程 1-20 节的代码实现
+- **必备知识点**：核心算法与数据结构的详细讲解
   - 二叉树经典问题
   - 位运算技巧
   - 排序算法（快排、归并、堆排序等）
@@ -108,39 +94,9 @@ This is a C++ implementation repository of algorithm study notes based on Zuo Ch
 - Grind 75
 - LeetCode 150
 
-### English
-
-#### 1. **C++ Algorithm Notes** (`C++算法/`)
-- Beginner Notes: Code implementations for lessons 1-20
-- Essential Topics: Detailed explanations of core algorithms and data structures
-  - Binary tree classic problems
-  - Bit manipulation techniques
-  - Sorting algorithms (Quick Sort, Merge Sort, Heap Sort, etc.)
-  - Linked list high-frequency problems
-  - Recursion and dynamic programming
-
-#### 2. **Algorithm Notes** (`算法笔记/zuoAlgorithm/`)
-- **Learning Outline**: Systematic learning path planning
-- **Knowledge Summary**: Programming languages, mathematical foundations, algorithm knowledge
-- **Code Templates**: Common algorithm templates ready to use
-- **Algorithm Courses**: Multiple training camp and course materials
-- **Problem Collection**: Detailed solutions for 960+ algorithm problems
-
-#### 3. **Additional Learning Resources**
-- **零茶山艾府 + 代码随想录**: Topic-based problem-solving notes
-- **一些新题**: C++ implementations of new problems from Zuo's course
-
-#### 4. **Popular Problem Lists**
-- LeetCode Hot 100
-- Blind 75
-- Grind 75
-- LeetCode 150
-
 ---
 
-## 🚀 使用指南 | Usage Guide
-
-### 中文
+## 🚀 使用指南
 
 #### 推荐工具
 - **Obsidian**：建议使用 Obsidian 打开本仓库，以获得最佳阅读体验
@@ -165,68 +121,25 @@ This is a C++ implementation repository of algorithm study notes based on Zuo Ch
 - 理论课程部分建议直接观看视频，本仓库主要关注代码实现
 - 部分笔记仍在持续更新中
 
-### English
-
-#### Recommended Tools
-- **Obsidian**: It is recommended to open this repository with Obsidian for the best reading experience
-- **Required Plugins**:
-  - Recent Files
-  - Better Export PDF
-  - Excalidraw
-  - KaTeX to MathJax
-  - Mousewheel Image zoom
-  - Number Headings
-  - Outliner
-
-#### Suggested Learning Path
-1. **Beginners**: Start with `C++算法/入门笔记.md`
-2. **Systematic Learning**: Follow the path in `算法笔记/zuoAlgorithm/000. 学习大纲/`
-3. **Topic Focus**: Refer to topic notes in `C++算法/必备/`
-4. **Practice**: Combine with popular problem lists
-5. **Review**: Use code templates and knowledge summaries
-
-#### Notes
-- For LeetCode international problems, change `.com` to `.cn` for Chinese site access
-- Theoretical course parts are recommended to watch videos directly; this repository focuses on code implementations
-- Some notes are still being updated
-
 ---
 
-## 📚 课程资源 | Course Resources
-
-### 中文
+## 📚 课程资源
 
 **左程云算法课程**
 - B站链接：https://space.bilibili.com/8888480?spm_id_from=333.337.0.0
 
 本仓库基于左程云老师的算法课程，将 Java 版本的笔记改写为 C++ 版本，并按照新的课程顺序重新整理。
 
-### English
-
-**Zuo Cheng Yun's Algorithm Course**
-- Bilibili Link: https://space.bilibili.com/8888480?spm_id_from=333.337.0.0
-
-This repository is based on Zuo Cheng Yun's algorithm course, converting Java version notes to C++ and reorganizing according to the new course structure.
-
 ---
 
-## 🔄 更新日志 | Update Log
-
-### 中文
+## 🔄 更新日志
 
 - **2025.09.30 (US Time)**: 准备北美找工，题目难度提升，可能会刷公司对应的 tag/Acwing/左老四比较难的章节
 - **2025.03.02**: 调整学习重点，专注于 Hot 100 和代码随想录
 
-### English
-
-- **2025.09.30 (US Time)**: Preparing for North American job search, increasing problem difficulty, may practice company-specific tags/Acwing/more difficult chapters
-- **2025.03.02**: Adjusted learning focus, concentrating on Hot 100 and 代码随想录
-
 ---
 
-## 💡 改进说明 | Improvements
-
-### 中文
+## 💡 改进说明
 
 相比原始笔记，本仓库的主要改进包括：
 
@@ -235,20 +148,9 @@ This repository is based on Zuo Cheng Yun's algorithm course, converting Java ve
 3. **补充测试链接**：添加了所有应该有的测试链接，包括课上未提供的
 4. **C++ 代码实现**：所有代码均使用 C++ 实现，更适合 C++ 学习者
 
-### English
-
-Main improvements compared to original notes:
-
-1. **Reorganized by New Course Order**: Re-sorted according to the latest Bilibili course content
-2. **Added Corresponding Links**: Added links to corresponding Java version notes (Obsidian format)
-3. **Supplemented Test Links**: Added all necessary test links, including those not provided in class
-4. **C++ Code Implementation**: All code is implemented in C++, more suitable for C++ learners
-
 ---
 
-## 📝 贡献 | Contribution
-
-### 中文
+## 📝 贡献
 
 欢迎提交 Issue 和 Pull Request 来改进本仓库！
 
@@ -260,25 +162,11 @@ Main improvements compared to original notes:
 
 请随时提出！
 
-### English
-
-Issues and Pull Requests are welcome to improve this repository!
-
-If you find:
-- Code errors or optimization opportunities
-- Missing problem links or test cases
-- Errors or unclear parts in notes
-- New content that can be added
-
-Please feel free to contribute!
-
 ---
 
-## 📄 许可证 | License
+## 📄 许可证
 
 本仓库仅供学习交流使用。
-
-This repository is for educational purposes only.
 
 ---
 
@@ -286,13 +174,11 @@ This repository is for educational purposes only.
 
 如果这个仓库对你有帮助，欢迎 Star ⭐
 
-If this repository helps you, please consider giving it a Star ⭐
-
 ---
 
 <div align="center">
 
-**Happy Coding! 祝学习愉快！**
+**祝学习愉快！**
 
 Made with ❤️ for algorithm learners
 
