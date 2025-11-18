@@ -63,7 +63,8 @@
               "title": "图"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -138,8 +139,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5,
-    "collapsed": true
+    "width": 287.5
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -243,7 +243,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3e8b9dc3ee6c1551",
+  "active": "a703229f30d81e4c",
   "lastOpenFiles": [
     "Grind75.md",
     "Blind75.md",
