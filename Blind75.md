@@ -388,6 +388,34 @@ class Solution:
 
 参考glind75， 用栈
 
+
+```python
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        if not list1:
+            return list2
+        if not list2:
+            return list1
+        dummy =  ListNode(-1)
+        head = dummy
+        while list1 and list2:
+            if list1.val <= list2.val:
+                head.next = list1
+                list1 = list1.next
+                head = head.next
+            else:
+                head.next = list2
+                list2 = list2.next
+                head = head.next
+        if list1:
+            head.next = list1
+        if list2:
+            head.next = list2
+        return dummy.next
+```
+# [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
+不知道头是哪个，可以用dummy作为头部，代码更简单易懂
+
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
