@@ -63,8 +63,7 @@
               "title": "图"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -244,10 +243,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a703229f30d81e4c",
+  "active": "3e8b9dc3ee6c1551",
   "lastOpenFiles": [
-    "零茶山艾府+代码随想录/动态规划.md",
     "Grind75.md",
+    "零茶山艾府+代码随想录/单调队列.md",
+    "零茶山艾府+代码随想录/动态规划.md",
     "Blind75.md",
     "零茶山艾府+代码随想录/图.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
@@ -269,7 +269,6 @@
     "img/Pasted image 20251018173229.png",
     "img/Pasted image 20251018144157.png",
     "img/Pasted image 20251018143732.png",
-    "零茶山艾府+代码随想录/单调队列.md",
     "一些新题/287. 寻找重复数.md",
     "img/Pasted image 20251015203953.png",
     "C++代码.md",
