@@ -444,10 +444,10 @@ def mergeKLists(self, lists):
     return dummy.next
 ```
 
-# 
+# [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/)
 
 
-# 
+# [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
