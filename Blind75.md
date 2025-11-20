@@ -446,7 +446,21 @@ def mergeKLists(self, lists):
 
 # [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/)
 
+判断left 和 right 分别在最小值的哪一侧
+```python
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        left = 0
+        right = len(nums) - 1
+        while left <= right:
+            mid = (left+right) // 2
+            if nums[mid] > nums[-1]:
+                left = mid + 1
+            else:
+                right = mid -1
+        return nums[left]
 
+```
 # [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
