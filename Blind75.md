@@ -462,6 +462,33 @@ class Solution:
 
 ```
 # [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
+
+同上题，懒得写了，但就是一定要确定mid什么时候再目标值的左侧。确定好一侧之后，另外一侧就简单了
+```python
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        # left's left is target's left, right's right is target or target's right
+        left, right = 0, len(nums) -1
+        while left <= right:
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                return mid
+            if nums[0] <= nums[-1]:
+                if nums[mid] < target:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+            else:
+                if nums[mid] > target and target >= nums[0]:
+                    right = mid -1
+                elif nums[mid] < nums[0] and target >= nums[0]:
+                    right = mid -1
+                elif nums[mid] > target and nums[mid] < nums[0] and target < nums[0] :
+                    right = mid -1
+                else:
+                    left = mid + 1
+        return left if  left < len(nums) and nums[left] == target else -1
+```
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
