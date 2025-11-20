@@ -489,6 +489,9 @@ class Solution:
                     left = mid + 1
         return left if  left < len(nums) and nums[left] == target else -1
 ```
+
+
+# 
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
