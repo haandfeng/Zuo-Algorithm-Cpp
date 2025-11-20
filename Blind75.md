@@ -416,6 +416,38 @@ class Solution:
 # [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
 不知道头是哪个，可以用dummy作为头部，代码更简单易懂
 
+
+# [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
+
+要排序k个，用heap，i是为了防止直接比较对象
+```python
+import heapq
+
+def mergeKLists(self, lists):
+    dummy = ListNode(0)
+    cur = dummy
+    heap = []
+
+    # 把每个链表的头节点放入堆
+    for i, node in enumerate(lists):
+        if node:  # 只放非空链表
+            heapq.heappush(heap, (node.val, i, node))
+
+    # 不断从堆中弹出最小节点
+    while heap:
+        val, i, node = heapq.heappop(heap)
+        cur.next = node
+        cur = cur.next
+        if node.next:
+            heapq.heappush(heap, (node.next.val, i, node.next))
+
+    return dummy.next
+```
+
+# 
+
+
+# 
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
