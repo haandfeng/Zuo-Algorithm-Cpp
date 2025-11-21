@@ -491,7 +491,49 @@ class Solution:
 ```
 
 
-# 
+# [417. 太平洋大西洋水流问题](https://leetcode.cn/problems/pacific-atlantic-water-flow/)
+
+```python
+class Solution:
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        if not heights or not heights[0]:
+            return []
+        m, n = len(heights), len(heights[0])
+
+        pac = [[False] * n for _ in range(m)]
+        atl = [[False] * n for _ in range(m)]
+        dirs = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+
+        def dfs(r, c, vis):
+            if vis[r][c]:
+                return        # 已经访问过，直接退出
+            vis[r][c] = True
+            for dr, dc in dirs:
+                nr, nc = r + dr, c + dc
+                if 0 <= nr < m and 0 <= nc < n \
+                   and not vis[nr][nc] \
+                   and heights[nr][nc] >= heights[r][c]:
+                    dfs(nr, nc, vis)
+
+        # 太平洋：上边 + 左边
+        for i in range(m):
+            dfs(i, 0, pac)
+        for j in range(n):
+            dfs(0, j, pac)
+
+        # 大西洋：下边 + 右边
+        for i in range(m):
+            dfs(i, n - 1, atl)
+        for j in range(n):
+            dfs(m - 1, j, atl)
+
+        res = []
+        for i in range(m):
+            for j in range(n):
+                if pac[i][j] and atl[i][j]:
+                    res.append([i, j])
+        return res
+```
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
@@ -531,4 +573,7 @@ class Solution:
         return dfs(root)[1]
 ```
 
+
+
+# [100. 相同的树](https://leetcode.cn/problems/same-tree/)
 
