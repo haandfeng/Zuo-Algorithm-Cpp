@@ -610,7 +610,29 @@ class MedianFinder:
             return float(-self.leftMaxHeap[0])
 ```
 
-# [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
+
+# [424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/)
+仅仅是替换或者统计个数，不一定要考虑使用dp，能滑动窗口就滑动窗口解决
+
+```python
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        num = [0] * 26
+        n = len(s)
+        maxn = left = right = 0
+
+        while right < n:
+            num[ord(s[right]) - ord("A")] += 1
+            maxn = max(maxn, num[ord(s[right]) - ord("A")])
+            if right - left + 1 - maxn > k:
+                num[ord(s[left]) - ord("A")] -= 1
+                left += 1
+            right += 1
+        
+        return right - left
+```
+
+# [572. 另一棵树子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
 
