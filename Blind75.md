@@ -416,7 +416,30 @@ class Solution:
 # [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
 不知道头是哪个，可以用dummy作为头部，代码更简单易懂
 
-
+```python
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        if not list1:
+            return list2
+        if not list2:
+            return list1
+        dummy =  ListNode(-1)
+        head = dummy
+        while list1 and list2:
+            if list1.val <= list2.val:
+                head.next = list1
+                list1 = list1.next
+                head = head.next
+            else:
+                head.next = list2
+                list2 = list2.next
+                head = head.next
+        if list1:
+            head.next = list1
+        if list2:
+            head.next = list2
+        return dummy.next
+```
 # [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
 要排序k个，用heap，i是为了防止直接比较对象
@@ -533,7 +556,60 @@ class Solution:
                 if pac[i][j] and atl[i][j]:
                     res.append([i, j])
         return res
+
 ```
+
+
+
+# [295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream/)
+
+
+要先插入，再弹出，再插入，这样子才能可以保证向对顺序
+
+
+```python
+import heapq
+
+class MedianFinder:
+    def __init__(self):
+        # leftMaxHeap 保存较小的一半，作为大根堆（通过存负数）
+        self.leftMaxHeap = []   # store negatives, so heapq is min-heap of negatives => max-heap behavior
+        # rightMinHeap 保存较大的一半，作为普通小根堆
+        self.rightMinHeap = []  # store positives, min-heap
+
+    def addNum(self, num: int) -> None:
+        # 首先决定把 num 放到哪个堆：
+        # 如果 left 为空或 num <= 左堆的最大值（即 -leftMaxHeap[0]），放左堆；否则放右堆
+        if not self.leftMaxHeap or num <= -self.leftMaxHeap[0]:
+            heapq.heappush(self.leftMaxHeap, -num)
+        else:
+            heapq.heappush(self.rightMinHeap, num)
+
+        # 之后保持平衡：left 允许比 right 多 1，否则调整
+        if len(self.leftMaxHeap) > len(self.rightMinHeap) + 1:
+            # left 太大，移动一个到 right
+            val = -heapq.heappop(self.leftMaxHeap)
+            heapq.heappush(self.rightMinHeap, val)
+        elif len(self.rightMinHeap) > len(self.leftMaxHeap):
+            # right 太大，移动一个到 left
+            val = heapq.heappop(self.rightMinHeap)
+            heapq.heappush(self.leftMaxHeap, -val)
+
+    def findMedian(self) -> float:
+        # sizes
+        leftSize = len(self.leftMaxHeap)
+        rightSize = len(self.rightMinHeap)
+
+        if leftSize == rightSize:
+            if leftSize == 0:
+                return 0.0  # 或抛出异常，视你需求
+            # 两堆顶的平均
+            return (-self.leftMaxHeap[0] + self.rightMinHeap[0]) / 2.0
+        else:
+            # left 比 right 多 1 时中位数为 left 的最大值
+            return float(-self.leftMaxHeap[0])
+```
+
 # [572. 另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
@@ -576,4 +652,10 @@ class Solution:
 
 
 # [100. 相同的树](https://leetcode.cn/problems/same-tree/)
-
+```python
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if p is None or q is None:
+            return p is q  # 必须都是 None
+        return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+```
