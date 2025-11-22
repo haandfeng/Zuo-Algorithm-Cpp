@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -193,7 +193,7 @@
                 "file": "Blind75.md",
                 "followCursor": false,
                 "showSearch": true,
-                "searchQuery": "21"
+                "searchQuery": ""
               },
               "icon": "lucide-list",
               "title": "Blind75 的大纲"
@@ -230,10 +230,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "4b207f407ac5b678",
+  "active": "79dde5a2f12a60c3",
   "lastOpenFiles": [
-    "Blind75.md",
     "Grind75.md",
+    "Blind75.md",
     "零茶山艾府+代码随想录/单调队列.md",
     "零茶山艾府+代码随想录/图.md",
     "README_EN.md",

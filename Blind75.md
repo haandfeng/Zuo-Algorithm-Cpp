@@ -632,6 +632,9 @@ class Solution:
         return right - left
 ```
 
+# [297. 二叉树的序列化与反序列化](https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/)
+
+看glind75的吧
 # [572. 另一棵树子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
