@@ -2,7 +2,8 @@
 
 <div align="center">
 
-![Visitor Count](https://profile-counter.glitch.me/zuoAlgorithm/count.svg)
+
+![Profile Views](https://komarev.com/ghpvc/?username=zuoAlgorithm&color=58A6FF&style=for-the-badge&label=PROFILE+VIEWS)
 
 **基于左程云算法课程的 C++ 版本学习笔记与刷题记录**
 

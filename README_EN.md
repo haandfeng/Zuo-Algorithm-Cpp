@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Visitor Count](https://profile-counter.glitch.me/zuoAlgorithm/count.svg)
+![Profile Views](https://komarev.com/ghpvc/?username=zuoAlgorithm&color=58A6FF&style=for-the-badge&label=PROFILE+VIEWS)
 
 **C++ Implementation of Algorithm Study Notes Based on Zuo Cheng Yun's Algorithm Course**
 
