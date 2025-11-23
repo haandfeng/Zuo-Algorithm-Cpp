@@ -2340,13 +2340,7 @@ class Trie:
 
 # [721. 账户合并](https://leetcode.cn/problems/accounts-merge/)
 并查集不太会，先看下面的题目学习基础的思路
-
-## [947. 移除最多的同行或同列石头](https://leetcode.cn/problems/most-stones-removed-with-same-row-or-column/)
-
-https://leetcode.cn/problems/most-stones-removed-with-same-row-or-column/solutions/560610/tu-jie-bing-cha-ji-by-yexiso-nbcz/
-
-可以看看图片，我觉得我说不清楚
-
+看图吧，上面有说明白许多并查集的问题
 
 # [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/)
 
