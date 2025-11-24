@@ -139,8 +139,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5,
-    "collapsed": true
+    "width": 287.5
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -246,9 +245,11 @@
   },
   "active": "754454957ab765fb",
   "lastOpenFiles": [
+    "img/Pasted image 20251123215640.png",
+    "Leetcode150.md",
     "Blind75.md",
-    "Grind75.md",
     "零茶山艾府+代码随想录/图.md",
+    "Grind75.md",
     "零茶山艾府+代码随想录/单调队列.md",
     "README_EN.md",
     "零茶山艾府+代码随想录/动态规划.md",
@@ -276,10 +277,8 @@
     "C++代码.md",
     "零茶山艾府+代码随想录/数据结构.md",
     "img/Pasted image 20251013220202.png",
-    "Hot100.md",
     "未命名",
     "其他题",
-    "README.md",
     "img/Pasted image 20251004235157.png",
     "img/Pasted image 20251004235110.png",
     "img/Pasted image 20251002143407.png",
