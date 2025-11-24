@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -244,11 +244,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "4b207f407ac5b678",
+  "active": "754454957ab765fb",
   "lastOpenFiles": [
-    "零茶山艾府+代码随想录/图.md",
-    "Grind75.md",
     "Blind75.md",
+    "Grind75.md",
+    "零茶山艾府+代码随想录/图.md",
     "零茶山艾府+代码随想录/单调队列.md",
     "README_EN.md",
     "零茶山艾府+代码随想录/动态规划.md",
