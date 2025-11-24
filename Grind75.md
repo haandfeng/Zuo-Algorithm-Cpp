@@ -2407,6 +2407,23 @@ class Solution:
 
 # [224. 基本计算器](https://leetcode.cn/problems/basic-calculator/)
 
+我们可以使用两个栈 nums 和 ops 。
+
+nums ： 存放所有的数字
+ops ：存放所有的数字以外的操作，+/- 也看做是一种操作
+	然后从前往后做，对遍历到的字符做分情况讨论：
+	空格 : 跳过
+	( : 直接加入 ops 中，等待与之匹配的 )
+	) : 使用现有的 nums 和 ops 进行计算，直到遇到左边最近的一个左括号为止，计算结果放到 nums
+	数字 : 从当前位置开始继续往后取，将整一个连续数字整体取出，加入 nums
+	+/- : 需要将操作放入 ops 中。在放入之前先把栈内可以算的都算掉，使用现有的 nums 和 ops 进行计算，直到没有操作或者遇到左括号，计算结果放到 nums
+
+一些细节：
+由于第一个数可能是负数，为了减少边界判断。一个小技巧是先往 nums 添加一个 0
+为防止 () 内出现的首个字符为运算符，将所有的空格去掉，并将 (- 替换为 (0-，(+ 替换为 (0+（当然也可以不进行这样的预处理，将这个处理逻辑放到循环里去做）
+
+
+
 ## [227. 基本计算器 II](https://leetcode.cn/problems/basic-calculator-ii/)
 ## [772. Basic Calculator III](https://leetcode.com/problems/basic-calculator-iii/)
 
