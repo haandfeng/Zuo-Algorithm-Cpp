@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "未命名",
+      "path": "未命名.md"
+    },
+    {
+      "basename": "Blind75",
+      "path": "Blind75.md"
+    },
+    {
       "basename": "图",
       "path": "零茶山艾府+代码随想录/图.md"
     },
     {
       "basename": "Leetcode150",
       "path": "Leetcode150.md"
-    },
-    {
-      "basename": "Blind75",
-      "path": "Blind75.md"
     },
     {
       "basename": "Grind75",
@@ -195,10 +199,6 @@
     {
       "basename": "划分字母区间",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/划分字母区间.md"
-    },
-    {
-      "basename": "根据身高重建队列",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/根据身高重建队列.md"
     }
   ],
   "omittedPaths": [],
