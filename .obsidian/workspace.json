@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "零茶山艾府+代码随想录/单调队列.md",
+                "file": "Blind75.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "单调队列"
+              "title": "Blind75"
             }
           }
         ]
@@ -96,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5
+    "width": 287.5,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -203,12 +204,12 @@
   "active": "3e8b9dc3ee6c1551",
   "lastOpenFiles": [
     "Grind75.md",
+    "零茶山艾府+代码随想录/单调队列.md",
     "未命名.md",
     "Blind75.md",
     "零茶山艾府+代码随想录/图.md",
     "img/Pasted image 20251123215640.png",
     "Leetcode150.md",
-    "零茶山艾府+代码随想录/单调队列.md",
     "README_EN.md",
     "零茶山艾府+代码随想录/动态规划.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",

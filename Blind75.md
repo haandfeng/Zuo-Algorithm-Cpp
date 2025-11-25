@@ -634,7 +634,35 @@ class Solution:
 
 # [297. 二叉树的序列化与反序列化](https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/)
 
-看glind75的吧
+看grind75的吧
+
+
+# [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/)
+还可以继续优化的
+
+```java
+    class Solution {
+        public int lengthOfLIS(int[] nums) {
+            int [] dp = new int[nums.length];
+            Arrays.fill(dp,1);
+            int res = 1;
+            for (int i = 1; i < nums.length; i++) {
+                for (int j = i - 1; j >= 0; j--) {
+                    if (nums[i] > nums[j]){
+                        dp[i] = Math.max(dp[i],dp[j]+1);
+                        res = Math.max(res, dp[i]);
+                    }
+                }
+            }
+            return res;
+        }
+    }
+```
+
+
+# [48. 旋转图像](https://leetcode.cn/problems/rotate-image/)
+
+
 # [572. 另一棵树子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
