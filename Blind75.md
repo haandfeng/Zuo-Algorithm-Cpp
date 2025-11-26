@@ -821,6 +821,22 @@ class Solution {
     }
 }
 ```
+
+只要维护最右可达位置就好了，我写的并不优美
+```java
+class Solution {
+    public boolean canJump(int[] nums) {
+        int mx = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i > mx) { // 无法到达 i
+                return false;
+            }
+            mx = Math.max(mx, i + nums[i]); // 从 i 最右可以跳到 i + nums[i]
+        }
+        return true;
+    }
+}
+```
 # [572. 另一棵树子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
