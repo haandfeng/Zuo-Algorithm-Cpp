@@ -757,7 +757,33 @@ class Solution {
 ```
 
 # [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix/)
-
+```java
+class Solution {
+        public List<Integer> spiralOrder(int[][] matrix) {
+            int left = 0, right = matrix[0].length - 1,up = 0, down = matrix.length - 1;
+            List<Integer> res = new ArrayList<>();
+            while (left <= right && up <= down) {
+                for (int i = left; i <= right; i++) {
+                    res.add(matrix[up][i]);
+                }
+                if(++up > down) {return res;}
+                for (int i = up; i <= down; i++) {
+                    res.add(matrix[i][right]);
+                }
+                if(--right < left) {return res;}
+                for (int i = right; i >= left; i--) {
+                    res.add(matrix[down][i]);
+                }
+                if(--down < up) {return res;}
+                for (int i = down; i >= up; i--) {
+                    res.add(matrix[i][left]);
+                }
+                if(++left > right) {return res;}
+            }
+            return res;
+        }
+}
+```
 # [55. 跳跃游戏](https://leetcode.cn/problems/jump-game/)
 # [572. 另一棵树子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
