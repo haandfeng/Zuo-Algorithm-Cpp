@@ -708,7 +708,53 @@ class Solution {
 
 # [435. 无重叠区间](https://leetcode.cn/problems/non-overlapping-intervals/)
 
+```java
+class Solution {
+    public int eraseOverlapIntervals(int[][] intervals) {
+        Arrays.sort(intervals, (a,b)-> {
+            return Integer.compare(a[0],b[0]);
+        });
+        int count = 1;
+        for(int i = 1;i < intervals.length;i++){
+            if(intervals[i][0] < intervals[i-1][1]){
+                intervals[i][1] = Math.min(intervals[i - 1][1], intervals[i][1]);
+                continue;
+            }else{
+                count++;
+            }    
+        }
+        return intervals.length - count;
+    }
+}
+```
+
 # [53. 最大子数组和](https://leetcode.cn/problems/maximum-subarray/)
+
+```java
+class Solution {
+        public int maxSubArray(int[] nums) {
+            int[] prefixSum = new int[nums.length + 1];
+
+            // 计算前缀和
+            for (int i = 1; i <= nums.length; i++) {
+                prefixSum[i] = prefixSum[i - 1] + nums[i - 1];
+            }
+
+            int preMin = 0;                 // 当前最小前缀和
+            int maxSum = Integer.MIN_VALUE; // 最大子数组和
+
+            for (int i = 1; i <= nums.length; i++) {
+                // 用当前前缀和减去之前最小前缀和，更新最大值
+                maxSum = Math.max(maxSum, prefixSum[i] - preMin);
+
+                // 更新最小前缀和
+                preMin = Math.min(preMin, prefixSum[i]);
+            }
+
+            return maxSum;
+        }
+}
+```
 
 # [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix/)
 
