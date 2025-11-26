@@ -33,8 +33,7 @@
               "title": "版本说明 1.10.6"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -214,7 +213,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "02e4d66845928ac3",
+  "active": "3e8b9dc3ee6c1551",
   "lastOpenFiles": [
     "Grind75.md",
     "零茶山艾府+代码随想录/单调队列.md",
