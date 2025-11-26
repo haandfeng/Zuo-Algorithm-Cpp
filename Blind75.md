@@ -785,6 +785,42 @@ class Solution {
 }
 ```
 # [55. 跳跃游戏](https://leetcode.cn/problems/jump-game/)
+
+```java
+class Solution {
+    public boolean canJump(int[] nums) {
+        if (nums == null || nums.length == 0) return false;
+        // 长度为 1，起点就是终点
+        if (nums.length == 1) return true;
+
+        int nextRange = nums[0];
+        int cur = 0;
+
+        while (true) {
+            boolean updateFlag = false;
+            // 防止 i 走出数组范围
+            int limit = Math.min(nextRange, nums.length - 1);
+
+            for (int i = cur; i <= limit; i++) {
+                if (i + nums[i] > nextRange) {
+                    nextRange = i + nums[i];
+                    cur = i;
+                    updateFlag = true;
+                }
+                // 只要最远能到最后一个下标，就可以直接返回 true
+                if (nextRange >= nums.length - 1) {
+                    return true;
+                }
+            }
+
+            // 本轮完全没法扩展范围，说明被卡住了
+            if (!updateFlag) {
+                return false;
+            }
+        }
+    }
+}
+```
 # [572. 另一棵树子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy
