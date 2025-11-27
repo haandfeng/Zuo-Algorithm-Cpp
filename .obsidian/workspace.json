@@ -22,18 +22,31 @@
             }
           },
           {
-            "id": "02e4d66845928ac3",
+            "id": "542178a54f380ff8",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.10.6"
+                "file": "Grind75.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "版本说明 1.10.6"
+              "icon": "lucide-file",
+              "title": "Grind75"
+            }
+          },
+          {
+            "id": "ca1ca63d355fe53e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -213,12 +226,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3e8b9dc3ee6c1551",
+  "active": "ca1ca63d355fe53e",
   "lastOpenFiles": [
     "Grind75.md",
+    "Blind75.md",
     "零茶山艾府+代码随想录/单调队列.md",
     "未命名.md",
-    "Blind75.md",
     "零茶山艾府+代码随想录/图.md",
     "img/Pasted image 20251123215640.png",
     "Leetcode150.md",
