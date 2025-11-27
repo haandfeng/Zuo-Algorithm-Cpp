@@ -39,14 +39,18 @@
             "id": "ca1ca63d355fe53e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Blind75.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Blind75"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -79,7 +83,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "862",
+                "query": "第k大",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -100,7 +104,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
@@ -138,7 +143,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "零茶山艾府+代码随想录/动态规划.md",
+                "file": "Grind75.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -148,7 +153,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "动态规划 的反向链接列表"
+              "title": "Grind75 的反向链接列表"
             }
           },
           {
@@ -157,12 +162,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "零茶山艾府+代码随想录/动态规划.md",
+                "file": "Grind75.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "动态规划 的出链列表"
+              "title": "Grind75 的出链列表"
             }
           },
           {
@@ -186,13 +191,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blind75.md",
+                "file": "Grind75.md",
                 "followCursor": false,
                 "showSearch": true,
-                "searchQuery": ""
+                "searchQuery": "荷兰"
               },
               "icon": "lucide-list",
-              "title": "Blind75 的大纲"
+              "title": "Grind75 的大纲"
             }
           },
           {
@@ -210,8 +215,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 437.5,
-    "collapsed": true
+    "width": 437.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -226,10 +230,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "ca1ca63d355fe53e",
+  "active": "542178a54f380ff8",
   "lastOpenFiles": [
-    "Grind75.md",
     "Blind75.md",
+    "Grind75.md",
+    "C++算法/必备/快排.md",
+    "算法笔记/zuoAlgorithm/001. 难点重点照顾/_常考高频题.md",
+    "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md",
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在无序数组中求第K小的数.md",
+    "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/bfprt算法.md",
     "零茶山艾府+代码随想录/单调队列.md",
     "未命名.md",
     "零茶山艾府+代码随想录/图.md",
@@ -242,9 +251,6 @@
     "零茶山艾府+代码随想录/二叉树.md",
     "img/Pasted image 20251104234555.png",
     "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/03 归并排序与随机快排.md",
-    "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md",
-    "C++算法/必备/快排.md",
-    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在无序数组中求第K小的数.md",
     "零茶山艾府+代码随想录/哈希表.md",
     "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/荷兰国旗问题.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/荷兰国旗问题代码.md",
@@ -258,8 +264,6 @@
     "img/Pasted image 20251018143732.png",
     "一些新题/287. 寻找重复数.md",
     "img/Pasted image 20251015203953.png",
-    "C++代码.md",
-    "零茶山艾府+代码随想录/数据结构.md",
     "img/Pasted image 20251013220202.png",
     "未命名",
     "其他题",

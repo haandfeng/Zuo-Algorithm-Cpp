@@ -9,6 +9,26 @@
       "path": "Blind75.md"
     },
     {
+      "basename": "快排",
+      "path": "C++算法/必备/快排.md"
+    },
+    {
+      "basename": "_常考高频题",
+      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/_常考高频题.md"
+    },
+    {
+      "basename": "无序数组找第k小或第k大(重要!)",
+      "path": "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md"
+    },
+    {
+      "basename": "在无序数组中求第K小的数",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在无序数组中求第K小的数.md"
+    },
+    {
+      "basename": "bfprt算法",
+      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/bfprt算法.md"
+    },
+    {
       "basename": "单调队列",
       "path": "零茶山艾府+代码随想录/单调队列.md"
     },
@@ -43,18 +63,6 @@
     {
       "basename": "03 归并排序与随机快排",
       "path": "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/03 归并排序与随机快排.md"
-    },
-    {
-      "basename": "无序数组找第k小或第k大(重要!)",
-      "path": "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md"
-    },
-    {
-      "basename": "快排",
-      "path": "C++算法/必备/快排.md"
-    },
-    {
-      "basename": "在无序数组中求第K小的数",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在无序数组中求第K小的数.md"
     },
     {
       "basename": "哈希表",
@@ -191,14 +199,6 @@
     {
       "basename": "矩阵中的最小路径和",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/矩阵中的最小路径和.md"
-    },
-    {
-      "basename": "组合总和 Ⅳ",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/组合总和 Ⅳ.md"
-    },
-    {
-      "basename": "划分字母区间",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/划分字母区间.md"
     }
   ],
   "omittedPaths": [],
