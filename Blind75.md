@@ -837,6 +837,43 @@ class Solution {
     }
 }
 ```
+
+
+# [57. 插入区间](https://leetcode.cn/problems/insert-interval/)
+[[Grind75#[57. 插入区间](https //leetcode.cn/problems/insert-interval/)]]
+
+新写的一个思路，差不多，但就是要注意，要及时把merge好的区间塞回队列里面，不要影响相对顺序。
+```java
+class Solution {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        List<int[]> res = new ArrayList<>();
+
+        for (int[] cur : intervals) {
+            // 1. 当前区间在 newInterval 左边，完全没重叠
+            if (cur[1] < newInterval[0]) {
+                res.add(cur);
+            }
+            // 2. 当前区间在 newInterval 右边，完全没重叠
+            else if (cur[0] > newInterval[1]) {
+                // 先把合并好的 newInterval 放进去
+                res.add(newInterval);
+                // 再把当前区间当作“新的 newInterval”，后面继续处理
+                newInterval = cur;
+            }
+            // 3. 有重叠，合并到 newInterval 上
+            else {
+                newInterval[0] = Math.min(newInterval[0], cur[0]);
+                newInterval[1] = Math.max(newInterval[1], cur[1]);
+            }
+        }
+
+        // 循环结束后，把最后一个 newInterval 加进去
+        res.add(newInterval);
+
+        return res.toArray(new int[res.size()][]);
+    }
+}
+```
 # [572. 另一棵树子树](https://leetcode.cn/problems/subtree-of-another-tree/)
 
 需要根据高度判断是否相同的节点，并不easy。如果要优化时间复杂度的话，并不easy

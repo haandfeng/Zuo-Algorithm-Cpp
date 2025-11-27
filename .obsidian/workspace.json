@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -191,13 +191,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Grind75.md",
+                "file": "Blind75.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": "荷兰"
               },
               "icon": "lucide-list",
-              "title": "Grind75 的大纲"
+              "title": "Blind75 的大纲"
             }
           },
           {
@@ -230,10 +230,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "542178a54f380ff8",
+  "active": "ca1ca63d355fe53e",
   "lastOpenFiles": [
-    "Blind75.md",
     "Grind75.md",
+    "Blind75.md",
     "C++算法/必备/快排.md",
     "算法笔记/zuoAlgorithm/001. 难点重点照顾/_常考高频题.md",
     "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md",
