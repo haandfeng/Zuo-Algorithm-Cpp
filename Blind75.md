@@ -938,6 +938,34 @@ class Solution {
 
 
 
+# 
+分成几步看：
+	1.	n & 1
+	•	取出 n 的最低位（LSB）
+	•	结果要么是 0，要么是 1
+	2.	(n & 1) << (31 - i)
+	•	把这个最低位挪到目标位置：
+	•	当前是第 i 次循环：
+	•	第 0 次循环：最低位应该放到 最高位 位置 31
+	•	第 1 次循环：应该放到 30
+	•	…
+	•	所以右边 shift 的位置是 31 - i
+	3.	rev |= ...
+	•	用按位或，把这一个 bit 写进 rev 中对应的位置
+	•	因为每一轮写的都是不同位置，所以不会互相覆盖
+```java
+public class Solution {
+    public int reverseBits(int n) {
+        int rev = 0;
+        for (int i = 0; i < 32 && n != 0; ++i) {
+            rev |= (n & 1) << (31 - i);
+            n >>>= 1;
+        }
+        return rev;
+    }
+}
+```
+
 
 
 # [100. 相同的树](https://leetcode.cn/problems/same-tree/)
