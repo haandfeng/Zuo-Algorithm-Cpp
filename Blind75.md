@@ -967,10 +967,21 @@ public class Solution {
 ```
 
 
-# 
+# [191. 位1的个数](https://leetcode.cn/problems/number-of-1-bits/)
 
 
-
+```java
+    public int hammingWeight(int n) {
+        int cnt = 0;
+        for(int i = 0; i < 32; ++i){
+            if ((n & 1) == 1){
+                ++cnt;
+            }
+            n >>>= 1;
+        }
+        return cnt;
+    }
+```
 # [100. 相同的树](https://leetcode.cn/problems/same-tree/)
 ```python
 class Solution:
