@@ -1946,7 +1946,7 @@ class Solution:
 ```
 # [75. 颜色分类](https://leetcode.cn/problems/sort-colors)
 
-看看荷兰国旗，快排怎么写
+看看荷兰国旗，快排怎么写，感觉和快排不是一个东西
 
 ```python
 class Solution:
