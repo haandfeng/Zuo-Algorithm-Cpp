@@ -1105,7 +1105,37 @@ class Solution {
 
 
 
-# 
+# [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/)
+
+上面的代码每次都要花费 `O(|Σ|)` 的时间去判断是否涵盖，能不能优化到 `O(1)` 呢？  
+可以。用一个变量 `less` 维护目前子串中有 `less` 种字符的出现次数小于 `t` 中该字符的出现次数。
+具体来说（注意下面算法中的 `less` 变量）：
+1. 初始化 `ansLeft = -1, ansRight = m`，用来记录最短子串的左右端点，其中 `m` 是 `s` 的长度。
+2. 用一个哈希表（或者数组）`cntT` 统计 `t` 中每个字符的出现次数。
+3. 初始化 `left = 0`，以及一个空哈希表（或者数组）`cntS`，用来统计 `s` 的当前子串中每个字符的出现次数。
+4. 初始化 `less` 为 `t` 中不同字符的个数。
+5. 遍历 `s`，设当前枚举的子串右端点为 `right`，把字符 `c = s[right]` 的出现次数加一。  
+   加一后，如果 `cntS[c] = cntT[c]`，说明字符 `c` 的出现次数已经满足要求，把 `less` 减一。
+6. 如果 `less == 0`，说明 `cntS` 中每个字符及其出现次数都大于等于 `cntT` 中该字符的出现次数，那么：
+   a. 如果 `right - left < ansRight - ansLeft`，说明我们找到了更短的子串，更新  
+      `ansLeft = left, ansRight = right`。
+   b. 把字符 `x = s[left]` 的出现次数减一。减一前，如果 `cntS[x] = cntT[x]`，说明 `x` 的出现次数将不再满足要求，把 `less` 加一。
+
+   c. 左端点右移，即 `left += 1`。
+
+   d. 重复上面三步，直到 `less > 0`，即 `s` 中有字符的出现次数小于 `t` 中该字符的出现次数为止。
+
+7. 最后，如果 `ansLeft < 0`，说明没有找到符合要求的子串，返回空字符串；  
+   否则返回下标 `ansLeft` 到下标 `ansRight` 之间的子串。
+
+代码实现时，可以把 `cntS` 和 `cntT` 合并成一个 `cnt`，定义：
+
+```text
+cnt[x] := cntT[x] - cntS[x]
+```
+
+
+
 # [100. 相同的树](https://leetcode.cn/problems/same-tree/)
 ```python
 class Solution:
