@@ -1253,6 +1253,20 @@ class Solution {
     }
 }
 ```
+
+
+# [217. 存在重复元素](https://leetcode.cn/problems/contains-duplicate/)
+
+```java
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int x : nums) {
+            set.add(x);
+        }
+        return set.size() < nums.length;
+    }
+```
+
 # [100. 相同的树](https://leetcode.cn/problems/same-tree/)
 ```python
 class Solution:
