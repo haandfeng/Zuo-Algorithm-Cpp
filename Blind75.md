@@ -1256,7 +1256,60 @@ class Solution {
 
 # [208. 实现 Trie (前缀树)](https://leetcode.cn/problems/implement-trie-prefix-tree/)
 
+多一个is end 判断自己是否到叶节点
+```java
+class Trie {
+    class Node {
+        public char val;
+        public Node[] children;
+        public boolean isEnd;
 
+        public Node(char val) {
+            this.val = val;
+            this.children = new Node[26];
+            this.isEnd = false;
+        }
+    }
+
+    public Node root;
+
+    public Trie() {
+        root = new Node('\0');
+    }
+
+    public void insert(String word) {
+        Node cur = root;
+        for (char ch : word.toCharArray()) {
+            int idx = ch - 'a';
+            if (cur.children[idx] == null) {
+                cur.children[idx] = new Node(ch);
+            }
+            cur = cur.children[idx];   // ✅ 无论新旧都要往下走
+        }
+        cur.isEnd = true;              // ✅ 标记单词结束
+    }
+
+    public boolean search(String word) {
+        Node cur = root;
+        for (char ch : word.toCharArray()) {
+            int idx = ch - 'a';
+            if (cur.children[idx] == null) return false; // ✅ 遇到断路直接 false
+            cur = cur.children[idx];
+        }
+        return cur.isEnd; // ✅ 必须是完整单词
+    }
+
+    public boolean startsWith(String prefix) {
+        Node cur = root;
+        for (char ch : prefix.toCharArray()) {
+            int idx = ch - 'a';
+            if (cur.children[idx] == null) return false;
+            cur = cur.children[idx];
+        }
+        return true; // ✅ 只要路径存在即可
+    }
+}
+```
 
 # [217. 存在重复元素](https://leetcode.cn/problems/contains-duplicate/)
 
