@@ -1420,6 +1420,42 @@ class Solution {
     }
 ```
 
+
+
+# [347. 前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements/)
+
+看一下这里的java的用法
+```java
+import java.util.*;
+
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        // 1) 统计频次
+        Map<Integer, Integer> freq = new HashMap<>();
+        for (int x : nums) {
+            freq.put(x, freq.getOrDefault(x, 0) + 1);
+        }
+
+        // 2) 小顶堆：按频次升序（堆顶是“当前最不重要的”）
+        PriorityQueue<int[]> pq = new PriorityQueue<>(
+            (a, b) -> Integer.compare(a[1], b[1]) // a[1]=freq
+        );
+
+        // 3) 维护堆大小为 k
+        for (Map.Entry<Integer, Integer> e : freq.entrySet()) {
+            pq.offer(new int[]{e.getKey(), e.getValue()});
+            if (pq.size() > k) pq.poll();
+        }
+
+        // 4) 输出结果（顺序任意）
+        int[] res = new int[k];
+        for (int i = 0; i < k; i++) {
+            res[i] = pq.poll()[0];
+        }
+        return res;
+    }
+}
+```
 # [100. 相同的树](https://leetcode.cn/problems/same-tree/)
 ```python
 class Solution:
