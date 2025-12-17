@@ -1605,6 +1605,48 @@ class Solution {
     }
 }
 ```
+
+
+# [91. 解码方法](https://leetcode.cn/problems/decode-ways/)
+状态转移关系：
+1、s[i] 本身可能表示一个字母，这种情况下解码数量为
+numDecodings (s [0-i-1])
+2、s[i]  可能和 s［i- 1] 结合起来表示一个字母，这种情况下解码数量
+numDecodings (s [0-i-2])
+想计算解码方法的总数，可以写出如下状态转移方程：
+s[i] 
+
+
+注意初始化，但其实感觉他定义的不好，定义好dp1 和2就好了
+```java
+class Solution {
+    public int numDecodings(String s) {
+        int n = s.length();
+        if (n < 1) {
+            return 0;
+        }
+        // 定义：dp[i] 表示 s[0..i-1] 的解码方式数量
+        int[] dp = new int[n + 1];
+        // base case: s 为空或者 s 只有一个字符的情况
+        dp[0] = 1;
+        dp[1] = s.charAt(0) == '0' ? 0 : 1;
+
+        // 注意 dp 数组和 s 之间的索引偏移一位
+        for (int i = 2; i <= n; i++) {
+            char c = s.charAt(i-1), d = s.charAt(i-2);
+            if ('1' <= c && c <= '9') {
+                // 1. s[i] 本身可以作为一个字母
+                dp[i] += dp[i - 1];
+            }
+            if (d == '1' || d == '2' && c <= '6') {
+                // 2. s[i] 和 s[i - 1] 结合起来表示一个字母
+                dp[i] += dp[i - 2];
+            }
+        }
+        return dp[n];
+    }
+}
+```
 # [347. 前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements/)
 
 看一下这里的java的用法
