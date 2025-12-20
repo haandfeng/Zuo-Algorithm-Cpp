@@ -49,7 +49,8 @@
               "title": "Blind75"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -229,11 +230,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3e8b9dc3ee6c1551",
+  "active": "ca1ca63d355fe53e",
   "lastOpenFiles": [
+    "437. 路径总和 III.md",
     "img/Pasted image 20251219194408.png",
     "Blind75.md",
-    "437. 路径总和 III.md",
     "img/Pasted image 20251216234018.png",
     "img/Pasted image 20251216234012.png",
     "Grind75.md",
@@ -268,7 +269,6 @@
     "img/Pasted image 20251013220202.png",
     "未命名",
     "其他题",
-    "img/Pasted image 20251004235157.png",
     "零茶山艾府+代码随想录/未命名",
     "python语法",
     "TAG/TikTok",
