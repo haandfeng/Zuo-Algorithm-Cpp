@@ -1772,6 +1772,19 @@ class Solution {
 ```
 
 
+
+
+
+
+# [100. 相同的树](https://leetcode.cn/problems/same-tree/)
+```python
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if p is None or q is None:
+            return p is q  # 必须都是 None
+        return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+```
+
 # [226. 翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/)
 ```java
     class Solution {
@@ -1810,12 +1823,4 @@ class Solution {
             return dp[text1.length()][text2.length()];
         }
     }
-```
-# [100. 相同的树](https://leetcode.cn/problems/same-tree/)
-```python
-class Solution:
-    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        if p is None or q is None:
-            return p is q  # 必须都是 None
-        return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 ```
