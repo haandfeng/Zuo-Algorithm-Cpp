@@ -1751,7 +1751,24 @@ class Solution {
 
 
 ```java
-
+    class Solution {
+        TreeNode pre = null;
+        public boolean isValidBST(TreeNode root) {
+            if (root == null) return true;
+            boolean left = isValidBST(root.left);
+            if(!left){return false;}
+            if(pre == null){
+                pre = root;
+            }else{
+                if(pre.val >= root.val){
+                    return false;
+                }
+                pre = root;
+            }
+            return isValidBST(root.right);
+            
+        }
+    }
 ```
 
 # [100. 相同的树](https://leetcode.cn/problems/same-tree/)
