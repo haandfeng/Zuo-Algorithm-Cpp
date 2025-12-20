@@ -1771,6 +1771,29 @@ class Solution {
     }
 ```
 
+
+# [226. 翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/)
+```java
+    class Solution {
+        public TreeNode invertTree(TreeNode root) {
+            if (root == null) {
+                return null;
+            }
+            TreeNode temp = root.right;
+            root.right = root.left;
+            root.left = temp;
+            invertTree(root.left);
+            invertTree(root.right);
+            return root;
+        }
+    }
+```
+
+
+# [1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/)
+
+
+
 # [100. 相同的树](https://leetcode.cn/problems/same-tree/)
 ```python
 class Solution:
