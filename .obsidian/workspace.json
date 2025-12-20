@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blind75.md",
+                "file": "437. 路径总和 III.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Blind75"
+              "title": "437. 路径总和 III"
             }
           },
           {
@@ -103,8 +103,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "d160e0a61737f4e7",
@@ -125,7 +124,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5
+    "width": 287.5,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -231,10 +231,11 @@
   },
   "active": "3e8b9dc3ee6c1551",
   "lastOpenFiles": [
+    "Blind75.md",
+    "437. 路径总和 III.md",
     "img/Pasted image 20251216234018.png",
     "img/Pasted image 20251216234012.png",
     "Grind75.md",
-    "Blind75.md",
     "C++算法/必备/快排.md",
     "算法笔记/zuoAlgorithm/001. 难点重点照顾/_常考高频题.md",
     "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md",
@@ -268,7 +269,6 @@
     "未命名",
     "其他题",
     "img/Pasted image 20251004235157.png",
-    "img/Pasted image 20251004235110.png",
     "零茶山艾府+代码随想录/未命名",
     "python语法",
     "TAG/TikTok",
