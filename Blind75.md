@@ -1868,4 +1868,45 @@ class Solution:
         }
     }
 ```
-# 
+# [230. 二叉搜索树中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/)
+
+用多一个额外的变量，从底往中间统计就好了
+
+```java
+class Solution {
+    public int kthSmallest(TreeNode root, int k) {
+        // 利用 BST 的中序遍历特性
+        traverse(root, k);
+        return res;
+    }
+
+    // 记录结果
+    int res = 0;
+    // 记录当前元素的排名
+    int rank = 0;
+    void traverse(TreeNode root, int k) {
+        if (root == null) {
+            return;
+        }
+        traverse(root.left, k);
+        // 中序代码位置
+        rank++;
+        if (k == rank) {
+            // 找到第 k 小的元素
+            res = root.val;
+            return;
+        }
+
+        traverse(root.right, k);
+    }
+}
+```
+
+
+# [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
+
+
+# [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+
+
+# [235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)
