@@ -1905,7 +1905,14 @@ class Solution {
 
 # [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
 
-
+```java
+    class Solution {
+        public int maxDepth(TreeNode root) {
+            if(root == null){return 0;}
+            return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
+        }
+    }
+```
 # [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 
 
