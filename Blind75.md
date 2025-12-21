@@ -1916,4 +1916,30 @@ class Solution {
 # [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 
 
+记得存在递归的时候，要写递归的终止条件
+```java
+    class Solution {
+        public TreeNode buildTree(int[] preorder, int[] inorder) {
+            Map<Integer, Integer> inorderMap= new HashMap<>();
+            for(int i=0; i < inorder.length; ++i){
+                inorderMap.put(inorder[i], i);
+            }
+            return buildTreeHelper(inorderMap, preorder, inorder, 0, preorder.length-1, 0, inorder.length-1);
+        }
+
+        public TreeNode buildTreeHelper(Map<Integer,Integer>inorderMap, int[] preorder, int[] inorder, int lp, int rp, int li, int ri){
+            if (lp > rp) {
+                return null;
+            }
+            TreeNode root = new TreeNode(preorder[lp]);
+            int rootPos = inorderMap.get(preorder[lp]); // 1
+            int leftSize = rootPos - li;  // 1 - 0
+            // int rightSize = ri - rootPos; // 4 - 1
+            root.left = buildTreeHelper(inorderMap, preorder, inorder, lp+1, lp+leftSize, li, rootPos-1);
+            root.right = buildTreeHelper(inorderMap, preorder, inorder, lp+leftSize+1, rp, rootPos+1, ri);
+            return root;
+
+        }
+    }
+```
 # [235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)
