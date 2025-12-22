@@ -192,7 +192,7 @@ class Solution:
 事实上，我们可以将 nums 本身作为哈希表进行使用，将 nums[i] 放到其应该出现的位置（下标） nums[i] 上（ nums[i]<n ），然后对 nums 进行检查，找到满足 nums[i] !=i 的位置即是答案，如果不存在 nums[i] !=i 的位置，则 n 为答案。
 
 
-# 异或
+## 异或
 找缺失数、找出现一次数都是异或的经典应用。
 
 我们可以先求得 [1,n] 的异或和 ans，然后用 ans 对各个 nums[i] 进行异或。
@@ -1967,4 +1967,34 @@ class Solution {
         }
     }
 }
+```
+
+
+
+# [238. 除自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/) 
+
+```java
+    class Solution {
+        public int[] productExceptSelf(int[] nums) {
+            int[] preProduct = new int[nums.length+1];
+            int[] postProduct = new int[nums.length+1];
+            int[] ans = new int[nums.length];
+            preProduct[0] = 1;
+            postProduct[nums.length] = 1;
+            for(int i = 1; i<=nums.length; ++i){
+                preProduct[i] = preProduct[i-1] * nums[i-1];
+            }
+            for(int j=nums.length-1; j>=0; --j){
+                postProduct[j] = nums[j] * postProduct[j+1];
+            }
+            // [1,2,34]
+            // [1,1,2,6,24]
+            // [24,24,12,4,1]
+            for(int i = 0; i< nums.length; ++i){
+                ans[i] = preProduct[i] * postProduct[i+1];
+            }
+            return ans;
+            
+        }
+    }
 ```
