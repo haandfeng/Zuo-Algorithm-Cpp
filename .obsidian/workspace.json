@@ -8,34 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3e8b9dc3ee6c1551",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "437. 路径总和 III.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "437. 路径总和 III"
-            }
-          },
-          {
-            "id": "542178a54f380ff8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Grind75.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Grind75"
-            }
-          },
-          {
             "id": "ca1ca63d355fe53e",
             "type": "leaf",
             "state": {
@@ -49,8 +21,7 @@
               "title": "Blind75"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -233,11 +204,11 @@
   "active": "ca1ca63d355fe53e",
   "lastOpenFiles": [
     "437. 路径总和 III.md",
-    "img/Pasted image 20251219194408.png",
     "Blind75.md",
+    "Grind75.md",
+    "img/Pasted image 20251219194408.png",
     "img/Pasted image 20251216234018.png",
     "img/Pasted image 20251216234012.png",
-    "Grind75.md",
     "C++算法/必备/快排.md",
     "算法笔记/zuoAlgorithm/001. 难点重点照顾/_常考高频题.md",
     "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md",
