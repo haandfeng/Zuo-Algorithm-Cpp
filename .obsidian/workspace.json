@@ -20,8 +20,19 @@
               "icon": "lucide-file",
               "title": "Blind75"
             }
+          },
+          {
+            "id": "a8dd68b8398d5865",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -215,10 +226,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "ca1ca63d355fe53e",
+  "active": "a8dd68b8398d5865",
   "lastOpenFiles": [
-    "437. 路径总和 III.md",
     "Blind75.md",
+    "437. 路径总和 III.md",
     "Grind75.md",
     "img/Pasted image 20251219194408.png",
     "img/Pasted image 20251216234018.png",
