@@ -2901,6 +2901,7 @@ class Solution:
 # [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
 
 dp，定义好持有和不持有两个状态就好了，只能买一次，所以是不持有和第一次持有。状态的变化是
+
 持有  = Max（ 前一天持有  ， 前一天不持有=0 -price -> = -price）->  因为只能买卖一次，所以不能从不持有再变成持有,所以前一天不持有一定要是0
 不持有 = Max （前一天不持有， 前一天持有+price）
 
