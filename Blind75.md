@@ -2113,5 +2113,14 @@ class Solution:
 # [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
 
 ```python
-
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+            @cache
+            def dfs(n, hold):
+                if n < 0:
+                    return -inf if hold else 0
+                if hold:
+                    return max(-prices[n], dfs(n-1,True))
+                return max(dfs(n-1,False), dfs(n-1,True)+prices[n])
+            return dfs(len(prices)-1, False)
 ```

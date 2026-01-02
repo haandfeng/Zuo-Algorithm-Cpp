@@ -35,8 +35,7 @@
               "title": "Grind75"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -176,13 +175,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Grind75.md",
+                "file": "Blind75.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Grind75 的大纲"
+              "title": "Blind75 的大纲"
             }
           },
           {
@@ -230,11 +229,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "8ae1c634db482d70",
+  "active": "ca1ca63d355fe53e",
   "lastOpenFiles": [
+    "Grind75.md",
     "Blind75.md",
     "437. 路径总和 III.md",
-    "Grind75.md",
     "img/Pasted image 20251219194408.png",
     "img/Pasted image 20251216234018.png",
     "img/Pasted image 20251216234012.png",
