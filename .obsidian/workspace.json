@@ -161,13 +161,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Grind75.md",
+                "file": "Blind75.md",
                 "followCursor": false,
                 "showSearch": true,
-                "searchQuery": "荷兰"
+                "searchQuery": "252"
               },
               "icon": "lucide-list",
-              "title": "Grind75 的大纲"
+              "title": "Blind75 的大纲"
             }
           },
           {
@@ -199,7 +199,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 437.5,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {

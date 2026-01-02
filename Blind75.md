@@ -2024,8 +2024,9 @@ public boolean isAnagram(String s, String t) {
 
 
 # [371. 两整数之和](https://leetcode.cn/problems/sum-of-two-integers/)
-
-
+和 s =（非进位和 n ）+（进位 c ）。
+即可将 s=a+b 转化为：
+s=a+b⇒s=n+c
 ```python
 class Solution(object):
     def getSum(self, a, b):
@@ -2049,4 +2050,6 @@ class Solution(object):
 ```
 
 
+
+# [252. Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)
 
