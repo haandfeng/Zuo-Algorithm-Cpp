@@ -20,19 +20,8 @@
               "icon": "lucide-file",
               "title": "Blind75"
             }
-          },
-          {
-            "id": "a8dd68b8398d5865",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -226,7 +215,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a8dd68b8398d5865",
+  "active": "ca1ca63d355fe53e",
   "lastOpenFiles": [
     "Blind75.md",
     "437. 路径总和 III.md",
