@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "Blind75",
-      "path": "Blind75.md"
+      "basename": "Leetcode150",
+      "path": "Leetcode150.md"
+    },
+    {
+      "basename": "未命名 1",
+      "path": "未命名 1.md"
     },
     {
       "basename": "Grind75",
       "path": "Grind75.md"
+    },
+    {
+      "basename": "Blind75",
+      "path": "Blind75.md"
     },
     {
       "basename": "437. 路径总和 III",
@@ -43,10 +51,6 @@
     {
       "basename": "图",
       "path": "零茶山艾府+代码随想录/图.md"
-    },
-    {
-      "basename": "Leetcode150",
-      "path": "Leetcode150.md"
     },
     {
       "basename": "动态规划",
@@ -195,10 +199,6 @@
     {
       "basename": "不同的二叉搜索树",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/不同的二叉搜索树.md"
-    },
-    {
-      "basename": "N个无差别节点有多少种组成二叉数的方式",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/N个无差别节点有多少种组成二叉数的方式.md"
     }
   ],
   "omittedPaths": [],
