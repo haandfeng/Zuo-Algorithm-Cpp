@@ -2124,3 +2124,41 @@ class Solution:
                 return max(dfs(n-1,False), dfs(n-1,True)+prices[n])
             return dfs(len(prices)-1, False)
 ```
+
+
+# [124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/)
+
+```python
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        maxR = float('-inf') 
+        def dfs(root: Optional[TreeNode]):
+            nonlocal maxR
+            if root == None:
+                return 0
+            left = max(dfs(root.left), 0)
+            right = max(dfs(root.right), 0)
+            maxR = max(maxR, left + right + root.val)
+            return max(left, right) + root.val
+        dfs(root)
+        return maxR
+        
+```
+# [125. 验证回文串](https://leetcode.cn/problems/valid-palindrome/)
+
+```python
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        i, j = 0, len(s) - 1
+        while i < j:
+            if not s[i].isalnum():
+                i += 1
+            elif not s[j].isalnum():
+                j -= 1
+            elif s[i].lower() == s[j].lower():
+                i += 1
+                j -= 1
+            else:
+                return False
+        return True
+```

@@ -8,34 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ca1ca63d355fe53e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Blind75.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Blind75"
-            }
-          },
-          {
-            "id": "8ae1c634db482d70",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Grind75.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Grind75"
-            }
-          },
-          {
             "id": "d9fe49f359e77f90",
             "type": "leaf",
             "state": {
@@ -49,8 +21,7 @@
               "title": "Leetcode150"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -246,9 +217,10 @@
   },
   "active": "d9fe49f359e77f90",
   "lastOpenFiles": [
-    "未命名 1.md",
     "Grind75.md",
     "Blind75.md",
+    "Leetcode150.md",
+    "未命名 1.md",
     "437. 路径总和 III.md",
     "img/Pasted image 20251219194408.png",
     "img/Pasted image 20251216234018.png",
@@ -262,7 +234,6 @@
     "未命名.md",
     "零茶山艾府+代码随想录/图.md",
     "img/Pasted image 20251123215640.png",
-    "Leetcode150.md",
     "README_EN.md",
     "零茶山艾府+代码随想录/动态规划.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
