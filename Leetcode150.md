@@ -63,9 +63,16 @@ class Solution:
         return k
 ```
 # [80. 删除有序数组中的重复项 II](https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii/)
-
+看0x3f的思路
 ```python
-
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        stack_size = 2  # 栈的大小，前两个元素默认保留
+        for i in range(2, len(nums)):
+            if nums[i] != nums[stack_size - 2]:  # 和栈顶下方的元素比较
+                nums[stack_size] = nums[i]  # 入栈
+                stack_size += 1
+        return min(stack_size, len(nums))
 ```
 
 
