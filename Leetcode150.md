@@ -63,7 +63,7 @@ class Solution:
         return k
 ```
 # [80. 删除有序数组中的重复项 II](https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii/)
-看0x3f的思路
+看0x3f的思路，有一个空间模拟栈，主要还是覆盖就好了，然后用一个index模拟覆盖的位置
 ```python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
