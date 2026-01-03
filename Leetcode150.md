@@ -159,7 +159,23 @@ class Solution:
 
 # [45. 跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii/)
 
-
+```python
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        if len(nums) <=1:
+            return 0
+        mx = nums[0]
+        curPos = 0
+        step = 0
+        while mx < len(nums) - 1:
+            step+=1
+            for i in range(curPos+1,mx + 1):
+                if nums[i] + i > mx:
+                    curPos = i
+                    mx = nums[i] + i
+        step+=1
+        return step
+```
 # [274. H 指数](https://leetcode.cn/problems/h-index/)
 
 
