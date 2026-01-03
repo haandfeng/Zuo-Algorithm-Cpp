@@ -89,3 +89,112 @@ class Solution:
         # max(iterable, key=function) 从一个可迭代对象（如列表、字典的键等）中找出使得 function(x) 最大的那个元素。
         return max(counts.keys(), key=counts.get)
 ```
+
+# [189. 轮转数组](https://leetcode.cn/problems/rotate-array/)
+
+转多几次
+```python
+# 注：请勿使用切片，会产生额外空间
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        def reverse(i: int, j: int) -> None:
+            while i < j:
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 1
+                j -= 1
+
+        n = len(nums)
+        k %= n  # 轮转 k 次等于轮转 k % n 次
+        reverse(0, n - 1)
+        reverse(0, k - 1)
+        reverse(k, n - 1)
+```
+
+
+# [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+            @cache
+            def dfs(n, hold):
+                if n < 0:
+                    return -inf if hold else 0
+                if hold:
+                    return max(-prices[n], dfs(n-1,True))
+                return max(dfs(n-1,False), dfs(n-1,True)+prices[n])
+            return dfs(len(prices)-1, False)
+```
+
+
+# [122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        @cache
+        def dfs(n: int, hold: bool):
+            if n < 0:
+                return float('-inf') if hold else 0    
+            if hold:
+                return max(dfs(n-1,False)-prices[n], dfs(n-1,True))
+            return max(dfs(n-1,False),dfs(n-1,True)+prices[n])
+        return dfs(len(prices)-1, False)     
+            
+```
+# [55. 跳跃游戏](https://leetcode.cn/problems/jump-game/)
+
+```python
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        mx = 0
+        for i, jump in enumerate(nums):
+            if i > mx:  # 无法到达 i
+                return False
+            mx = max(mx, i + jump)  # 从 i 最右可以跳到 i + jump
+            if mx >= len(nums) - 1:  # 可以跳到 n-1
+                return True
+```
+
+
+
+# [45. 跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii/)
+
+
+# [274. H 指数](https://leetcode.cn/problems/h-index/)
+
+
+
+# [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        dp = [[float('-inf')] * 4 for _ in range (len(prices))]
+        # 0(1卖出)，2（3卖出）不持有， 1 ，3 持有
+        dp[0][0] = 0
+        dp[0][1] = -prices[0]
+        dp[0][2] = 0
+        dp[0][3] = -prices[0]
+        for i in range(1,len(prices)):
+            dp[i][0] = max(dp[i-1][0], dp[i-1][1]+prices[i])
+            dp[i][1] = max(dp[i-1][1], -prices[i])
+            dp[i][2] = max(dp[i-1][2], dp[i-1][3]+prices[i])
+            dp[i][3] = max(dp[i-1][3], dp[i-1][0]-prices[i])
+        return dp[len(prices)-1][2]
+```
+
+
+
+# [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
+```python
+class Solution:
+    def maxProfit(self, k: int, prices: List[int]) -> int:
+        n = len(prices)
+        f = [[[-inf] * 2 for _ in range(k + 2)] for _ in range(n + 1)]
+        for j in range(1, k + 2):
+            f[0][j][0] = 0
+        for i, p in enumerate(prices):
+            for j in range(1, k + 2):
+                f[i + 1][j][0] = max(f[i][j][0], f[i][j][1] + p)
+                f[i + 1][j][1] = max(f[i][j][1], f[i][j - 1][0] - p)
+        return f[-1][-1][0]
+```
