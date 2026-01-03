@@ -51,7 +51,17 @@ class Solution:
 ```
 
 
-
+0x3f的简单很多
+```python
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        k = 1
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i - 1]:  # nums[i] 不是重复项
+                nums[k] = nums[i]  # 保留 nums[i]
+                k += 1
+        return k
+```
 # [80. 删除有序数组中的重复项 II](https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii/)
 
 ```python
@@ -61,3 +71,14 @@ class Solution:
 
 
 # [169. 多数元素](https://leetcode.cn/problems/majority-element/) 
+
+```python
+class Solution:
+    def majorityElement(self, nums):
+        # Counter([1, 2, 2, 3, 3, 3])
+        # 输出：Counter({3: 3, 2: 2, 1: 1})
+        counts = collections.Counter(nums)
+        # counts.keys() 获取所有不同的元素（字典的键）。
+        # max(iterable, key=function) 从一个可迭代对象（如列表、字典的键等）中找出使得 function(x) 最大的那个元素。
+        return max(counts.keys(), key=counts.get)
+```
