@@ -234,7 +234,14 @@ class Solution:
 ## [275. H 指数 II](https://leetcode.cn/problems/h-index-ii/)
 有序直接二分, n是一共有n篇论文
 i 是 有 i+1篇文章 <= citations[i], 所以一共有n-i篇论文 >= citation[i]
-我需要找到最小的i, 让 n - i <= citation[i] =>第一次相遇，第一次不符合条件（h是有h篇文章，大于等于h引用）
+
+我们要找的是：
+	•	h = n - i
+	•	条件：citations[i] >= h 也就是 citations[i] >= n - i
+
+所以我们想找的是第一次“符合条件”的位置（最小 i 使得 citations[i] >= h）。->这样子就是有h篇文章，大于h引用
+
+
 
 
 # [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
