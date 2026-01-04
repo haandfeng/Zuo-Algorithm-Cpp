@@ -196,7 +196,9 @@ class Solution:
 	2.	i = 4，现在 s = 2 < i，继续循环。
 	3.	i = 3，现在 s = 3 >= i，返回 3。
 
-
+The value sk is defined as "the sum of all counts with citation ≥k" or "the number of papers having, at least, k citations". By definition of the h-index, the largest k with k≤sk
+​
+  is our answer.
 
 ```python
 class Solution:
