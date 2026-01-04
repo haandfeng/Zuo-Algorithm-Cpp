@@ -2369,7 +2369,7 @@ class Trie:
 # [721. 账户合并](https://leetcode.cn/problems/accounts-merge/)
 并查集不太会，先看下面的题目学习基础的思路
 看图吧，上面有说明白许多并查集的问题
-
+[[图]]
 # [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/)
 
 想不出收汁的办法

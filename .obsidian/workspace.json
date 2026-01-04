@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -244,8 +244,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "4e13127e40d93f40",
+  "active": "14cc98500c3f3e39",
   "lastOpenFiles": [
+    "零茶山艾府+代码随想录/图.md",
     "Grind75.md",
     "Leetcode150.md",
     "Blind75.md",
@@ -261,7 +262,6 @@
     "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/bfprt算法.md",
     "零茶山艾府+代码随想录/单调队列.md",
     "未命名.md",
-    "零茶山艾府+代码随想录/图.md",
     "img/Pasted image 20251123215640.png",
     "README_EN.md",
     "零茶山艾府+代码随想录/动态规划.md",
