@@ -232,6 +232,7 @@ class Solution:
 ```
 
 ## [275. H 指数 II](https://leetcode.cn/problems/h-index-ii/)
+还是要理解h，感觉没理解好
 有序直接二分, n是一共有n篇论文
 i 是 有 i+1篇文章 <= citations[i], 所以一共有n-i篇论文 >= citation[i]
 
@@ -242,7 +243,27 @@ i 是 有 i+1篇文章 <= citations[i], 所以一共有n-i篇论文 >= citation[
 所以我们想找的是第一次“符合条件”的位置（最小 i 使得 citations[i] >= h）。->这样子就是有h篇文章，大于h引用
 
 
+```python
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        if not citations or citations[-1] == 0:
+            return 0
+        # 左边（不满足）：citations[i] < n - i（说明 h 太大/引用太小，需要往右找更大的 citations）
+        # 右边（满足）：citations[i] >= n - i（说明已经够了，尝试往左找更小 i）
+        left = 0 
+        right = len(citations) - 1
+        # 1 2 100
 
+        while left <= right:
+            mid = (left + right) // 2
+            if len(citations) - mid > citations[mid]:
+                left = mid + 1
+            elif len(citations) - mid < citations[mid]:
+                right = mid - 1
+            else:
+                return len(citations) - mid
+        return len(citations) - left
+```
 
 # [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
 ```python
