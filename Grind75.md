@@ -2139,7 +2139,7 @@ class Solution:
             j -= 1
 
         # 循环结束后
-        # [ pivot | <=pivot | >=pivot ]
+        # [ pivot | < pivot | >=pivot ]
         #   ^             ^   ^     ^
         #   left          j   i     right
 
