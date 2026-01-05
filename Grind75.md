@@ -2103,7 +2103,7 @@ class Solution:
         """
         在子数组 [left, right] 中随机选择一个基准元素 pivot
         根据 pivot 重新排列子数组 [left, right]
-        重新排列后，< pivot 的元素都在 pivot 的左侧，>= pivot 的元素都在 pivot 的右侧
+        重新排列后，<= pivot 的元素都在 pivot 的左侧，>= pivot 的元素都在 pivot 的右侧
         返回 pivot 在重新排列后的 nums 中的下标
         特别地，如果子数组的所有元素都等于 pivot，我们会返回子数组的中心下标，避免退化
         """
@@ -2116,7 +2116,7 @@ class Solution:
 
         # 2. 相向双指针遍历子数组 [left + 1, right]
         # 循环不变量：在循环过程中，子数组的数据分布始终如下图
-        # [ pivot | < pivot | 尚未遍历 | >=pivot ]
+        # [ pivot | <=pivot | 尚未遍历 | >=pivot ]
         #   ^                 ^     ^         ^
         #   left              i     j         right
 
@@ -2139,7 +2139,7 @@ class Solution:
             j -= 1
 
         # 循环结束后
-        # [ pivot | < pivot | >=pivot ]
+        # [ pivot | <=pivot | >=pivot ]
         #   ^             ^   ^     ^
         #   left          j   i     right
 
