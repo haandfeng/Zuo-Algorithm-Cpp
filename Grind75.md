@@ -2517,6 +2517,76 @@ ops ：存放所有的数字以外的操作，+/- 也看做是一种操作
     
 ```
 
+```python
+from collections import deque
+
+class Solution:
+    def calculate(self, s: str) -> int:
+        # 存放所有的数字
+        nums = deque()
+        # 防止第一个数为负数，先加 0
+        nums.append(0)
+
+        # 去掉所有空格
+        s = s.replace(" ", "")
+        n = len(s)
+        cs = s
+
+        # 存放所有操作符 + / -
+        ops = deque()
+
+        i = 0
+        while i < n:
+            c = cs[i]
+
+            if c == '(':
+                ops.append(c)
+
+            elif c == ')':
+                # 计算到最近一个 '(' 为止
+                while ops:
+                    if ops[-1] != '(':
+                        self.calc(nums, ops)
+                    else:
+                        ops.pop()
+                        break
+
+            elif c.isdigit():
+                u = 0
+                j = i
+                # 读取连续数字
+                while j < n and cs[j].isdigit():
+                    u = u * 10 + (ord(cs[j]) - ord('0'))
+                    j += 1
+                nums.append(u)
+                i = j - 1
+
+            else:
+                # 处理一元 +/-（如 -1, (-2)）
+                if i > 0 and (cs[i - 1] == '(' or cs[i - 1] == '+' or cs[i - 1] == '-'):
+                    nums.append(0)
+
+                # 当前操作符入栈前，先把能算的算了
+                while ops and ops[-1] != '(':
+                    self.calc(nums, ops)
+                ops.append(c)
+
+            i += 1
+
+        # 处理剩余操作
+        while ops:
+            self.calc(nums, ops)
+
+        return nums[-1]
+
+    def calc(self, nums: deque, ops: deque) -> None:
+        if len(nums) < 2 or not ops:
+            return
+        b = nums.pop()
+        a = nums.pop()
+        op = ops.pop()
+        nums.append(a + b if op == '+' else a - b)
+```
 ## [227. 基本计算器 II](https://leetcode.cn/problems/basic-calculator-ii/)
 ## [772. Basic Calculator III](https://leetcode.com/problems/basic-calculator-iii/)
 
