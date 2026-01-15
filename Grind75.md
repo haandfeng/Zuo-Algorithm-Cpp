@@ -3381,3 +3381,33 @@ class Solution:
 # [135. 分发糖果](https://leetcode.cn/problems/candy/)
 
 我们先找从左到右满足最少的糖果，再找从右到左的，最后取两边都满足的值(就是最大值)。
+
+这个是更简单的思路
+https://leetcode.cn/problems/candy/solutions/3691236/fen-zu-xun-huan-ba-kun-nan-ti-bian-cheng-fo15/?envType=study-plan-v2&envId=top-interview-150
+
+```python
+class Solution:
+    def candy(self, ratings: List[int]) -> int:
+        ans = n = len(ratings)  # 先给每人分一个
+        i = 0
+        while i < n:
+            start = i - 1 if i > 0 and ratings[i - 1] < ratings[i] else i
+
+            # 找严格递增段
+            while i + 1 < n and ratings[i] < ratings[i + 1]:
+                i += 1
+            top = i  # 峰顶
+
+            # 找严格递减段
+            while i + 1 < n and ratings[i] > ratings[i + 1]:
+                i += 1
+
+            inc = top - start  # start 到 top 严格递增
+            dec = i - top      # top 到 i 严格递减
+            ans += (inc * (inc - 1) + dec * (dec - 1)) // 2 + max(inc, dec)
+            i += 1
+        return ans
+```
+# [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/)
+
+# [13. 罗马数字转整数](https://leetcode.cn/problems/roman-to-integer/)
