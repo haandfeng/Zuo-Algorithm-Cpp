@@ -223,7 +223,8 @@ class Solution:
 
 # [134. 加油站](https://leetcode.cn/problems/gas-station/)
 
-
+核心思路：“已经在谷底了，怎么走都是向上。
+找到最小的差
  
 
 # [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)

@@ -49,7 +49,8 @@
               "title": "图"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -189,13 +190,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Leetcode150.md",
+                "file": "Grind75.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Leetcode150 的大纲"
+              "title": "Grind75 的大纲"
             }
           },
           {
@@ -227,7 +228,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -242,10 +244,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "d9fe49f359e77f90",
+  "active": "14cc98500c3f3e39",
   "lastOpenFiles": [
-    "Grind75.md",
     "Leetcode150.md",
+    "Grind75.md",
     "零茶山艾府+代码随想录/图.md",
     "Blind75.md",
     "未命名 1.md",
