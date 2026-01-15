@@ -3379,3 +3379,5 @@ class Solution:
 
 
 # [135. 分发糖果](https://leetcode.cn/problems/candy/)
+
+我们先找从左到右满足最少的糖果，再找从右到左的，最后取两边都满足的值(就是最大值)。
