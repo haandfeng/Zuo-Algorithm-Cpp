@@ -3414,8 +3414,32 @@ class Solution:
 
 # [13. 罗马数字转整数](https://leetcode.cn/problems/roman-to-integer/)
 
+本题的难点在于处理六种特殊规则，但这六种特殊规则其实可以统一起来：
 
+设 x=s[i−1], y=s[i]，这是两个相邻的罗马数字。
+如果 x 的数值小于 y 的数值，那么 x 的数值要取相反数。例如 IV 中的 I 相当于 −1，CM 中的 C 相当于 −100。
 
+```python
+# 单个罗马数字到整数的映射
+ROMAN = {
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000,
+}
+
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        ans = 0
+        for x, y in pairwise(s):  # 遍历 s 中的相邻字符
+            x, y = ROMAN[x], ROMAN[y]
+            # 累加 x 或者 -x，这里 y 只是用来辅助判断 x 的正负
+            ans += x if x >= y else -x
+        return ans + ROMAN[s[-1]]  # 加上最后一个罗马数字
+```
 
 # [12. 整数转罗马数字](https://leetcode.cn/problems/integer-to-roman/)
 num 拆分成千位数、百位数、十位数和个位数，分别用罗马数字表示。
