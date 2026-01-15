@@ -3410,4 +3410,19 @@ class Solution:
 ```
 # [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/)
 
+
+
 # [13. 罗马数字转整数](https://leetcode.cn/problems/roman-to-integer/)
+
+
+
+
+# [12. 整数转罗马数字](https://leetcode.cn/problems/integer-to-roman/)
+
+
+# [58. 最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word/)
+
+
+
+
+
