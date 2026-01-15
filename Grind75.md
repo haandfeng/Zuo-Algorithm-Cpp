@@ -3418,8 +3418,20 @@ class Solution:
 
 
 # [12. 整数转罗马数字](https://leetcode.cn/problems/integer-to-roman/)
+num 拆分成千位数、百位数、十位数和个位数，分别用罗马数字表示。
 
+```python
+R = (
+    ("", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"),  # 个位
+    ("", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"),  # 十位
+    ("", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"),  # 百位
+    ("", "M", "MM", "MMM"),  # 千位
+)
 
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        return R[3][num // 1000] + R[2][num // 100 % 10] + R[1][num // 10 % 10] + R[0][num % 10]
+```
 # [58. 最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word/)
 
 
