@@ -213,6 +213,19 @@ class Solution:
             if s >= i:  # 说明有至少 i 篇论文的引用次数至少为 i
                 return i
 ```
+# [380. O(1) 时间插入、删除和获取随机元素](https://leetcode.cn/problems/insert-delete-getrandom-o1/)
+
+
+
+# [238. 除了自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/)
+
+
+
+# [134. 加油站](https://leetcode.cn/problems/gas-station/)
+
+
+ 
+
 # [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)
 ```python
 class Solution:
@@ -279,3 +292,6 @@ class Solution:
                 f[i + 1][j][1] = max(f[i][j][1], f[i][j - 1][0] - p)
         return f[-1][-1][0]
 ```
+
+
+

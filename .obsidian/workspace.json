@@ -49,8 +49,7 @@
               "title": "图"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -190,13 +189,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Grind75.md",
+                "file": "Leetcode150.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Grind75 的大纲"
+              "title": "Leetcode150 的大纲"
             }
           },
           {
@@ -232,8 +231,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:新建数据库": false,
       "obsidian-git:Open Git source control": false,
-      "bases:创建新数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -243,11 +242,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "63100d80b6c48a04",
+  "active": "d9fe49f359e77f90",
   "lastOpenFiles": [
+    "Grind75.md",
     "Leetcode150.md",
     "零茶山艾府+代码随想录/图.md",
-    "Grind75.md",
     "Blind75.md",
     "未命名 1.md",
     "437. 路径总和 III.md",
