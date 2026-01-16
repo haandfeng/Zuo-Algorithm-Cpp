@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "遍历数组",
+      "path": "labuladong/遍历数组.md"
+    },
+    {
       "basename": "Grind75",
       "path": "Grind75.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "整数拆分",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/整数拆分.md"
-    },
-    {
-      "basename": "不同的二叉搜索树",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/不同的二叉搜索树.md"
     }
   ],
   "omittedPaths": [],
