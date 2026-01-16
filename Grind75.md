@@ -3458,7 +3458,37 @@ class Solution:
 ```
 # [58. 最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word/)
 
+从后往前遍历, 从不是空格开始便利
+
+```python
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        start = False
+        cnt = 0
+        for i in range(len(s)-1, -1, -1):
+            ch = s[i]
+            if not start and ch != ' ':
+                cnt = 1
+                start = True
+            elif start and ch != ' ':
+                cnt += 1
+            elif start and ch == ' ':
+                return cnt
+        return cnt
+```
 
 
+# [14. 最长公共前缀](https://leetcode.cn/problems/longest-common-prefix/)
 
+简单题，简单做就好了，要意识到枚举第一个s0的数据
+```python
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        s0 = strs[0]
+        for j, c in enumerate(s0):  # 从左到右
+            for s in strs:  # 从上到下
+                if j == len(s) or s[j] != c:  # 这一列有字母缺失或者不同
+                    return s0[:j]  # 0 到 j-1 是公共前缀
+        return s0
 
+```
