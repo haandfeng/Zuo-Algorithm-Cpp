@@ -35,8 +35,7 @@
               "title": "遍历数组"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -230,10 +229,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "14cc98500c3f3e39",
+  "active": "d9fe49f359e77f90",
   "lastOpenFiles": [
-    "Grind75.md",
     "labuladong/遍历数组.md",
+    "Grind75.md",
     "labuladong",
     "Leetcode150.md",
     "零茶山艾府+代码随想录/图.md",
