@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "Blind75",
+      "path": "Blind75.md"
+    },
+    {
+      "basename": "_大厂刷题班题目汇总",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md"
+    },
+    {
+      "basename": "leetcode高频题目全讲(20)",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(20).md"
+    },
+    {
+      "basename": "LeetCode高频题",
+      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题.md"
+    },
+    {
       "basename": "Leetcode150",
       "path": "Leetcode150.md"
     },
@@ -15,10 +31,6 @@
     {
       "basename": "图",
       "path": "零茶山艾府+代码随想录/图.md"
-    },
-    {
-      "basename": "Blind75",
-      "path": "Blind75.md"
     },
     {
       "basename": "未命名 1",
@@ -187,18 +199,6 @@
     {
       "basename": "改写快排的方法求无序数组中的第k小",
       "path": "算法笔记/zuoAlgorithm/010. 代码模板/改写快排的方法求无序数组中的第k小.md"
-    },
-    {
-      "basename": "数组中的第K个最大元素",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/数组中的第K个最大元素.md"
-    },
-    {
-      "basename": "STL 类的使用笔记",
-      "path": "STL 类的使用笔记.md"
-    },
-    {
-      "basename": "整数拆分",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/整数拆分.md"
     }
   ],
   "omittedPaths": [],
