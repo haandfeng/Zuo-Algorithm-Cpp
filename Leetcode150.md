@@ -225,60 +225,27 @@ class Solution:
 
 核心思路：“已经在谷底了，怎么走都是向上。
 找到最小的差
- 
 
-# [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)
-```python
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        dp = [[float('-inf')] * 4 for _ in range (len(prices))]
-        # 0(1卖出)，2（3卖出）不持有， 1 ，3 持有
-        dp[0][0] = 0
-        dp[0][1] = -prices[0]
-        dp[0][2] = 0
-        dp[0][3] = -prices[0]
-        for i in range(1,len(prices)):
-            dp[i][0] = max(dp[i-1][0], dp[i-1][1]+prices[i])
-            dp[i][1] = max(dp[i-1][1], -prices[i])
-            dp[i][2] = max(dp[i-1][2], dp[i-1][3]+prices[i])
-            dp[i][3] = max(dp[i-1][3], dp[i-1][0]-prices[i])
-        return dp[len(prices)-1][2]
-```
+# [135. 分发糖果](https://leetcode.cn/problems/candy/)
 
-## [275. H 指数 II](https://leetcode.cn/problems/h-index-ii/)
-还是要理解h，感觉没理解好
-有序直接二分, n是一共有n篇论文
-i 是 有 i+1篇文章 <= citations[i], 所以一共有n-i篇论文 >= citation[i]
 
-我们要找的是：
-	•	h = n - i
-	•	条件：citations[i] >= h 也就是 citations[i] >= n - i
-
-所以我们想找的是第一次“符合条件”的位置（最小 i 使得 citations[i] >= h）。->这样子就是有h篇文章，大于h引用
+# [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/)
 
 
 ```python
 class Solution:
-    def hIndex(self, citations: List[int]) -> int:
-        if not citations or citations[-1] == 0:
-            return 0
-        # 左边（不满足）：citations[i] < n - i（说明 h 太大/引用太小，需要往右找更大的 citations）
-        # 右边（满足）：citations[i] >= n - i（说明已经够了，尝试往左找更小 i）
-        left = 0 
-        right = len(citations) - 1
-        # 1 2 100
-
-        while left <= right:
-            mid = (left + right) // 2
-            if len(citations) - mid > citations[mid]:
-                left = mid + 1
-            elif len(citations) - mid < citations[mid]:
-                right = mid - 1
-            else:
-                return len(citations) - mid
-        return len(citations) - left
+    def trap(self, height: List[int]) -> int:
+        stack = []
+        res = 0
+        for i, h in enumerate(height):
+            while stack and height[stack[-1]] < h:
+                mid = stack.pop()
+                if stack:
+                    left = stack[-1]
+                    res += (min(height[left],height[i]) - height[mid]) * (i-left-1)
+            stack.append(i)
+        return res
 ```
-
 # [28. 找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/)
 https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/solutions/575568/shua-chuan-lc-shuang-bai-po-su-jie-fa-km-tb86/?envType=study-plan-v2&envId=top-interview-150
 
@@ -333,6 +300,63 @@ class Solution:
         return res
 ```
 
+
+
+
+
+
+
+# [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        dp = [[float('-inf')] * 4 for _ in range (len(prices))]
+        # 0(1卖出)，2（3卖出）不持有， 1 ，3 持有
+        dp[0][0] = 0
+        dp[0][1] = -prices[0]
+        dp[0][2] = 0
+        dp[0][3] = -prices[0]
+        for i in range(1,len(prices)):
+            dp[i][0] = max(dp[i-1][0], dp[i-1][1]+prices[i])
+            dp[i][1] = max(dp[i-1][1], -prices[i])
+            dp[i][2] = max(dp[i-1][2], dp[i-1][3]+prices[i])
+            dp[i][3] = max(dp[i-1][3], dp[i-1][0]-prices[i])
+        return dp[len(prices)-1][2]
+```
+
+## [275. H 指数 II](https://leetcode.cn/problems/h-index-ii/)
+还是要理解h，感觉没理解好
+有序直接二分, n是一共有n篇论文
+i 是 有 i+1篇文章 <= citations[i], 所以一共有n-i篇论文 >= citation[i]
+
+我们要找的是：
+	•	h = n - i
+	•	条件：citations[i] >= h 也就是 citations[i] >= n - i
+
+所以我们想找的是第一次“符合条件”的位置（最小 i 使得 citations[i] >= h）。->这样子就是有h篇文章，大于h引用
+
+
+```python
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        if not citations or citations[-1] == 0:
+            return 0
+        # 左边（不满足）：citations[i] < n - i（说明 h 太大/引用太小，需要往右找更大的 citations）
+        # 右边（满足）：citations[i] >= n - i（说明已经够了，尝试往左找更小 i）
+        left = 0 
+        right = len(citations) - 1
+        # 1 2 100
+
+        while left <= right:
+            mid = (left + right) // 2
+            if len(citations) - mid > citations[mid]:
+                left = mid + 1
+            elif len(citations) - mid < citations[mid]:
+                right = mid - 1
+            else:
+                return len(citations) - mid
+        return len(citations) - left
+```
 # [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
 ```python
 class Solution:
