@@ -282,15 +282,93 @@ class Solution:
 
 
 
+
+
+# [135. 分发糖果](https://leetcode.cn/problems/candy/)
+
+
+
+
+
+# [12. 整数转罗马数字](https://leetcode.cn/problems/integer-to-roman/)
+
+直接对应好就好了
+```python
+R = (
+    ("", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"),  # 个位
+    ("", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"),  # 十位
+    ("", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"),  # 百位
+    ("", "M", "MM", "MMM"),  # 千位
+)
+
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        return R[3][num // 1000] + R[2][num // 100 % 10] + R[1][num // 10 % 10] + R[0][num % 10]
+```
+
+
+# [13. 罗马数字转整数](https://leetcode.cn/problems/roman-to-integer/)
+
+要看一次看两个单词，判断前后两个档次的大小，然后判断怎么累加
+```python
+# 单个罗马数字到整数的映射
+ROMAN = {
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000,
+}
+
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        ans = 0
+        for x, y in pairwise(s):  # 遍历 s 中的相邻字符
+            x, y = ROMAN[x], ROMAN[y]
+            # 累加 x 或者 -x，这里 y 只是用来辅助判断 x 的正负
+            ans += x if x >= y else -x
+        return ans + ROMAN[s[-1]]  # 加上最后一个罗马数字
+```
+# [14. 最长公共前缀](https://leetcode.cn/problems/longest-common-prefix/)
+直接把单词看成一行
+```python
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        s0 = strs[0]
+        for j, c in enumerate(s0):  # 从左到右
+            for s in strs:  # 从上到下
+                if j == len(s) or s[j] != c:  # 这一列有字母缺失或者不同
+                    return s0[:j]  # 0 到 j-1 是公共前缀
+        return s0
+```
+# [58. 最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word/)
+直接找到最后一个word然后统计就好了就好了, 最后一个单词夹在两个word中间
+
+```python
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        start = False
+        cnt = 0
+        for i in range(len(s)-1, -1, -1):
+            ch = s[i]
+            if not start and ch != ' ':
+                cnt = 1
+                start = True
+            elif start and ch != ' ':
+                cnt += 1
+            elif start and ch == ' ':
+                return cnt
+        return cnt
+```
+
 # [28. 找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/)
 
 https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/solutions/575568/shua-chuan-lc-shuang-bai-po-su-jie-fa-km-tb86/?envType=study-plan-v2&envId=top-interview-150
 
 看这个，学习KMP算法 + 卡玛
 主要是模式串的next数组O（m）的时间复杂度创建
-
-# [135. 分发糖果](https://leetcode.cn/problems/candy/)
-
 
 # [68. 文本左右对齐](https://leetcode.cn/problems/text-justification/)
 ```python
