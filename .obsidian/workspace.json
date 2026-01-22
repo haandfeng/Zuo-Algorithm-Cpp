@@ -22,6 +22,18 @@
             }
           },
           {
+            "id": "ae14a25688d89a52",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.5"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.11.5"
+            }
+          },
+          {
             "id": "14cc98500c3f3e39",
             "type": "leaf",
             "state": {
@@ -35,7 +47,8 @@
               "title": "遍历数组"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -230,7 +243,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "d9fe49f359e77f90",
+  "active": "ae14a25688d89a52",
   "lastOpenFiles": [
     "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(20).md",
