@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "单调栈",
+      "path": "零茶山艾府+代码随想录/单调栈.md"
+    },
+    {
+      "basename": "437. 路径总和 III",
+      "path": "437. 路径总和 III.md"
+    },
+    {
       "basename": "Leetcode150",
       "path": "Leetcode150.md"
     },
@@ -33,14 +41,6 @@
       "path": "零茶山艾府+代码随想录/图.md"
     },
     {
-      "basename": "未命名 1",
-      "path": "未命名 1.md"
-    },
-    {
-      "basename": "437. 路径总和 III",
-      "path": "437. 路径总和 III.md"
-    },
-    {
       "basename": "快排",
       "path": "C++算法/必备/快排.md"
     },
@@ -63,10 +63,6 @@
     {
       "basename": "单调队列",
       "path": "零茶山艾府+代码随想录/单调队列.md"
-    },
-    {
-      "basename": "未命名",
-      "path": "未命名.md"
     },
     {
       "basename": "动态规划",
@@ -109,16 +105,8 @@
       "path": "零茶山艾府+代码随想录/回溯.md"
     },
     {
-      "basename": "单调栈",
-      "path": "零茶山艾府+代码随想录/单调栈.md"
-    },
-    {
       "basename": "二分查找",
       "path": "零茶山艾府+代码随想录/二分查找.md"
-    },
-    {
-      "basename": "堆的构建",
-      "path": "堆的构建.md"
     },
     {
       "basename": "287. 寻找重复数",
