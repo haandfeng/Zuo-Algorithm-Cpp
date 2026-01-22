@@ -286,6 +286,53 @@ https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/
 主要是模式串的next数组O（m）的时间复杂度创建
 
 
+# [68. 文本左右对齐](https://leetcode.cn/problems/text-justification/)
+```python
+from typing import List
+
+class Solution:
+    def retLine(self, line: List[str], cnt: int, maxWidth: int, lastLine: bool) -> str:
+        s = ""
+        if not lastLine:
+            if len(line) > 1:
+                spaceNum = (maxWidth - cnt) // (len(line) - 1)
+                remainSpace = (maxWidth - cnt) % (len(line) - 1)
+
+                for i, word in enumerate(line):
+                    if i != len(line) - 1:  # 不是最后一个
+                        s += word + " " * spaceNum
+                        if remainSpace > 0:
+                            s += " "
+                            remainSpace -= 1
+                    else:
+                        s += word
+            else:
+                s = line[0] + " " * (maxWidth - len(line[0]))
+        else:
+            for i, word in enumerate(line):
+                if i != len(line) - 1:
+                    s += word + " "
+                else:
+                    s += word + " " * (maxWidth - cnt - (len(line) - 1))
+        return s
+
+    def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
+        cnt = 0
+        line = []
+        res = []
+
+        for word in words:
+            if cnt + len(word) + len(line) > maxWidth:
+                res.append(self.retLine(line, cnt, maxWidth, False))
+                cnt = 0
+                line = []
+            cnt += len(word)
+            line.append(word)
+
+        res.append(self.retLine(line, cnt, maxWidth, True))
+        return res
+```
+
 # [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
 ```python
 class Solution:

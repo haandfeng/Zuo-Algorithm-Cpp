@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Leetcode150",
+      "path": "Leetcode150.md"
+    },
+    {
+      "basename": "遍历数组",
+      "path": "labuladong/遍历数组.md"
+    },
+    {
       "basename": "Blind75",
       "path": "Blind75.md"
     },
@@ -15,14 +23,6 @@
     {
       "basename": "LeetCode高频题",
       "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题.md"
-    },
-    {
-      "basename": "Leetcode150",
-      "path": "Leetcode150.md"
-    },
-    {
-      "basename": "遍历数组",
-      "path": "labuladong/遍历数组.md"
     },
     {
       "basename": "Grind75",
