@@ -213,12 +213,45 @@ class Solution:
             if s >= i:  # 说明有至少 i 篇论文的引用次数至少为 i
                 return i
 ```
+## [275. H 指数 II](https://leetcode.cn/problems/h-index-ii/)
+还是要理解h，感觉没理解好
+有序直接二分, n是一共有n篇论文
+i 是 有 i+1篇文章 <= citations[i], 所以一共有n-i篇论文 >= citation[i]
+
+我们要找的是：
+	•	h = n - i
+	•	条件：citations[i] >= h 也就是 citations[i] >= n - i
+
+所以我们想找的是第一次“符合条件”的位置（最小 i 使得 citations[i] >= h）。->这样子就是有h篇文章，大于h引用
+
+
+```python
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        if not citations or citations[-1] == 0:
+            return 0
+        # 左边（不满足）：citations[i] < n - i（说明 h 太大/引用太小，需要往右找更大的 citations）
+        # 右边（满足）：citations[i] >= n - i（说明已经够了，尝试往左找更小 i）
+        left = 0 
+        right = len(citations) - 1
+        # 1 2 100
+
+        while left <= right:
+            mid = (left + right) // 2
+            if len(citations) - mid > citations[mid]:
+                left = mid + 1
+            elif len(citations) - mid < citations[mid]:
+                right = mid - 1
+            else:
+                return len(citations) - mid
+        return len(citations) - left
+```
+
 # [380. O(1) 时间插入、删除和获取随机元素](https://leetcode.cn/problems/insert-delete-getrandom-o1/)
 
 
 
 # [238. 除了自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/)
-
 
 
 # [134. 加油站](https://leetcode.cn/problems/gas-station/)
@@ -231,7 +264,7 @@ class Solution:
 
 # [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/)
 
-
+学习一下怎么描述怎么解法
 ```python
 class Solution:
     def trap(self, height: List[int]) -> int:
@@ -246,11 +279,16 @@ class Solution:
             stack.append(i)
         return res
 ```
+
+
+
 # [28. 找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/)
 https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/solutions/575568/shua-chuan-lc-shuang-bai-po-su-jie-fa-km-tb86/?envType=study-plan-v2&envId=top-interview-150
 
 看这个，学习KMP算法 + 卡玛
 主要是模式串的next数组O（m）的时间复杂度创建
+
+# [135. 分发糖果](https://leetcode.cn/problems/candy/)
 
 
 # [68. 文本左右对齐](https://leetcode.cn/problems/text-justification/)
@@ -324,39 +362,7 @@ class Solution:
         return dp[len(prices)-1][2]
 ```
 
-## [275. H 指数 II](https://leetcode.cn/problems/h-index-ii/)
-还是要理解h，感觉没理解好
-有序直接二分, n是一共有n篇论文
-i 是 有 i+1篇文章 <= citations[i], 所以一共有n-i篇论文 >= citation[i]
 
-我们要找的是：
-	•	h = n - i
-	•	条件：citations[i] >= h 也就是 citations[i] >= n - i
-
-所以我们想找的是第一次“符合条件”的位置（最小 i 使得 citations[i] >= h）。->这样子就是有h篇文章，大于h引用
-
-
-```python
-class Solution:
-    def hIndex(self, citations: List[int]) -> int:
-        if not citations or citations[-1] == 0:
-            return 0
-        # 左边（不满足）：citations[i] < n - i（说明 h 太大/引用太小，需要往右找更大的 citations）
-        # 右边（满足）：citations[i] >= n - i（说明已经够了，尝试往左找更小 i）
-        left = 0 
-        right = len(citations) - 1
-        # 1 2 100
-
-        while left <= right:
-            mid = (left + right) // 2
-            if len(citations) - mid > citations[mid]:
-                left = mid + 1
-            elif len(citations) - mid < citations[mid]:
-                right = mid - 1
-            else:
-                return len(citations) - mid
-        return len(citations) - left
-```
 # [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/)
 ```python
 class Solution:
