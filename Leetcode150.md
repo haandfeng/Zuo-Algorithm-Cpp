@@ -446,10 +446,45 @@ class Solution:
 
 
 
+# [22. 括号生成](https://leetcode.cn/problems/generate-parentheses/)
+
 
 # [678. 有效的括号字符串](https://leetcode.cn/problems/valid-parenthesis-string/)
+我是pop left,其实写的没那么好
+```python
+class Solution:
+    def checkValidString(self, s: str) -> bool:
+        stack = Deque()
+        deque = Deque()
+        for i in range(len(s)):
+            ch = s[i]
+            if ch == '(':
+                # store index to judge the * pos and the ( pos
+                stack.append(i)
+            elif ch == ')':
+                if stack:
+                    stack.pop()
+                # if not (, deque *
+                elif deque:
+                    # pop the left most, the most possible (greedy)
+                    deque.popleft()
+                else:
+                    return False
+            elif ch == "*":
+                deque.append(i)
+        while stack and deque:
+            # match the * from the leftmost ( to match leftmost *
+            leftmostPar = stack.popleft()
+            while deque and deque[0] < leftmostPar:
+                deque.popleft()
+            # pop left to match the left par
+            if deque:
+                deque.popleft()
+            else:
+                return False
+        return True if not stack else False
 
-
+```
 
 
 # [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)
