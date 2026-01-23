@@ -22,20 +22,6 @@
             }
           },
           {
-            "id": "14cc98500c3f3e39",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "labuladong/遍历数组.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "遍历数组"
-            }
-          },
-          {
             "id": "ecaab8359c41ff09",
             "type": "leaf",
             "state": {
@@ -64,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -242,7 +228,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -260,19 +247,19 @@
   "active": "d9749350c5bce49c",
   "lastOpenFiles": [
     "Leetcode150.md",
+    "labuladong/遍历数组.md",
+    "Blind75.md",
+    "零茶山艾府+代码随想录/图.md",
     "零茶山艾府+代码随想录/单调栈.md",
     "437. 路径总和 III.md",
     "堆的构建.md",
     "未命名 1.md",
     "未命名.md",
-    "labuladong/遍历数组.md",
-    "Blind75.md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md",
     "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(20).md",
     "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题.md",
     "Grind75.md",
     "labuladong",
-    "零茶山艾府+代码随想录/图.md",
     "img/Pasted image 20251219194408.png",
     "img/Pasted image 20251216234018.png",
     "img/Pasted image 20251216234012.png",
