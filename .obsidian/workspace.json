@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -190,13 +190,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "零茶山艾府+代码随想录/图.md",
+                "file": "Leetcode150.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "图 的大纲"
+              "title": "Leetcode150 的大纲"
             }
           },
           {
@@ -244,12 +244,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "d9749350c5bce49c",
+  "active": "ecaab8359c41ff09",
   "lastOpenFiles": [
+    "零茶山艾府+代码随想录/图.md",
     "Leetcode150.md",
     "labuladong/遍历数组.md",
     "Blind75.md",
-    "零茶山艾府+代码随想录/图.md",
     "零茶山艾府+代码随想录/单调栈.md",
     "437. 路径总和 III.md",
     "堆的构建.md",
