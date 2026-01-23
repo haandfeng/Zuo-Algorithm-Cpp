@@ -447,8 +447,33 @@ class Solution:
 
 
 # [22. 括号生成](https://leetcode.cn/problems/generate-parentheses/)
+反着来写给自己绕进去了，不要反着来写
+```python
+from typing import List
 
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        ans = []
+        path = [''] * (2 * n)
 
+        def dfs(leftCnt: int, rightCnt: int) -> None:
+            if leftCnt == 0 and rightCnt == 0:
+                ans.append(''.join(path))
+                return
+
+            idx = 2 * n - leftCnt - rightCnt
+
+            if leftCnt > 0:
+                path[idx] = '('
+                dfs(leftCnt - 1, rightCnt)
+
+            if rightCnt > leftCnt:   # 关键：保证不会出现 ) 比 ( 多的前缀
+                path[idx] = ')'
+                dfs(leftCnt, rightCnt - 1)
+
+        dfs(n, n)
+        return ans
+```
 # [678. 有效的括号字符串](https://leetcode.cn/problems/valid-parenthesis-string/)
 我是pop left,其实写的没那么好
 ```python
