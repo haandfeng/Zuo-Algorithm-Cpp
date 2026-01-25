@@ -160,7 +160,7 @@ int maxConnectionsPerTarget,
 List<String> requests
 )
 ```
-- `numTargets`: number of target Jupyter servers. Targets are **1based**.
+- `numTargets`: number of target Jupyter servers. Targets are **1 based**.
 - `maxConnectionsPerTarget`: perserver capacity. (Used in Part 4. If very large, assume “no limit”.)
 - `requests`: sequence of input lines in order received.
 
@@ -169,7 +169,7 @@ List<String> requests
 ## Request Line Schemas
 
 1. `action,connectionId,userId,objectId` — used for `CONNECT` and `DISCONNECT`
-2. `action,targetIndex` — used for `SHUTDOWN` (with 1based `targetIndex`)
+2. `action,targetIndex` — used for `SHUTDOWN` (with 1 based `targetIndex`)
 
 - `action ∈ { CONNECT, DISCONNECT, SHUTDOWN }`
 
