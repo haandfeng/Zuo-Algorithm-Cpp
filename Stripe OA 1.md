@@ -44,7 +44,9 @@ public class Result {
 
         // Per-target active connections in ascending connectionId order (for SHUTDOWN eviction).
         Map<Integer, TreeMap<String, Conn>> targetConns = new HashMap<>();
-        for (int t = 1; t <= numTargets; t++) targetConns.put(t, new TreeMap<>());
+        for (int t = 1; t <= numTargets; t++) {
+            targetConns.put(t, new TreeMap<>());
+        }
 
         // Choose a target for a connection under current state.
         // 1) If object is pinned: only that target is allowed, else reject.
@@ -52,14 +54,20 @@ public class Result {
         Function<Conn, Integer> choose = (Conn c) -> {
             Integer pinned = objToTarget.get(c.objId);
             if (pinned != null) {
-                if (available[pinned] && load[pinned] < cap) return pinned;
+                if (available[pinned] && load[pinned] < cap) {
+                    return pinned;
+                }
                 return -1; // pinned but not eligible => reject
             }
             int best = -1;
             int bestLoad = Integer.MAX_VALUE;
             for (int t = 1; t <= numTargets; t++) {
-                if (!available[t]) continue;
-                if (load[t] >= cap) continue;
+                if (!available[t]) {
+                    continue;
+                }
+                if (load[t] >= cap) {
+                    continue;
+                }
                 if (best == -1 || load[t] < bestLoad || (load[t] == bestLoad && t < best)) {
                     best = t;
                     bestLoad = load[t];
@@ -102,19 +110,23 @@ public class Result {
         // Process requests in order
         for (String raw : requests) {
             String[] parts = Arrays.stream(raw.split(","))
-                                   .map(String::trim)
-                                   .toArray(String[]::new);
+                    .map(String::trim)
+                    .toArray(String[]::new);
             String action = parts[0];
 
             if ("CONNECT".equals(action)) {
                 // CONNECT, connectionId, userId, objectId
                 Conn c = new Conn(parts[1], parts[2], parts[3], -1);
                 int t = choose.apply(c);
-                if (t != -1) attach.accept(c, t); // reject => no log
+                if (t != -1) {
+                    attach.accept(c, t);
+                } // reject => no log
             } else if ("DISCONNECT".equals(action)) {
                 // DISCONNECT, connectionId, userId, objectId
                 Conn c = byConnId.get(parts[1]);
-                if (c != null) detach.accept(c); // assumed valid & active
+                if (c != null) {
+                    detach.accept(c);
+                } // assumed valid & active
             } else if ("SHUTDOWN".equals(action)) {
                 // SHUTDOWN, targetIndex
                 int down = Integer.parseInt(parts[1]);
@@ -126,13 +138,17 @@ public class Result {
                 List<Conn> evicted = new ArrayList<>(targetConns.get(down).values());
 
                 // 3) Detach first to clear loads and affinities
-                for (Conn c : evicted) detach.accept(c);
+                for (Conn c : evicted) {
+                    detach.accept(c);
+                }
 
                 // 4) Reroute evicted connections in connId order with same rules (down target not eligible)
                 for (Conn c : evicted) {
                     c.target = -1; // reset (not strictly required, but clearer)
                     int t = choose.apply(c);
-                    if (t != -1) attach.accept(c, t); // only successful reroutes are logged
+                    if (t != -1) {
+                        attach.accept(c, t);
+                    } // only successful reroutes are logged
                 }
 
                 // 5) Target becomes available again after shutdown handling

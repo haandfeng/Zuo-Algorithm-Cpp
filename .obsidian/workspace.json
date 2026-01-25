@@ -78,7 +78,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -272,10 +272,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "3086bb03088b4aa8",
+  "active": "e9f24e64c75ff517",
   "lastOpenFiles": [
-    "Stripe OA2.md",
     "Stripe OA 1.md",
+    "Stripe OA2.md",
     "Leetcode150.md",
     "零茶山艾府+代码随想录/图.md",
     "labuladong/遍历数组.md",
