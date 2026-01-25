@@ -1,7 +1,6 @@
 ```java
 import java.util.*;
-
-public class Solution {
+public class Stripe {
 
     public static List<String> finalRiskScores(
             List<String> transaction_list,
@@ -51,15 +50,23 @@ public class Solution {
             long cur = score.get(merchant);
 
             // Rule 1
-            if (amount > minAmount) cur = cur * mul;
+            if (amount > minAmount) {
+                cur = cur * mul;
+            }
 
             // Rule 2
-            if (pairCount >= 4) cur = cur + add;
+            if (pairCount >= 4) {
+                cur = cur + add;
+            }
 
             // Rule 3
             if (pairHourCount >= 3) {
-                if (hour >= 12 && hour <= 17) cur = cur + penalty;
-                else if ((hour >= 9 && hour <= 11) || (hour >= 18 && hour <= 22)) cur = cur - penalty;
+                if (hour >= 12 && hour <= 17) {
+                    cur = cur + penalty;
+                }
+                else if ((hour >= 9 && hour <= 11) || (hour >= 18 && hour <= 22)) {
+                    cur = cur - penalty;
+                }
             }
 
             score.put(merchant, cur);
