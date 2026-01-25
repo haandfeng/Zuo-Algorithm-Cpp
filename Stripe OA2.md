@@ -1,6 +1,82 @@
-之前看地里Stripe的OA题目，基本都是几个Parts的，循序渐进的不算很难，结果我抽到的这个题目就一个Part，地里也没找到原题，硬着头皮写，读懂题目不难，但也花了大概15分钟，实现起来很容易乱，可能是我想复杂了，最后没写完，也没run Test，感觉寄了。
-做完立马回忆了一下题目，用AI整理了一下，如下：
-<hide=188>
+```java
+import java.util.*;
+
+public class Solution {
+
+    public static List<String> finalRiskScores(
+            List<String> transaction_list,
+            List<String> rules_list,
+            List<String> merchants_list
+    ) {
+        // 1) init scores in insertion order (so output is stable)
+        Map<String, Long> score = new LinkedHashMap<>();
+        for (String s : merchants_list) {
+            String[] p = s.split(",");
+            String mid = p[0].trim();
+            long init = Long.parseLong(p[1].trim());
+            score.put(mid, init);
+        }
+
+        // 2) state: counts
+        Map<String, Integer> cntPair = new HashMap<>();
+        Map<String, Integer> cntPairHour = new HashMap<>();
+
+        // 3) process transactions in order
+        for (int i = 0; i < transaction_list.size(); i++) {
+            String[] t = transaction_list.get(i).split(",");
+            String merchant = t[0].trim();
+            int amount = Integer.parseInt(t[1].trim());
+            String customer = t[2].trim();
+            int hour = Integer.parseInt(t[3].trim());
+
+            String[] r = rules_list.get(i).split(",");
+            int minAmount = Integer.parseInt(r[0].trim());
+            int mul = Integer.parseInt(r[1].trim());
+            int add = Integer.parseInt(r[2].trim());
+            int penalty = Integer.parseInt(r[3].trim());
+
+            // build keys
+            String pairKey = merchant + "|" + customer;
+            String pairHourKey = merchant + "|" + customer + "|" + hour;
+
+            // update counts (then use updated value)
+            int pairCount = cntPair.getOrDefault(pairKey, 0) + 1;
+            cntPair.put(pairKey, pairCount);
+
+            int pairHourCount = cntPairHour.getOrDefault(pairHourKey, 0) + 1;
+            cntPairHour.put(pairHourKey, pairHourCount);
+
+            // ensure score exists (if needed)
+            score.putIfAbsent(merchant, 0L);
+            long cur = score.get(merchant);
+
+            // Rule 1
+            if (amount > minAmount) cur = cur * mul;
+
+            // Rule 2
+            if (pairCount >= 4) cur = cur + add;
+
+            // Rule 3
+            if (pairHourCount >= 3) {
+                if (hour >= 12 && hour <= 17) cur = cur + penalty;
+                else if ((hour >= 9 && hour <= 11) || (hour >= 18 && hour <= 22)) cur = cur - penalty;
+            }
+
+            score.put(merchant, cur);
+        }
+
+        // 4) output
+        List<String> out = new ArrayList<>();
+        for (Map.Entry<String, Long> e : score.entrySet()) {
+            out.add(e.getKey() + "," + e.getValue());
+        }
+        return out;
+    }
+}
+```
+
+
+
 问题描述
 您需要设计一个风险评分系统，根据一系列交易数据和动态规则来计算商户的最终风险评分。系统处理三份输入数据：交易列表、规则列表和商户初始评分列表。您需要按顺序处理每笔交易，并根据以下规则更新相应商户的风险评分。
 

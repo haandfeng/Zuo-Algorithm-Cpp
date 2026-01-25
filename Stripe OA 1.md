@@ -1,4 +1,149 @@
-OA原题+Mark down笔记；求加米，谢谢！
+```java
+import java.util.*;
+import java.util.function.*;
+
+public class Result {
+
+    /** Active connection record. target is 1-based index of the server. */
+    static class Conn {
+        String connId, userId, objId;
+        int target; // 1-based
+        Conn(String c, String u, String o, int t) {
+            connId = c; userId = u; objId = o; target = t;
+        }
+    }
+
+    /**
+     * Simulates the load balancer routing logic.
+     *
+     * Returns a log entry for every successful connect (initial or reroute):
+     * "connectionId,userId,targetIndex"
+     */
+    public static List<String> route_request(int numTargets,
+                                             int maxConnectionsPerTarget,
+                                             List<String> requests) {
+        List<String> log = new ArrayList<>();
+
+        // Treat very large value as "no limit" (optional convenience).
+        // If caller passes something huge already, this is harmless.
+        int cap = maxConnectionsPerTarget <= 0 ? Integer.MAX_VALUE : maxConnectionsPerTarget;
+
+        // Active connection count per target (1..numTargets).
+        int[] load = new int[numTargets + 1];
+
+        // Availability: false only during a SHUTDOWN handling.
+        boolean[] available = new boolean[numTargets + 1];
+        Arrays.fill(available, true);
+
+        // Lookup active connection by connectionId.
+        Map<String, Conn> byConnId = new HashMap<>();
+
+        // Object affinity: objId -> pinned target (only while object has active conns)
+        Map<String, Integer> objToTarget = new HashMap<>();
+        Map<String, Integer> objCount = new HashMap<>();
+
+        // Per-target active connections in ascending connectionId order (for SHUTDOWN eviction).
+        Map<Integer, TreeMap<String, Conn>> targetConns = new HashMap<>();
+        for (int t = 1; t <= numTargets; t++) targetConns.put(t, new TreeMap<>());
+
+        // Choose a target for a connection under current state.
+        // 1) If object is pinned: only that target is allowed, else reject.
+        // 2) Otherwise pick least-loaded among eligible targets; tie by smaller index.
+        Function<Conn, Integer> choose = (Conn c) -> {
+            Integer pinned = objToTarget.get(c.objId);
+            if (pinned != null) {
+                if (available[pinned] && load[pinned] < cap) return pinned;
+                return -1; // pinned but not eligible => reject
+            }
+            int best = -1;
+            int bestLoad = Integer.MAX_VALUE;
+            for (int t = 1; t <= numTargets; t++) {
+                if (!available[t]) continue;
+                if (load[t] >= cap) continue;
+                if (best == -1 || load[t] < bestLoad || (load[t] == bestLoad && t < best)) {
+                    best = t;
+                    bestLoad = load[t];
+                }
+            }
+            return best; // -1 => reject
+        };
+
+        // Attach connection to target (updates all indexes and logs).
+        BiConsumer<Conn, Integer> attach = (Conn c, Integer t) -> {
+            c.target = t;
+            byConnId.put(c.connId, c);
+            targetConns.get(t).put(c.connId, c);
+            load[t]++;
+
+            // Set/maintain object affinity
+            objToTarget.putIfAbsent(c.objId, t);
+            objCount.put(c.objId, objCount.getOrDefault(c.objId, 0) + 1);
+
+            log.add(c.connId + "," + c.userId + "," + t);
+        };
+
+        // Detach connection from its current target (no log for disconnect).
+        Consumer<Conn> detach = (Conn c) -> {
+            int t = c.target;
+            if (targetConns.get(t).remove(c.connId) != null) {
+                load[t]--;
+            }
+            byConnId.remove(c.connId);
+
+            int left = objCount.getOrDefault(c.objId, 0) - 1;
+            if (left <= 0) {
+                objCount.remove(c.objId);
+                objToTarget.remove(c.objId);
+            } else {
+                objCount.put(c.objId, left);
+            }
+        };
+
+        // Process requests in order
+        for (String raw : requests) {
+            String[] parts = Arrays.stream(raw.split(","))
+                                   .map(String::trim)
+                                   .toArray(String[]::new);
+            String action = parts[0];
+
+            if ("CONNECT".equals(action)) {
+                // CONNECT, connectionId, userId, objectId
+                Conn c = new Conn(parts[1], parts[2], parts[3], -1);
+                int t = choose.apply(c);
+                if (t != -1) attach.accept(c, t); // reject => no log
+            } else if ("DISCONNECT".equals(action)) {
+                // DISCONNECT, connectionId, userId, objectId
+                Conn c = byConnId.get(parts[1]);
+                if (c != null) detach.accept(c); // assumed valid & active
+            } else if ("SHUTDOWN".equals(action)) {
+                // SHUTDOWN, targetIndex
+                int down = Integer.parseInt(parts[1]);
+
+                // 1) Mark target unavailable
+                available[down] = false;
+
+                // 2) Evict all active connections on that target in connId ascending order
+                List<Conn> evicted = new ArrayList<>(targetConns.get(down).values());
+
+                // 3) Detach first to clear loads and affinities
+                for (Conn c : evicted) detach.accept(c);
+
+                // 4) Reroute evicted connections in connId order with same rules (down target not eligible)
+                for (Conn c : evicted) {
+                    c.target = -1; // reset (not strictly required, but clearer)
+                    int t = choose.apply(c);
+                    if (t != -1) attach.accept(c, t); // only successful reroutes are logged
+                }
+
+                // 5) Target becomes available again after shutdown handling
+                available[down] = true;
+            }
+        }
+
+        return log;
+    }
+}
+```
 
 # Stripe “route_requests” — Load-balancing WebSocket Connections
 
