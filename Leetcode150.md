@@ -369,7 +369,7 @@ https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/
 
 看这个，学习KMP算法 + 卡玛
 主要是模式串的next数组O（m）的时间复杂度创建
-
+## [187. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/)
 # [68. 文本左右对齐](https://leetcode.cn/problems/text-justification/)
 ```python
 from typing import List
