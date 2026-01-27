@@ -1,12 +1,8 @@
 {
   "recentFiles": [
     {
-      "basename": "Stripe OA2",
-      "path": "Stripe OA2.md"
-    },
-    {
-      "basename": "Stripe OA 1",
-      "path": "Stripe OA 1.md"
+      "basename": "回溯算法",
+      "path": "labuladong/经典暴力搜索算法/回溯算法.md"
     },
     {
       "basename": "Leetcode150",
@@ -15,6 +11,14 @@
     {
       "basename": "图",
       "path": "零茶山艾府+代码随想录/图.md"
+    },
+    {
+      "basename": "Stripe OA2",
+      "path": "Stripe OA2.md"
+    },
+    {
+      "basename": "Stripe OA 1",
+      "path": "Stripe OA 1.md"
     },
     {
       "basename": "遍历数组",

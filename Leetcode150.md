@@ -548,3 +548,26 @@ class Solution:
 
 
 
+# [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/)
+经典的图问题，懒得做了
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        dirct = [[-1, 0], [1, 0], [0, 1], [0, - 1]]
+        ans = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == "1":
+                    ans+=1
+                    grid[i][j] = "2"
+                    q  = deque([[i,j]])
+                    while q:
+                        pos = q.popleft()
+                        for nx, ny in dirct:
+                            x = pos[0] + nx
+                            y = pos[1] + ny
+                            if x >= 0 and x < len(grid) and y >=0 and y < len(grid[0]) and grid[x][y] == "1":
+                                grid[x][y] = "2"
+                                q.append([x,y])
+        return ans
+```
