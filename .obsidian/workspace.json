@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +97,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "最小覆盖子串",
+                "query": "解数独",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -118,7 +118,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
@@ -257,12 +258,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "36126531818a8712",
+  "active": "ecaab8359c41ff09",
   "lastOpenFiles": [
+    "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/解数独.md",
+    "零茶山艾府+代码随想录/回溯.md",
     "labuladong/经典暴力搜索算法/回溯算法.md",
+    "零茶山艾府+代码随想录/图.md",
     "Leetcode150.md",
     "labuladong/经典暴力搜索算法",
-    "零茶山艾府+代码随想录/图.md",
     "Stripe OA2.md",
     "Stripe OA 1.md",
     "labuladong/遍历数组.md",
@@ -289,9 +292,7 @@
     "零茶山艾府+代码随想录/动态规划.md",
     "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md",
     "零茶山艾府+代码随想录/贪心.md",
-    "零茶山艾府+代码随想录/二叉树.md",
     "img/Pasted image 20251104234555.png",
-    "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/03 归并排序与随机快排.md",
     "img/Pasted image 20251018173229.png",
     "img/Pasted image 20251018144157.png",
     "img/Pasted image 20251018143732.png",

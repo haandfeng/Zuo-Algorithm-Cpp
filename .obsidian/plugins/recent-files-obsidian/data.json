@@ -1,16 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "Leetcode150",
-      "path": "Leetcode150.md"
-    },
-    {
       "basename": "回溯算法",
       "path": "labuladong/经典暴力搜索算法/回溯算法.md"
     },
     {
+      "basename": "解数独",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/解数独.md"
+    },
+    {
+      "basename": "回溯",
+      "path": "零茶山艾府+代码随想录/回溯.md"
+    },
+    {
       "basename": "图",
       "path": "零茶山艾府+代码随想录/图.md"
+    },
+    {
+      "basename": "Leetcode150",
+      "path": "Leetcode150.md"
     },
     {
       "basename": "Stripe OA2",
@@ -113,10 +121,6 @@
       "path": "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/荷兰国旗问题 1.md"
     },
     {
-      "basename": "回溯",
-      "path": "零茶山艾府+代码随想录/回溯.md"
-    },
-    {
       "basename": "二分查找",
       "path": "零茶山艾府+代码随想录/二分查找.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "字符串",
       "path": "零茶山艾府+代码随想录/字符串.md"
-    },
-    {
-      "basename": "改写快排的方法求无序数组中的第k小",
-      "path": "算法笔记/zuoAlgorithm/010. 代码模板/改写快排的方法求无序数组中的第k小.md"
     }
   ],
   "omittedPaths": [],
