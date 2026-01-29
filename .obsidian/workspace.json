@@ -118,8 +118,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "d160e0a61737f4e7",
@@ -258,7 +257,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "ecaab8359c41ff09",
+  "active": "0fdb3dc2c7a8cceb",
   "lastOpenFiles": [
     "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/解数独.md",
     "零茶山艾府+代码随想录/回溯.md",
