@@ -5,20 +5,24 @@
       "path": "labuladong/经典暴力搜索算法/回溯算法.md"
     },
     {
-      "basename": "解数独",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/解数独.md"
-    },
-    {
-      "basename": "回溯",
-      "path": "零茶山艾府+代码随想录/回溯.md"
-    },
-    {
       "basename": "图",
       "path": "零茶山艾府+代码随想录/图.md"
     },
     {
       "basename": "Leetcode150",
       "path": "Leetcode150.md"
+    },
+    {
+      "basename": "Blind75",
+      "path": "Blind75.md"
+    },
+    {
+      "basename": "解数独",
+      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/解数独.md"
+    },
+    {
+      "basename": "回溯",
+      "path": "零茶山艾府+代码随想录/回溯.md"
     },
     {
       "basename": "Stripe OA2",
@@ -31,10 +35,6 @@
     {
       "basename": "遍历数组",
       "path": "labuladong/遍历数组.md"
-    },
-    {
-      "basename": "Blind75",
-      "path": "Blind75.md"
     },
     {
       "basename": "单调栈",
