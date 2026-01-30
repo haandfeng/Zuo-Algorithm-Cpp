@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "回溯算法",
-      "path": "labuladong/经典暴力搜索算法/回溯算法.md"
+      "basename": "Leetcode150",
+      "path": "Leetcode150.md"
+    },
+    {
+      "basename": "DFS 图回溯 岛屿 相关 问题",
+      "path": "labuladong/经典暴力搜索算法/DFS 图回溯 岛屿 相关 问题.md"
+    },
+    {
+      "basename": "BFS",
+      "path": "labuladong/经典暴力搜索算法/BFS.md"
     },
     {
       "basename": "图",
@@ -11,10 +19,6 @@
     {
       "basename": "Blind75",
       "path": "Blind75.md"
-    },
-    {
-      "basename": "Leetcode150",
-      "path": "Leetcode150.md"
     },
     {
       "basename": "解数独",
@@ -195,10 +199,6 @@
     {
       "basename": "链表",
       "path": "零茶山艾府+代码随想录/链表.md"
-    },
-    {
-      "basename": "字符串",
-      "path": "零茶山艾府+代码随想录/字符串.md"
     }
   ],
   "omittedPaths": [],
