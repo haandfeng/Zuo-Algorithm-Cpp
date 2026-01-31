@@ -203,8 +203,30 @@ class CBTInserter:
 
 # [841. 钥匙和房间](https://leetcode.cn/problems/keys-and-rooms/)
 
+其实题目输入的就是一个 自 邻接表 形式表示的图。
+你心里那棵穷举树结构出来没有？如果没有的话，可以看一下可视化面板，BFS和 DFS 的解法代码可视化我都做了：
+```python
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        n = len(rooms)
+        # 记录访问过的房间
+        visited = [False] * n
+        queue = collections.deque([0])
+        # 在队列中加入起点，启动 BFS
+        visited[0] = True
 
+        while queue:
+            room = queue.popleft()
+            for nextRoom in rooms[room]:
+                if not visited[nextRoom]:
+                    visited[nextRoom] = True
+                    queue.append(nextRoom)
 
+        for v in visited:
+            if not v:
+                return False
+        return True
+```
 # [433. 最小基因变化](https://leetcode.cn/problems/minimum-genetic-mutation/)
 
 
