@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "labuladong/经典暴力搜索算法/图.md",
+                "file": "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "图"
+              "title": "图拓扑排序 和 并查集"
             }
           }
         ],
@@ -176,13 +176,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "labuladong/经典暴力搜索算法/图.md",
+                "file": "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "图 的大纲"
+              "title": "图拓扑排序 和 并查集 的大纲"
             }
           },
           {
@@ -232,7 +232,7 @@
   "active": "a67293981ae3123d",
   "lastOpenFiles": [
     "labuladong/经典暴力搜索算法/BFS.md",
-    "labuladong/经典暴力搜索算法/图.md",
+    "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
     "Leetcode150.md",
     "labuladong/经典暴力搜索算法/DFS 图回溯 岛屿 相关 问题.md",
     "Blind75.md",
