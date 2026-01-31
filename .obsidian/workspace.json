@@ -8,20 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "b4cb05afb6deb649",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "labuladong/经典暴力搜索算法/BFS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "BFS"
-            }
-          },
-          {
             "id": "a67293981ae3123d",
             "type": "leaf",
             "state": {
@@ -35,8 +21,7 @@
               "title": "图拓扑排序 和 并查集"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -69,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "解数独",
+                "query": "tag:#。",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -111,8 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5,
-    "collapsed": true
+    "width": 287.5
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -230,7 +214,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a67293981ae3123d",
+  "active": "0fdb3dc2c7a8cceb",
   "lastOpenFiles": [
     "labuladong/经典暴力搜索算法/BFS.md",
     "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
