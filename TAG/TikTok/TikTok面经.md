@@ -48,7 +48,7 @@ class Solution:
 
 # [207. Course Schedule](https://leetcode.cn/problems/course-schedule/)
 
-[[图#[207. 课程表](https //leetcode.cn/problems/course-schedule/)]]
+[[零茶山艾府+代码随想录/图#[207. 课程表](https //leetcode.cn/problems/course-schedule/)]]
 
 # [1490.克隆N叉树](https://leetcode.cn/problems/clone-n-ary-tree/description/)
 
@@ -59,7 +59,7 @@ class Solution:
 
 https://zhuanlan.zhihu.com/p/690215895
 # [210. Course Schedule II](https://leetcode.cn/problems/course-schedule-ii/)
-[[图#[210. 课程表 II](https //leetcode.cn/problems/course-schedule-ii/)]]
+[[零茶山艾府+代码随想录/图#[210. 课程表 II](https //leetcode.cn/problems/course-schedule-ii/)]]
 
 # [300. Longest Increasing Subsequence](https://leetcode.cn/problems/longest-increasing-subsequence/)
 
@@ -126,7 +126,7 @@ class Solution:
 
 # [695. Max Area of Island](https://leetcode.cn/problems/max-area-of-island/)
 
-[[图#[695. 岛屿的最大面积](https //leetcode.cn/problems/max-area-of-island/)]]
+[[零茶山艾府+代码随想录/图#[695. 岛屿的最大面积](https //leetcode.cn/problems/max-area-of-island/)]]
 
 # [69. Sqrt(x)](https://leetcode.cn/problems/sqrtx/)
 复习二分
@@ -149,7 +149,7 @@ class Solution:
 
 
 # [827. Making A Large Island](https://leetcode.cn/problems/making-a-large-island/)
-[[图#[827. 最大人工岛](https //leetcode.cn/problems/making-a-large-island/)]]
+[[零茶山艾府+代码随想录/图#[827. 最大人工岛](https //leetcode.cn/problems/making-a-large-island/)]]
 
 # [54. Spiral Matrix](https://leetcode.cn/problems/spiral-matrix/)
 [[双向双指针#[59. 螺旋矩阵 II](https //leetcode.cn/problems/spiral-matrix-ii/)]]

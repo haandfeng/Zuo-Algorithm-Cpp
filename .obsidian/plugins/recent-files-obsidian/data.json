@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "图",
+      "path": "labuladong/经典暴力搜索算法/图.md"
+    },
+    {
       "basename": "BFS",
       "path": "labuladong/经典暴力搜索算法/BFS.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Java代码",
       "path": "Java代码.md"
-    },
-    {
-      "basename": "链表",
-      "path": "零茶山艾府+代码随想录/链表.md"
     }
   ],
   "omittedPaths": [],
