@@ -163,7 +163,43 @@ class Solution:
             if cur.right is None or cur.left is None:
                 # 找到完全二叉树底部可以进行插入的节点
                 self.q.put(cur)
+看代码学习怎么维护
+```python
+class CBTInserter:
 
+    def __init__(self, root: TreeNode):
+        self.root = root
+        self.candidate = deque()
+
+        q = deque([root])
+        while q:
+            node = q.popleft()
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+            if not (node.left and node.right):
+                self.candidate.append(node)
+
+    def insert(self, val: int) -> int:
+        candidate_ = self.candidate
+
+        child = TreeNode(val)
+        node = candidate_[0]
+        ret = node.val
+        
+        if not node.left:
+            node.left = child
+        else:
+            node.right = child
+            candidate_.popleft()
+        
+        candidate_.append(child)
+        return ret
+
+    def get_root(self) -> TreeNode:
+        return self.root
+```
 
 # [841. 钥匙和房间](https://leetcode.cn/problems/keys-and-rooms/)
 
