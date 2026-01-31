@@ -96,7 +96,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5
+    "width": 287.5,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -214,7 +215,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "0fdb3dc2c7a8cceb",
+  "active": "a67293981ae3123d",
   "lastOpenFiles": [
     "labuladong/经典暴力搜索算法/BFS.md",
     "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
