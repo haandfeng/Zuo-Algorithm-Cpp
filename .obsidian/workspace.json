@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#。",
+                "query": "261",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +75,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
