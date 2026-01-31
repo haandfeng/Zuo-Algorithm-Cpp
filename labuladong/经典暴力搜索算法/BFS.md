@@ -159,7 +159,10 @@ class Solution:
 
 
 # [919. 完全二叉树插入器](https://leetcode.cn/problems/complete-binary-tree-inserter/)
-
+维护好队列的底部
+            if cur.right is None or cur.left is None:
+                # 找到完全二叉树底部可以进行插入的节点
+                self.q.put(cur)
 
 
 # [841. 钥匙和房间](https://leetcode.cn/problems/keys-and-rooms/)
