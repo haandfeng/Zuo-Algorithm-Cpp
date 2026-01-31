@@ -176,13 +176,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Leetcode150.md",
+                "file": "labuladong/经典暴力搜索算法/图.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Leetcode150 的大纲"
+              "title": "图 的大纲"
             }
           },
           {
@@ -214,8 +214,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
