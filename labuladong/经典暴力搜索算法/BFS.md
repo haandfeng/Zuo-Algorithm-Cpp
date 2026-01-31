@@ -91,7 +91,102 @@ class Solution:
 下面是完整的代码实现：
 
 ```python
+class Solution:
+    def openLock(self, deadends: List[str], target: str) -> int:
+        # 记录需要跳过的死亡密码
+        deads = set(deadends)
+        if "0000" in deads:
+            return -1
 
+        # 记录已经穷举过的密码，防止走回头路
+        visited = set()
+        q = collections.deque()
+        # 从起点开始启动广度优先搜索
+        step = 0
+        q.append("0000")
+        visited.add("0000")
+        
+        while q:
+            sz = len(q)
+            # 将当前队列中的所有节点向周围扩散
+            for _ in range(sz):
+                cur = q.popleft()
+                
+                # 判断是否到达终点
+                if cur == target:
+                    return step
+                
+                # 将一个节点的合法相邻节点加入队列
+                for neighbor in self.getNeighbors(cur):
+                    if neighbor not in visited and neighbor not in deads:
+                        q.append(neighbor)
+                        visited.add(neighbor)
+            
+            # 在这里增加步数
+            step += 1
+        
+        # 如果穷举完都没找到目标密码，那就是找不到了
+        return -1
+
+    # 将 s[j] 向上拨动一次
+    def plusOne(self, s: str, j: int) -> str:
+        ch = list(s)
+        if ch[j] == '9':
+            ch[j] = '0'
+        else:
+            ch[j] = chr(ord(ch[j]) + 1)
+        return ''.join(ch)
+
+    # 将 s[i] 向下拨动一次
+    def minusOne(self, s: str, j: int) -> str:
+        ch = list(s)
+        if ch[j] == '0':
+            ch[j] = '9'
+        else:
+            ch[j] = chr(ord(ch[j]) - 1)
+        return ''.join(ch)
+
+    # 将 s 的每一位向上拨动一次或向下拨动一次，8 种相邻密码
+    def getNeighbors(self, s: str) -> List[str]:
+        neighbors = []
+        for i in range(4):
+            neighbors.append(self.plusOne(s, i))
+            neighbors.append(self.minusOne(s, i))
+        return neighbors
 
 
 ```
+
+
+# [919. 完全二叉树插入器](https://leetcode.cn/problems/complete-binary-tree-inserter/)
+
+
+
+# [841. 钥匙和房间](https://leetcode.cn/problems/keys-and-rooms/)
+
+
+
+# [433. 最小基因变化](https://leetcode.cn/problems/minimum-genetic-mutation/)
+
+
+
+# [1926. 迷宫中离入口最近的出口](https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/)
+
+
+
+# [1091. 二进制矩阵中的最短路径](https://leetcode.cn/problems/shortest-path-in-binary-matrix/)
+
+
+
+#  [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/)
+
+
+
+# [721. 账户合并](https://leetcode.cn/problems/accounts-merge/)
+
+
+# [127. 单词接龙](https://leetcode.cn/problems/word-ladder/)
+
+
+
+# [365. 水壶问题](https://leetcode.cn/problems/water-and-jug-problem/)
