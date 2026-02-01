@@ -312,8 +312,46 @@ class Solution:
 
 # [1091. 二进制矩阵中的最短路径](https://leetcode.cn/problems/shortest-path-in-binary-matrix/)
 
+模版
+```python
+from collections import deque
 
+class Solution:
+    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        if grid[0][0] == 1 or grid[m - 1][n - 1] == 1:
+            return -1
 
+        q = deque()
+        # 需要记录走过的路径，避免死循环
+        visited = [[False] * n for _ in range(m)]
+
+        # 初始化队列，从 (0, 0) 出发
+        q.append((0, 0))
+        visited[0][0] = True
+        pathLen = 1
+
+        # 执行 BFS 算法框架，从值为 0 的坐标开始向八个方向扩散
+        dirs = [
+            (0, 1), (0, -1), (1, 0), (-1, 0),
+            (1, 1), (1, -1), (-1, 1), (-1, -1)
+        ]
+        while q:
+            sz = len(q)
+            for _ in range(sz):
+                x, y = q.popleft()
+                if x == m - 1 and y == n - 1:
+                    return pathLen
+                # 向八个方向扩散
+                for dx, dy in dirs:
+                    nextX, nextY = x + dx, y + dy
+                    # 确保相邻的这个坐标没有越界且值为 0 且之前没有走过
+                    if 0 <= nextX < m and 0 <= nextY < n and grid[nextX][nextY] == 0 and not visited[nextX][nextY]:
+                        q.append((nextX, nextY))
+                        visited[nextX][nextY] = True
+            pathLen += 1
+        return -1
+```
 #  [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/)
 
 
