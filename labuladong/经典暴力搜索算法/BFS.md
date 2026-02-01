@@ -229,7 +229,48 @@ class Solution:
 ```
 # [433. 最小基因变化](https://leetcode.cn/problems/minimum-genetic-mutation/)
 
+BFS就好了，没什么难度
+枚举所有可能的情况
+```python
+class Solution:
+    def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
+        bankSet = set(bank)
+        if endGene not in bankSet:
+            return -1
+        AGCT = ['A', 'G', 'C', 'T']
 
+        # BFS 标准框架
+        q = collections.deque()
+        visited = set()
+        q.append(startGene)
+        visited.add(startGene)
+        step = 0
+        while q:
+            sz = len(q)
+            for j in range(sz):
+                cur = q.popleft()
+                if cur == endGene:
+                    return step
+                # 向周围扩散
+                for newGene in self.getAllMutation(cur):
+                    if newGene not in visited and newGene in bankSet:
+                        q.append(newGene)
+                        visited.add(newGene)
+            step += 1
+        return -1
+
+    # 当前基因的每个位置都可以变异为 A/G/C/T，穷举所有可能的结构
+    def getAllMutation(self, gene: str) -> List[str]:
+        res = []
+        geneChars = list(gene)
+        for i in range(len(geneChars)):
+            oldChar = geneChars[i]
+            for newChar in ['A', 'G', 'C', 'T']:
+                geneChars[i] = newChar
+                res.append("".join(geneChars))
+            geneChars[i] = oldChar
+        return res
+```
 
 # [1926. 迷宫中离入口最近的出口](https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/)
 
