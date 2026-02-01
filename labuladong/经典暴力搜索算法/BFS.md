@@ -274,7 +274,41 @@ class Solution:
 
 # [1926. 迷宫中离入口最近的出口](https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/)
 
+```python
+from collections import deque
 
+class Solution:
+    def nearestExit(self, maze: List[List[str]], entrance: List[int]) -> int:
+        m = len(maze)
+        n = len(maze[0])
+        dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+        # BFS 算法的队列和 visited 数组
+        queue = deque()
+        visited = [[False for _ in range(n)] for _ in range(m)]
+        queue.append(entrance)
+        visited[entrance[0]][entrance[1]] = True
+        # 启动 BFS 算法从 entrance 开始像四周扩散
+        step = 0
+        while queue:
+            sz = len(queue)
+            step += 1
+            # 扩散当前队列中的所有节点
+            for i in range(sz):
+                cur = queue.popleft()
+                # 每个节点都会尝试向上下左右四个方向扩展一步
+                for dir in dirs:
+                    x = cur[0] + dir[0]
+                    y = cur[1] + dir[1]
+                    if x < 0 or x >= m or y < 0 or y >= n or visited[x][y] or maze[x][y] == '+':
+                        continue
+                    if x == 0 or x == m - 1 or y == 0 or y == n - 1:
+                        # 走到边界（出口）
+                        return step
+                    visited[x][y] = True
+                    queue.append([x, y])
+        return -1
+```
 
 # [1091. 二进制矩阵中的最短路径](https://leetcode.cn/problems/shortest-path-in-binary-matrix/)
 
