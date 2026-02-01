@@ -354,8 +354,49 @@ class Solution:
 ```
 #  [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/)
 
+简单题
+```python
+from collections import deque
 
+class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        queue = deque()
+        m, n = len(grid), len(grid[0])
+        # 把所有腐烂的橘子加入队列，作为 BFS 的起点
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 2:
+                    queue.append((i, j))
+        
+        # 方向数组，方便计算上下左右的坐标
+        dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
+        # BFS 算法框架
+        step = 0
+        while queue:
+            sz = len(queue)
+            # 取出当前层所有节点，往四周扩散一层
+            for _ in range(sz):
+                point = queue.popleft()
+                for dir in dirs:
+                    x, y = point[0] + dir[0], point[1] + dir[1]
+                    if 0 <= x < m and 0 <= y < n and grid[x][y] == 1:
+                        grid[x][y] = 2
+                        queue.append((x, y))
+            # 扩散步数加一
+            step += 1
+
+        # 检查是否还有新鲜橘子
+        for i in range(m):
+            for j in range(n):
+                # 有新鲜橘子，返回 -1
+                if grid[i][j] == 1:
+                    return -1
+
+        # 注意，BFS 扩散的步数需要减一才是最终结果
+        # 你可以用最简单的情况，比方说只有一个腐烂橘子的情况验证一下
+        return step - 1 if step else 0
+```
 # [721. 账户合并](https://leetcode.cn/problems/accounts-merge/)
 
 
