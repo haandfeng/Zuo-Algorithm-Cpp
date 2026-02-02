@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "双指针-数组",
+      "path": "labuladong/核心刷题框架/双指针-数组.md"
+    },
+    {
       "basename": "二维数组的花式遍历",
       "path": "labuladong/经典数据结构算法/二维数组的花式遍历.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "打印一个字符串的全部排列，要求不要出现重复的排列",
       "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列，要求不要出现重复的排列.md"
-    },
-    {
-      "basename": "C++ 语法",
-      "path": "C++ 语法.md"
     }
   ],
   "omittedPaths": [],

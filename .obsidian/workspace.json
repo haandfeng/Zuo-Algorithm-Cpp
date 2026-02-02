@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "labuladong/经典数据结构算法/二维数组的花式遍历.md",
+                "file": "labuladong/核心刷题框架/双指针-数组.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "二维数组的花式遍历"
+              "title": "双指针-数组"
             }
           },
           {
@@ -124,8 +124,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5,
-    "collapsed": true
+    "width": 287.5
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -245,9 +244,12 @@
   },
   "active": "a67293981ae3123d",
   "lastOpenFiles": [
+    "labuladong/经典数据结构算法/二维数组的花式遍历.md",
+    "labuladong/核心刷题框架/双指针-数组.md",
+    "labuladong/核心刷题框架",
+    "labuladong/未命名.canvas",
     "labuladong/经典数据结构算法",
     "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
-    "labuladong/经典数据结构算法/二维数组的花式遍历.md",
     "labuladong/经典暴力搜索算法/BFS.md",
     "零茶山艾府+代码随想录/图.md",
     "Grind75.md",
@@ -289,8 +291,6 @@
     "TAG/TikTok",
     "TAG",
     "零茶山艾府+代码随想录",
-    "C++算法/必备",
-    "300. 算法题目分类总结",
     "未命名.canvas"
   ]
 }
