@@ -402,7 +402,7 @@ class Solution:
 
 并查集直接是人就好了，如果这个邮箱ID号出现过（用一个map统计），就把那两个人连在一起
 
-最后每个邮箱号通过一个map，找到对应的人（UF）找，然后重新翻到一个map里，
+最后每个邮箱号通过一个map，找到对应的人（UF）找，然后重新翻到一个map里（人ID），所有邮箱，排序，就好了
 
 
 # [127. 单词接龙](https://leetcode.cn/problems/word-ladder/)
