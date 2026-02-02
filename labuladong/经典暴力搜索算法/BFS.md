@@ -400,6 +400,11 @@ class Solution:
 # [721. 账户合并](https://leetcode.cn/problems/accounts-merge/)
 人的名字是没办法唯一标识一个人的，所以一定是用邮箱号标识一个人。
 
+并查集直接是人就好了，如果这个邮箱ID号出现过（用一个map统计），就把那两个人连在一起
+
+最后每个邮箱号通过一个map，找到对应的人（UF）找，然后重新翻到一个map里，
+
+
 # [127. 单词接龙](https://leetcode.cn/problems/word-ladder/)
 
 
