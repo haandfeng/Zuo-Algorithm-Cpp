@@ -398,7 +398,7 @@ class Solution:
         return step - 1 if step else 0
 ```
 # [721. 账户合并](https://leetcode.cn/problems/accounts-merge/)
-
+人的名字是没办法唯一标识一个人的，所以一定是用邮箱号标识一个人。
 
 # [127. 单词接龙](https://leetcode.cn/problems/word-ladder/)
 

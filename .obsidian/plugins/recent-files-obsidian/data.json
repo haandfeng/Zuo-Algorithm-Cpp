@@ -9,6 +9,14 @@
       "path": "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md"
     },
     {
+      "basename": "图",
+      "path": "零茶山艾府+代码随想录/图.md"
+    },
+    {
+      "basename": "Grind75",
+      "path": "Grind75.md"
+    },
+    {
       "basename": "Leetcode150",
       "path": "Leetcode150.md"
     },
@@ -19,10 +27,6 @@
     {
       "basename": "Blind75",
       "path": "Blind75.md"
-    },
-    {
-      "basename": "图",
-      "path": "零茶山艾府+代码随想录/图.md"
     },
     {
       "basename": "解数独",
@@ -63,10 +67,6 @@
     {
       "basename": "LeetCode高频题",
       "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题.md"
-    },
-    {
-      "basename": "Grind75",
-      "path": "Grind75.md"
     },
     {
       "basename": "快排",
