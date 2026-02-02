@@ -413,3 +413,59 @@ class Solution:
 如果把两个桶中现有的水量作为「状态」，那么题目给出的几种倒水方法就是导致「状态」发生改变的「选择」，这样一来，你完全可以用 自 动态规划详解进阶篇 里讲过的动态规划思路来做。
 同时，你也可以用自 BFS 算法框架 来解决这道题。我这里就写 BFS 算法吧，具体细节看代码中的注释。
 最后，这道题的最优解法是数学方法，你可以去了解一下「裴蜀定理」，也叫「贝祖定理」，有兴趣的读者可以自行搜索，我这里只给出最通用的计算机算法思路，不展开讲数学方法了。
+
+
+这里的状态管理主要是针对其他语言的，其实对于python，tuble是可以哈西的，不需要这样操作
+```python
+class Solution:
+
+    def canMeasureWater(self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int) -> bool:
+        # BFS 算法的队列
+        q = collections.deque()
+        # 用来记录已经遍历过的状态，把元组转化成数字方便存储哈希集合
+        # 转化方式是 (x, y) -> (x * (jug2Capacity + 1) + y)，和二维数组坐标转一维坐标是一样的原理
+        # 因为水桶 2 的取值是 [0, jug2Capacity]，所以需要额外加一，请类比二维数组坐标转一维坐标
+        # 且考虑到题目输入的数据规模较大，相乘可能导致 int 溢出，所以使用 long 类型
+        visited = set()
+        # 添加初始状态，两个桶都没有水
+        q.append((0, 0))
+        visited.add(0 * (jug2Capacity + 1) + 0)
+
+        while q:
+            curState = q.popleft()
+            if (curState[0] == targetCapacity or curState[1] == targetCapacity
+                    or curState[0] + curState[1] == targetCapacity):
+                # 如果任意一个桶的水量等于目标水量，就返回 true
+                return True
+            # 计算出所有可能的下一个状态
+            nextStates = []
+            # 把 1 桶灌满
+            nextStates.append((jug1Capacity, curState[1]))
+            # 把 2 桶灌满
+            nextStates.append((curState[0], jug2Capacity))
+            # 把 1 桶倒空
+            nextStates.append((0, curState[1]))
+            # 把 2 桶倒空
+            nextStates.append((curState[0], 0))
+            # 把 1 桶的水灌进 2 桶，直到 1 桶空了或者 2 桶满了
+            nextStates.append((
+                curState[0] - min(curState[0], jug2Capacity - curState[1]),
+                curState[1] + min(curState[0], jug2Capacity - curState[1])
+            ))
+            # 把 2 桶的水灌进 1 桶，直到 2 桶空了或者 1 桶满了
+            nextStates.append((
+                curState[0] + min(curState[1], jug1Capacity - curState[0]),
+                curState[1] - min(curState[1], jug1Capacity - curState[0])
+            ))
+
+            # 把所有可能的下一个状态都放进队列里
+            for nextState in nextStates:
+                # 把二维坐标转化为数字，方便去重
+                hash = nextState[0] * (jug2Capacity + 1) + nextState[1]
+                if hash in visited:
+                    # 如果这个状态之前遍历过，就跳过，避免队列永远不空陷入死循环
+                    continue
+                q.append(nextState)
+                visited.add(hash)
+        return False
+```
