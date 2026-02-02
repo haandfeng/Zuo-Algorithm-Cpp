@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
+                "file": "labuladong/经典数据结构算法/二维数组的花式遍历.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "图拓扑排序 和 并查集"
+              "title": "二维数组的花式遍历"
             }
           },
           {
@@ -49,8 +49,7 @@
               "title": "图"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -104,8 +103,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "d160e0a61737f4e7",
@@ -126,8 +124,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5,
-    "collapsed": true
+    "width": 287.5
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -245,9 +242,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "1ee3e082697ca91b",
+  "active": "a67293981ae3123d",
   "lastOpenFiles": [
+    "labuladong/经典数据结构算法",
     "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
+    "labuladong/经典数据结构算法/二维数组的花式遍历.md",
     "labuladong/经典暴力搜索算法/BFS.md",
     "零茶山艾府+代码随想录/图.md",
     "Grind75.md",
@@ -277,8 +276,6 @@
     "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/bfprt算法.md",
     "零茶山艾府+代码随想录/单调队列.md",
     "img/Pasted image 20251123215640.png",
-    "README_EN.md",
-    "零茶山艾府+代码随想录/动态规划.md",
     "img/Pasted image 20251104234555.png",
     "img/Pasted image 20251018173229.png",
     "img/Pasted image 20251018144157.png",
