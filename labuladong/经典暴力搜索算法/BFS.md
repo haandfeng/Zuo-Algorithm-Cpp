@@ -404,7 +404,10 @@ class Solution:
 
 最后每个邮箱号通过一个map，找到对应的人（UF）找，然后重新翻到一个map里（人ID），所有邮箱，排序，就好了
 
+如果通过dfs找联通分量的话
+邮箱对应一个id list
 
+遍历的时候遍历id，通过id找到邮箱，通过邮箱再找回id，dfs（id），通过这种方式遍历所有id
 # [127. 单词接龙](https://leetcode.cn/problems/word-ladder/)
 
 
