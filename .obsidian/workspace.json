@@ -49,8 +49,7 @@
               "title": "图"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -244,15 +243,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "1ee3e082697ca91b",
+  "active": "a67293981ae3123d",
   "lastOpenFiles": [
+    "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
     "labuladong/经典暴力搜索算法/BFS.md",
     "labuladong/经典数据结构算法/二维数组的花式遍历.md",
     "labuladong/核心刷题框架/双指针-数组.md",
     "labuladong/核心刷题框架",
     "labuladong/未命名.canvas",
     "labuladong/经典数据结构算法",
-    "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
     "零茶山艾府+代码随想录/图.md",
     "Grind75.md",
     "Leetcode150.md",
