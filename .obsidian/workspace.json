@@ -41,15 +41,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "零茶山艾府+代码随想录/图.md",
+                "file": "零茶山艾府+代码随想录/二叉树.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "图"
+              "title": "二叉树"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -82,7 +83,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "721",
+                "query": "填充",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -103,7 +104,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
@@ -124,8 +126,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5,
-    "collapsed": true
+    "width": 287.5
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -243,17 +244,17 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a67293981ae3123d",
+  "active": "6660be5f656e33b9",
   "lastOpenFiles": [
+    "Grind75.md",
+    "零茶山艾府+代码随想录/图.md",
     "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
+    "labuladong/核心刷题框架/双指针-数组.md",
     "labuladong/经典暴力搜索算法/BFS.md",
     "labuladong/经典数据结构算法/二维数组的花式遍历.md",
-    "labuladong/核心刷题框架/双指针-数组.md",
     "labuladong/核心刷题框架",
     "labuladong/未命名.canvas",
     "labuladong/经典数据结构算法",
-    "零茶山艾府+代码随想录/图.md",
-    "Grind75.md",
     "Leetcode150.md",
     "labuladong/经典暴力搜索算法/DFS 图回溯 岛屿 相关 问题.md",
     "Blind75.md",
