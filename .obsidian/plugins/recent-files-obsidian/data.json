@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "图拓扑排序 和 并查集",
+      "path": "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "未命名.base"
+    },
+    {
       "basename": "二叉树",
       "path": "零茶山艾府+代码随想录/二叉树.md"
     },
@@ -11,10 +19,6 @@
     {
       "basename": "图",
       "path": "零茶山艾府+代码随想录/图.md"
-    },
-    {
-      "basename": "图拓扑排序 和 并查集",
-      "path": "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md"
     },
     {
       "basename": "双指针-数组",
@@ -195,10 +199,6 @@
     {
       "basename": "heapq的使用",
       "path": "python语法/heapq的使用.md"
-    },
-    {
-      "basename": "打印一个字符串的全部排列，要求不要出现重复的排列",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/打印一个字符串的全部排列，要求不要出现重复的排列.md"
     }
   ],
   "omittedPaths": [],
