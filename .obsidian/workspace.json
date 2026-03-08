@@ -83,7 +83,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "填充",
+                "query": "718",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -104,7 +104,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
@@ -125,8 +126,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5,
-    "collapsed": true
+    "width": 287.5
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -244,7 +244,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "1893cde43d698a0c",
+  "active": "38468fe336bd4cf5",
   "lastOpenFiles": [
     "labuladong/核心刷题框架/链表算法.md",
     "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
