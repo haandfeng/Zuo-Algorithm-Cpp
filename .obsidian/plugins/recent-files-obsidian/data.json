@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "动态规划",
+      "path": "零茶山艾府+代码随想录/动态规划.md"
+    },
+    {
       "basename": "链表算法",
       "path": "labuladong/核心刷题框架/链表算法.md"
     },
@@ -111,10 +115,6 @@
     {
       "basename": "单调队列",
       "path": "零茶山艾府+代码随想录/单调队列.md"
-    },
-    {
-      "basename": "动态规划",
-      "path": "零茶山艾府+代码随想录/动态规划.md"
     },
     {
       "basename": "快速排序",
