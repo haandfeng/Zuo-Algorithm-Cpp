@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "零茶山艾府+代码随想录/动态规划.md",
+                "file": "零茶山艾府+代码随想录/二分查找.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "动态规划"
+              "title": "二分查找"
             }
           },
           {
@@ -93,7 +93,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "718",
+                "query": "峰",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -114,7 +114,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
