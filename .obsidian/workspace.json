@@ -136,7 +136,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.5
+    "width": 287.5,
+    "collapsed": true
   },
   "right": {
     "id": "f7f837de25161fe1",
@@ -256,6 +257,8 @@
   },
   "active": "1893cde43d698a0c",
   "lastOpenFiles": [
+    "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(16).md",
+    "零茶山艾府+代码随想录/二分查找.md",
     "零茶山艾府+代码随想录/动态规划.md",
     "labuladong/核心刷题框架/链表算法.md",
     "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md",
@@ -289,8 +292,6 @@
     "img/Pasted image 20251216234018.png",
     "img/Pasted image 20251216234012.png",
     "C++算法/必备/快排.md",
-    "算法笔记/zuoAlgorithm/001. 难点重点照顾/_常考高频题.md",
-    "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md",
     "img/Pasted image 20251123215640.png",
     "img/Pasted image 20251104234555.png",
     "img/Pasted image 20251018173229.png",

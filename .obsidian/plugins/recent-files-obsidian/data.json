@@ -5,6 +5,10 @@
       "path": "零茶山艾府+代码随想录/二分查找.md"
     },
     {
+      "basename": "leetcode高频题目全讲(16)",
+      "path": "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(16).md"
+    },
+    {
       "basename": "动态规划",
       "path": "零茶山艾府+代码随想录/动态规划.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "前缀和",
       "path": "零茶山艾府+代码随想录/前缀和.md"
-    },
-    {
-      "basename": "dict的使用",
-      "path": "python语法/dict的使用.md"
     }
   ],
   "omittedPaths": [],
