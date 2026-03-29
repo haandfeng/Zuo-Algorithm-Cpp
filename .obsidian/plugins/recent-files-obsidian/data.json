@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "双指针-链表",
-      "path": "labuladong/核心刷题框架/双指针-链表.md"
+      "basename": "滑动窗口",
+      "path": "labuladong/核心刷题框架/滑动窗口.md"
     },
     {
       "basename": "双指针-数组",
       "path": "labuladong/核心刷题框架/双指针-数组.md"
+    },
+    {
+      "basename": "双指针-链表",
+      "path": "labuladong/核心刷题框架/双指针-链表.md"
     },
     {
       "basename": "二分查找",
@@ -195,10 +199,6 @@
     {
       "basename": "TikTok面经",
       "path": "TAG/TikTok/TikTok面经.md"
-    },
-    {
-      "basename": "前缀和",
-      "path": "零茶山艾府+代码随想录/前缀和.md"
     }
   ],
   "omittedPaths": [],
