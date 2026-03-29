@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "二叉树",
+      "path": "labuladong/核心刷题框架/二叉树.md"
+    },
+    {
       "basename": "滑动窗口",
       "path": "labuladong/核心刷题框架/滑动窗口.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "双向双指针",
       "path": "零茶山艾府+代码随想录/双向双指针.md"
-    },
-    {
-      "basename": "TikTok面经",
-      "path": "TAG/TikTok/TikTok面经.md"
     }
   ],
   "omittedPaths": [],
