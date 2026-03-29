@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "双指针-链表 和 链表代码实现",
+      "path": "labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md"
+    },
+    {
+      "basename": "双指针-数组",
+      "path": "labuladong/核心刷题框架/双指针-数组.md"
+    },
+    {
       "basename": "二叉树",
       "path": "labuladong/核心刷题框架/二叉树.md"
     },
@@ -15,14 +23,6 @@
     {
       "basename": "滑动窗口",
       "path": "labuladong/核心刷题框架/滑动窗口.md"
-    },
-    {
-      "basename": "双指针-数组",
-      "path": "labuladong/核心刷题框架/双指针-数组.md"
-    },
-    {
-      "basename": "双指针-链表",
-      "path": "labuladong/核心刷题框架/双指针-链表.md"
     },
     {
       "basename": "leetcode高频题目全讲(16)",
