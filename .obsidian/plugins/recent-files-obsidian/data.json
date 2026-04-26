@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Blind75",
+      "path": "Blind75.md"
+    },
+    {
+      "basename": "动态规划",
+      "path": "零茶山艾府+代码随想录/动态规划.md"
+    },
+    {
       "basename": "双指针-链表 和 链表代码实现",
       "path": "labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md"
     },
@@ -33,10 +41,6 @@
       "path": "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(16).md"
     },
     {
-      "basename": "动态规划",
-      "path": "零茶山艾府+代码随想录/动态规划.md"
-    },
-    {
       "basename": "二叉树",
       "path": "零茶山艾府+代码随想录/二叉树.md"
     },
@@ -59,10 +63,6 @@
     {
       "basename": "DFS 图回溯 岛屿 相关 问题",
       "path": "labuladong/经典暴力搜索算法/DFS 图回溯 岛屿 相关 问题.md"
-    },
-    {
-      "basename": "Blind75",
-      "path": "Blind75.md"
     },
     {
       "basename": "解数独",

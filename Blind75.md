@@ -615,7 +615,7 @@ class MedianFinder:
 仅仅是替换或者统计个数，不一定要考虑使用dp，能滑动窗口就滑动窗口解决
 
 ```python
-class Solution:
+class Solution
     def characterReplacement(self, s: str, k: int) -> int:
         num = [0] * 26
         n = len(s)
