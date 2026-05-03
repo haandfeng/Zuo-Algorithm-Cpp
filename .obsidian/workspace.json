@@ -215,6 +215,7 @@
   },
   "active": "ea3df90f473da947",
   "lastOpenFiles": [
+    "algorithm-wiki/scripts/ingest.py",
     "algorithm-wiki/wiki/glossary/terms.md",
     "algorithm-wiki/wiki/problems/word-ladder.md",
     "algorithm-wiki/wiki/problems/edit-distance.md",
@@ -240,7 +241,6 @@
     "algorithm-wiki/wiki/algorithms/bfs-dfs.md",
     "algorithm-wiki/wiki/algorithms/binary-search.md",
     "algorithm-wiki/wiki/algorithms/sorting.md",
-    "algorithm-wiki/wiki/data-structures/trie.md",
     "algorithm-wiki/wiki/techniques",
     "algorithm-wiki/wiki/problems",
     "algorithm-wiki/wiki/patterns",
