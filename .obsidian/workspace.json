@@ -215,6 +215,7 @@
   },
   "active": "ea3df90f473da947",
   "lastOpenFiles": [
+    "algorithm-wiki/wiki/techniques/scan-line.md",
     "algorithm-wiki/wiki/techniques/discretization.md",
     "algorithm-wiki/wiki/patterns/simulation.md",
     "algorithm-wiki/wiki/algorithms/number-theory.md",
@@ -244,7 +245,6 @@
     "algorithm-wiki/wiki/problems/reverse-linked-list.md",
     "algorithm-wiki/wiki/patterns/dp-knapsack.md",
     "algorithm-wiki/wiki/patterns/dp.md",
-    "algorithm-wiki/wiki/patterns/greedy.md",
     "algorithm-wiki/wiki/techniques",
     "algorithm-wiki/wiki/problems",
     "algorithm-wiki/wiki/patterns",
