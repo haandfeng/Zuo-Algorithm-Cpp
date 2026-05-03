@@ -215,6 +215,8 @@
   },
   "active": "ea3df90f473da947",
   "lastOpenFiles": [
+    "algorithm-wiki/scripts/search.py",
+    "algorithm-wiki/scripts/lint.py",
     "algorithm-wiki/scripts/ingest.py",
     "algorithm-wiki/wiki/glossary/terms.md",
     "algorithm-wiki/wiki/problems/word-ladder.md",
@@ -249,8 +251,6 @@
     "algorithm-wiki/wiki/data-structures",
     "algorithm-wiki/wiki/concepts",
     "algorithm-wiki/wiki/algorithms",
-    "algorithm-wiki/raw/papers",
-    "algorithm-wiki/raw/images",
     "labuladong/未命名.canvas",
     "img/Pasted image 20251219194408.png",
     "img/Pasted image 20251216234018.png",
