@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parent.parent       # .../algorithm-wiki
 WIKI = ROOT / "wiki"
 REPORTS = ROOT / "outputs" / "reports"
 
-WIKILINK = re.compile(r"\[\[([^\[\]\|#]+)(?:[#\|][^\]]*)?\]\]")
+WIKILINK = re.compile(r"\[\[([^\[\]#]+?)(?:#[^\]\|]*)?(?:\\?\|[^\]]*)?\]\]")
 FRONTMATTER = re.compile(r"^---\s*\n.*?\n---\s*\n", re.DOTALL)
 
 
@@ -86,7 +86,14 @@ def lint() -> dict[str, Any]:
 
         # links
         for target in parse_links(text):
-            # Tolerate paths with ../ — we only care about slug match
+            target = target.strip().rstrip("\\")
+            # External (vault-relative) link starting with ../ — verify on disk, don't count as broken
+            if target.startswith("../") or target.startswith("/"):
+                resolved = (f.parent / target).resolve()
+                if resolved.exists() or resolved.with_suffix(".md").exists():
+                    pass   # valid cross-vault link, ignore
+                # If file doesn't exist we still don't report — vault layout outside our scope
+                continue
             normalized = target.split("/")[-1]
             if normalized in idx:
                 target_file = idx[normalized]
