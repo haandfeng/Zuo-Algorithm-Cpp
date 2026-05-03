@@ -186,8 +186,8 @@ struct BitTrie {
 
 ## 参考资料
 
-- [[../../算法笔记/zuoAlgorithm/100. 算法课程]] — 左程云 Trie 章节
-- [[../../labuladong/经典数据结构算法]] — labuladong Trie
+- [[../../课程/左程云/100. 算法课程]] — 左程云 Trie 章节
+- [[../../课程/labuladong/经典数据结构算法]] — labuladong Trie
 
 ## 关联条目
 

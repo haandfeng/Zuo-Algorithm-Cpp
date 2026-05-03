@@ -137,7 +137,7 @@ public:
 
 ## 参考资料
 
-- [[../../零茶山艾府+代码随想录/单调栈]] — 你的单调栈专题
+- [[../../课程/灵茶山艾府 + 代码随想录/单调栈]] — 你的单调栈专题
 - [[../../algorithm-wiki/wiki/problems/trapping-rain-water]] — 接雨水
 - [[../../algorithm-wiki/wiki/problems/largest-rectangle]] — 柱状图最大矩形
 

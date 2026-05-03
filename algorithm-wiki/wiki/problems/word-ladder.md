@@ -174,8 +174,8 @@ unordered_map<string, vector<string>> graph;       // u → 所有"distance(u) =
 
 ## 在你 Vault 中的位置
 
-- 列在 [[../../Hot100|Hot100]] 中（图 / BFS 类）
-- [[../../labuladong/经典暴力搜索算法]] BFS 章节
+- 列在 [[../../题单/Hot100|Hot100]] 中（图 / BFS 类）
+- [[../../课程/labuladong/经典暴力搜索算法]] BFS 章节
 
 ## 关联条目
 

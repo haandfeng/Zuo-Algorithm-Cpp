@@ -99,8 +99,8 @@ int dfs(TreeNode* root) {
 
 ## 参考资料
 
-- [[../../labuladong/经典数据结构算法]] — labuladong 树形 DP
-- [[../../算法笔记/zuoAlgorithm/100. 算法课程]] — 左程云树形 DP 章节
+- [[../../课程/labuladong/经典数据结构算法]] — labuladong 树形 DP
+- [[../../课程/左程云/100. 算法课程]] — 左程云树形 DP 章节
 
 ## 关联条目
 

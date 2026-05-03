@@ -104,7 +104,7 @@ int prim(int n, vector<vector<pair<int,int>>>& g) {
 
 ## 参考资料
 
-- [[../../算法笔记/zuoAlgorithm/100. 算法课程]] — 左程云 MST 章节
+- [[../../课程/左程云/100. 算法课程]] — 左程云 MST 章节
 - 《算法竞赛进阶指南》MST 章节
 
 ## 关联条目

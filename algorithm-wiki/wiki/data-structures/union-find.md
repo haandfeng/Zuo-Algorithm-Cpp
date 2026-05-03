@@ -172,7 +172,7 @@ int find(int x) {
 
 ## 参考资料
 
-- [[../../算法笔记/zuoAlgorithm/100. 算法课程]] — 左程云并查集章节
+- [[../../课程/左程云/100. 算法课程]] — 左程云并查集章节
 - Tarjan, *Efficiency of a Good But Not Linear Set Union Algorithm*, 1975
 
 ## 关联条目

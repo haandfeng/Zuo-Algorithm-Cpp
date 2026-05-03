@@ -162,7 +162,7 @@ long long rangeQuery(int node, int l, int r, int ql, int qr) {
 
 ## 参考资料
 
-- [[../../算法笔记/zuoAlgorithm/100. 算法课程]] — 左程云线段树章节
+- [[../../课程/左程云/100. 算法课程]] — 左程云线段树章节
 - 《算法竞赛进阶指南》线段树章节
 
 ## 关联条目

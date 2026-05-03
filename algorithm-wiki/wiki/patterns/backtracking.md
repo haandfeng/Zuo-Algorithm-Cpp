@@ -236,8 +236,8 @@ bool exist(vector<vector<char>>& g, string word) {
 
 ## 参考资料
 
-- [[../../零茶山艾府+代码随想录/回溯]] — 你的回溯专题
-- [[../../labuladong/经典暴力搜索算法]] — labuladong 回溯框架
+- [[../../课程/灵茶山艾府 + 代码随想录/回溯]] — 你的回溯专题
+- [[../../课程/labuladong/经典暴力搜索算法]] — labuladong 回溯框架
 
 ## 关联条目
 

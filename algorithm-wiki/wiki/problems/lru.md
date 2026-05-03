@@ -174,9 +174,9 @@ public:
 
 ## 在你 Vault 中的位置
 
-- [[../../Hot100|Hot100]] 必考
-- [[../../Blind75|Blind75]] 必考
-- [[../../labuladong/经典数据结构算法]] — labuladong 单独讲过
+- [[../../题单/Hot100|Hot100]] 必考
+- [[../../题单/Blind75|Blind75]] 必考
+- [[../../课程/labuladong/经典数据结构算法]] — labuladong 单独讲过
 
 ## 关联条目
 

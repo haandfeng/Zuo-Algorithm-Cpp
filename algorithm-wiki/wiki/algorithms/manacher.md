@@ -99,7 +99,7 @@ int longestPalindromeLen(const string& s) {
 
 ## 参考资料
 
-- [[../../算法笔记/zuoAlgorithm/100. 算法课程]] — 左程云 Manacher
+- [[../../课程/左程云/100. 算法课程]] — 左程云 Manacher
 - 《算法竞赛进阶指南》Manacher 章节
 
 ## 关联条目

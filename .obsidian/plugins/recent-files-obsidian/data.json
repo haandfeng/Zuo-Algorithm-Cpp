@@ -1,176 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "双指针-链表 和 链表代码实现",
-      "path": "labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md"
+      "basename": "WORKFLOW",
+      "path": "algorithm-wiki/WORKFLOW.md"
     },
     {
-      "basename": "滑动窗口",
-      "path": "labuladong/核心刷题框架/滑动窗口.md"
+      "basename": "README",
+      "path": "algorithm-wiki/README.md"
     },
     {
-      "basename": "二维数组的花式遍历",
-      "path": "labuladong/经典数据结构算法/二维数组的花式遍历.md"
+      "basename": "README",
+      "path": "algorithm-wiki/outputs/README.md"
     },
     {
-      "basename": "Blind75",
-      "path": "Blind75.md"
+      "basename": "2026-05-03-monotonic-stack-vs-queue",
+      "path": "algorithm-wiki/outputs/reports/2026-05-03-monotonic-stack-vs-queue.md"
     },
     {
-      "basename": "动态规划",
-      "path": "零茶山艾府+代码随想录/动态规划.md"
+      "basename": "lint-2026-05-03",
+      "path": "algorithm-wiki/outputs/reports/lint-2026-05-03.md"
     },
     {
-      "basename": "双指针-数组",
-      "path": "labuladong/核心刷题框架/双指针-数组.md"
+      "basename": "2026-05-03-binary-search-template",
+      "path": "algorithm-wiki/outputs/slides/2026-05-03-binary-search-template.md"
     },
     {
-      "basename": "二叉树",
-      "path": "labuladong/核心刷题框架/二叉树.md"
-    },
-    {
-      "basename": "BFS",
-      "path": "labuladong/经典暴力搜索算法/BFS.md"
-    },
-    {
-      "basename": "图拓扑排序 和 并查集",
-      "path": "labuladong/经典暴力搜索算法/图拓扑排序 和 并查集.md"
-    },
-    {
-      "basename": "二分查找",
-      "path": "零茶山艾府+代码随想录/二分查找.md"
-    },
-    {
-      "basename": "leetcode高频题目全讲(16)",
-      "path": "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(16).md"
-    },
-    {
-      "basename": "二叉树",
-      "path": "零茶山艾府+代码随想录/二叉树.md"
-    },
-    {
-      "basename": "Grind75",
-      "path": "Grind75.md"
-    },
-    {
-      "basename": "图",
-      "path": "零茶山艾府+代码随想录/图.md"
-    },
-    {
-      "basename": "Leetcode150",
-      "path": "Leetcode150.md"
-    },
-    {
-      "basename": "DFS 图回溯 岛屿 相关 问题",
-      "path": "labuladong/经典暴力搜索算法/DFS 图回溯 岛屿 相关 问题.md"
-    },
-    {
-      "basename": "解数独",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/解数独.md"
-    },
-    {
-      "basename": "回溯",
-      "path": "零茶山艾府+代码随想录/回溯.md"
-    },
-    {
-      "basename": "遍历数组",
-      "path": "labuladong/遍历数组.md"
-    },
-    {
-      "basename": "单调栈",
-      "path": "零茶山艾府+代码随想录/单调栈.md"
-    },
-    {
-      "basename": "437. 路径总和 III",
-      "path": "437. 路径总和 III.md"
-    },
-    {
-      "basename": "_大厂刷题班题目汇总",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/_大厂刷题班题目汇总.md"
-    },
-    {
-      "basename": "leetcode高频题目全讲(20)",
-      "path": "算法笔记/zuoAlgorithm/100. 算法课程/40. LeetCode高频题/leetcode高频题目全讲(20).md"
-    },
-    {
-      "basename": "LeetCode高频题",
-      "path": "算法笔记/zuoAlgorithm/000. 学习大纲/LeetCode高频题.md"
-    },
-    {
-      "basename": "快排",
-      "path": "C++算法/必备/快排.md"
-    },
-    {
-      "basename": "_常考高频题",
-      "path": "算法笔记/zuoAlgorithm/001. 难点重点照顾/_常考高频题.md"
-    },
-    {
-      "basename": "无序数组找第k小或第k大(重要!)",
-      "path": "算法笔记/zuoAlgorithm/004. 刷题经验总结/无序数组找第k小或第k大(重要!).md"
-    },
-    {
-      "basename": "在无序数组中求第K小的数",
-      "path": "算法笔记/zuoAlgorithm/200. ★算法题目汇总★/★算法面试题汇总/在无序数组中求第K小的数.md"
-    },
-    {
-      "basename": "bfprt算法",
-      "path": "算法笔记/zuoAlgorithm/002. 知识点总结/20. 算法知识点/bfprt算法.md"
-    },
-    {
-      "basename": "单调队列",
-      "path": "零茶山艾府+代码随想录/单调队列.md"
-    },
-    {
-      "basename": "快速排序",
-      "path": "算法笔记/zuoAlgorithm/010. 代码模板/快速排序.md"
-    },
-    {
-      "basename": "贪心",
-      "path": "零茶山艾府+代码随想录/贪心.md"
-    },
-    {
-      "basename": "03 归并排序与随机快排",
-      "path": "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/03 归并排序与随机快排.md"
-    },
-    {
-      "basename": "哈希表",
-      "path": "零茶山艾府+代码随想录/哈希表.md"
-    },
-    {
-      "basename": "荷兰国旗问题",
-      "path": "算法笔记/zuoAlgorithm/003. 编程基础技巧及工具/荷兰国旗问题.md"
-    },
-    {
-      "basename": "荷兰国旗问题代码",
-      "path": "算法笔记/zuoAlgorithm/010. 代码模板/荷兰国旗问题代码.md"
-    },
-    {
-      "basename": "荷兰国旗问题 1",
-      "path": "算法笔记/zuoAlgorithm/100. 算法课程/10. 基础课/荷兰国旗问题 1.md"
-    },
-    {
-      "basename": "287. 寻找重复数",
-      "path": "一些新题/287. 寻找重复数.md"
-    },
-    {
-      "basename": "C++代码",
-      "path": "C++代码.md"
-    },
-    {
-      "basename": "数据结构",
-      "path": "零茶山艾府+代码随想录/数据结构.md"
-    },
-    {
-      "basename": "Hot100",
-      "path": "Hot100.md"
+      "basename": "README",
+      "path": "algorithm-wiki/raw/README.md"
     },
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "滑动窗口(同向双指针)",
-      "path": "零茶山艾府+代码随想录/滑动窗口(同向双指针).md"
     }
   ],
   "omittedPaths": [],

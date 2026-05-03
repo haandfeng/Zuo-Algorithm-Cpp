@@ -174,7 +174,7 @@ long long countInversions(vector<int>& a) {
 
 ## 参考资料
 
-- [[../../算法笔记/zuoAlgorithm/100. 算法课程]] — 左程云树状数组章节
+- [[../../课程/左程云/100. 算法课程]] — 左程云树状数组章节
 - 《算法竞赛进阶指南》BIT 章节
 - Peter Fenwick, *A New Data Structure for Cumulative Frequency Tables*, 1994
 

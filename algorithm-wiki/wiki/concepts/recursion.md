@@ -166,8 +166,8 @@ void preorder(TreeNode* root) {
 
 ## 参考资料
 
-- [[../../labuladong/核心刷题框架]] — labuladong 的"递归思维"
-- [[../../算法笔记/zuoAlgorithm/001. 难点重点照顾]] — 左程云递归章节
+- [[../../课程/labuladong/核心刷题框架]] — labuladong 的"递归思维"
+- [[../../课程/左程云/001. 难点重点照顾]] — 左程云递归章节
 
 ## 关联条目
 
