@@ -215,6 +215,7 @@
   },
   "active": "ea3df90f473da947",
   "lastOpenFiles": [
+    "algorithm-wiki/wiki/algorithms/shortest-path.md",
     "algorithm-wiki/wiki/algorithms/topological-sort.md",
     "algorithm-wiki/wiki/algorithms/bfs-dfs.md",
     "algorithm-wiki/wiki/algorithms/binary-search.md",
@@ -240,7 +241,6 @@
     "algorithm-wiki/raw/articles/karpathy-llm-knowledge-base.md",
     "algorithm-wiki/raw/from-vault.md",
     "algorithm-wiki/raw/README.md",
-    "algorithm-wiki/MEMORY.md",
     "algorithm-wiki/wiki/techniques",
     "algorithm-wiki/wiki/problems",
     "algorithm-wiki/wiki/patterns",
