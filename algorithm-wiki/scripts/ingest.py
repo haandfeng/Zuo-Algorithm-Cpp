@@ -72,9 +72,11 @@ def update_memory(rel: str, title: str, summary: str) -> bool:
     text = MEMORY.read_text(encoding="utf-8")
     entry_line = f"- [{title}]({rel}) — {summary}"
 
-    if entry_line in text:
-        print(f"[skip] entry already present: {entry_line}")
-        return False
+    # Dedup: skip if any line already references this rel path
+    for line in text.splitlines():
+        if rel in line and line.lstrip().startswith("- "):
+            print(f"[skip] {rel} already indexed in MEMORY.md")
+            return False
 
     if INDEX_HEADER not in text:
         print(f"[error] '{INDEX_HEADER}' section not found in MEMORY.md", file=sys.stderr)
