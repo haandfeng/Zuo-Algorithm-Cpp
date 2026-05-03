@@ -215,6 +215,8 @@
   },
   "active": "ea3df90f473da947",
   "lastOpenFiles": [
+    "algorithm-wiki/outputs/slides/2026-05-03-binary-search-template.md",
+    "algorithm-wiki/outputs/reports/2026-05-03-monotonic-stack-vs-queue.md",
     "algorithm-wiki/outputs/README.md",
     "algorithm-wiki/scripts/compile.py",
     "algorithm-wiki/scripts/search.py",
@@ -243,8 +245,6 @@
     "algorithm-wiki/wiki/algorithms/shortest-path.md",
     "algorithm-wiki/wiki/algorithms/topological-sort.md",
     "algorithm-wiki/wiki/algorithms/bfs-dfs.md",
-    "algorithm-wiki/wiki/algorithms/binary-search.md",
-    "algorithm-wiki/wiki/algorithms/sorting.md",
     "algorithm-wiki/wiki/techniques",
     "algorithm-wiki/wiki/problems",
     "algorithm-wiki/wiki/patterns",
