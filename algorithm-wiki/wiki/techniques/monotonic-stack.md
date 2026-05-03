@@ -1,0 +1,149 @@
+---
+title: 单调栈
+aliases: [Monotonic Stack, 递增栈, 递减栈]
+tags: [technique, stack]
+created: 2026-05-03
+updated: 2026-05-03
+---
+
+# 单调栈
+
+> **TL;DR**：单调栈 = 在 [[stack|栈]] 中维护一个**单调（递增或递减）序列**。专治"**下一个更大 / 更小元素**" 类问题，O(N)。
+
+## 直觉
+
+朴素做法：对每个元素往后扫找第一个更大/更小，O(N²)。
+
+单调栈做法：从左到右扫，**栈中只保留"还没找到答案的下标"**——一旦遇到能解决某些下标的"答案"，就把它们 pop 出来一次性结算。每个元素入栈出栈各一次 → O(N)。
+
+## 经典模板：下一个更大元素
+
+```cpp
+// 求每个元素右侧第一个比它大的元素的下标，没有则 -1
+vector<int> nextGreater(vector<int>& nums) {
+    int n = nums.size();
+    vector<int> ans(n, -1);
+    stack<int> st;                         // 存下标，对应 nums 值递减
+    for (int i = 0; i < n; ++i) {
+        while (!st.empty() && nums[i] > nums[st.top()]) {
+            ans[st.top()] = i;             // 当前 i 就是栈顶元素的"下一个更大"
+            st.pop();
+        }
+        st.push(i);
+    }
+    return ans;
+}
+```
+
+**关键**：栈中**存下标**而不是值——方便算距离 / 索引。
+
+## 4 种"下一个 X 元素"
+
+| 求什么 | 单调栈方向 | 比较符号 |
+|---|---|---|
+| 右侧第一个**更大** | 递减栈（值） | `nums[i] > nums[st.top()]` 时 pop |
+| 右侧第一个**更小** | 递增栈 | `nums[i] < nums[st.top()]` 时 pop |
+| 左侧第一个**更大** | 从右向左扫 + 递减栈 | 同上反向 |
+| 左侧第一个**更小** | 从右向左扫 + 递增栈 | 同上反向 |
+
+或者**正向扫一遍**同时记录左右两侧：
+
+```cpp
+// 同时求每个元素的"左右第一个更小"
+vector<int> left(n, -1), right(n, n);
+stack<int> st;
+for (int i = 0; i < n; ++i) {
+    while (!st.empty() && nums[st.top()] >= nums[i]) {
+        right[st.top()] = i;       // i 是栈顶的右侧第一个更小
+        st.pop();
+    }
+    if (!st.empty()) left[i] = st.top();    // 栈顶是 i 的左侧第一个更小
+    st.push(i);
+}
+```
+
+## 等于号怎么处理
+
+`>` vs `≥` 的差异决定了**相等元素**之间的归属：
+
+- `nums[i] > nums[st.top()]` 时 pop → 相等不 pop → "**严格**更大"
+- `nums[i] >= nums[st.top()]` 时 pop → 相等也 pop → 一组相等元素由**最后一个**代表
+
+题目要求"严格更大"还是"严格更小"还是"等可以"决定符号——**仔细读题**。
+
+## 何时想到单调栈
+
+| 信号词 | 例子 |
+|---|---|
+| "下一个更大 / 更小元素" | 直接套 |
+| "柱状图最大矩形" | 对每根柱子找左右第一个更小 |
+| "接雨水" | 每个点能接水 = 左右最高之 min - 自己 |
+| "去除 K 个数字使结果最小" | 贪心 + 单调栈 |
+| "字典序最小子序列" | 贪心 + 单调栈 |
+| "每日温度" | 下一个更大 |
+| "股票连涨天数" | 单调栈 |
+
+## 经典题型
+
+| 题 | 用法 |
+|---|---|
+| 每日温度 LC 739 | 下一个更大 |
+| 下一个更大元素 I LC 496 | 模板 |
+| 下一个更大元素 II LC 503 | 循环数组 → 跑两遍 |
+| 接雨水 LC 42 | 单调栈 / 双指针，见 [[problems/trapping-rain-water]] |
+| 柱状图中最大的矩形 LC 84 | 经典，见 [[problems/largest-rectangle]] |
+| 最大矩形 LC 85 | 把每行当作柱状图 |
+| 去除 K 位数字 LC 402 | 单调递增栈 + 贪心 |
+| 移掉 K 位数字使最小 | 同上 |
+| 拼接最大数 LC 321 | 单调栈 + 贪心选 |
+| 不同字符的最小子序列 LC 1081 | 单调栈 + cnt |
+| 子数组的最小值之和 LC 907 | 贡献法 + 单调栈 |
+| 132 模式 LC 456 | 单调栈倒序 |
+| 商品折扣 LC 1475 | 下一个更小 |
+| 最长有效括号 LC 32 | 栈（不严格单调）|
+
+### 例：股票最大跨度（LC 901）
+
+```cpp
+class StockSpanner {
+    stack<pair<int,int>> st;       // {price, span}
+public:
+    int next(int price) {
+        int span = 1;
+        while (!st.empty() && st.top().first <= price) {
+            span += st.top().second;
+            st.pop();
+        }
+        st.push({price, span});
+        return span;
+    }
+};
+```
+
+栈中存"未被超越的价格"+ 它们各自的连续天数；新价更高时合并。
+
+## 复杂度
+
+- 时间 **O(N)**：每个元素入栈出栈各 ≤ 1 次（**摊还**）
+- 空间 **O(N)**：最坏栈装下所有元素
+
+## 易错点
+
+- 栈中存**下标**还是**值**？通常存下标
+- 比较符号写错（`<` / `≤`）→ 相等元素归属错
+- 循环数组要跑两遍（i 取 mod N）
+- 每次入栈前先把所有"可结算的"pop 完，**再 push 当前元素**
+- pop 时"结算"的对象是**栈顶**，不是当前 i
+
+## 参考资料
+
+- [[../../零茶山艾府+代码随想录/单调栈]] — 你的单调栈专题
+- [[../../algorithm-wiki/wiki/problems/trapping-rain-water]] — 接雨水
+- [[../../algorithm-wiki/wiki/problems/largest-rectangle]] — 柱状图最大矩形
+
+## 关联条目
+
+- 上层：[[algorithm-overview]]
+- 数据结构：[[stack]]
+- 兄弟：[[monotonic-queue]]
+- 应用：[[problems/trapping-rain-water]] · [[problems/largest-rectangle]]
