@@ -215,6 +215,7 @@
   },
   "active": "ea3df90f473da947",
   "lastOpenFiles": [
+    "algorithm-wiki/wiki/techniques/prefix-sum.md",
     "algorithm-wiki/wiki/techniques/sliding-window.md",
     "algorithm-wiki/wiki/techniques/two-pointers.md",
     "algorithm-wiki/wiki/algorithms/bit-manipulation.md",
@@ -240,7 +241,6 @@
     "algorithm-wiki/wiki/concepts/complexity.md",
     "algorithm-wiki/wiki/maps/dp-roadmap.md",
     "algorithm-wiki/wiki/maps/ds-overview.md",
-    "algorithm-wiki/wiki/maps/algorithm-overview.md",
     "algorithm-wiki/wiki/techniques",
     "algorithm-wiki/wiki/problems",
     "algorithm-wiki/wiki/patterns",
