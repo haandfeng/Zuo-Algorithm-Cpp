@@ -30,6 +30,9 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent       # .../algorithm-wiki
 WIKI = ROOT / "wiki"
 REPORTS = ROOT / "outputs" / "reports"
+VAULT_ROOT = ROOT.parent                              # the Obsidian vault root
+# Extra dirs in the vault that wiki articles legitimately link into via [[basename]]
+EXTRA_DIRS = ["课程", "题单", "题目", "语言"]
 
 WIKILINK = re.compile(r"\[\[([^\[\]#]+?)(?:#[^\]\|]*)?(?:\\?\|[^\]]*)?\]\]")
 FRONTMATTER = re.compile(r"^---\s*\n.*?\n---\s*\n", re.DOTALL)
@@ -45,6 +48,17 @@ def slug_index(files: list[Path]) -> dict[str, Path]:
     for f in files:
         idx[f.stem] = f                             # short slug
         idx[f.relative_to(WIKI).with_suffix("").as_posix()] = f   # path slug
+    # Also index vault-wide files so cross-links to 课程/题单/题目/语言 don't show as broken
+    for sub in EXTRA_DIRS:
+        d = VAULT_ROOT / sub
+        if not d.exists():
+            continue
+        for f in d.rglob("*.md"):
+            if any(part.startswith(".") for part in f.parts):
+                continue
+            # Only register stem if not already taken by a wiki article
+            if f.stem not in idx:
+                idx[f.stem] = f
     return idx
 
 

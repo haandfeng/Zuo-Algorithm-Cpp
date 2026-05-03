@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "双指针-数组",
+      "path": "课程/labuladong/核心刷题框架/双指针-数组.md"
+    },
+    {
+      "basename": "双指针-链表 和 链表代码实现",
+      "path": "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md"
+    },
+    {
+      "basename": "二叉树",
+      "path": "课程/labuladong/核心刷题框架/二叉树.md"
+    },
+    {
+      "basename": "number-theory",
+      "path": "algorithm-wiki/wiki/algorithms/number-theory.md"
+    },
+    {
+      "basename": "manacher",
+      "path": "algorithm-wiki/wiki/algorithms/manacher.md"
+    },
+    {
+      "basename": "bfs-dfs",
+      "path": "algorithm-wiki/wiki/algorithms/bfs-dfs.md"
+    },
+    {
+      "basename": "karpathy-llm-knowledge-base",
+      "path": "algorithm-wiki/raw/articles/karpathy-llm-knowledge-base.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "README_EN",
+      "path": "README_EN.md"
+    },
+    {
       "basename": "WORKFLOW",
       "path": "algorithm-wiki/WORKFLOW.md"
     },
@@ -27,10 +63,6 @@
     {
       "basename": "README",
       "path": "algorithm-wiki/raw/README.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     }
   ],
   "omittedPaths": [],

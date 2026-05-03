@@ -148,6 +148,21 @@ unordered_map<Point, int, PointHash, PointEq> mp;
 - 哈希被恶意构造数据 hack 时考虑加随机种子或换 `map`
 - 大量 insert 前先 `reserve` 提速
 
+## 📂 我 Vault 里的相关笔记
+
+> 自动扫描 Vault 中含「哈希表」相关关键词（哈希, hash）的笔记，按来源分组。
+
+### 灵茶山艾府 + 代码随想录
+- [[哈希表|课程/灵茶山艾府 + 代码随想录/哈希表.md]]
+
+### 左程云
+- [[哈希表增删改查在使用时可以认为是O(1)|课程/左程云/001. 难点重点照顾/哈希表增删改查在使用时可以认为是O(1).md]]
+- [[Java Object 之hashcode|课程/左程云/002. 知识点总结/00. 编程语言相关/Java Object 之hashcode.md]]
+- [[Java中HashMap, TreeMap 等的元素遍历顺序|课程/左程云/002. 知识点总结/00. 编程语言相关/Java中HashMap, TreeMap 等的元素遍历顺序.md]]
+- [[Java中HashSet vs TreeSet|课程/左程云/002. 知识点总结/00. 编程语言相关/Java中HashSet vs TreeSet.md]]
+- [[Java中的哈希表|课程/左程云/002. 知识点总结/00. 编程语言相关/Java中的哈希表.md]]
+- [[一致性哈希|课程/左程云/002. 知识点总结/20. 算法知识点/一致性哈希.md]]
+
 ## 参考资料
 
 - [[../../课程/灵茶山艾府 + 代码随想录/哈希表]] — 你整理的哈希专题
