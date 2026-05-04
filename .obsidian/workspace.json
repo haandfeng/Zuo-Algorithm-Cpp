@@ -213,8 +213,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "63100d80b6c48a04",
+  "active": "5b7230d7e363a195",
   "lastOpenFiles": [
+    "题单/公司Tag/README.md",
     "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
     "algorithm-wiki/raw/from-vault.md",
     "课程/灵茶山艾府和代码随想录/二分查找.md",
@@ -240,7 +241,6 @@
     "课程/labuladong/经典数据结构算法/二维数组的花式遍历.md",
     "课程/labuladong/经典暴力搜索算法/DFS 图回溯 岛屿 相关 问题.md",
     "课程/labuladong/经典暴力搜索算法/BFS.md",
-    "课程/labuladong/遍历数组.md",
     "未命名.base",
     "algorithm-wiki/scripts/cross_link.py",
     "语言/Python",

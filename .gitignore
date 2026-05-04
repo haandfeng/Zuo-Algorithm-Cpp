@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+._*
+
+# Obsidian — 不跟踪本地缓存 / 工作区状态
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/plugins/*/data.json
+
+# Smart Connections 插件本地缓存（1700+ 文件，纯本地）
+.smart-env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# 算法 wiki 输出归档（按需保留）
+# algorithm-wiki/outputs/archive/
+
+# 临时文件
+*.tmp
+*.bak
+*.swp
+*~
