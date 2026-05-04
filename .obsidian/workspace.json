@@ -216,6 +216,8 @@
   },
   "active": "89834c777b1e2dda",
   "lastOpenFiles": [
+    "题目/卡码-057-爬楼梯.md",
+    "题目/0452-用最少数量的箭引爆气球.md",
     "题目/DASHBOARD.md",
     "题目/INDEX.md",
     "algorithm-wiki/scripts/build_index.py",
@@ -243,8 +245,6 @@
     "题目/0227-基本计算器 II.md",
     "题目/0224-基本计算器.md",
     "题目/0733-图像渲染.md",
-    "题目/0217-存在重复元素.md",
-    "题目/0208-实现 Trie (前缀树).md",
     "algorithm-wiki/scripts/split_topic.py",
     "语言/C++/算法模板",
     "题单/公司Tag/Microsoft",
