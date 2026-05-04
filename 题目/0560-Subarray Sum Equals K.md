@@ -2,9 +2,11 @@
 leetcode: 560
 title: Subarray Sum Equals K
 url: https://leetcode.com/problems/subarray-sum-equals-k/
-difficulty: 
-tags: []
-covers: []
+difficulty: medium
+tags:
+  - prefix-sum
+covers:
+  - prefix-sum
 sources:
   - 灵茶山艾府和代码随想录/前缀和
 date_split: 2026-05-05

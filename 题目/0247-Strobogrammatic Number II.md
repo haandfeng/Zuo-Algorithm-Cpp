@@ -2,7 +2,7 @@
 leetcode: 247
 title: Strobogrammatic Number II
 url: https://leetcode.com/problems/strobogrammatic-number-ii/
-difficulty: 
+difficulty: medium
 tags: []
 covers: []
 sources:

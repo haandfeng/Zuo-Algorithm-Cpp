@@ -3,8 +3,11 @@ leetcode: 1258
 title: Synonymous Sentences
 url: https://leetcode.com/problems/synonymous-sentences/
 difficulty: 
-tags: []
-covers: []
+tags:
+  - graph
+covers:
+  - bfs-dfs
+  - graph
 sources:
   - 灵茶山艾府和代码随想录/图
 date_split: 2026-05-05

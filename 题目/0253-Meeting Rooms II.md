@@ -3,8 +3,10 @@ leetcode: 253
 title: Meeting Rooms II
 url: https://leetcode.com/problems/meeting-rooms-ii/
 difficulty: 
-tags: []
-covers: []
+tags:
+  - greedy
+covers:
+  - greedy
 sources:
   - 灵茶山艾府和代码随想录/贪心
   - 题单/Blind75

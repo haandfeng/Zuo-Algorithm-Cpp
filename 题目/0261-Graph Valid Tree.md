@@ -2,7 +2,7 @@
 leetcode: 261
 title: Graph Valid Tree
 url: https://leetcode.com/problems/graph-valid-tree/
-difficulty: 
+difficulty: medium
 tags: []
 covers: []
 sources:

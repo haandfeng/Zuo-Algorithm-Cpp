@@ -2,7 +2,7 @@
 leetcode: 62
 title: Unique Paths
 url: https://leetcode.com/problems/unique-paths/
-difficulty: 
+difficulty: medium
 tags: []
 covers: []
 sources:

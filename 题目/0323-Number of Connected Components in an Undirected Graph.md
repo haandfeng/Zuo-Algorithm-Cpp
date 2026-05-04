@@ -2,7 +2,7 @@
 leetcode: 323
 title: Number of Connected Components in an Undirected Graph
 url: https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
-difficulty: 
+difficulty: medium
 tags: []
 covers: []
 sources:

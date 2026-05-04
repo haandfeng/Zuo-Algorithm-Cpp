@@ -2,7 +2,7 @@
 leetcode: 772
 title: Basic Calculator III
 url: https://leetcode.com/problems/basic-calculator-iii/
-difficulty: 
+difficulty: hard
 tags: []
 covers: []
 sources:

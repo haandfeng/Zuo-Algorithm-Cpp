@@ -2,7 +2,7 @@
 leetcode: 727
 title: Minimum Window Subsequence
 url: https://leetcode.com/problems/minimum-window-subsequence/
-difficulty: 
+difficulty: hard
 tags: []
 covers: []
 sources:

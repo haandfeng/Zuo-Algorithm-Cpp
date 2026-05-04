@@ -2,7 +2,7 @@
 leetcode: 187
 title: Repeated DNA Sequences
 url: https://leetcode.com/problems/repeated-dna-sequences/
-difficulty: 
+difficulty: medium
 tags: []
 covers: []
 sources:
