@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "0206-反转链表",
+      "path": "题目/0206-反转链表.md"
+    },
+    {
+      "basename": "链表",
+      "path": "课程/灵茶山艾府和代码随想录/链表.md"
+    },
+    {
+      "basename": "二维数组的花式遍历",
+      "path": "课程/labuladong/经典数据结构算法/二维数组的花式遍历.md"
+    },
+    {
+      "basename": "二分查找",
+      "path": "课程/灵茶山艾府和代码随想录/二分查找.md"
+    },
+    {
+      "basename": "Blind75",
+      "path": "题单/Blind75.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "README",
+      "path": "algorithm-wiki/README.md"
+    },
+    {
+      "basename": "WORKFLOW",
+      "path": "algorithm-wiki/WORKFLOW.md"
+    },
+    {
+      "basename": "MEMORY",
+      "path": "algorithm-wiki/MEMORY.md"
+    },
+    {
       "basename": "双指针-数组",
       "path": "课程/labuladong/核心刷题框架/双指针-数组.md"
     },
@@ -13,10 +49,6 @@
       "path": "algorithm-wiki/raw/from-vault.md"
     },
     {
-      "basename": "二分查找",
-      "path": "课程/灵茶山艾府和代码随想录/二分查找.md"
-    },
-    {
       "basename": "lis",
       "path": "algorithm-wiki/wiki/problems/lis.md"
     },
@@ -27,10 +59,6 @@
     {
       "basename": "binary-search",
       "path": "algorithm-wiki/wiki/algorithms/binary-search.md"
-    },
-    {
-      "basename": "MEMORY",
-      "path": "algorithm-wiki/MEMORY.md"
     },
     {
       "basename": "08 归并排序和快排",
@@ -93,10 +121,6 @@
       "path": "课程/labuladong/核心刷题框架/滑动窗口.md"
     },
     {
-      "basename": "二维数组的花式遍历",
-      "path": "课程/labuladong/经典数据结构算法/二维数组的花式遍历.md"
-    },
-    {
       "basename": "DFS 图回溯 岛屿 相关 问题",
       "path": "课程/labuladong/经典暴力搜索算法/DFS 图回溯 岛屿 相关 问题.md"
     },
@@ -145,20 +169,8 @@
       "path": "algorithm-wiki/raw/articles/karpathy-llm-knowledge-base.md"
     },
     {
-      "basename": "README",
-      "path": "README.md"
-    },
-    {
       "basename": "README_EN",
       "path": "README_EN.md"
-    },
-    {
-      "basename": "WORKFLOW",
-      "path": "algorithm-wiki/WORKFLOW.md"
-    },
-    {
-      "basename": "README",
-      "path": "algorithm-wiki/README.md"
     },
     {
       "basename": "README",

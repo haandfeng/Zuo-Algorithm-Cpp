@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "e7929d262d2e430e",
+        "id": "c6ae7e4e04b7dd29",
         "type": "tabs",
         "children": [
           {
-            "id": "5b7230d7e363a195",
+            "id": "89834c777b1e2dda",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "课程/labuladong/核心刷题框架/双指针-数组.md",
+                "file": "题目/0206-反转链表.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "双指针-数组"
+              "title": "0206-反转链表"
             }
           }
         ]
@@ -160,13 +160,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "课程/labuladong/核心刷题框架/双指针-数组.md",
+                "file": "题目/0206-反转链表.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "双指针-数组 的大纲"
+              "title": "0206-反转链表 的大纲"
             }
           },
           {
@@ -198,7 +198,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 604.5
+    "width": 604.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -213,41 +214,41 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "5b7230d7e363a195",
+  "active": "89834c777b1e2dda",
   "lastOpenFiles": [
-    "题目/3217-从链表中移除在数组中存在的节点.md",
-    "题目/0203-移除链表元素.md",
-    "题目/0082-删除排序链表中的重复元素 II.md",
-    "题目/0083-删除排序链表中的重复元素.md",
-    "题目/0019-删除链表的倒数第 N 个结点.md",
-    "题目/0237-删除链表中的节点.md",
-    "题目/0234-回文链表.md",
-    "题目/0143-重排链表.md",
-    "题目/0142-环形链表 II.md",
-    "题目/0141-环形链表.md",
-    "题目/0876-链表的中间结点.md",
-    "题目/2816-翻倍以链表形式表示的数字.md",
-    "题目/0445-两数相加 II.md",
-    "题目/0024-两两交换链表中的节点.md",
-    "题目/0025-K 个一组翻转链表.md",
-    "题目/0092-反转链表 II.md",
-    "题目/0206-反转链表.md",
+    "题目/2850-将石头分散到网格图的最少移动次数.md",
+    "题目/0037-解数独.md",
+    "题目/0052-N 皇后 II.md",
+    "题目/0051-N 皇后.md",
+    "题目/0332-重新安排行程.md",
+    "题目/0047-全排列 II.md",
+    "题目/0046-全排列.md",
+    "题目/2698-求一个整数的惩罚数.md",
+    "题目/0093-复原 IP 地址.md",
+    "题目/0040-组合总和 II.md",
+    "题目/0039-组合总和.md",
+    "题目/0022-括号生成.md",
+    "题目/0216-组合总和 III.md",
+    "题目/0077-组合.md",
+    "题目/0017-电话号码的字母组合.md",
+    "题目/0491-非递减子序列.md",
+    "题目/0090-子集 II.md",
+    "题目/0131-分割回文串.md",
+    "题目/0078-子集.md",
+    "题目/0968-监控二叉树.md",
+    "题目/2646-最小化旅行的价格总和.md",
+    "题目/1377-T 秒后青蛙的位置.md",
+    "题目/2538-最大价值和与最小价值和的差值.md",
+    "题目/1617-统计子树中城市之间最大距离.md",
+    "题目/3203-合并两棵树后的最小直径.md",
+    "题目/0687-最长同值路径.md",
     "algorithm-wiki/scripts/split_topic.py",
-    "语言/README.md",
-    "语言/C++/算法模板/README.md",
     "语言/C++/算法模板",
-    "题单/公司Tag/Microsoft/README.md",
     "题单/公司Tag/Microsoft",
-    "题单/公司Tag/Apple/README.md",
     "题单/公司Tag/Apple",
-    "题单/公司Tag/Amazon/README.md",
     "题单/公司Tag/Amazon",
-    "题单/公司Tag/Google/README.md",
     "题单/公司Tag/Google",
-    "题单/公司Tag/Meta/README.md",
     "题单/公司Tag/Meta",
-    "题单/公司Tag/README.md",
-    "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
     "未命名.base",
     "algorithm-wiki/scripts/cross_link.py",
     "语言/Python",
