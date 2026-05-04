@@ -26,9 +26,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent  # vault root
 PROBLEM_DIR = ROOT / "题目"
 
-# 匹配 `## [123. 题名](https://leetcode.cn/problems/xxx/)` 形式
+# 匹配 `# / ## / ### [123. 题名](https://leetcode.cn/problems/xxx/)` 形式
+# 不同主题文件的标题层级不一致：链表/回溯用 ##，单调栈/哈希表用 #
+# 正则要求 URL 必须存在，所以 `# 反转操作` 这类没 URL 的章节标题不会被误匹配
 PROBLEM_HEADING = re.compile(
-    r"^##\s+\[(\d+)[\.\s]+(.+?)\]\((https?://[^)]+)\)\s*$",
+    r"^#{1,3}\s+\[(\d+)[\.\s]+(.+?)\]\((https?://[^)]+)\)\s*$",
     re.MULTILINE,
 )
 
