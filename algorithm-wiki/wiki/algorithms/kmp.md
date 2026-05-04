@@ -152,7 +152,7 @@ bool isRepeated(string s) {
 
 ## 参考资料
 
-- [[../../课程/灵茶山艾府 + 代码随想录/字符串]] — 你的字符串专题
+- [[../../课程/灵茶山艾府和代码随想录/字符串]] — 你的字符串专题
 - [[../../课程/左程云/100. 算法课程]] — 左程云 KMP 章节
 - *Knuth, Morris, Pratt, Fast Pattern Matching in Strings*, 1977
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "algorithm-wiki/wiki/problems/lis.md",
+                "file": "课程/labuladong/核心刷题框架/双指针-数组.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "lis"
+              "title": "双指针-数组"
             }
           }
         ]
@@ -194,12 +194,11 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 604.5,
-    "collapsed": true
+    "width": 604.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -214,10 +213,13 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "0fdb3dc2c7a8cceb",
+  "active": "63100d80b6c48a04",
   "lastOpenFiles": [
-    "algorithm-wiki/wiki/patterns/dp.md",
+    "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
+    "algorithm-wiki/raw/from-vault.md",
+    "课程/灵茶山艾府和代码随想录/二分查找.md",
     "algorithm-wiki/wiki/problems/lis.md",
+    "algorithm-wiki/wiki/patterns/dp.md",
     "algorithm-wiki/wiki/algorithms/binary-search.md",
     "algorithm-wiki/MEMORY.md",
     "课程/左程云/100. 算法课程/00. 新手班/08 归并排序和快排.md",
@@ -234,14 +236,11 @@
     "课程/左程云/1000.Misc/Atcoder.md",
     "algorithm-wiki/wiki/patterns/dp-knapsack.md",
     "algorithm-wiki/wiki/patterns/dp-bitmask.md",
-    "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
     "课程/labuladong/核心刷题框架/滑动窗口.md",
     "课程/labuladong/经典数据结构算法/二维数组的花式遍历.md",
     "课程/labuladong/经典暴力搜索算法/DFS 图回溯 岛屿 相关 问题.md",
     "课程/labuladong/经典暴力搜索算法/BFS.md",
     "课程/labuladong/遍历数组.md",
-    "algorithm-wiki/wiki/patterns/backtracking.md",
-    "algorithm-wiki/wiki/patterns/dp-digit.md",
     "未命名.base",
     "algorithm-wiki/scripts/cross_link.py",
     "语言/Python",

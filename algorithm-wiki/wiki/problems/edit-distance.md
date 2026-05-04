@@ -172,7 +172,7 @@ void traceback(string& w1, string& w2, vector<vector<int>>& dp) {
 ## 在你 Vault 中的位置
 
 - [[../../题单/Hot100|Hot100]] 必考
-- [[../../课程/灵茶山艾府 + 代码随想录/动态规划]] DP 双串章节
+- [[../../课程/灵茶山艾府和代码随想录/动态规划]] DP 双串章节
 - [[../../课程/labuladong/核心刷题框架]] — labuladong 编辑距离
 
 ## 关联条目

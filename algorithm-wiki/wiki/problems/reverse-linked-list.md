@@ -154,7 +154,7 @@ ListNode* reverseKGroup(ListNode* head, int k) {
 ## 参考资料
 
 - [[../../linked-list]]（在本 wiki 内：[[../data-structures/linked-list]]）
-- [[../../课程/灵茶山艾府 + 代码随想录/链表]]
+- [[../../课程/灵茶山艾府和代码随想录/链表]]
 - [[../../课程/labuladong/核心刷题框架]] — labuladong 反转链表
 
 ## 关联条目
