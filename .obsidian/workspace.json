@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "课程/labuladong/核心刷题框架/双指针-数组.md",
+                "file": "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "双指针-数组"
+              "title": "双指针-链表 和 链表代码实现"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "424",
+                "query": "707",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +75,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "d160e0a61737f4e7",
@@ -216,6 +217,7 @@
   },
   "active": "5b7230d7e363a195",
   "lastOpenFiles": [
+    "课程/labuladong/核心刷题框架/双指针-数组.md",
     "USAGE.md",
     "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
     "课程/labuladong/核心刷题框架/二叉树.md",
@@ -251,7 +253,6 @@
     "题单/Blind75.md",
     "题单",
     "课程/左程云/300. 算法题目分类总结/按题目系列分类/转圈打印矩阵系列问题.md",
-    "课程/左程云/300. 算法题目分类总结/按题目系列分类/货币兑换系列问题.md",
     "课程/左程云/appendix/scanning.svg",
     "课程/左程云/appendix/prim.gif",
     "课程/左程云/appendix/Pasted image 26.png",
