@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
+                "file": "algorithm-wiki/wiki/problems/lis.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "双指针-链表 和 链表代码实现"
+              "title": "lis"
             }
           }
         ]
@@ -75,8 +75,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "d160e0a61737f4e7",
@@ -215,44 +214,44 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "5b7230d7e363a195",
+  "active": "0fdb3dc2c7a8cceb",
   "lastOpenFiles": [
-    "课程/labuladong/核心刷题框架/双指针-数组.md",
-    "USAGE.md",
+    "algorithm-wiki/wiki/patterns/dp.md",
+    "algorithm-wiki/wiki/problems/lis.md",
+    "algorithm-wiki/wiki/algorithms/binary-search.md",
+    "algorithm-wiki/MEMORY.md",
+    "课程/左程云/100. 算法课程/00. 新手班/08 归并排序和快排.md",
+    "课程/左程云/100. 算法课程/00. 新手班/05 位图跟位运算.md",
+    "课程/左程云/100. 算法课程/00. 新手班/01 位运算、算法是什么、简单排序.md",
+    "algorithm-wiki/wiki/data-structures/linked-list.md",
+    "algorithm-wiki/wiki/index.md",
+    "algorithm-wiki/wiki/algorithms/bit-manipulation.md",
+    "algorithm-wiki/wiki/glossary/terms.md",
+    "algorithm-wiki/wiki/concepts/complexity.md",
+    "algorithm-wiki/wiki/maps/dp-roadmap.md",
+    "algorithm-wiki/wiki/maps/algorithm-overview.md",
+    "课程/左程云/1000.Misc/CodeForce.md",
+    "课程/左程云/1000.Misc/Atcoder.md",
+    "algorithm-wiki/wiki/patterns/dp-knapsack.md",
+    "algorithm-wiki/wiki/patterns/dp-bitmask.md",
     "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
-    "课程/labuladong/核心刷题框架/二叉树.md",
-    "algorithm-wiki/wiki/algorithms/number-theory.md",
-    "algorithm-wiki/wiki/algorithms/manacher.md",
-    "algorithm-wiki/wiki/algorithms/bfs-dfs.md",
-    "algorithm-wiki/raw/articles/karpathy-llm-knowledge-base.md",
+    "课程/labuladong/核心刷题框架/滑动窗口.md",
+    "课程/labuladong/经典数据结构算法/二维数组的花式遍历.md",
+    "课程/labuladong/经典暴力搜索算法/DFS 图回溯 岛屿 相关 问题.md",
+    "课程/labuladong/经典暴力搜索算法/BFS.md",
+    "课程/labuladong/遍历数组.md",
+    "algorithm-wiki/wiki/patterns/backtracking.md",
+    "algorithm-wiki/wiki/patterns/dp-digit.md",
     "未命名.base",
-    "2026-05-04.md",
-    "README.md",
-    "algorithm-wiki/outputs/reports/lint-2026-05-04.md",
-    "README_EN.md",
-    "algorithm-wiki/WORKFLOW.md",
     "algorithm-wiki/scripts/cross_link.py",
-    "语言/Python/heapq的使用.md",
-    "语言/Python/dict的使用.md",
-    "语言/Java/代码片段.md",
-    "语言/C++/语法.md",
-    "语言/C++/代码片段.md",
-    "语言/C++/STL.md",
     "语言/Python",
     "语言/Java",
     "语言/C++",
     "语言",
-    "题目/0437-路径总和-III.md",
     "题目",
-    "题单/公司Tag/TikTok/TikTok面经.md",
     "题单/公司Tag/TikTok",
     "题单/公司Tag",
-    "题单/Leetcode150.md",
-    "题单/Hot100.md",
-    "题单/Grind75.md",
-    "题单/Blind75.md",
     "题单",
-    "课程/左程云/300. 算法题目分类总结/按题目系列分类/转圈打印矩阵系列问题.md",
     "课程/左程云/appendix/scanning.svg",
     "课程/左程云/appendix/prim.gif",
     "课程/左程云/appendix/Pasted image 26.png",

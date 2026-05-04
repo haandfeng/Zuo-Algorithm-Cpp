@@ -1,8 +1,116 @@
 {
   "recentFiles": [
     {
+      "basename": "lis",
+      "path": "algorithm-wiki/wiki/problems/lis.md"
+    },
+    {
+      "basename": "dp",
+      "path": "algorithm-wiki/wiki/patterns/dp.md"
+    },
+    {
+      "basename": "binary-search",
+      "path": "algorithm-wiki/wiki/algorithms/binary-search.md"
+    },
+    {
+      "basename": "MEMORY",
+      "path": "algorithm-wiki/MEMORY.md"
+    },
+    {
+      "basename": "08 归并排序和快排",
+      "path": "课程/左程云/100. 算法课程/00. 新手班/08 归并排序和快排.md"
+    },
+    {
+      "basename": "05 位图跟位运算",
+      "path": "课程/左程云/100. 算法课程/00. 新手班/05 位图跟位运算.md"
+    },
+    {
+      "basename": "01 位运算、算法是什么、简单排序",
+      "path": "课程/左程云/100. 算法课程/00. 新手班/01 位运算、算法是什么、简单排序.md"
+    },
+    {
+      "basename": "linked-list",
+      "path": "algorithm-wiki/wiki/data-structures/linked-list.md"
+    },
+    {
+      "basename": "index",
+      "path": "algorithm-wiki/wiki/index.md"
+    },
+    {
+      "basename": "bit-manipulation",
+      "path": "algorithm-wiki/wiki/algorithms/bit-manipulation.md"
+    },
+    {
+      "basename": "terms",
+      "path": "algorithm-wiki/wiki/glossary/terms.md"
+    },
+    {
+      "basename": "complexity",
+      "path": "algorithm-wiki/wiki/concepts/complexity.md"
+    },
+    {
+      "basename": "dp-roadmap",
+      "path": "algorithm-wiki/wiki/maps/dp-roadmap.md"
+    },
+    {
+      "basename": "algorithm-overview",
+      "path": "algorithm-wiki/wiki/maps/algorithm-overview.md"
+    },
+    {
+      "basename": "CodeForce",
+      "path": "课程/左程云/1000.Misc/CodeForce.md"
+    },
+    {
+      "basename": "Atcoder",
+      "path": "课程/左程云/1000.Misc/Atcoder.md"
+    },
+    {
+      "basename": "dp-knapsack",
+      "path": "algorithm-wiki/wiki/patterns/dp-knapsack.md"
+    },
+    {
+      "basename": "dp-bitmask",
+      "path": "algorithm-wiki/wiki/patterns/dp-bitmask.md"
+    },
+    {
       "basename": "双指针-链表 和 链表代码实现",
       "path": "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md"
+    },
+    {
+      "basename": "滑动窗口",
+      "path": "课程/labuladong/核心刷题框架/滑动窗口.md"
+    },
+    {
+      "basename": "二维数组的花式遍历",
+      "path": "课程/labuladong/经典数据结构算法/二维数组的花式遍历.md"
+    },
+    {
+      "basename": "DFS 图回溯 岛屿 相关 问题",
+      "path": "课程/labuladong/经典暴力搜索算法/DFS 图回溯 岛屿 相关 问题.md"
+    },
+    {
+      "basename": "BFS",
+      "path": "课程/labuladong/经典暴力搜索算法/BFS.md"
+    },
+    {
+      "basename": "遍历数组",
+      "path": "课程/labuladong/遍历数组.md"
+    },
+    {
+      "basename": "backtracking",
+      "path": "algorithm-wiki/wiki/patterns/backtracking.md"
+    },
+    {
+      "basename": "dp-digit",
+      "path": "algorithm-wiki/wiki/patterns/dp-digit.md"
+    },
+    {
+      "basename": "edit-distance",
+      "path": "algorithm-wiki/wiki/problems/edit-distance.md"
+    },
+    {
+      "basename": "largest-rectangle",
+      "path": "algorithm-wiki/wiki/problems/largest-rectangle.md"
     },
     {
       "basename": "双指针-数组",
