@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOP.md",
+                "file": "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SOP"
+              "title": "双指针-链表 和 链表代码实现"
             }
           }
         ]
@@ -160,13 +160,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SOP.md",
+                "file": "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SOP 的大纲"
+              "title": "双指针-链表 和 链表代码实现 的大纲"
             }
           },
           {
@@ -214,13 +214,18 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "0fdb3dc2c7a8cceb",
+  "active": "241f8831a25118f5",
   "lastOpenFiles": [
+    "题目/0160-相交链表.md",
+    "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
+    "题目/0707-设计链表.md",
+    "课程/labuladong/核心刷题框架/双指针-数组.md",
+    "课程/labuladong/核心刷题框架/二叉树.md",
+    "SOP.md",
     "templates/README.md",
     "templates/题目模板.md",
     "templates",
     "USAGE.md",
-    "SOP.md",
     "algorithm-wiki/README.md",
     "algorithm-wiki/WORKFLOW.md",
     "algorithm-wiki/MEMORY.md",
@@ -238,11 +243,6 @@
     "题目/0433-最小基因变化.md",
     "题目/0841-钥匙和房间.md",
     "题目/0919-完全二叉树插入器.md",
-    "题目/0752-打开转盘锁.md",
-    "题目/0773-滑动谜题.md",
-    "题目/0567-字符串的排列.md",
-    "题目/0086-分隔链表.md",
-    "题目/0707-设计链表.md",
     "algorithm-wiki/scripts/build_index.py",
     "algorithm-wiki/data",
     "algorithm-wiki/scripts/fill_frontmatter.py",
