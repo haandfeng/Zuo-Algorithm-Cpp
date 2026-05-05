@@ -49,6 +49,16 @@ SOURCE_TO_META: dict[str, tuple[list[str], list[str]]] = {
     "灵茶山艾府和代码随想录/数据结构":          (["design"],          []),
     "灵茶山艾府和代码随想录/栈和队列":          (["stack", "queue"],  ["stack", "queue"]),
     "灵茶山艾府和代码随想录/贪心":              (["greedy"],          ["greedy"]),
+    # ---- labuladong ----
+    "labuladong/二叉树":                        (["tree"],            ["binary-tree"]),
+    "labuladong/双指针-数组":                   (["two-pointers"],    ["two-pointers"]),
+    "labuladong/双指针-链表 和 链表代码实现":   (["linked-list", "two-pointers"], ["linked-list", "two-pointers"]),
+    "labuladong/滑动窗口":                      (["sliding-window"],  ["sliding-window"]),
+    "labuladong/二维数组的花式遍历":            (["array"],           []),
+    "labuladong/BFS":                           (["bfs"],             ["bfs-dfs"]),
+    "labuladong/DFS 图回溯 岛屿 相关 问题":     (["graph", "dfs", "backtracking"], ["bfs-dfs", "graph", "backtracking"]),
+    "labuladong/图拓扑排序 和 并查集":          (["graph"],           ["graph", "topological-sort", "union-find"]),
+    "labuladong/遍历数组":                      (["array"],           []),
     # 题单类不映射 tags/covers（题单是来源，不决定主题）
 }
 

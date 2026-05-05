@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "README",
+      "path": "algorithm-wiki/README.md"
+    },
+    {
+      "basename": "WORKFLOW",
+      "path": "algorithm-wiki/WORKFLOW.md"
+    },
+    {
+      "basename": "MEMORY",
+      "path": "algorithm-wiki/MEMORY.md"
+    },
+    {
       "basename": "0206-反转链表",
       "path": "题目/0206-反转链表.md"
     },
@@ -23,18 +35,6 @@
     {
       "basename": "README",
       "path": "README.md"
-    },
-    {
-      "basename": "README",
-      "path": "algorithm-wiki/README.md"
-    },
-    {
-      "basename": "WORKFLOW",
-      "path": "algorithm-wiki/WORKFLOW.md"
-    },
-    {
-      "basename": "MEMORY",
-      "path": "algorithm-wiki/MEMORY.md"
     },
     {
       "basename": "双指针-数组",
