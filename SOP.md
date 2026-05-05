@@ -62,13 +62,13 @@ updated: 2026-05-05
 
 ```mermaid
 graph LR
-    Wiki[algorithm-wiki/wiki/<br/>概念] -->|教学引用| Course[课程/<br/>教材]
-    Course -->|题号 [[]]链| Problem[题目/<br/>单题]
-    List[题单/<br/>题单] -->|题号 [[]]链| Problem
+    Wiki["algorithm-wiki/wiki<br/>概念"] -->|教学引用| Course["课程<br/>教材"]
+    Course -->|题号 wikilink| Problem["题目<br/>单题"]
+    List["题单<br/>面试清单"] -->|题号 wikilink| Problem
     Wiki -->|参考资料段| Course
     Problem -->|frontmatter sources| Course
     Problem -->|frontmatter sources| List
-    Wiki -->|"📂 我 Vault 里的相关笔记"段| Problem
+    Wiki -->|相关笔记段| Problem
 ```
 
 **核心**：Obsidian wikilink 按 basename 解析，所以 `[[链表]]` `[[0042-接雨水]]` `[[bfs-dfs]]` **永远都能跳**，不管文件移到哪个目录。
