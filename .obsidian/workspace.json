@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
+                "file": "SOP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "双指针-链表 和 链表代码实现"
+              "title": "SOP"
             }
           }
         ]
@@ -160,13 +160,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
+                "file": "SOP.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "双指针-链表 和 链表代码实现 的大纲"
+              "title": "SOP 的大纲"
             }
           },
           {
@@ -175,8 +175,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-ghost",
+              "title": "git-view"
             }
           },
           {
@@ -216,8 +216,8 @@
   },
   "active": "241f8831a25118f5",
   "lastOpenFiles": [
-    "题目/0160-相交链表.md",
     "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
+    "题目/0160-相交链表.md",
     "题目/0707-设计链表.md",
     "课程/labuladong/核心刷题框架/双指针-数组.md",
     "课程/labuladong/核心刷题框架/二叉树.md",
