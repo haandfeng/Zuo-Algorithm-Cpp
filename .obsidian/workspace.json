@@ -8,20 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9acb99cf57f4b5f6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SOP.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "SOP"
-            }
-          },
-          {
             "id": "241f8831a25118f5",
             "type": "leaf",
             "state": {
@@ -35,8 +21,7 @@
               "title": "SOP"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -89,8 +74,23 @@
               "icon": "lucide-bookmark",
               "title": "书签"
             }
+          },
+          {
+            "id": "9acb99cf57f4b5f6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SOP.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "SOP"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       },
       {
         "id": "d160e0a61737f4e7",
