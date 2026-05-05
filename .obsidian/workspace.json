@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c6ae7e4e04b7dd29",
+        "id": "63881c14ee322e15",
         "type": "tabs",
         "children": [
           {
-            "id": "89834c777b1e2dda",
+            "id": "9acb99cf57f4b5f6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "algorithm-wiki/README.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "新标签页"
             }
           }
         ]
@@ -160,13 +156,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "algorithm-wiki/README.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "README 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -214,8 +209,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "89834c777b1e2dda",
+  "active": "9acb99cf57f4b5f6",
   "lastOpenFiles": [
+    "USAGE.md",
+    "SOP.md",
+    "algorithm-wiki/README.md",
     "algorithm-wiki/WORKFLOW.md",
     "algorithm-wiki/MEMORY.md",
     "题目/0061-旋转链表.md",
@@ -239,9 +237,6 @@
     "题目/0707-设计链表.md",
     "题目/0144-二叉树的前序遍历.md",
     "题目/0206-反转链表.md",
-    "题目/卡码-057-爬楼梯.md",
-    "题目/0452-用最少数量的箭引爆气球.md",
-    "题目/DASHBOARD.md",
     "algorithm-wiki/scripts/build_index.py",
     "algorithm-wiki/data",
     "algorithm-wiki/scripts/fill_frontmatter.py",
