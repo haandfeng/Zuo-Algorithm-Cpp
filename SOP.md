@@ -296,30 +296,62 @@ git add -A && git commit -m "weekly maintenance" && git push
 
 ### B. 新一篇外部博客 / 教材
 
-```bash
-# 1. 用 Obsidian Web Clipper 抓到 raw/articles/
-#    或手动保存为 algorithm-wiki/raw/articles/yyyy-mm-dd-作者-标题.md
-#    顶部加 frontmatter: source / captured 字段
+**全程在浏览器 + Obsidian 里完成**，最后一步用终端跑 ingest。
 
-# 2. 登记
-python algorithm-wiki/scripts/ingest.py "algorithm-wiki/raw/articles/yyyy-mm-dd-xxx.md"
+#### 路径 A：用 Obsidian Web Clipper（推荐）
 
-# 3. 让 LLM 编译进 wiki（在 Claude Code 里）：
+```text
+1. 浏览器装 Obsidian Web Clipper 扩展（Chrome / Firefox / Edge 都有）
+   → Obsidian 设置里把目标 vault 设为「左程云算法」
+   → 把保存目录设为 algorithm-wiki/raw/articles/
+
+2. 浏览器：在你想保存的网页上按 Web Clipper 快捷键
+   → 自动落到 algorithm-wiki/raw/articles/yyyy-mm-dd-标题.md
+   → 自动带上 source URL 等 frontmatter
+
+3. Obsidian：打开 Cmd+P 搜文件名 → 看一下抓的内容完整不完整
+   → 必要时手动补 frontmatter 字段（如 captured 日期）
 ```
 
-> 请按 algorithm-wiki/WORKFLOW.md 的 ingest 协议，
-> 把 algorithm-wiki/raw/articles/yyyy-mm-dd-xxx.md 编译进 wiki/：
-> 1. 识别 2~10 个相关概念
-> 2. 已有概念 → 在合适小节追加新事实
-> 3. 应当新建的概念 → 用文章模板新建
-> 4. 完成后给报告
+#### 路径 B：手抄笔记（短内容用）
+
+```text
+1. Obsidian：左栏 algorithm-wiki/raw/articles/ 上 右键 → New note
+2. 命名：yyyy-mm-dd-作者-标题
+3. 顶部粘 frontmatter：
+   ---
+   source: https://...
+   captured: 2026-05-05
+   tags: [...]
+   ---
+4. 复制内容粘进去
+```
+
+#### 之后（终端 + Claude Code）
+
+```bash
+# 登记到 MEMORY.md
+algo
+python algorithm-wiki/scripts/ingest.py "algorithm-wiki/raw/articles/yyyy-mm-dd-xxx.md"
+```
+
+然后在 **Claude Code 里**粘 [Prompt 2](#2-把外部素材编译进-wiki) 让 LLM 编译进 wiki。
+
+---
 
 ### C. 新一家公司 tag
 
-```bash
-# 1. 创建公司目录 + README
-mkdir "题单/公司Tag/Stripe"
-cat > "题单/公司Tag/Stripe/README.md" <<'EOF'
+**全程在 Obsidian 里**——不需要终端。
+
+```text
+1. 左栏 题单/公司Tag/ 上 右键 → New folder → 命名 "Stripe"
+        ↓
+2. 选中 Stripe/ → 右键 → New note → 命名 "README"
+        ↓
+3. 粘进下面这段（按 Cmd+V）：
+```
+
+```yaml
 ---
 company: Stripe
 priority: medium
@@ -331,28 +363,63 @@ updated: 2026-05-05
 ## 面试特点
 - 偏后端 + 系统设计 + 一些算法
 - 重视代码质量和测试
+- 注重代码风格 + 测试
 
 ## 题目
-（用 Prompt 1 让 LLM 把刷过的 Stripe 题登记到这里）
-EOF
+> 用 [Prompt 1](#1-把新题链入-wiki) 让 LLM 把刷过的 Stripe 题登记到这里
 
-# 2. 在 题单/公司Tag/README.md 的「已有公司」表加一行
+## 关联
+- [`../README.md`](../README.md)
 ```
+
+```text
+4. Cmd+P 打开 题单/公司Tag/README.md
+        ↓
+5. 在「计划新增」或「已有公司」表加一行 Stripe
+```
+
+> 也可以直接复制现成的 `题单/公司Tag/Apple/README.md` 改改字段——更省事。
+
+---
 
 ### D. 新一个算法模板
 
-```bash
-# 1. 在 语言/C++/算法模板/ 下按子目录创建
-mkdir -p "语言/C++/算法模板/数据结构"
+模板有两种格式可选：
 
-cat > "语言/C++/算法模板/数据结构/单调栈.cpp" <<'EOF'
-/**
- * 模板：单调栈（求每个元素右侧第一个更大）
- * 复杂度：时间 O(N)，空间 O(N)
- * 适用：见 [[../../../algorithm-wiki/wiki/techniques/monotonic-stack]]
- *
- * 测试题：LC 496 / 503 / 739 / 901
- */
+#### D1. **Markdown 模板**（推荐，在 Obsidian 里写）
+
+适合：带说明文字 + 代码片段 + 测试题号
+
+```text
+1. 左栏 语言/C++/算法模板/ 上 右键 → New folder → 命名 "数据结构"
+        ↓
+2. 选中 数据结构/ → 右键 → New note → 命名 "单调栈"
+        ↓
+3. 粘进模板内容（见下）→ Obsidian 自动保存
+```
+
+**模板内容**（Obsidian 里复制粘贴）：
+
+````markdown
+---
+template: monotonic-stack
+language: C++
+covers: [monotonic-stack, stack]
+test_problems: [LC 496, LC 503, LC 739, LC 901]
+---
+
+# 单调栈
+
+> 求每个元素右侧第一个更大元素
+> 复杂度：时间 O(N)，空间 O(N)
+
+## 适用
+
+见 [[monotonic-stack]]
+
+## 代码
+
+```cpp
 #include <vector>
 #include <stack>
 using namespace std;
@@ -370,8 +437,26 @@ vector<int> nextGreater(vector<int>& nums) {
     }
     return ans;
 }
-EOF
 ```
+
+## 测试题
+
+- [[0496-下一个更大元素 I]]
+- [[0503-下一个更大元素 II]]
+- [[0739-每日温度]]
+````
+
+#### D2. **纯 .cpp 模板**（直接能编译跑）
+
+Obsidian 默认不渲染 `.cpp`，但能创建。**更顺手的做法**：
+
+```text
+1. 在 VS Code / Cursor 里打开仓库
+2. 在 语言/C++/算法模板/数据结构/ 下 New file → "单调栈.cpp"
+3. 写代码（顶部用块注释写说明 + 测试题号）
+```
+
+写完后 Obsidian 也能看到这个文件（只是不渲染高亮），git 一样跟踪。
 
 ---
 
