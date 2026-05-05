@@ -21,6 +21,7 @@ updated: 2026-05-05
 - [六、故障排除（FAQ）](#六故障排除faq)
 - [七、Prompt 库（10 个常用）](#七prompt-库10-个常用)
 - [八、3 条铁律（必看）](#八3-条铁律必看)
+- [九、Obsidian 详细操作](#九obsidian-详细操作)
 
 ---
 
@@ -726,6 +727,275 @@ git checkout HEAD -- 题目/0XXX-题名.md
 ```bash
 git fetch && git reset --hard origin/main   # ⚠️ 会丢本地未推送的修改
 ```
+
+---
+
+## 九、Obsidian 详细操作
+
+> 这一章是**Obsidian 杀手锏速查**——告诉你怎么榨干这个工具。
+> 你的 vault 已经装了 16 个插件，本章只讲**最值钱的**几个。
+
+### 9.1 必装插件全集 + 配置
+
+打开 Obsidian → Settings → Community plugins。下面按重要性排：
+
+#### ⭐⭐⭐ Templater（必装）
+
+**作用**：一键插入预设模板，自动填日期 / 文件名等变量。
+
+**配置**：
+1. 搜 `Templater` → 安装 → 启用
+2. Settings → Templater → "Template folder location" → 选 `templates`
+3. Settings → Templater → "Hotkey for inserting template" → 绑 `Option+Shift+T`
+4. （可选）"Trigger Templater on new file creation" 开启 → 加文件夹规则：
+   - `题目` 文件夹 → 自动套 `题目模板`
+   - `outputs/reports` → 自动套 `周报模板`
+
+**用法**：见 [`templates/README.md`](templates/README.md)。
+
+#### ⭐⭐⭐ Dataview（必装）
+
+**作用**：让 markdown 文件能跑 SQL-like 查询，自动渲染成表格 / 列表。
+你的 `题目/DASHBOARD.md` 完全靠它。
+
+**配置**：
+1. 搜 `Dataview` → 安装 → 启用
+2. Settings → Dataview → "Enable JavaScript Queries" → 开启（可选，更强大）
+3. 打开 `题目/DASHBOARD.md` → 应该看到自动渲染的表格
+
+**用法**：见 [9.3 Dataview 入门](#93-dataview-入门--5-个最常用查询)。
+
+#### ⭐⭐ Obsidian Git（推荐，已装）
+
+**作用**：自动 `git commit + push`。配合 vault backup 脚本一起用。
+
+**配置**：
+- "Vault backup interval (minutes)": 60
+- "Commit message on auto backup": `vault backup: {{date}} {{hostname}}`
+- "Pull updates on startup": 开（多设备同步必需）
+
+#### ⭐⭐ Recent Files（推荐，已装）
+
+**作用**：左栏多一个"最近打开的文件"列表。
+**配置**：Maximum: 30。
+
+#### ⭐⭐ Web Clipper（**浏览器扩展**，不是 Obsidian 插件）
+
+**作用**：抓网页直接保存到 vault。
+
+**装法**：
+1. Chrome Web Store / Firefox Add-ons 搜 `Obsidian Web Clipper`
+2. 设置：Vault = `左程云算法`，Default folder = `algorithm-wiki/raw/articles`
+
+#### ⭐ Excalidraw（可选，已装）
+
+**作用**：画手绘图（思维导图、解题示意图）。
+**用法**：`Cmd+P` → 搜 `Excalidraw: New drawing`。
+
+---
+
+### 9.2 INDEX.md vs DASHBOARD.md — 选哪个看
+
+你的 `题目/` 下两个总览文件，**用途不同**：
+
+| 维度 | `INDEX.md` | `DASHBOARD.md` |
+|---|---|---|
+| 维护方式 | **脚本静态生成** | **Dataview 实时查询** |
+| 插件依赖 | 无 | 必须装 **Dataview** |
+| 文件大小 | 大（70KB+，列出全部 370 题） | 小（2KB，纯查询代码） |
+| 何时更新 | 跑 `algo-index` 后 | 实时（你改 frontmatter 立刻反映） |
+| 适合**看** | 一次性浏览全部 | 按条件筛选 |
+| 适合**搜** | Cmd+F 在文件内搜 | 改 Dataview 查询 |
+
+**推荐用法**：
+- **每天 / 看进度** → DASHBOARD.md（实时）
+- **面试前过题单** → INDEX.md（按 LC 题号顺序滚）
+- **找某主题** → INDEX.md 用 Cmd+F 搜，或 DASHBOARD「按主题」段
+
+---
+
+### 9.3 Dataview 入门 — 5 个最常用查询
+
+Dataview 查询：在 `.md` 文件里写 ` ```dataview ` 代码块，切到「阅读视图」就渲染。
+
+#### 查询 1：全部 hard 题
+
+````text
+```dataview
+LIST
+FROM "题目"
+WHERE difficulty = "hard"
+SORT leetcode ASC
+```
+````
+
+#### 查询 2：本周新刷的题
+
+````text
+```dataview
+TABLE difficulty, covers
+FROM "题目"
+WHERE date_solved >= date(today) - dur(7 days)
+SORT date_solved DESC
+```
+````
+
+#### 查询 3：需要重做的题
+
+````text
+```dataview
+LIST difficulty
+FROM "题目"
+WHERE retry_needed = true
+SORT difficulty DESC
+```
+````
+
+#### 查询 4：DP + 二叉树（多概念交集）
+
+````text
+```dataview
+LIST
+FROM "题目"
+WHERE contains(covers, "dp") AND contains(covers, "binary-tree")
+```
+````
+
+#### 查询 5：高频题（≥ 3 个来源）
+
+````text
+```dataview
+TABLE length(sources) as "来源数", difficulty
+FROM "题目"
+WHERE length(sources) >= 3
+SORT length(sources) DESC
+```
+````
+
+`题目/DASHBOARD.md` 已经有 8 个常用查询，**直接打开就能用**。
+
+---
+
+### 9.4 Quick Switcher（Cmd+P）— 最值钱的快捷键
+
+| 快捷键 | 功能 |
+|---|---|
+| `Cmd+P` | 打开**命令面板**（搜命令） |
+| `Cmd+O` | 打开**文件**（搜文件名） |
+| `Cmd+Shift+F` | 全文**搜索**整个 vault |
+| `Cmd+Click [[link]]` | 在新面板打开链接 |
+| `Cmd+E` | 切换"编辑"和"阅读"视图（看 Dataview 渲染效果） |
+| `Cmd+\` | **水平分屏**当前面板 |
+| `Cmd+Shift+\` | **垂直分屏** |
+| `Option+Shift+T` | 插入模板（你配的 Templater 快捷键） |
+| `Cmd+,` | 打开 Settings |
+
+**最高频用法**：`Cmd+O` 搜题号——比左栏点目录快 10 倍。
+
+例：找 LC 752 → `Cmd+O` → 输入 `0752` → 回车。
+
+---
+
+### 9.5 Graph View（图视图）
+
+**全局图**：左栏底部"圈圈"图标，或 `Cmd+P` 搜 `Graph: Open graph view`。
+**本地图**（当前文件的链接关系）：右栏边缘 `…` → `Open local graph`。
+
+**本仓库 graph 怎么看**：
+- 中心节点 = 概念（algorithm-wiki/wiki/*）
+- 围绕的小节点 = 题（题目/*）
+- 节点越大 = 反向链接越多
+- 颜色按 tag 区分
+
+**实用价值**：
+- 找"最连通的题"——通常是经典题（如接雨水 LC 42 会有很多线连过来）
+- 发现"孤岛"——没人引用的题，可能漏整理 frontmatter
+
+**过滤技巧**：图视图右上角齿轮 → Filter 输入：
+- `path:题目` 只看题目
+- `path:wiki` 只看 wiki
+
+---
+
+### 9.6 Backlinks Pane（反向链接面板）
+
+打开任何文件 → 右栏 `Backlinks` 面板。
+
+**显示什么**：被哪些文件 `[[wikilink]]` 过本文件。
+
+**例**：打开 `0042-接雨水.md` → backlinks 显示：
+- `wiki/techniques/monotonic-stack.md`
+- `wiki/techniques/two-pointers.md`
+- `课程/灵茶山艾府和代码随想录/单调栈.md`
+
+**为什么有用**：
+- 知道这道题在哪些主题下被讨论 → 一目了然
+- 反向追溯学习路径
+
+---
+
+### 9.7 多栏并列阅读（学新主题的标配）
+
+```
+1. 打开 algorithm-wiki/wiki/algorithms/bfs-dfs.md（概念）
+2. Cmd+\ 水平分屏 → 在右栏 Cmd+O 打开
+   课程/labuladong/经典暴力搜索算法/BFS.md（教材）
+3. Cmd+\ 再分屏 → 第三栏开 题目/0752-打开转盘锁.md（具体题）
+```
+
+3 栏并列读，三方对照。
+
+**回到全屏**：`Cmd+P` → `Close other panes`。
+
+---
+
+### 9.8 Obsidian 内搜索 vs 终端 search.py
+
+| 维度 | Obsidian Cmd+Shift+F | 终端 `python ./search.py` |
+|---|---|---|
+| 范围 | 整个 vault | 默认仅 `algorithm-wiki/wiki/` |
+| 速度 | 实时 | 较慢但精确 |
+| 排序 | 按文件名 | 按相关性打分 |
+| 适合 | 找具体的字 / 短语 | 给 LLM 当工具用 |
+| 高级 | `path:题目 单调栈`、`tag:#bfs` | `--json` 给 LLM 解析 |
+
+**日常优先 Cmd+Shift+F**。`search.py` 留给 LLM 调用。
+
+---
+
+### 9.9 我的模板系统速查
+
+`templates/` 下 5 个 Templater 模板，每个对应一种"产出"：
+
+| 模板 | 何时用 | 输出位置 |
+|---|---|---|
+| 题目模板 | 刷一道新题 | `题目/0XXX-题名.md` |
+| 复习记录模板 | 重做某题 / 复习专题 | `outputs/reports/review-yyyy-mm-dd.md` |
+| 周报模板 | 周日总结 | `outputs/reports/yyyy-Wxx-周报.md` |
+| 综述模板 | 学完一主题 / 面试前 | `outputs/reports/yyyy-mm-dd-{主题}-survey.md` |
+| 公司面经模板 | 面完一家公司 | `题单/公司Tag/{公司}/面经/yyyy-mm-dd.md` |
+
+详细字段说明 + Templater 变量见 [`templates/README.md`](templates/README.md)。
+
+---
+
+### 9.10 推荐的 Vault 启动布局
+
+打开 Obsidian 时建议常驻这几个标签：
+
+```
+📌 Pin（永远不关）：
+  - SOP.md                              ← 这份文档
+  - 题目/DASHBOARD.md  或  INDEX.md     ← 进度看板
+  - algorithm-wiki/wiki/index.md        ← 概念入口
+
+📂 左栏开着的文件夹：
+  - 题目/        （最常用）
+  - 课程/        （查教材）
+  - templates/   （新建文件时模板）
+```
+
+**Pin 怎么做**：右键标签页 → Pin。
 
 ---
 
