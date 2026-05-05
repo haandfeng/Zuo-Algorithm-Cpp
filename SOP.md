@@ -104,7 +104,7 @@ graph LR
 
 1. 装 **Templater 插件**：Obsidian → Settings → Community plugins → 搜 `Templater` → 安装并启用
 2. Settings → Templater → "Template folder location" 设为 `templates`
-3. Settings → Templater → 给 "Insert template" 绑快捷键 `Cmd+Shift+T`
+3. Settings → Templater → 给 "Insert template" 绑快捷键 `Option+Shift+T`
 
 > 模板文件已放在 [`templates/题目模板.md`](templates/题目模板.md)。
 > 完整说明（含字段意义、covers slug 全集）见 [`templates/README.md`](templates/README.md)。
@@ -122,7 +122,7 @@ graph LR
 3. 左栏 题目/ 文件夹上 右键 → New note
    → 命名：0752-打开转盘锁（4 位题号 + 中划线 + 题名）
         ↓
-4. 按 Cmd+Shift+T → 选 "题目模板"
+4. 按 Option+Shift+T → 选 "题目模板"
    → frontmatter + 骨架自动填入；date_solved 自动是今天
         ↓
 5. 修 frontmatter 5 个字段：

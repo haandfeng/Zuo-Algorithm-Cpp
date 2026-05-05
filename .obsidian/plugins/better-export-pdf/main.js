@@ -9,6 +9,10 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
@@ -33,6 +37,19 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateWrapper = (obj, member, setter, getter) => ({
+  set _(value) {
+    __privateSet(obj, member, value, setter);
+  },
+  get _() {
+    return __privateGet(obj, member, getter);
+  }
+});
 
 // node_modules/.pnpm/deepmerge@4.3.1/node_modules/deepmerge/dist/cjs.js
 var require_cjs = __commonJS({
@@ -59,9 +76,9 @@ var require_cjs = __commonJS({
     function cloneUnlessOtherwiseSpecified(value, options) {
       return options.clone !== false && options.isMergeableObject(value) ? deepmerge(emptyTarget(value), value, options) : value;
     }
-    function defaultArrayMerge(target, source, options) {
-      return target.concat(source).map(function(element) {
-        return cloneUnlessOtherwiseSpecified(element, options);
+    function defaultArrayMerge(target, source2, options) {
+      return target.concat(source2).map(function(element2) {
+        return cloneUnlessOtherwiseSpecified(element2, options);
       });
     }
     function getMergeFunction(key, options) {
@@ -89,47 +106,47 @@ var require_cjs = __commonJS({
     function propertyIsUnsafe(target, key) {
       return propertyIsOnObject(target, key) && !(Object.hasOwnProperty.call(target, key) && Object.propertyIsEnumerable.call(target, key));
     }
-    function mergeObject(target, source, options) {
+    function mergeObject(target, source2, options) {
       var destination = {};
       if (options.isMergeableObject(target)) {
         getKeys(target).forEach(function(key) {
           destination[key] = cloneUnlessOtherwiseSpecified(target[key], options);
         });
       }
-      getKeys(source).forEach(function(key) {
+      getKeys(source2).forEach(function(key) {
         if (propertyIsUnsafe(target, key)) {
           return;
         }
-        if (propertyIsOnObject(target, key) && options.isMergeableObject(source[key])) {
-          destination[key] = getMergeFunction(key, options)(target[key], source[key], options);
+        if (propertyIsOnObject(target, key) && options.isMergeableObject(source2[key])) {
+          destination[key] = getMergeFunction(key, options)(target[key], source2[key], options);
         } else {
-          destination[key] = cloneUnlessOtherwiseSpecified(source[key], options);
+          destination[key] = cloneUnlessOtherwiseSpecified(source2[key], options);
         }
       });
       return destination;
     }
-    function deepmerge(target, source, options) {
+    function deepmerge(target, source2, options) {
       options = options || {};
       options.arrayMerge = options.arrayMerge || defaultArrayMerge;
       options.isMergeableObject = options.isMergeableObject || isMergeableObject;
       options.cloneUnlessOtherwiseSpecified = cloneUnlessOtherwiseSpecified;
-      var sourceIsArray = Array.isArray(source);
+      var sourceIsArray = Array.isArray(source2);
       var targetIsArray = Array.isArray(target);
       var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
       if (!sourceAndTargetTypesMatch) {
-        return cloneUnlessOtherwiseSpecified(source, options);
+        return cloneUnlessOtherwiseSpecified(source2, options);
       } else if (sourceIsArray) {
-        return options.arrayMerge(target, source, options);
+        return options.arrayMerge(target, source2, options);
       } else {
-        return mergeObject(target, source, options);
+        return mergeObject(target, source2, options);
       }
     }
     deepmerge.all = function deepmergeAll(array, options) {
       if (!Array.isArray(array)) {
         throw new Error("first argument should be an array");
       }
-      return array.reduce(function(prev, next) {
-        return deepmerge(prev, next, options);
+      return array.reduce(function(prev, next2) {
+        return deepmerge(prev, next2, options);
       }, {});
     };
     var deepmerge_1 = deepmerge;
@@ -148,16 +165,16 @@ var require_common = __commonJS({
     exports.assign = function(obj) {
       var sources = Array.prototype.slice.call(arguments, 1);
       while (sources.length) {
-        var source = sources.shift();
-        if (!source) {
+        var source2 = sources.shift();
+        if (!source2) {
           continue;
         }
-        if (typeof source !== "object") {
-          throw new TypeError(source + "must be non-object");
+        if (typeof source2 !== "object") {
+          throw new TypeError(source2 + "must be non-object");
         }
-        for (var p in source) {
-          if (_has(source, p)) {
-            obj[p] = source[p];
+        for (var p in source2) {
+          if (_has(source2, p)) {
+            obj[p] = source2[p];
           }
         }
       }
@@ -211,8 +228,8 @@ var require_common = __commonJS({
         return [].concat.apply([], chunks);
       }
     };
-    exports.setTyped = function(on) {
-      if (on) {
+    exports.setTyped = function(on2) {
+      if (on2) {
         exports.Buf8 = Uint8Array;
         exports.Buf16 = Uint16Array;
         exports.Buf32 = Int32Array;
@@ -1596,14 +1613,14 @@ var require_deflate = __commonJS({
       }
       return ret;
     }
-    function deflateSetHeader(strm, head) {
+    function deflateSetHeader(strm, head2) {
       if (!strm || !strm.state) {
         return Z_STREAM_ERROR;
       }
       if (strm.state.wrap !== 2) {
         return Z_STREAM_ERROR;
       }
-      strm.state.gzhead = head;
+      strm.state.gzhead = head2;
       return Z_OK;
     }
     function deflateInit2(strm, level, method, windowBits, memLevel, strategy) {
@@ -1925,7 +1942,7 @@ var require_deflate = __commonJS({
       var str, n;
       var wrap;
       var avail;
-      var next;
+      var next2;
       var input;
       var tmpDict;
       if (!strm || !strm.state) {
@@ -1953,7 +1970,7 @@ var require_deflate = __commonJS({
         dictLength = s.w_size;
       }
       avail = strm.avail_in;
-      next = strm.next_in;
+      next2 = strm.next_in;
       input = strm.input;
       strm.avail_in = dictLength;
       strm.next_in = 0;
@@ -1978,7 +1995,7 @@ var require_deflate = __commonJS({
       s.lookahead = 0;
       s.match_length = s.prev_length = MIN_MATCH - 1;
       s.match_available = 0;
-      strm.next_in = next;
+      strm.next_in = next2;
       strm.input = input;
       strm.avail_in = avail;
       s.wrap = wrap;
@@ -2328,7 +2345,7 @@ var require_inffast = __commonJS({
     var BAD = 30;
     var TYPE = 12;
     module2.exports = function inflate_fast(strm, start) {
-      var state;
+      var state2;
       var _in;
       var last2;
       var _out;
@@ -2352,7 +2369,7 @@ var require_inffast = __commonJS({
       var from;
       var from_source;
       var input, output;
-      state = strm.state;
+      state2 = strm.state;
       _in = strm.next_in;
       input = strm.input;
       last2 = _in + (strm.avail_in - 5);
@@ -2360,17 +2377,17 @@ var require_inffast = __commonJS({
       output = strm.output;
       beg = _out - (start - strm.avail_out);
       end = _out + (strm.avail_out - 257);
-      dmax = state.dmax;
-      wsize = state.wsize;
-      whave = state.whave;
-      wnext = state.wnext;
-      s_window = state.window;
-      hold = state.hold;
-      bits = state.bits;
-      lcode = state.lencode;
-      dcode = state.distcode;
-      lmask = (1 << state.lenbits) - 1;
-      dmask = (1 << state.distbits) - 1;
+      dmax = state2.dmax;
+      wsize = state2.wsize;
+      whave = state2.whave;
+      wnext = state2.wnext;
+      s_window = state2.window;
+      hold = state2.hold;
+      bits = state2.bits;
+      lcode = state2.lencode;
+      dcode = state2.distcode;
+      lmask = (1 << state2.lenbits) - 1;
+      dmask = (1 << state2.distbits) - 1;
       top:
         do {
           if (bits < 15) {
@@ -2427,7 +2444,7 @@ var require_inffast = __commonJS({
                       dist += hold & (1 << op) - 1;
                       if (dist > dmax) {
                         strm.msg = "invalid distance too far back";
-                        state.mode = BAD;
+                        state2.mode = BAD;
                         break top;
                       }
                       hold >>>= op;
@@ -2436,9 +2453,9 @@ var require_inffast = __commonJS({
                       if (dist > op) {
                         op = dist - op;
                         if (op > whave) {
-                          if (state.sane) {
+                          if (state2.sane) {
                             strm.msg = "invalid distance too far back";
-                            state.mode = BAD;
+                            state2.mode = BAD;
                             break top;
                           }
                         }
@@ -2516,7 +2533,7 @@ var require_inffast = __commonJS({
                       continue dodist;
                     } else {
                       strm.msg = "invalid distance code";
-                      state.mode = BAD;
+                      state2.mode = BAD;
                       break top;
                     }
                     break;
@@ -2525,11 +2542,11 @@ var require_inffast = __commonJS({
                 here = lcode[(here & 65535) + (hold & (1 << op) - 1)];
                 continue dolen;
               } else if (op & 32) {
-                state.mode = TYPE;
+                state2.mode = TYPE;
                 break top;
               } else {
                 strm.msg = "invalid literal/length code";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break top;
               }
               break;
@@ -2543,8 +2560,8 @@ var require_inffast = __commonJS({
       strm.next_out = _out;
       strm.avail_in = _in < last2 ? 5 + (last2 - _in) : 5 - (_in - last2);
       strm.avail_out = _out < end ? 257 + (end - _out) : 257 - (_out - end);
-      state.hold = hold;
-      state.bits = bits;
+      state2.hold = hold;
+      state2.bits = bits;
       return;
     };
   }
@@ -2704,7 +2721,7 @@ var require_inftrees = __commonJS({
       var len = 0;
       var sym = 0;
       var min = 0, max = 0;
-      var root = 0;
+      var root3 = 0;
       var curr = 0;
       var drop = 0;
       var left = 0;
@@ -2714,7 +2731,7 @@ var require_inftrees = __commonJS({
       var fill2;
       var low;
       var mask;
-      var next;
+      var next2;
       var base = null;
       var base_index = 0;
       var end;
@@ -2729,14 +2746,14 @@ var require_inftrees = __commonJS({
       for (sym = 0; sym < codes; sym++) {
         count[lens[lens_index + sym]]++;
       }
-      root = bits;
+      root3 = bits;
       for (max = MAXBITS; max >= 1; max--) {
         if (count[max] !== 0) {
           break;
         }
       }
-      if (root > max) {
-        root = max;
+      if (root3 > max) {
+        root3 = max;
       }
       if (max === 0) {
         table[table_index++] = 1 << 24 | 64 << 16 | 0;
@@ -2749,8 +2766,8 @@ var require_inftrees = __commonJS({
           break;
         }
       }
-      if (root < min) {
-        root = min;
+      if (root3 < min) {
+        root3 = min;
       }
       left = 1;
       for (len = 1; len <= MAXBITS; len++) {
@@ -2789,11 +2806,11 @@ var require_inftrees = __commonJS({
       huff = 0;
       sym = 0;
       len = min;
-      next = table_index;
-      curr = root;
+      next2 = table_index;
+      curr = root3;
       drop = 0;
       low = -1;
-      used = 1 << root;
+      used = 1 << root3;
       mask = used - 1;
       if (type === LENS && used > ENOUGH_LENS || type === DISTS && used > ENOUGH_DISTS) {
         return 1;
@@ -2815,7 +2832,7 @@ var require_inftrees = __commonJS({
         min = fill2;
         do {
           fill2 -= incr;
-          table[next + (huff >> drop) + fill2] = here_bits << 24 | here_op << 16 | here_val | 0;
+          table[next2 + (huff >> drop) + fill2] = here_bits << 24 | here_op << 16 | here_val | 0;
         } while (fill2 !== 0);
         incr = 1 << len - 1;
         while (huff & incr) {
@@ -2834,11 +2851,11 @@ var require_inftrees = __commonJS({
           }
           len = lens[lens_index + work[sym]];
         }
-        if (len > root && (huff & mask) !== low) {
+        if (len > root3 && (huff & mask) !== low) {
           if (drop === 0) {
-            drop = root;
+            drop = root3;
           }
-          next += min;
+          next2 += min;
           curr = len - drop;
           left = 1 << curr;
           while (curr + drop < max) {
@@ -2854,13 +2871,13 @@ var require_inftrees = __commonJS({
             return 1;
           }
           low = huff & mask;
-          table[low] = root << 24 | curr << 16 | next - table_index | 0;
+          table[low] = root3 << 24 | curr << 16 | next2 - table_index | 0;
         }
       }
       if (huff !== 0) {
-        table[next + huff] = len - drop << 24 | 64 << 16 | 0;
+        table[next2 + huff] = len - drop << 24 | 64 << 16 | 0;
       }
-      opts.bits = root;
+      opts.bits = root3;
       return 0;
     };
   }
@@ -2966,47 +2983,47 @@ var require_inflate = __commonJS({
       this.was = 0;
     }
     function inflateResetKeep(strm) {
-      var state;
+      var state2;
       if (!strm || !strm.state) {
         return Z_STREAM_ERROR;
       }
-      state = strm.state;
-      strm.total_in = strm.total_out = state.total = 0;
+      state2 = strm.state;
+      strm.total_in = strm.total_out = state2.total = 0;
       strm.msg = "";
-      if (state.wrap) {
-        strm.adler = state.wrap & 1;
+      if (state2.wrap) {
+        strm.adler = state2.wrap & 1;
       }
-      state.mode = HEAD;
-      state.last = 0;
-      state.havedict = 0;
-      state.dmax = 32768;
-      state.head = null;
-      state.hold = 0;
-      state.bits = 0;
-      state.lencode = state.lendyn = new utils.Buf32(ENOUGH_LENS);
-      state.distcode = state.distdyn = new utils.Buf32(ENOUGH_DISTS);
-      state.sane = 1;
-      state.back = -1;
+      state2.mode = HEAD;
+      state2.last = 0;
+      state2.havedict = 0;
+      state2.dmax = 32768;
+      state2.head = null;
+      state2.hold = 0;
+      state2.bits = 0;
+      state2.lencode = state2.lendyn = new utils.Buf32(ENOUGH_LENS);
+      state2.distcode = state2.distdyn = new utils.Buf32(ENOUGH_DISTS);
+      state2.sane = 1;
+      state2.back = -1;
       return Z_OK;
     }
     function inflateReset(strm) {
-      var state;
+      var state2;
       if (!strm || !strm.state) {
         return Z_STREAM_ERROR;
       }
-      state = strm.state;
-      state.wsize = 0;
-      state.whave = 0;
-      state.wnext = 0;
+      state2 = strm.state;
+      state2.wsize = 0;
+      state2.whave = 0;
+      state2.wnext = 0;
       return inflateResetKeep(strm);
     }
     function inflateReset2(strm, windowBits) {
       var wrap;
-      var state;
+      var state2;
       if (!strm || !strm.state) {
         return Z_STREAM_ERROR;
       }
-      state = strm.state;
+      state2 = strm.state;
       if (windowBits < 0) {
         wrap = 0;
         windowBits = -windowBits;
@@ -3019,22 +3036,22 @@ var require_inflate = __commonJS({
       if (windowBits && (windowBits < 8 || windowBits > 15)) {
         return Z_STREAM_ERROR;
       }
-      if (state.window !== null && state.wbits !== windowBits) {
-        state.window = null;
+      if (state2.window !== null && state2.wbits !== windowBits) {
+        state2.window = null;
       }
-      state.wrap = wrap;
-      state.wbits = windowBits;
+      state2.wrap = wrap;
+      state2.wbits = windowBits;
       return inflateReset(strm);
     }
     function inflateInit2(strm, windowBits) {
       var ret;
-      var state;
+      var state2;
       if (!strm) {
         return Z_STREAM_ERROR;
       }
-      state = new InflateState();
-      strm.state = state;
-      state.window = null;
+      state2 = new InflateState();
+      strm.state = state2;
+      state2.window = null;
       ret = inflateReset2(strm, windowBits);
       if (ret !== Z_OK) {
         strm.state = null;
@@ -3047,77 +3064,77 @@ var require_inflate = __commonJS({
     var virgin = true;
     var lenfix;
     var distfix;
-    function fixedtables(state) {
+    function fixedtables(state2) {
       if (virgin) {
         var sym;
         lenfix = new utils.Buf32(512);
         distfix = new utils.Buf32(32);
         sym = 0;
         while (sym < 144) {
-          state.lens[sym++] = 8;
+          state2.lens[sym++] = 8;
         }
         while (sym < 256) {
-          state.lens[sym++] = 9;
+          state2.lens[sym++] = 9;
         }
         while (sym < 280) {
-          state.lens[sym++] = 7;
+          state2.lens[sym++] = 7;
         }
         while (sym < 288) {
-          state.lens[sym++] = 8;
+          state2.lens[sym++] = 8;
         }
-        inflate_table(LENS, state.lens, 0, 288, lenfix, 0, state.work, { bits: 9 });
+        inflate_table(LENS, state2.lens, 0, 288, lenfix, 0, state2.work, { bits: 9 });
         sym = 0;
         while (sym < 32) {
-          state.lens[sym++] = 5;
+          state2.lens[sym++] = 5;
         }
-        inflate_table(DISTS, state.lens, 0, 32, distfix, 0, state.work, { bits: 5 });
+        inflate_table(DISTS, state2.lens, 0, 32, distfix, 0, state2.work, { bits: 5 });
         virgin = false;
       }
-      state.lencode = lenfix;
-      state.lenbits = 9;
-      state.distcode = distfix;
-      state.distbits = 5;
+      state2.lencode = lenfix;
+      state2.lenbits = 9;
+      state2.distcode = distfix;
+      state2.distbits = 5;
     }
     function updatewindow(strm, src, end, copy) {
       var dist;
-      var state = strm.state;
-      if (state.window === null) {
-        state.wsize = 1 << state.wbits;
-        state.wnext = 0;
-        state.whave = 0;
-        state.window = new utils.Buf8(state.wsize);
+      var state2 = strm.state;
+      if (state2.window === null) {
+        state2.wsize = 1 << state2.wbits;
+        state2.wnext = 0;
+        state2.whave = 0;
+        state2.window = new utils.Buf8(state2.wsize);
       }
-      if (copy >= state.wsize) {
-        utils.arraySet(state.window, src, end - state.wsize, state.wsize, 0);
-        state.wnext = 0;
-        state.whave = state.wsize;
+      if (copy >= state2.wsize) {
+        utils.arraySet(state2.window, src, end - state2.wsize, state2.wsize, 0);
+        state2.wnext = 0;
+        state2.whave = state2.wsize;
       } else {
-        dist = state.wsize - state.wnext;
+        dist = state2.wsize - state2.wnext;
         if (dist > copy) {
           dist = copy;
         }
-        utils.arraySet(state.window, src, end - copy, dist, state.wnext);
+        utils.arraySet(state2.window, src, end - copy, dist, state2.wnext);
         copy -= dist;
         if (copy) {
-          utils.arraySet(state.window, src, end - copy, copy, 0);
-          state.wnext = copy;
-          state.whave = state.wsize;
+          utils.arraySet(state2.window, src, end - copy, copy, 0);
+          state2.wnext = copy;
+          state2.whave = state2.wsize;
         } else {
-          state.wnext += dist;
-          if (state.wnext === state.wsize) {
-            state.wnext = 0;
+          state2.wnext += dist;
+          if (state2.wnext === state2.wsize) {
+            state2.wnext = 0;
           }
-          if (state.whave < state.wsize) {
-            state.whave += dist;
+          if (state2.whave < state2.wsize) {
+            state2.whave += dist;
           }
         }
       }
       return 0;
     }
     function inflate(strm, flush) {
-      var state;
+      var state2;
       var input, output;
-      var next;
+      var next2;
       var put;
       var have, left;
       var hold;
@@ -3141,27 +3158,27 @@ var require_inflate = __commonJS({
       if (!strm || !strm.state || !strm.output || !strm.input && strm.avail_in !== 0) {
         return Z_STREAM_ERROR;
       }
-      state = strm.state;
-      if (state.mode === TYPE) {
-        state.mode = TYPEDO;
+      state2 = strm.state;
+      if (state2.mode === TYPE) {
+        state2.mode = TYPEDO;
       }
       put = strm.next_out;
       output = strm.output;
       left = strm.avail_out;
-      next = strm.next_in;
+      next2 = strm.next_in;
       input = strm.input;
       have = strm.avail_in;
-      hold = state.hold;
-      bits = state.bits;
+      hold = state2.hold;
+      bits = state2.bits;
       _in = have;
       _out = left;
       ret = Z_OK;
       inf_leave:
         for (; ; ) {
-          switch (state.mode) {
+          switch (state2.mode) {
             case HEAD:
-              if (state.wrap === 0) {
-                state.mode = TYPEDO;
+              if (state2.wrap === 0) {
+                state2.mode = TYPEDO;
                 break;
               }
               while (bits < 16) {
@@ -3169,47 +3186,47 @@ var require_inflate = __commonJS({
                   break inf_leave;
                 }
                 have--;
-                hold += input[next++] << bits;
+                hold += input[next2++] << bits;
                 bits += 8;
               }
-              if (state.wrap & 2 && hold === 35615) {
-                state.check = 0;
+              if (state2.wrap & 2 && hold === 35615) {
+                state2.check = 0;
                 hbuf[0] = hold & 255;
                 hbuf[1] = hold >>> 8 & 255;
-                state.check = crc32(state.check, hbuf, 2, 0);
+                state2.check = crc32(state2.check, hbuf, 2, 0);
                 hold = 0;
                 bits = 0;
-                state.mode = FLAGS;
+                state2.mode = FLAGS;
                 break;
               }
-              state.flags = 0;
-              if (state.head) {
-                state.head.done = false;
+              state2.flags = 0;
+              if (state2.head) {
+                state2.head.done = false;
               }
-              if (!(state.wrap & 1) || /* check if zlib header allowed */
+              if (!(state2.wrap & 1) || /* check if zlib header allowed */
               (((hold & 255) << 8) + (hold >> 8)) % 31) {
                 strm.msg = "incorrect header check";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
               if ((hold & 15) !== Z_DEFLATED) {
                 strm.msg = "unknown compression method";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
               hold >>>= 4;
               bits -= 4;
               len = (hold & 15) + 8;
-              if (state.wbits === 0) {
-                state.wbits = len;
-              } else if (len > state.wbits) {
+              if (state2.wbits === 0) {
+                state2.wbits = len;
+              } else if (len > state2.wbits) {
                 strm.msg = "invalid window size";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              state.dmax = 1 << len;
-              strm.adler = state.check = 1;
-              state.mode = hold & 512 ? DICTID : TYPE;
+              state2.dmax = 1 << len;
+              strm.adler = state2.check = 1;
+              state2.mode = hold & 512 ? DICTID : TYPE;
               hold = 0;
               bits = 0;
               break;
@@ -3219,115 +3236,119 @@ var require_inflate = __commonJS({
                   break inf_leave;
                 }
                 have--;
-                hold += input[next++] << bits;
+                hold += input[next2++] << bits;
                 bits += 8;
               }
-              state.flags = hold;
-              if ((state.flags & 255) !== Z_DEFLATED) {
+              state2.flags = hold;
+              if ((state2.flags & 255) !== Z_DEFLATED) {
                 strm.msg = "unknown compression method";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              if (state.flags & 57344) {
+              if (state2.flags & 57344) {
                 strm.msg = "unknown header flags set";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              if (state.head) {
-                state.head.text = hold >> 8 & 1;
+              if (state2.head) {
+                state2.head.text = hold >> 8 & 1;
               }
-              if (state.flags & 512) {
+              if (state2.flags & 512) {
                 hbuf[0] = hold & 255;
                 hbuf[1] = hold >>> 8 & 255;
-                state.check = crc32(state.check, hbuf, 2, 0);
+                state2.check = crc32(state2.check, hbuf, 2, 0);
               }
               hold = 0;
               bits = 0;
-              state.mode = TIME;
+              state2.mode = TIME;
+            /* falls through */
             case TIME:
               while (bits < 32) {
                 if (have === 0) {
                   break inf_leave;
                 }
                 have--;
-                hold += input[next++] << bits;
+                hold += input[next2++] << bits;
                 bits += 8;
               }
-              if (state.head) {
-                state.head.time = hold;
+              if (state2.head) {
+                state2.head.time = hold;
               }
-              if (state.flags & 512) {
+              if (state2.flags & 512) {
                 hbuf[0] = hold & 255;
                 hbuf[1] = hold >>> 8 & 255;
                 hbuf[2] = hold >>> 16 & 255;
                 hbuf[3] = hold >>> 24 & 255;
-                state.check = crc32(state.check, hbuf, 4, 0);
+                state2.check = crc32(state2.check, hbuf, 4, 0);
               }
               hold = 0;
               bits = 0;
-              state.mode = OS;
+              state2.mode = OS;
+            /* falls through */
             case OS:
               while (bits < 16) {
                 if (have === 0) {
                   break inf_leave;
                 }
                 have--;
-                hold += input[next++] << bits;
+                hold += input[next2++] << bits;
                 bits += 8;
               }
-              if (state.head) {
-                state.head.xflags = hold & 255;
-                state.head.os = hold >> 8;
+              if (state2.head) {
+                state2.head.xflags = hold & 255;
+                state2.head.os = hold >> 8;
               }
-              if (state.flags & 512) {
+              if (state2.flags & 512) {
                 hbuf[0] = hold & 255;
                 hbuf[1] = hold >>> 8 & 255;
-                state.check = crc32(state.check, hbuf, 2, 0);
+                state2.check = crc32(state2.check, hbuf, 2, 0);
               }
               hold = 0;
               bits = 0;
-              state.mode = EXLEN;
+              state2.mode = EXLEN;
+            /* falls through */
             case EXLEN:
-              if (state.flags & 1024) {
+              if (state2.flags & 1024) {
                 while (bits < 16) {
                   if (have === 0) {
                     break inf_leave;
                   }
                   have--;
-                  hold += input[next++] << bits;
+                  hold += input[next2++] << bits;
                   bits += 8;
                 }
-                state.length = hold;
-                if (state.head) {
-                  state.head.extra_len = hold;
+                state2.length = hold;
+                if (state2.head) {
+                  state2.head.extra_len = hold;
                 }
-                if (state.flags & 512) {
+                if (state2.flags & 512) {
                   hbuf[0] = hold & 255;
                   hbuf[1] = hold >>> 8 & 255;
-                  state.check = crc32(state.check, hbuf, 2, 0);
+                  state2.check = crc32(state2.check, hbuf, 2, 0);
                 }
                 hold = 0;
                 bits = 0;
-              } else if (state.head) {
-                state.head.extra = null;
+              } else if (state2.head) {
+                state2.head.extra = null;
               }
-              state.mode = EXTRA;
+              state2.mode = EXTRA;
+            /* falls through */
             case EXTRA:
-              if (state.flags & 1024) {
-                copy = state.length;
+              if (state2.flags & 1024) {
+                copy = state2.length;
                 if (copy > have) {
                   copy = have;
                 }
                 if (copy) {
-                  if (state.head) {
-                    len = state.head.extra_len - state.length;
-                    if (!state.head.extra) {
-                      state.head.extra = new Array(state.head.extra_len);
+                  if (state2.head) {
+                    len = state2.head.extra_len - state2.length;
+                    if (!state2.head.extra) {
+                      state2.head.extra = new Array(state2.head.extra_len);
                     }
                     utils.arraySet(
-                      state.head.extra,
+                      state2.head.extra,
                       input,
-                      next,
+                      next2,
                       // extra field is limited to 65536 bytes
                       // - no need for additional size check
                       copy,
@@ -3335,92 +3356,95 @@ var require_inflate = __commonJS({
                       len
                     );
                   }
-                  if (state.flags & 512) {
-                    state.check = crc32(state.check, input, copy, next);
+                  if (state2.flags & 512) {
+                    state2.check = crc32(state2.check, input, copy, next2);
                   }
                   have -= copy;
-                  next += copy;
-                  state.length -= copy;
+                  next2 += copy;
+                  state2.length -= copy;
                 }
-                if (state.length) {
+                if (state2.length) {
                   break inf_leave;
                 }
               }
-              state.length = 0;
-              state.mode = NAME;
+              state2.length = 0;
+              state2.mode = NAME;
+            /* falls through */
             case NAME:
-              if (state.flags & 2048) {
+              if (state2.flags & 2048) {
                 if (have === 0) {
                   break inf_leave;
                 }
                 copy = 0;
                 do {
-                  len = input[next + copy++];
-                  if (state.head && len && state.length < 65536) {
-                    state.head.name += String.fromCharCode(len);
+                  len = input[next2 + copy++];
+                  if (state2.head && len && state2.length < 65536) {
+                    state2.head.name += String.fromCharCode(len);
                   }
                 } while (len && copy < have);
-                if (state.flags & 512) {
-                  state.check = crc32(state.check, input, copy, next);
+                if (state2.flags & 512) {
+                  state2.check = crc32(state2.check, input, copy, next2);
                 }
                 have -= copy;
-                next += copy;
+                next2 += copy;
                 if (len) {
                   break inf_leave;
                 }
-              } else if (state.head) {
-                state.head.name = null;
+              } else if (state2.head) {
+                state2.head.name = null;
               }
-              state.length = 0;
-              state.mode = COMMENT;
+              state2.length = 0;
+              state2.mode = COMMENT;
+            /* falls through */
             case COMMENT:
-              if (state.flags & 4096) {
+              if (state2.flags & 4096) {
                 if (have === 0) {
                   break inf_leave;
                 }
                 copy = 0;
                 do {
-                  len = input[next + copy++];
-                  if (state.head && len && state.length < 65536) {
-                    state.head.comment += String.fromCharCode(len);
+                  len = input[next2 + copy++];
+                  if (state2.head && len && state2.length < 65536) {
+                    state2.head.comment += String.fromCharCode(len);
                   }
                 } while (len && copy < have);
-                if (state.flags & 512) {
-                  state.check = crc32(state.check, input, copy, next);
+                if (state2.flags & 512) {
+                  state2.check = crc32(state2.check, input, copy, next2);
                 }
                 have -= copy;
-                next += copy;
+                next2 += copy;
                 if (len) {
                   break inf_leave;
                 }
-              } else if (state.head) {
-                state.head.comment = null;
+              } else if (state2.head) {
+                state2.head.comment = null;
               }
-              state.mode = HCRC;
+              state2.mode = HCRC;
+            /* falls through */
             case HCRC:
-              if (state.flags & 512) {
+              if (state2.flags & 512) {
                 while (bits < 16) {
                   if (have === 0) {
                     break inf_leave;
                   }
                   have--;
-                  hold += input[next++] << bits;
+                  hold += input[next2++] << bits;
                   bits += 8;
                 }
-                if (hold !== (state.check & 65535)) {
+                if (hold !== (state2.check & 65535)) {
                   strm.msg = "header crc mismatch";
-                  state.mode = BAD;
+                  state2.mode = BAD;
                   break;
                 }
                 hold = 0;
                 bits = 0;
               }
-              if (state.head) {
-                state.head.hcrc = state.flags >> 9 & 1;
-                state.head.done = true;
+              if (state2.head) {
+                state2.head.hcrc = state2.flags >> 9 & 1;
+                state2.head.done = true;
               }
-              strm.adler = state.check = 0;
-              state.mode = TYPE;
+              strm.adler = state2.check = 0;
+              state2.mode = TYPE;
               break;
             case DICTID:
               while (bits < 32) {
@@ -3428,34 +3452,37 @@ var require_inflate = __commonJS({
                   break inf_leave;
                 }
                 have--;
-                hold += input[next++] << bits;
+                hold += input[next2++] << bits;
                 bits += 8;
               }
-              strm.adler = state.check = zswap32(hold);
+              strm.adler = state2.check = zswap32(hold);
               hold = 0;
               bits = 0;
-              state.mode = DICT;
+              state2.mode = DICT;
+            /* falls through */
             case DICT:
-              if (state.havedict === 0) {
+              if (state2.havedict === 0) {
                 strm.next_out = put;
                 strm.avail_out = left;
-                strm.next_in = next;
+                strm.next_in = next2;
                 strm.avail_in = have;
-                state.hold = hold;
-                state.bits = bits;
+                state2.hold = hold;
+                state2.bits = bits;
                 return Z_NEED_DICT;
               }
-              strm.adler = state.check = 1;
-              state.mode = TYPE;
+              strm.adler = state2.check = 1;
+              state2.mode = TYPE;
+            /* falls through */
             case TYPE:
               if (flush === Z_BLOCK || flush === Z_TREES) {
                 break inf_leave;
               }
+            /* falls through */
             case TYPEDO:
-              if (state.last) {
+              if (state2.last) {
                 hold >>>= bits & 7;
                 bits -= bits & 7;
-                state.mode = CHECK;
+                state2.mode = CHECK;
                 break;
               }
               while (bits < 3) {
@@ -3463,19 +3490,19 @@ var require_inflate = __commonJS({
                   break inf_leave;
                 }
                 have--;
-                hold += input[next++] << bits;
+                hold += input[next2++] << bits;
                 bits += 8;
               }
-              state.last = hold & 1;
+              state2.last = hold & 1;
               hold >>>= 1;
               bits -= 1;
               switch (hold & 3) {
                 case 0:
-                  state.mode = STORED;
+                  state2.mode = STORED;
                   break;
                 case 1:
-                  fixedtables(state);
-                  state.mode = LEN_;
+                  fixedtables(state2);
+                  state2.mode = LEN_;
                   if (flush === Z_TREES) {
                     hold >>>= 2;
                     bits -= 2;
@@ -3483,11 +3510,11 @@ var require_inflate = __commonJS({
                   }
                   break;
                 case 2:
-                  state.mode = TABLE;
+                  state2.mode = TABLE;
                   break;
                 case 3:
                   strm.msg = "invalid block type";
-                  state.mode = BAD;
+                  state2.mode = BAD;
               }
               hold >>>= 2;
               bits -= 2;
@@ -3500,25 +3527,27 @@ var require_inflate = __commonJS({
                   break inf_leave;
                 }
                 have--;
-                hold += input[next++] << bits;
+                hold += input[next2++] << bits;
                 bits += 8;
               }
               if ((hold & 65535) !== (hold >>> 16 ^ 65535)) {
                 strm.msg = "invalid stored block lengths";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              state.length = hold & 65535;
+              state2.length = hold & 65535;
               hold = 0;
               bits = 0;
-              state.mode = COPY_;
+              state2.mode = COPY_;
               if (flush === Z_TREES) {
                 break inf_leave;
               }
+            /* falls through */
             case COPY_:
-              state.mode = COPY;
+              state2.mode = COPY;
+            /* falls through */
             case COPY:
-              copy = state.length;
+              copy = state2.length;
               if (copy) {
                 if (copy > have) {
                   copy = have;
@@ -3529,15 +3558,15 @@ var require_inflate = __commonJS({
                 if (copy === 0) {
                   break inf_leave;
                 }
-                utils.arraySet(output, input, next, copy, put);
+                utils.arraySet(output, input, next2, copy, put);
                 have -= copy;
-                next += copy;
+                next2 += copy;
                 left -= copy;
                 put += copy;
-                state.length -= copy;
+                state2.length -= copy;
                 break;
               }
-              state.mode = TYPE;
+              state2.mode = TYPE;
               break;
             case TABLE:
               while (bits < 14) {
@@ -3545,58 +3574,60 @@ var require_inflate = __commonJS({
                   break inf_leave;
                 }
                 have--;
-                hold += input[next++] << bits;
+                hold += input[next2++] << bits;
                 bits += 8;
               }
-              state.nlen = (hold & 31) + 257;
+              state2.nlen = (hold & 31) + 257;
               hold >>>= 5;
               bits -= 5;
-              state.ndist = (hold & 31) + 1;
+              state2.ndist = (hold & 31) + 1;
               hold >>>= 5;
               bits -= 5;
-              state.ncode = (hold & 15) + 4;
+              state2.ncode = (hold & 15) + 4;
               hold >>>= 4;
               bits -= 4;
-              if (state.nlen > 286 || state.ndist > 30) {
+              if (state2.nlen > 286 || state2.ndist > 30) {
                 strm.msg = "too many length or distance symbols";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              state.have = 0;
-              state.mode = LENLENS;
+              state2.have = 0;
+              state2.mode = LENLENS;
+            /* falls through */
             case LENLENS:
-              while (state.have < state.ncode) {
+              while (state2.have < state2.ncode) {
                 while (bits < 3) {
                   if (have === 0) {
                     break inf_leave;
                   }
                   have--;
-                  hold += input[next++] << bits;
+                  hold += input[next2++] << bits;
                   bits += 8;
                 }
-                state.lens[order[state.have++]] = hold & 7;
+                state2.lens[order[state2.have++]] = hold & 7;
                 hold >>>= 3;
                 bits -= 3;
               }
-              while (state.have < 19) {
-                state.lens[order[state.have++]] = 0;
+              while (state2.have < 19) {
+                state2.lens[order[state2.have++]] = 0;
               }
-              state.lencode = state.lendyn;
-              state.lenbits = 7;
-              opts = { bits: state.lenbits };
-              ret = inflate_table(CODES, state.lens, 0, 19, state.lencode, 0, state.work, opts);
-              state.lenbits = opts.bits;
+              state2.lencode = state2.lendyn;
+              state2.lenbits = 7;
+              opts = { bits: state2.lenbits };
+              ret = inflate_table(CODES, state2.lens, 0, 19, state2.lencode, 0, state2.work, opts);
+              state2.lenbits = opts.bits;
               if (ret) {
                 strm.msg = "invalid code lengths set";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              state.have = 0;
-              state.mode = CODELENS;
+              state2.have = 0;
+              state2.mode = CODELENS;
+            /* falls through */
             case CODELENS:
-              while (state.have < state.nlen + state.ndist) {
+              while (state2.have < state2.nlen + state2.ndist) {
                 for (; ; ) {
-                  here = state.lencode[hold & (1 << state.lenbits) - 1];
+                  here = state2.lencode[hold & (1 << state2.lenbits) - 1];
                   here_bits = here >>> 24;
                   here_op = here >>> 16 & 255;
                   here_val = here & 65535;
@@ -3607,13 +3638,13 @@ var require_inflate = __commonJS({
                     break inf_leave;
                   }
                   have--;
-                  hold += input[next++] << bits;
+                  hold += input[next2++] << bits;
                   bits += 8;
                 }
                 if (here_val < 16) {
                   hold >>>= here_bits;
                   bits -= here_bits;
-                  state.lens[state.have++] = here_val;
+                  state2.lens[state2.have++] = here_val;
                 } else {
                   if (here_val === 16) {
                     n = here_bits + 2;
@@ -3622,17 +3653,17 @@ var require_inflate = __commonJS({
                         break inf_leave;
                       }
                       have--;
-                      hold += input[next++] << bits;
+                      hold += input[next2++] << bits;
                       bits += 8;
                     }
                     hold >>>= here_bits;
                     bits -= here_bits;
-                    if (state.have === 0) {
+                    if (state2.have === 0) {
                       strm.msg = "invalid bit length repeat";
-                      state.mode = BAD;
+                      state2.mode = BAD;
                       break;
                     }
-                    len = state.lens[state.have - 1];
+                    len = state2.lens[state2.have - 1];
                     copy = 3 + (hold & 3);
                     hold >>>= 2;
                     bits -= 2;
@@ -3643,7 +3674,7 @@ var require_inflate = __commonJS({
                         break inf_leave;
                       }
                       have--;
-                      hold += input[next++] << bits;
+                      hold += input[next2++] << bits;
                       bits += 8;
                     }
                     hold >>>= here_bits;
@@ -3659,7 +3690,7 @@ var require_inflate = __commonJS({
                         break inf_leave;
                       }
                       have--;
-                      hold += input[next++] << bits;
+                      hold += input[next2++] << bits;
                       bits += 8;
                     }
                     hold >>>= here_bits;
@@ -3669,74 +3700,76 @@ var require_inflate = __commonJS({
                     hold >>>= 7;
                     bits -= 7;
                   }
-                  if (state.have + copy > state.nlen + state.ndist) {
+                  if (state2.have + copy > state2.nlen + state2.ndist) {
                     strm.msg = "invalid bit length repeat";
-                    state.mode = BAD;
+                    state2.mode = BAD;
                     break;
                   }
                   while (copy--) {
-                    state.lens[state.have++] = len;
+                    state2.lens[state2.have++] = len;
                   }
                 }
               }
-              if (state.mode === BAD) {
+              if (state2.mode === BAD) {
                 break;
               }
-              if (state.lens[256] === 0) {
+              if (state2.lens[256] === 0) {
                 strm.msg = "invalid code -- missing end-of-block";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              state.lenbits = 9;
-              opts = { bits: state.lenbits };
-              ret = inflate_table(LENS, state.lens, 0, state.nlen, state.lencode, 0, state.work, opts);
-              state.lenbits = opts.bits;
+              state2.lenbits = 9;
+              opts = { bits: state2.lenbits };
+              ret = inflate_table(LENS, state2.lens, 0, state2.nlen, state2.lencode, 0, state2.work, opts);
+              state2.lenbits = opts.bits;
               if (ret) {
                 strm.msg = "invalid literal/lengths set";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              state.distbits = 6;
-              state.distcode = state.distdyn;
-              opts = { bits: state.distbits };
-              ret = inflate_table(DISTS, state.lens, state.nlen, state.ndist, state.distcode, 0, state.work, opts);
-              state.distbits = opts.bits;
+              state2.distbits = 6;
+              state2.distcode = state2.distdyn;
+              opts = { bits: state2.distbits };
+              ret = inflate_table(DISTS, state2.lens, state2.nlen, state2.ndist, state2.distcode, 0, state2.work, opts);
+              state2.distbits = opts.bits;
               if (ret) {
                 strm.msg = "invalid distances set";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              state.mode = LEN_;
+              state2.mode = LEN_;
               if (flush === Z_TREES) {
                 break inf_leave;
               }
+            /* falls through */
             case LEN_:
-              state.mode = LEN;
+              state2.mode = LEN;
+            /* falls through */
             case LEN:
               if (have >= 6 && left >= 258) {
                 strm.next_out = put;
                 strm.avail_out = left;
-                strm.next_in = next;
+                strm.next_in = next2;
                 strm.avail_in = have;
-                state.hold = hold;
-                state.bits = bits;
+                state2.hold = hold;
+                state2.bits = bits;
                 inflate_fast(strm, _out);
                 put = strm.next_out;
                 output = strm.output;
                 left = strm.avail_out;
-                next = strm.next_in;
+                next2 = strm.next_in;
                 input = strm.input;
                 have = strm.avail_in;
-                hold = state.hold;
-                bits = state.bits;
-                if (state.mode === TYPE) {
-                  state.back = -1;
+                hold = state2.hold;
+                bits = state2.bits;
+                if (state2.mode === TYPE) {
+                  state2.back = -1;
                 }
                 break;
               }
-              state.back = 0;
+              state2.back = 0;
               for (; ; ) {
-                here = state.lencode[hold & (1 << state.lenbits) - 1];
+                here = state2.lencode[hold & (1 << state2.lenbits) - 1];
                 here_bits = here >>> 24;
                 here_op = here >>> 16 & 255;
                 here_val = here & 65535;
@@ -3747,7 +3780,7 @@ var require_inflate = __commonJS({
                   break inf_leave;
                 }
                 have--;
-                hold += input[next++] << bits;
+                hold += input[next2++] << bits;
                 bits += 8;
               }
               if (here_op && (here_op & 240) === 0) {
@@ -3755,7 +3788,7 @@ var require_inflate = __commonJS({
                 last_op = here_op;
                 last_val = here_val;
                 for (; ; ) {
-                  here = state.lencode[last_val + ((hold & (1 << last_bits + last_op) - 1) >> last_bits)];
+                  here = state2.lencode[last_val + ((hold & (1 << last_bits + last_op) - 1) >> last_bits)];
                   here_bits = here >>> 24;
                   here_op = here >>> 16 & 255;
                   here_val = here & 65535;
@@ -3766,54 +3799,56 @@ var require_inflate = __commonJS({
                     break inf_leave;
                   }
                   have--;
-                  hold += input[next++] << bits;
+                  hold += input[next2++] << bits;
                   bits += 8;
                 }
                 hold >>>= last_bits;
                 bits -= last_bits;
-                state.back += last_bits;
+                state2.back += last_bits;
               }
               hold >>>= here_bits;
               bits -= here_bits;
-              state.back += here_bits;
-              state.length = here_val;
+              state2.back += here_bits;
+              state2.length = here_val;
               if (here_op === 0) {
-                state.mode = LIT;
+                state2.mode = LIT;
                 break;
               }
               if (here_op & 32) {
-                state.back = -1;
-                state.mode = TYPE;
+                state2.back = -1;
+                state2.mode = TYPE;
                 break;
               }
               if (here_op & 64) {
                 strm.msg = "invalid literal/length code";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              state.extra = here_op & 15;
-              state.mode = LENEXT;
+              state2.extra = here_op & 15;
+              state2.mode = LENEXT;
+            /* falls through */
             case LENEXT:
-              if (state.extra) {
-                n = state.extra;
+              if (state2.extra) {
+                n = state2.extra;
                 while (bits < n) {
                   if (have === 0) {
                     break inf_leave;
                   }
                   have--;
-                  hold += input[next++] << bits;
+                  hold += input[next2++] << bits;
                   bits += 8;
                 }
-                state.length += hold & (1 << state.extra) - 1;
-                hold >>>= state.extra;
-                bits -= state.extra;
-                state.back += state.extra;
+                state2.length += hold & (1 << state2.extra) - 1;
+                hold >>>= state2.extra;
+                bits -= state2.extra;
+                state2.back += state2.extra;
               }
-              state.was = state.length;
-              state.mode = DIST;
+              state2.was = state2.length;
+              state2.mode = DIST;
+            /* falls through */
             case DIST:
               for (; ; ) {
-                here = state.distcode[hold & (1 << state.distbits) - 1];
+                here = state2.distcode[hold & (1 << state2.distbits) - 1];
                 here_bits = here >>> 24;
                 here_op = here >>> 16 & 255;
                 here_val = here & 65535;
@@ -3824,7 +3859,7 @@ var require_inflate = __commonJS({
                   break inf_leave;
                 }
                 have--;
-                hold += input[next++] << bits;
+                hold += input[next2++] << bits;
                 bits += 8;
               }
               if ((here_op & 240) === 0) {
@@ -3832,7 +3867,7 @@ var require_inflate = __commonJS({
                 last_op = here_op;
                 last_val = here_val;
                 for (; ; ) {
-                  here = state.distcode[last_val + ((hold & (1 << last_bits + last_op) - 1) >> last_bits)];
+                  here = state2.distcode[last_val + ((hold & (1 << last_bits + last_op) - 1) >> last_bits)];
                   here_bits = here >>> 24;
                   here_op = here >>> 16 & 255;
                   here_val = here & 65535;
@@ -3843,141 +3878,145 @@ var require_inflate = __commonJS({
                     break inf_leave;
                   }
                   have--;
-                  hold += input[next++] << bits;
+                  hold += input[next2++] << bits;
                   bits += 8;
                 }
                 hold >>>= last_bits;
                 bits -= last_bits;
-                state.back += last_bits;
+                state2.back += last_bits;
               }
               hold >>>= here_bits;
               bits -= here_bits;
-              state.back += here_bits;
+              state2.back += here_bits;
               if (here_op & 64) {
                 strm.msg = "invalid distance code";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              state.offset = here_val;
-              state.extra = here_op & 15;
-              state.mode = DISTEXT;
+              state2.offset = here_val;
+              state2.extra = here_op & 15;
+              state2.mode = DISTEXT;
+            /* falls through */
             case DISTEXT:
-              if (state.extra) {
-                n = state.extra;
+              if (state2.extra) {
+                n = state2.extra;
                 while (bits < n) {
                   if (have === 0) {
                     break inf_leave;
                   }
                   have--;
-                  hold += input[next++] << bits;
+                  hold += input[next2++] << bits;
                   bits += 8;
                 }
-                state.offset += hold & (1 << state.extra) - 1;
-                hold >>>= state.extra;
-                bits -= state.extra;
-                state.back += state.extra;
+                state2.offset += hold & (1 << state2.extra) - 1;
+                hold >>>= state2.extra;
+                bits -= state2.extra;
+                state2.back += state2.extra;
               }
-              if (state.offset > state.dmax) {
+              if (state2.offset > state2.dmax) {
                 strm.msg = "invalid distance too far back";
-                state.mode = BAD;
+                state2.mode = BAD;
                 break;
               }
-              state.mode = MATCH;
+              state2.mode = MATCH;
+            /* falls through */
             case MATCH:
               if (left === 0) {
                 break inf_leave;
               }
               copy = _out - left;
-              if (state.offset > copy) {
-                copy = state.offset - copy;
-                if (copy > state.whave) {
-                  if (state.sane) {
+              if (state2.offset > copy) {
+                copy = state2.offset - copy;
+                if (copy > state2.whave) {
+                  if (state2.sane) {
                     strm.msg = "invalid distance too far back";
-                    state.mode = BAD;
+                    state2.mode = BAD;
                     break;
                   }
                 }
-                if (copy > state.wnext) {
-                  copy -= state.wnext;
-                  from = state.wsize - copy;
+                if (copy > state2.wnext) {
+                  copy -= state2.wnext;
+                  from = state2.wsize - copy;
                 } else {
-                  from = state.wnext - copy;
+                  from = state2.wnext - copy;
                 }
-                if (copy > state.length) {
-                  copy = state.length;
+                if (copy > state2.length) {
+                  copy = state2.length;
                 }
-                from_source = state.window;
+                from_source = state2.window;
               } else {
                 from_source = output;
-                from = put - state.offset;
-                copy = state.length;
+                from = put - state2.offset;
+                copy = state2.length;
               }
               if (copy > left) {
                 copy = left;
               }
               left -= copy;
-              state.length -= copy;
+              state2.length -= copy;
               do {
                 output[put++] = from_source[from++];
               } while (--copy);
-              if (state.length === 0) {
-                state.mode = LEN;
+              if (state2.length === 0) {
+                state2.mode = LEN;
               }
               break;
             case LIT:
               if (left === 0) {
                 break inf_leave;
               }
-              output[put++] = state.length;
+              output[put++] = state2.length;
               left--;
-              state.mode = LEN;
+              state2.mode = LEN;
               break;
             case CHECK:
-              if (state.wrap) {
+              if (state2.wrap) {
                 while (bits < 32) {
                   if (have === 0) {
                     break inf_leave;
                   }
                   have--;
-                  hold |= input[next++] << bits;
+                  hold |= input[next2++] << bits;
                   bits += 8;
                 }
                 _out -= left;
                 strm.total_out += _out;
-                state.total += _out;
+                state2.total += _out;
                 if (_out) {
-                  strm.adler = state.check = /*UPDATE(state.check, put - _out, _out);*/
-                  state.flags ? crc32(state.check, output, _out, put - _out) : adler32(state.check, output, _out, put - _out);
+                  strm.adler = state2.check = /*UPDATE(state.check, put - _out, _out);*/
+                  state2.flags ? crc32(state2.check, output, _out, put - _out) : adler32(state2.check, output, _out, put - _out);
                 }
                 _out = left;
-                if ((state.flags ? hold : zswap32(hold)) !== state.check) {
+                if ((state2.flags ? hold : zswap32(hold)) !== state2.check) {
                   strm.msg = "incorrect data check";
-                  state.mode = BAD;
+                  state2.mode = BAD;
                   break;
                 }
                 hold = 0;
                 bits = 0;
               }
-              state.mode = LENGTH;
+              state2.mode = LENGTH;
+            /* falls through */
             case LENGTH:
-              if (state.wrap && state.flags) {
+              if (state2.wrap && state2.flags) {
                 while (bits < 32) {
                   if (have === 0) {
                     break inf_leave;
                   }
                   have--;
-                  hold += input[next++] << bits;
+                  hold += input[next2++] << bits;
                   bits += 8;
                 }
-                if (hold !== (state.total & 4294967295)) {
+                if (hold !== (state2.total & 4294967295)) {
                   strm.msg = "incorrect length check";
-                  state.mode = BAD;
+                  state2.mode = BAD;
                   break;
                 }
                 hold = 0;
                 bits = 0;
               }
-              state.mode = DONE;
+              state2.mode = DONE;
+            /* falls through */
             case DONE:
               ret = Z_STREAM_END;
               break inf_leave;
@@ -3987,19 +4026,20 @@ var require_inflate = __commonJS({
             case MEM:
               return Z_MEM_ERROR;
             case SYNC:
+            /* falls through */
             default:
               return Z_STREAM_ERROR;
           }
         }
       strm.next_out = put;
       strm.avail_out = left;
-      strm.next_in = next;
+      strm.next_in = next2;
       strm.avail_in = have;
-      state.hold = hold;
-      state.bits = bits;
-      if (state.wsize || _out !== strm.avail_out && state.mode < BAD && (state.mode < CHECK || flush !== Z_FINISH)) {
+      state2.hold = hold;
+      state2.bits = bits;
+      if (state2.wsize || _out !== strm.avail_out && state2.mode < BAD && (state2.mode < CHECK || flush !== Z_FINISH)) {
         if (updatewindow(strm, strm.output, strm.next_out, _out - strm.avail_out)) {
-          state.mode = MEM;
+          state2.mode = MEM;
           return Z_MEM_ERROR;
         }
       }
@@ -4007,12 +4047,12 @@ var require_inflate = __commonJS({
       _out -= strm.avail_out;
       strm.total_in += _in;
       strm.total_out += _out;
-      state.total += _out;
-      if (state.wrap && _out) {
-        strm.adler = state.check = /*UPDATE(state.check, strm.next_out - _out, _out);*/
-        state.flags ? crc32(state.check, output, _out, strm.next_out - _out) : adler32(state.check, output, _out, strm.next_out - _out);
+      state2.total += _out;
+      if (state2.wrap && _out) {
+        strm.adler = state2.check = /*UPDATE(state.check, strm.next_out - _out, _out);*/
+        state2.flags ? crc32(state2.check, output, _out, strm.next_out - _out) : adler32(state2.check, output, _out, strm.next_out - _out);
       }
-      strm.data_type = state.bits + (state.last ? 64 : 0) + (state.mode === TYPE ? 128 : 0) + (state.mode === LEN_ || state.mode === COPY_ ? 256 : 0);
+      strm.data_type = state2.bits + (state2.last ? 64 : 0) + (state2.mode === TYPE ? 128 : 0) + (state2.mode === LEN_ || state2.mode === COPY_ ? 256 : 0);
       if ((_in === 0 && _out === 0 || flush === Z_FINISH) && ret === Z_OK) {
         ret = Z_BUF_ERROR;
       }
@@ -4022,51 +4062,51 @@ var require_inflate = __commonJS({
       if (!strm || !strm.state) {
         return Z_STREAM_ERROR;
       }
-      var state = strm.state;
-      if (state.window) {
-        state.window = null;
+      var state2 = strm.state;
+      if (state2.window) {
+        state2.window = null;
       }
       strm.state = null;
       return Z_OK;
     }
-    function inflateGetHeader(strm, head) {
-      var state;
+    function inflateGetHeader(strm, head2) {
+      var state2;
       if (!strm || !strm.state) {
         return Z_STREAM_ERROR;
       }
-      state = strm.state;
-      if ((state.wrap & 2) === 0) {
+      state2 = strm.state;
+      if ((state2.wrap & 2) === 0) {
         return Z_STREAM_ERROR;
       }
-      state.head = head;
-      head.done = false;
+      state2.head = head2;
+      head2.done = false;
       return Z_OK;
     }
     function inflateSetDictionary(strm, dictionary) {
       var dictLength = dictionary.length;
-      var state;
+      var state2;
       var dictid;
       var ret;
       if (!strm || !strm.state) {
         return Z_STREAM_ERROR;
       }
-      state = strm.state;
-      if (state.wrap !== 0 && state.mode !== DICT) {
+      state2 = strm.state;
+      if (state2.wrap !== 0 && state2.mode !== DICT) {
         return Z_STREAM_ERROR;
       }
-      if (state.mode === DICT) {
+      if (state2.mode === DICT) {
         dictid = 1;
         dictid = adler32(dictid, dictionary, dictLength, 0);
-        if (dictid !== state.check) {
+        if (dictid !== state2.check) {
           return Z_DATA_ERROR;
         }
       }
       ret = updatewindow(strm, dictionary, dictLength, dictLength);
       if (ret) {
-        state.mode = MEM;
+        state2.mode = MEM;
         return Z_MEM_ERROR;
       }
-      state.havedict = 1;
+      state2.havedict = 1;
       return Z_OK;
     }
     exports.inflateReset = inflateReset;
@@ -4327,12 +4367,12 @@ var require_inflate2 = __commonJS({
 var require_pako = __commonJS({
   "node_modules/.pnpm/pako@1.0.11/node_modules/pako/index.js"(exports, module2) {
     "use strict";
-    var assign = require_common().assign;
+    var assign2 = require_common().assign;
     var deflate = require_deflate2();
     var inflate = require_inflate2();
     var constants = require_constants();
     var pako5 = {};
-    assign(pako5, deflate, inflate, constants);
+    assign2(pako5, deflate, inflate, constants);
     module2.exports = pako5;
   }
 });
@@ -4340,10 +4380,10 @@ var require_pako = __commonJS({
 // src/main.ts
 var main_exports = {};
 __export(main_exports, {
-  default: () => BetterExportPdfPlugin
+  default: () => BetterExportPdfPlugin3
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian5 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 
 // src/i18n/index.ts
 var import_deepmerge = __toESM(require_cjs());
@@ -4374,6 +4414,7 @@ var en_default = {
     footerTemplate: "Footer Template",
     isTimestamp: "Add timestamp",
     enabledCss: "Enable select css snippets",
+    concurrency: "Limit concurrency",
     debugMode: "Debug Mode"
   }
 };
@@ -4404,6 +4445,7 @@ var zh_default = {
     footerTemplate: "\u9875\u811A\u6A21\u677F",
     isTimestamp: "\u6587\u4EF6\u540D\u6DFB\u52A0\u65F6\u95F4\u6233",
     enabledCss: "\u542F\u7528CSS\u7247\u6BB5\u9009\u62E9",
+    concurrency: "\u9650\u5236\u5E76\u53D1\u6570",
     debugMode: "\u8C03\u8BD5\u6A21\u5F0F"
   }
 };
@@ -4415,15 +4457,16 @@ var i18n_default = {
     zh: zh_default
   },
   get current() {
-    var _a, _b;
-    const lang = (_a = window.localStorage.getItem("language")) != null ? _a : "en";
-    return (0, import_deepmerge.default)(this.i18n.en, (_b = this.i18n[lang]) != null ? _b : {});
+    var _a3, _b3;
+    const lang = (_a3 = window.localStorage.getItem("language")) != null ? _a3 : "en";
+    return (0, import_deepmerge.default)(this.i18n.en, (_b3 = this.i18n[lang]) != null ? _b3 : {});
   }
 };
 
 // src/modal.ts
+var electron2 = require("electron");
 var fs2 = __toESM(require("fs/promises"));
-var import_obsidian3 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 var import_path = __toESM(require("path"));
 
 // src/constant.ts
@@ -4444,6 +4487,7 @@ var PageSize = {
 // src/pdf.ts
 var import_electron = __toESM(require("electron"));
 var fs = __toESM(require("fs/promises"));
+var import_obsidian2 = require("obsidian");
 
 // node_modules/.pnpm/tslib@1.14.1/node_modules/tslib/tslib.es6.js
 var extendStatics = function(d, b) {
@@ -4580,10 +4624,10 @@ function __generator(thisArg, body) {
 }
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-  for (var r = Array(s), k = 0, i = 0; i < il; i++)
+  for (var r2 = Array(s), k = 0, i = 0; i < il; i++)
     for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-      r[k] = a[j];
-  return r;
+      r2[k] = a[j];
+  return r2;
 }
 
 // node_modules/.pnpm/pdf-lib@1.17.1/node_modules/pdf-lib/es/utils/base64.js
@@ -4684,39 +4728,39 @@ var copyStringIntoBuffer = function(str, buffer, offset) {
 var escapeRegExp = function(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 };
-var cleanText = function(text) {
-  return text.replace(/\t|\u0085|\u2028|\u2029/g, "    ").replace(/[\b\v]/g, "");
+var cleanText = function(text2) {
+  return text2.replace(/\t|\u0085|\u2028|\u2029/g, "    ").replace(/[\b\v]/g, "");
 };
 var escapedNewlineChars = ["\\n", "\\f", "\\r", "\\u000B"];
-var isNewlineChar = function(text) {
-  return /^[\n\f\r\u000B]$/.test(text);
+var isNewlineChar = function(text2) {
+  return /^[\n\f\r\u000B]$/.test(text2);
 };
-var lineSplit = function(text) {
-  return text.split(/[\n\f\r\u000B]/);
+var lineSplit = function(text2) {
+  return text2.split(/[\n\f\r\u000B]/);
 };
-var mergeLines = function(text) {
-  return text.replace(/[\n\f\r\u000B]/g, " ");
+var mergeLines = function(text2) {
+  return text2.replace(/[\n\f\r\u000B]/g, " ");
 };
-var charAtIndex = function(text, index) {
-  var cuFirst = text.charCodeAt(index);
+var charAtIndex = function(text2, index2) {
+  var cuFirst = text2.charCodeAt(index2);
   var cuSecond;
-  var nextIndex = index + 1;
+  var nextIndex = index2 + 1;
   var length = 1;
   if (
     // Check if it's the start of a surrogate pair.
     cuFirst >= 55296 && cuFirst <= 56319 && // high surrogate
-    text.length > nextIndex
+    text2.length > nextIndex
   ) {
-    cuSecond = text.charCodeAt(nextIndex);
+    cuSecond = text2.charCodeAt(nextIndex);
     if (cuSecond >= 56320 && cuSecond <= 57343)
       length = 2;
   }
-  return [text.slice(index, index + length), length];
+  return [text2.slice(index2, index2 + length), length];
 };
-var charSplit = function(text) {
+var charSplit = function(text2) {
   var chars3 = [];
-  for (var idx = 0, len = text.length; idx < len; ) {
-    var _a = charAtIndex(text, idx), c = _a[0], cLen = _a[1];
+  for (var idx = 0, len = text2.length; idx < len; ) {
+    var _a3 = charAtIndex(text2, idx), c = _a3[0], cLen = _a3[1];
     chars3.push(c);
     idx += cLen;
   }
@@ -4735,9 +4779,9 @@ var buildWordBreakRegex = function(wordBreaks) {
   var breakRules = escapedRules.join("|");
   return new RegExp("(" + newlineCharUnion + ")|((.*?)(" + breakRules + "))", "gm");
 };
-var breakTextIntoLines = function(text, wordBreaks, maxWidth, computeWidthOfText) {
+var breakTextIntoLines = function(text2, wordBreaks, maxWidth, computeWidthOfText) {
   var regex = buildWordBreakRegex(wordBreaks);
-  var words = cleanText(text).match(regex);
+  var words = cleanText(text2).match(regex);
   var currLine = "";
   var currWidth = 0;
   var lines = [];
@@ -4767,13 +4811,13 @@ var parseDate = function(dateStr) {
   var match = dateStr.match(dateRegex);
   if (!match)
     return void 0;
-  var year = match[1], _a = match[2], month = _a === void 0 ? "01" : _a, _b = match[3], day = _b === void 0 ? "01" : _b, _c = match[4], hours = _c === void 0 ? "00" : _c, _d = match[5], mins = _d === void 0 ? "00" : _d, _e = match[6], secs = _e === void 0 ? "00" : _e, _f = match[7], offsetSign = _f === void 0 ? "Z" : _f, _g = match[8], offsetHours = _g === void 0 ? "00" : _g, _h = match[9], offsetMins = _h === void 0 ? "00" : _h;
+  var year = match[1], _a3 = match[2], month = _a3 === void 0 ? "01" : _a3, _b3 = match[3], day = _b3 === void 0 ? "01" : _b3, _c2 = match[4], hours = _c2 === void 0 ? "00" : _c2, _d = match[5], mins = _d === void 0 ? "00" : _d, _e = match[6], secs = _e === void 0 ? "00" : _e, _f = match[7], offsetSign = _f === void 0 ? "Z" : _f, _g = match[8], offsetHours = _g === void 0 ? "00" : _g, _h = match[9], offsetMins = _h === void 0 ? "00" : _h;
   var tzOffset = offsetSign === "Z" ? "Z" : "" + offsetSign + offsetHours + ":" + offsetMins;
   var date = /* @__PURE__ */ new Date(year + "-" + month + "-" + day + "T" + hours + ":" + mins + ":" + secs + tzOffset);
   return date;
 };
 var findLastMatch = function(value, regex) {
-  var _a;
+  var _a3;
   var position = 0;
   var lastMatch;
   while (position < value.length) {
@@ -4781,7 +4825,7 @@ var findLastMatch = function(value, regex) {
     if (!match)
       return { match: lastMatch, pos: position };
     lastMatch = match;
-    position += ((_a = match.index) !== null && _a !== void 0 ? _a : 0) + match[0].length;
+    position += ((_a3 = match.index) !== null && _a3 !== void 0 ? _a3 : 0) + match[0].length;
   }
   return { match: lastMatch, pos: position };
 };
@@ -4808,8 +4852,8 @@ var mergeIntoTypedArray = function() {
   var arrayCount = arrays.length;
   var typedArrays = [];
   for (var idx = 0; idx < arrayCount; idx++) {
-    var element = arrays[idx];
-    typedArrays[idx] = element instanceof Uint8Array ? element : typedArrayFor(element);
+    var element2 = arrays[idx];
+    typedArrays[idx] = element2 instanceof Uint8Array ? element2 : typedArrayFor(element2);
   }
   var totalSize = 0;
   for (var idx = 0; idx < arrayCount; idx++) {
@@ -5206,8 +5250,8 @@ var Font = (
         acc[metric.N] = metric.WX;
         return acc;
       }, {});
-      font.KernPairXAmounts = font.KernPairs.reduce(function(acc, _a) {
-        var name1 = _a[0], name2 = _a[1], width = _a[2];
+      font.KernPairXAmounts = font.KernPairs.reduce(function(acc, _a3) {
+        var name1 = _a3[0], name2 = _a3[1], width = _a3[2];
         if (!acc[name1])
           acc[name1] = {};
         acc[name1][name2] = width;
@@ -5569,8 +5613,8 @@ var UnexpectedObjectTypeError = (
     function UnexpectedObjectTypeError2(expected, actual) {
       var _this = this;
       var name = function(t) {
-        var _a, _b;
-        return (_a = t === null || t === void 0 ? void 0 : t.name) !== null && _a !== void 0 ? _a : (_b = t === null || t === void 0 ? void 0 : t.constructor) === null || _b === void 0 ? void 0 : _b.name;
+        var _a3, _b3;
+        return (_a3 = t === null || t === void 0 ? void 0 : t.name) !== null && _a3 !== void 0 ? _a3 : (_b3 = t === null || t === void 0 ? void 0 : t.constructor) === null || _b3 === void 0 ? void 0 : _b3.name;
       };
       var expectedTypes = Array.isArray(expected) ? expected.map(name) : [name(expected)];
       var msg = "Expected instance of " + expectedTypes.join(" or ") + ", " + ("but got instance of " + (actual ? name(actual) : actual));
@@ -5637,9 +5681,9 @@ var UnrecognizedStreamTypeError = (
   function(_super) {
     __extends(UnrecognizedStreamTypeError2, _super);
     function UnrecognizedStreamTypeError2(stream2) {
-      var _a, _b, _c;
+      var _a3, _b3, _c2;
       var _this = this;
-      var streamType = (_c = (_b = (_a = stream2 === null || stream2 === void 0 ? void 0 : stream2.contructor) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : stream2 === null || stream2 === void 0 ? void 0 : stream2.name) !== null && _c !== void 0 ? _c : stream2;
+      var streamType = (_c2 = (_b3 = (_a3 = stream2 === null || stream2 === void 0 ? void 0 : stream2.contructor) === null || _a3 === void 0 ? void 0 : _a3.name) !== null && _b3 !== void 0 ? _b3 : stream2 === null || stream2 === void 0 ? void 0 : stream2.name) !== null && _c2 !== void 0 ? _c2 : stream2;
       var msg = "Unrecognized stream type: " + streamType;
       _this = _super.call(this, msg) || this;
       return _this;
@@ -5716,9 +5760,9 @@ var IndexOutOfBoundsError = (
   /** @class */
   function(_super) {
     __extends(IndexOutOfBoundsError2, _super);
-    function IndexOutOfBoundsError2(index, min, max) {
+    function IndexOutOfBoundsError2(index2, min, max) {
       var _this = this;
-      var msg = "index should be at least " + min + " and at most " + max + ", but was actually " + index;
+      var msg = "index should be at least " + min + " and at most " + max + ", but was actually " + index2;
       _this = _super.call(this, msg) || this;
       return _this;
     }
@@ -6094,37 +6138,37 @@ var PDFArray = (
     PDFArray3.prototype.push = function(object) {
       this.array.push(object);
     };
-    PDFArray3.prototype.insert = function(index, object) {
-      this.array.splice(index, 0, object);
+    PDFArray3.prototype.insert = function(index2, object) {
+      this.array.splice(index2, 0, object);
     };
     PDFArray3.prototype.indexOf = function(object) {
-      var index = this.array.indexOf(object);
-      return index === -1 ? void 0 : index;
+      var index2 = this.array.indexOf(object);
+      return index2 === -1 ? void 0 : index2;
     };
-    PDFArray3.prototype.remove = function(index) {
-      this.array.splice(index, 1);
+    PDFArray3.prototype.remove = function(index2) {
+      this.array.splice(index2, 1);
     };
     PDFArray3.prototype.set = function(idx, object) {
       this.array[idx] = object;
     };
-    PDFArray3.prototype.get = function(index) {
-      return this.array[index];
+    PDFArray3.prototype.get = function(index2) {
+      return this.array[index2];
     };
-    PDFArray3.prototype.lookupMaybe = function(index) {
-      var _a;
+    PDFArray3.prototype.lookupMaybe = function(index2) {
+      var _a3;
       var types = [];
       for (var _i = 1; _i < arguments.length; _i++) {
         types[_i - 1] = arguments[_i];
       }
-      return (_a = this.context).lookupMaybe.apply(_a, __spreadArrays([this.get(index)], types));
+      return (_a3 = this.context).lookupMaybe.apply(_a3, __spreadArrays([this.get(index2)], types));
     };
-    PDFArray3.prototype.lookup = function(index) {
-      var _a;
+    PDFArray3.prototype.lookup = function(index2) {
+      var _a3;
       var types = [];
       for (var _i = 1; _i < arguments.length; _i++) {
         types[_i - 1] = arguments[_i];
       }
-      return (_a = this.context).lookup.apply(_a, __spreadArrays([this.get(index)], types));
+      return (_a3 = this.context).lookup.apply(_a3, __spreadArrays([this.get(index2)], types));
     };
     PDFArray3.prototype.asRectangle = function() {
       if (this.size() !== 4)
@@ -6465,25 +6509,25 @@ var PDFDict = (
       return value !== void 0 && value !== PDFNull_default;
     };
     PDFDict2.prototype.lookupMaybe = function(key) {
-      var _a;
+      var _a3;
       var types = [];
       for (var _i = 1; _i < arguments.length; _i++) {
         types[_i - 1] = arguments[_i];
       }
       var preservePDFNull = types.includes(PDFNull_default);
-      var value = (_a = this.context).lookupMaybe.apply(_a, __spreadArrays([this.get(key, preservePDFNull)], types));
+      var value = (_a3 = this.context).lookupMaybe.apply(_a3, __spreadArrays([this.get(key, preservePDFNull)], types));
       if (value === PDFNull_default && !preservePDFNull)
         return void 0;
       return value;
     };
     PDFDict2.prototype.lookup = function(key) {
-      var _a;
+      var _a3;
       var types = [];
       for (var _i = 1; _i < arguments.length; _i++) {
         types[_i - 1] = arguments[_i];
       }
       var preservePDFNull = types.includes(PDFNull_default);
-      var value = (_a = this.context).lookup.apply(_a, __spreadArrays([this.get(key, preservePDFNull)], types));
+      var value = (_a3 = this.context).lookup.apply(_a3, __spreadArrays([this.get(key, preservePDFNull)], types));
       if (value === PDFNull_default && !preservePDFNull)
         return void 0;
       return value;
@@ -6509,7 +6553,7 @@ var PDFDict = (
       var clone = PDFDict2.withContext(context || this.context);
       var entries = this.entries();
       for (var idx = 0, len = entries.length; idx < len; idx++) {
-        var _a = entries[idx], key = _a[0], value = _a[1];
+        var _a3 = entries[idx], key = _a3[0], value = _a3[1];
         clone.set(key, value);
       }
       return clone;
@@ -6518,7 +6562,7 @@ var PDFDict = (
       var dictString = "<<\n";
       var entries = this.entries();
       for (var idx = 0, len = entries.length; idx < len; idx++) {
-        var _a = entries[idx], key = _a[0], value = _a[1];
+        var _a3 = entries[idx], key = _a3[0], value = _a3[1];
         dictString += key.toString() + " " + value.toString() + "\n";
       }
       dictString += ">>";
@@ -6528,7 +6572,7 @@ var PDFDict = (
       var size = 5;
       var entries = this.entries();
       for (var idx = 0, len = entries.length; idx < len; idx++) {
-        var _a = entries[idx], key = _a[0], value = _a[1];
+        var _a3 = entries[idx], key = _a3[0], value = _a3[1];
         size += key.sizeInBytes() + value.sizeInBytes() + 2;
       }
       return size;
@@ -6540,7 +6584,7 @@ var PDFDict = (
       buffer[offset++] = CharCodes_default.Newline;
       var entries = this.entries();
       for (var idx = 0, len = entries.length; idx < len; idx++) {
-        var _a = entries[idx], key = _a[0], value = _a[1];
+        var _a3 = entries[idx], key = _a3[0], value = _a3[1];
         offset += key.copyBytesInto(buffer, offset);
         buffer[offset++] = CharCodes_default.Space;
         offset += value.copyBytesInto(buffer, offset);
@@ -6892,19 +6936,19 @@ var PDFContentStream = (
       return _this;
     }
     PDFContentStream2.prototype.push = function() {
-      var _a;
+      var _a3;
       var operators = [];
       for (var _i = 0; _i < arguments.length; _i++) {
         operators[_i] = arguments[_i];
       }
-      (_a = this.operators).push.apply(_a, operators);
+      (_a3 = this.operators).push.apply(_a3, operators);
     };
     PDFContentStream2.prototype.clone = function(context) {
       var operators = new Array(this.operators.length);
       for (var idx = 0, len = this.operators.length; idx < len; idx++) {
         operators[idx] = this.operators[idx].clone(context);
       }
-      var _a = this, dict = _a.dict, encode = _a.encode;
+      var _a3 = this, dict = _a3.dict, encode = _a3.encode;
       return PDFContentStream2.of(dict.clone(context), operators, encode);
     };
     PDFContentStream2.prototype.getContentsString = function() {
@@ -6960,9 +7004,9 @@ var SimpleRNG = (
 );
 
 // node_modules/.pnpm/pdf-lib@1.17.1/node_modules/pdf-lib/es/core/PDFContext.js
-var byAscendingObjectNumber = function(_a, _b) {
-  var a = _a[0];
-  var b = _b[0];
+var byAscendingObjectNumber = function(_a3, _b3) {
+  var a = _a3[0];
+  var b = _b3[0];
   return a.objectNumber - b.objectNumber;
 };
 var PDFContext = (
@@ -7037,7 +7081,7 @@ var PDFContext = (
     PDFContext2.prototype.getObjectRef = function(pdfObject) {
       var entries = Array.from(this.indirectObjects.entries());
       for (var idx = 0, len = entries.length; idx < len; idx++) {
-        var _a = entries[idx], ref = _a[0], object = _a[1];
+        var _a3 = entries[idx], ref = _a3[0], object = _a3[1];
         if (object === pdfObject) {
           return ref;
         }
@@ -7152,7 +7196,7 @@ var PDFPageLeaf = (
       var clone = PDFPageLeaf2.fromMapWithContext(/* @__PURE__ */ new Map(), context || this.context, this.autoNormalizeCTM);
       var entries = this.entries();
       for (var idx = 0, len = entries.length; idx < len; idx++) {
-        var _a = entries[idx], key = _a[0], value = _a[1];
+        var _a3 = entries[idx], key = _a3[0], value = _a3[1];
         clone.set(key, value);
       }
       return clone;
@@ -7222,9 +7266,9 @@ var PDFPageLeaf = (
     };
     PDFPageLeaf2.prototype.removeAnnot = function(annotRef) {
       var Annots = this.normalizedEntries().Annots;
-      var index = Annots.indexOf(annotRef);
-      if (index !== void 0) {
-        Annots.remove(index);
+      var index2 = Annots.indexOf(annotRef);
+      if (index2 !== void 0) {
+        Annots.remove(index2);
       }
     };
     PDFPageLeaf2.prototype.setFontDictionary = function(name, fontDictRef) {
@@ -7366,7 +7410,7 @@ var PDFObjectCopier = (
         _this.traversedObjects.set(originalDict, clonedDict);
         var entries = originalDict.entries();
         for (var idx = 0, len = entries.length; idx < len; idx++) {
-          var _a = entries[idx], key = _a[0], value = _a[1];
+          var _a3 = entries[idx], key = _a3[0], value = _a3[1];
           clonedDict.set(key, _this.copy(value));
         }
         return clonedDict;
@@ -7391,7 +7435,7 @@ var PDFObjectCopier = (
         _this.traversedObjects.set(originalStream, clonedStream);
         var entries = originalStream.dict.entries();
         for (var idx = 0, len = entries.length; idx < len; idx++) {
-          var _a = entries[idx], key = _a[0], value = _a[1];
+          var _a3 = entries[idx], key = _a3[0], value = _a3[1];
           clonedStream.dict.set(key, _this.copy(value));
         }
         return clonedStream;
@@ -7642,7 +7686,7 @@ var PDFObjectStream = (
     PDFObjectStream2.prototype.getContentsString = function() {
       var value = this.offsetsString;
       for (var idx = 0, len = this.objects.length; idx < len; idx++) {
-        var _a = this.objects[idx], object = _a[1];
+        var _a3 = this.objects[idx], object = _a3[1];
         value += object + "\n";
       }
       return value;
@@ -7651,7 +7695,7 @@ var PDFObjectStream = (
       var buffer = new Uint8Array(this.getUnencodedContentsSize());
       var offset = copyStringIntoBuffer(this.offsetsString, buffer, 0);
       for (var idx = 0, len = this.objects.length; idx < len; idx++) {
-        var _a = this.objects[idx], object = _a[1];
+        var _a3 = this.objects[idx], object = _a3[1];
         offset += object.copyBytesInto(buffer, offset);
         buffer[offset++] = CharCodes_default.Newline;
       }
@@ -7663,7 +7707,7 @@ var PDFObjectStream = (
     PDFObjectStream2.prototype.computeOffsetsString = function() {
       var offsetsString = "";
       for (var idx = 0, len = this.offsets.length; idx < len; idx++) {
-        var _a = this.offsets[idx], objectNumber = _a[0], offset = _a[1];
+        var _a3 = this.offsets[idx], objectNumber = _a3[0], offset = _a3[1];
         offsetsString += objectNumber + " " + offset + " ";
       }
       return offsetsString;
@@ -7672,7 +7716,7 @@ var PDFObjectStream = (
       var offset = 0;
       var offsets = new Array(this.objects.length);
       for (var idx = 0, len = this.objects.length; idx < len; idx++) {
-        var _a = this.objects[idx], ref = _a[0], object = _a[1];
+        var _a3 = this.objects[idx], ref = _a3[0], object = _a3[1];
         offsets[idx] = [ref.objectNumber, offset];
         offset += object.sizeInBytes() + 1;
       }
@@ -7705,23 +7749,23 @@ var PDFWriter = (
     }
     PDFWriter2.prototype.serializeToBuffer = function() {
       return __awaiter(this, void 0, void 0, function() {
-        var _a, size, header, indirectObjects, xref, trailerDict, trailer, offset, buffer, idx, len, _b, ref, object, objectNumber, generationNumber, n;
-        return __generator(this, function(_c) {
-          switch (_c.label) {
+        var _a3, size, header, indirectObjects, xref, trailerDict, trailer, offset, buffer, idx, len, _b3, ref, object, objectNumber, generationNumber, n;
+        return __generator(this, function(_c2) {
+          switch (_c2.label) {
             case 0:
               return [4, this.computeBufferSize()];
             case 1:
-              _a = _c.sent(), size = _a.size, header = _a.header, indirectObjects = _a.indirectObjects, xref = _a.xref, trailerDict = _a.trailerDict, trailer = _a.trailer;
+              _a3 = _c2.sent(), size = _a3.size, header = _a3.header, indirectObjects = _a3.indirectObjects, xref = _a3.xref, trailerDict = _a3.trailerDict, trailer = _a3.trailer;
               offset = 0;
               buffer = new Uint8Array(size);
               offset += header.copyBytesInto(buffer, offset);
               buffer[offset++] = CharCodes_default.Newline;
               buffer[offset++] = CharCodes_default.Newline;
               idx = 0, len = indirectObjects.length;
-              _c.label = 2;
+              _c2.label = 2;
             case 2:
               if (!(idx < len)) return [3, 5];
-              _b = indirectObjects[idx], ref = _b[0], object = _b[1];
+              _b3 = indirectObjects[idx], ref = _b3[0], object = _b3[1];
               objectNumber = String(ref.objectNumber);
               offset += copyStringIntoBuffer(objectNumber, buffer, offset);
               buffer[offset++] = CharCodes_default.Space;
@@ -7746,8 +7790,8 @@ var PDFWriter = (
               if (!this.shouldWaitForTick(n)) return [3, 4];
               return [4, waitForTick()];
             case 3:
-              _c.sent();
-              _c.label = 4;
+              _c2.sent();
+              _c2.label = 4;
             case 4:
               idx++;
               return [3, 2];
@@ -7767,8 +7811,8 @@ var PDFWriter = (
         });
       });
     };
-    PDFWriter2.prototype.computeIndirectObjectSize = function(_a) {
-      var ref = _a[0], object = _a[1];
+    PDFWriter2.prototype.computeIndirectObjectSize = function(_a3) {
+      var ref = _a3[0], object = _a3[1];
       var refSize = ref.sizeInBytes() + 3;
       var objectSize = object.sizeInBytes() + 9;
       return refSize + objectSize;
@@ -7785,15 +7829,15 @@ var PDFWriter = (
     PDFWriter2.prototype.computeBufferSize = function() {
       return __awaiter(this, void 0, void 0, function() {
         var header, size, xref, indirectObjects, idx, len, indirectObject, ref, xrefOffset, trailerDict, trailer;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               header = PDFHeader_default.forVersion(1, 7);
               size = header.sizeInBytes() + 2;
               xref = PDFCrossRefSection_default.create();
               indirectObjects = this.context.enumerateIndirectObjects();
               idx = 0, len = indirectObjects.length;
-              _a.label = 1;
+              _a3.label = 1;
             case 1:
               if (!(idx < len)) return [3, 4];
               indirectObject = indirectObjects[idx];
@@ -7803,8 +7847,8 @@ var PDFWriter = (
               if (!this.shouldWaitForTick(1)) return [3, 3];
               return [4, waitForTick()];
             case 2:
-              _a.sent();
-              _a.label = 3;
+              _a3.sent();
+              _a3.label = 3;
             case 3:
               idx++;
               return [3, 1];
@@ -7909,8 +7953,8 @@ var PDFCrossRefStream = (
             entryTuples[idx] = [type, offset, ref.generationNumber];
           }
           if (entry.type === EntryType.Compressed) {
-            var type = entry.type, objectStreamRef = entry.objectStreamRef, index = entry.index;
-            entryTuples[idx] = [type, objectStreamRef.objectNumber, index];
+            var type = entry.type, objectStreamRef = entry.objectStreamRef, index2 = entry.index;
+            entryTuples[idx] = [type, objectStreamRef.objectNumber, index2];
           }
         }
         return entryTuples;
@@ -7919,7 +7963,7 @@ var PDFCrossRefStream = (
         var entryTuples = _this.entryTuplesCache.access();
         var widths = [0, 0, 0];
         for (var idx = 0, len = entryTuples.length; idx < len; idx++) {
-          var _a = entryTuples[idx], first = _a[0], second = _a[1], third = _a[2];
+          var _a3 = entryTuples[idx], first = _a3[0], second = _a3[1], third = _a3[2];
           var firstSize = sizeInBytes(first);
           var secondSize = sizeInBytes(second);
           var thirdSize = sizeInBytes(third);
@@ -7955,16 +7999,16 @@ var PDFCrossRefStream = (
       this.indexCache.invalidate();
       this.contentsCache.invalidate();
     };
-    PDFCrossRefStream2.prototype.addCompressedEntry = function(ref, objectStreamRef, index) {
+    PDFCrossRefStream2.prototype.addCompressedEntry = function(ref, objectStreamRef, index2) {
       var type = EntryType.Compressed;
-      this.entries.push({ type, ref, objectStreamRef, index });
+      this.entries.push({ type, ref, objectStreamRef, index: index2 });
       this.entryTuplesCache.invalidate();
       this.maxByteWidthsCache.invalidate();
       this.indexCache.invalidate();
       this.contentsCache.invalidate();
     };
     PDFCrossRefStream2.prototype.clone = function(context) {
-      var _a = this, dict = _a.dict, entries = _a.entries, encode = _a.encode;
+      var _a3 = this, dict = _a3.dict, entries = _a3.entries, encode = _a3.encode;
       return PDFCrossRefStream2.of(dict.clone(context), entries.slice(), encode);
     };
     PDFCrossRefStream2.prototype.getContentsString = function() {
@@ -7972,7 +8016,7 @@ var PDFCrossRefStream = (
       var byteWidths = this.maxByteWidthsCache.access();
       var value = "";
       for (var entryIdx = 0, entriesLen = entryTuples.length; entryIdx < entriesLen; entryIdx++) {
-        var _a = entryTuples[entryIdx], first = _a[0], second = _a[1], third = _a[2];
+        var _a3 = entryTuples[entryIdx], first = _a3[0], second = _a3[1], third = _a3[2];
         var firstBytes = reverseArray(bytesFor(first));
         var secondBytes = reverseArray(bytesFor(second));
         var thirdBytes = reverseArray(bytesFor(third));
@@ -7994,7 +8038,7 @@ var PDFCrossRefStream = (
       var buffer = new Uint8Array(this.getUnencodedContentsSize());
       var offset = 0;
       for (var entryIdx = 0, entriesLen = entryTuples.length; entryIdx < entriesLen; entryIdx++) {
-        var _a = entryTuples[entryIdx], first = _a[0], second = _a[1], third = _a[2];
+        var _a3 = entryTuples[entryIdx], first = _a3[0], second = _a3[1], third = _a3[2];
         var firstBytes = reverseArray(bytesFor(first));
         var secondBytes = reverseArray(bytesFor(second));
         var thirdBytes = reverseArray(bytesFor(third));
@@ -8018,10 +8062,10 @@ var PDFCrossRefStream = (
     PDFCrossRefStream2.prototype.updateDict = function() {
       _super.prototype.updateDict.call(this);
       var byteWidths = this.maxByteWidthsCache.access();
-      var index = this.indexCache.access();
+      var index2 = this.indexCache.access();
       var context = this.dict.context;
       this.dict.set(PDFName_default.of("W"), context.obj(byteWidths));
-      this.dict.set(PDFName_default.of("Index"), context.obj(index));
+      this.dict.set(PDFName_default.of("Index"), context.obj(index2));
     };
     PDFCrossRefStream2.create = function(dict, encode) {
       if (encode === void 0) {
@@ -8056,8 +8100,8 @@ var PDFStreamWriter = (
     PDFStreamWriter2.prototype.computeBufferSize = function() {
       return __awaiter(this, void 0, void 0, function() {
         var objectNumber, header, size, xrefStream, uncompressedObjects, compressedObjects, objectStreamRefs, indirectObjects, idx, len, indirectObject, ref, object, shouldNotCompress, chunk, objectStreamRef, idx, len, chunk, ref, objectStream, xrefStreamRef, xrefOffset, trailer;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               objectNumber = this.context.largestObjectNumber + 1;
               header = PDFHeader_default.forVersion(1, 7);
@@ -8068,7 +8112,7 @@ var PDFStreamWriter = (
               objectStreamRefs = [];
               indirectObjects = this.context.enumerateIndirectObjects();
               idx = 0, len = indirectObjects.length;
-              _a.label = 1;
+              _a3.label = 1;
             case 1:
               if (!(idx < len)) return [3, 6];
               indirectObject = indirectObjects[idx];
@@ -8081,8 +8125,8 @@ var PDFStreamWriter = (
               if (!this.shouldWaitForTick(1)) return [3, 3];
               return [4, waitForTick()];
             case 2:
-              _a.sent();
-              _a.label = 3;
+              _a3.sent();
+              _a3.label = 3;
             case 3:
               return [3, 5];
             case 4:
@@ -8096,13 +8140,13 @@ var PDFStreamWriter = (
               }
               xrefStream.addCompressedEntry(ref, objectStreamRef, chunk.length);
               chunk.push(indirectObject);
-              _a.label = 5;
+              _a3.label = 5;
             case 5:
               idx++;
               return [3, 1];
             case 6:
               idx = 0, len = compressedObjects.length;
-              _a.label = 7;
+              _a3.label = 7;
             case 7:
               if (!(idx < len)) return [3, 10];
               chunk = compressedObjects[idx];
@@ -8114,8 +8158,8 @@ var PDFStreamWriter = (
               if (!this.shouldWaitForTick(chunk.length)) return [3, 9];
               return [4, waitForTick()];
             case 8:
-              _a.sent();
-              _a.label = 9;
+              _a3.sent();
+              _a3.label = 9;
             case 9:
               idx++;
               return [3, 7];
@@ -8178,10 +8222,10 @@ var PDFHexString = (
       return pdfDocEncodingDecode(bytes);
     };
     PDFHexString2.prototype.decodeDate = function() {
-      var text = this.decodeText();
-      var date = parseDate(text);
+      var text2 = this.decodeText();
+      var date = parseDate(text2);
       if (!date)
-        throw new InvalidPDFDateStringError(text);
+        throw new InvalidPDFDateStringError(text2);
       return date;
     };
     PDFHexString2.prototype.asString = function() {
@@ -8228,16 +8272,16 @@ var StandardFontEmbedder = (
       this.fontName = this.font.FontName;
       this.customName = customName;
     }
-    StandardFontEmbedder2.prototype.encodeText = function(text) {
-      var glyphs = this.encodeTextAsGlyphs(text);
+    StandardFontEmbedder2.prototype.encodeText = function(text2) {
+      var glyphs = this.encodeTextAsGlyphs(text2);
       var hexCodes = new Array(glyphs.length);
       for (var idx = 0, len = glyphs.length; idx < len; idx++) {
         hexCodes[idx] = toHexString(glyphs[idx].code);
       }
       return PDFHexString_default.of(hexCodes.join(""));
     };
-    StandardFontEmbedder2.prototype.widthOfTextAtSize = function(text, size) {
-      var glyphs = this.encodeTextAsGlyphs(text);
+    StandardFontEmbedder2.prototype.widthOfTextAtSize = function(text2, size) {
+      var glyphs = this.encodeTextAsGlyphs(text2);
       var totalWidth = 0;
       for (var idx = 0, len = glyphs.length; idx < len; idx++) {
         var left = glyphs[idx].name;
@@ -8252,8 +8296,8 @@ var StandardFontEmbedder = (
       if (options === void 0) {
         options = {};
       }
-      var _a = options.descender, descender = _a === void 0 ? true : _a;
-      var _b = this.font, Ascender = _b.Ascender, Descender = _b.Descender, FontBBox = _b.FontBBox;
+      var _a3 = options.descender, descender = _a3 === void 0 ? true : _a3;
+      var _b3 = this.font, Ascender = _b3.Ascender, Descender = _b3.Descender, FontBBox = _b3.FontBBox;
       var yTop = Ascender || FontBBox[3];
       var yBottom = Descender || FontBBox[1];
       var height = yTop - yBottom;
@@ -8262,7 +8306,7 @@ var StandardFontEmbedder = (
       return height / 1e3 * size;
     };
     StandardFontEmbedder2.prototype.sizeOfFontAtHeight = function(height) {
-      var _a = this.font, Ascender = _a.Ascender, Descender = _a.Descender, FontBBox = _a.FontBBox;
+      var _a3 = this.font, Ascender = _a3.Ascender, Descender = _a3.Descender, FontBBox = _a3.FontBBox;
       var yTop = Ascender || FontBBox[3];
       var yBottom = Descender || FontBBox[1];
       return 1e3 * height / (yTop - yBottom);
@@ -8284,8 +8328,8 @@ var StandardFontEmbedder = (
     StandardFontEmbedder2.prototype.widthOfGlyph = function(glyphName) {
       return this.font.getWidthOfGlyph(glyphName) || 250;
     };
-    StandardFontEmbedder2.prototype.encodeTextAsGlyphs = function(text) {
-      var codePoints = Array.from(text);
+    StandardFontEmbedder2.prototype.encodeTextAsGlyphs = function(text2) {
+      var codePoints = Array.from(text2);
       var glyphs = new Array(codePoints.length);
       for (var idx = 0, len = codePoints.length; idx < len; idx++) {
         var codePoint = toCodePoint(codePoints[idx]);
@@ -8313,8 +8357,8 @@ var createCmap = function(glyphs, glyphId) {
   return fillCmapTemplate(bfChars);
 };
 var fillCmapTemplate = function(bfChars) {
-  return "/CIDInit /ProcSet findresource begin\n12 dict begin\nbegincmap\n/CIDSystemInfo <<\n  /Registry (Adobe)\n  /Ordering (UCS)\n  /Supplement 0\n>> def\n/CMapName /Adobe-Identity-UCS def\n/CMapType 2 def\n1 begincodespacerange\n<0000><ffff>\nendcodespacerange\n" + bfChars.length + " beginbfchar\n" + bfChars.map(function(_a) {
-    var glyphId = _a[0], codePoint = _a[1];
+  return "/CIDInit /ProcSet findresource begin\n12 dict begin\nbegincmap\n/CIDSystemInfo <<\n  /Registry (Adobe)\n  /Ordering (UCS)\n  /Supplement 0\n>> def\n/CMapName /Adobe-Identity-UCS def\n/CMapType 2 def\n1 begincodespacerange\n<0000><ffff>\nendcodespacerange\n" + bfChars.length + " beginbfchar\n" + bfChars.map(function(_a3) {
+    var glyphId = _a3[0], codePoint = _a3[1];
     return glyphId + " " + codePoint;
   }).join("\n") + "\nendbfchar\nendcmap\nCMapName currentdict /CMap defineresource pop\nend\nend";
 };
@@ -8448,10 +8492,10 @@ var PDFString = (
       return pdfDocEncodingDecode(bytes);
     };
     PDFString2.prototype.decodeDate = function() {
-      var text = this.decodeText();
-      var date = parseDate(text);
+      var text2 = this.decodeText();
+      var date = parseDate(text2);
       if (!date)
-        throw new InvalidPDFDateStringError(text);
+        throw new InvalidPDFDateStringError(text2);
       return date;
     };
     PDFString2.prototype.asString = function() {
@@ -8517,27 +8561,27 @@ var CustomFontEmbedder = (
     CustomFontEmbedder2.for = function(fontkit, fontData, customName, fontFeatures) {
       return __awaiter(this, void 0, void 0, function() {
         var font;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               return [4, fontkit.create(fontData)];
             case 1:
-              font = _a.sent();
+              font = _a3.sent();
               return [2, new CustomFontEmbedder2(font, fontData, customName, fontFeatures)];
           }
         });
       });
     };
-    CustomFontEmbedder2.prototype.encodeText = function(text) {
-      var glyphs = this.font.layout(text, this.fontFeatures).glyphs;
+    CustomFontEmbedder2.prototype.encodeText = function(text2) {
+      var glyphs = this.font.layout(text2, this.fontFeatures).glyphs;
       var hexCodes = new Array(glyphs.length);
       for (var idx = 0, len = glyphs.length; idx < len; idx++) {
         hexCodes[idx] = toHexStringOfMinLength(glyphs[idx].id, 4);
       }
       return PDFHexString_default.of(hexCodes.join(""));
     };
-    CustomFontEmbedder2.prototype.widthOfTextAtSize = function(text, size) {
-      var glyphs = this.font.layout(text, this.fontFeatures).glyphs;
+    CustomFontEmbedder2.prototype.widthOfTextAtSize = function(text2, size) {
+      var glyphs = this.font.layout(text2, this.fontFeatures).glyphs;
       var totalWidth = 0;
       for (var idx = 0, len = glyphs.length; idx < len; idx++) {
         totalWidth += glyphs[idx].advanceWidth * this.scale;
@@ -8549,8 +8593,8 @@ var CustomFontEmbedder = (
       if (options === void 0) {
         options = {};
       }
-      var _a = options.descender, descender = _a === void 0 ? true : _a;
-      var _b = this.font, ascent = _b.ascent, descent = _b.descent, bbox = _b.bbox;
+      var _a3 = options.descender, descender = _a3 === void 0 ? true : _a3;
+      var _b3 = this.font, ascent = _b3.ascent, descent = _b3.descent, bbox = _b3.bbox;
       var yTop = (ascent || bbox.maxY) * this.scale;
       var yBottom = (descent || bbox.minY) * this.scale;
       var height = yTop - yBottom;
@@ -8559,7 +8603,7 @@ var CustomFontEmbedder = (
       return height / 1e3 * size;
     };
     CustomFontEmbedder2.prototype.sizeOfFontAtHeight = function(height) {
-      var _a = this.font, ascent = _a.ascent, descent = _a.descent, bbox = _a.bbox;
+      var _a3 = this.font, ascent = _a3.ascent, descent = _a3.descent, bbox = _a3.bbox;
       var yTop = (ascent || bbox.maxY) * this.scale;
       var yBottom = (descent || bbox.minY) * this.scale;
       return 1e3 * height / (yTop - yBottom);
@@ -8571,12 +8615,12 @@ var CustomFontEmbedder = (
     CustomFontEmbedder2.prototype.embedFontDict = function(context, ref) {
       return __awaiter(this, void 0, void 0, function() {
         var cidFontDictRef, unicodeCMapRef, fontDict;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               return [4, this.embedCIDFontDict(context)];
             case 1:
-              cidFontDictRef = _a.sent();
+              cidFontDictRef = _a3.sent();
               unicodeCMapRef = this.embedUnicodeCmap(context);
               fontDict = context.obj({
                 Type: "Font",
@@ -8606,12 +8650,12 @@ var CustomFontEmbedder = (
     CustomFontEmbedder2.prototype.embedCIDFontDict = function(context) {
       return __awaiter(this, void 0, void 0, function() {
         var fontDescriptorRef, cidFontDict;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               return [4, this.embedFontDescriptor(context)];
             case 1:
-              fontDescriptorRef = _a.sent();
+              fontDescriptorRef = _a3.sent();
               cidFontDict = context.obj({
                 Type: "Font",
                 Subtype: this.isCFF() ? "CIDFontType0" : "CIDFontType2",
@@ -8632,8 +8676,8 @@ var CustomFontEmbedder = (
     };
     CustomFontEmbedder2.prototype.embedFontDescriptor = function(context) {
       return __awaiter(this, void 0, void 0, function() {
-        var fontStreamRef, scale2, _a, italicAngle, ascent, descent, capHeight, xHeight, _b, minX, minY, maxX, maxY, fontDescriptor;
-        var _c;
+        var fontStreamRef, scale2, _a3, italicAngle, ascent, descent, capHeight, xHeight, _b3, minX, minY, maxX, maxY, fontDescriptor;
+        var _c2;
         return __generator(this, function(_d) {
           switch (_d.label) {
             case 0:
@@ -8641,9 +8685,9 @@ var CustomFontEmbedder = (
             case 1:
               fontStreamRef = _d.sent();
               scale2 = this.scale;
-              _a = this.font, italicAngle = _a.italicAngle, ascent = _a.ascent, descent = _a.descent, capHeight = _a.capHeight, xHeight = _a.xHeight;
-              _b = this.font.bbox, minX = _b.minX, minY = _b.minY, maxX = _b.maxX, maxY = _b.maxY;
-              fontDescriptor = context.obj((_c = {
+              _a3 = this.font, italicAngle = _a3.italicAngle, ascent = _a3.ascent, descent = _a3.descent, capHeight = _a3.capHeight, xHeight = _a3.xHeight;
+              _b3 = this.font.bbox, minX = _b3.minX, minY = _b3.minY, maxX = _b3.maxX, maxY = _b3.maxY;
+              fontDescriptor = context.obj((_c2 = {
                 Type: "FontDescriptor",
                 FontName: this.baseFontName,
                 Flags: deriveFontFlags(this.font),
@@ -8656,7 +8700,7 @@ var CustomFontEmbedder = (
                 // Not sure how to compute/find this, nor is anybody else really:
                 // https://stackoverflow.com/questions/35485179/stemv-value-of-the-truetype-font
                 StemV: 0
-              }, _c[this.isCFF() ? "FontFile3" : "FontFile2"] = fontStreamRef, _c));
+              }, _c2[this.isCFF() ? "FontFile3" : "FontFile2"] = fontStreamRef, _c2));
               return [2, context.register(fontDescriptor)];
           }
         });
@@ -8664,21 +8708,21 @@ var CustomFontEmbedder = (
     };
     CustomFontEmbedder2.prototype.serializeFont = function() {
       return __awaiter(this, void 0, void 0, function() {
-        return __generator(this, function(_a) {
+        return __generator(this, function(_a3) {
           return [2, this.fontData];
         });
       });
     };
     CustomFontEmbedder2.prototype.embedFontStream = function(context) {
       return __awaiter(this, void 0, void 0, function() {
-        var fontStream, _a, _b;
-        return __generator(this, function(_c) {
-          switch (_c.label) {
+        var fontStream, _a3, _b3;
+        return __generator(this, function(_c2) {
+          switch (_c2.label) {
             case 0:
-              _b = (_a = context).flateStream;
+              _b3 = (_a3 = context).flateStream;
               return [4, this.serializeFont()];
             case 1:
-              fontStream = _b.apply(_a, [_c.sent(), {
+              fontStream = _b3.apply(_a3, [_c2.sent(), {
                 Subtype: this.isCFF() ? "CIDFontType0C" : void 0
               }]);
               return [2, context.register(fontStream)];
@@ -8738,19 +8782,19 @@ var CustomFontSubsetEmbedder = (
     CustomFontSubsetEmbedder2.for = function(fontkit, fontData, customFontName, fontFeatures) {
       return __awaiter(this, void 0, void 0, function() {
         var font;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               return [4, fontkit.create(fontData)];
             case 1:
-              font = _a.sent();
+              font = _a3.sent();
               return [2, new CustomFontSubsetEmbedder2(font, fontData, customFontName, fontFeatures)];
           }
         });
       });
     };
-    CustomFontSubsetEmbedder2.prototype.encodeText = function(text) {
-      var glyphs = this.font.layout(text, this.fontFeatures).glyphs;
+    CustomFontSubsetEmbedder2.prototype.encodeText = function(text2) {
+      var glyphs = this.font.layout(text2, this.fontFeatures).glyphs;
       var hexCodes = new Array(glyphs.length);
       for (var idx = 0, len = glyphs.length; idx < len; idx++) {
         var glyph = glyphs[idx];
@@ -8817,9 +8861,9 @@ var FileEmbedder = (
     };
     FileEmbedder2.prototype.embedIntoContext = function(context, ref) {
       return __awaiter(this, void 0, void 0, function() {
-        var _a, mimeType, description, creationDate, modificationDate, afRelationship, embeddedFileStream, embeddedFileStreamRef, fileSpecDict;
-        return __generator(this, function(_b) {
-          _a = this.options, mimeType = _a.mimeType, description = _a.description, creationDate = _a.creationDate, modificationDate = _a.modificationDate, afRelationship = _a.afRelationship;
+        var _a3, mimeType, description, creationDate, modificationDate, afRelationship, embeddedFileStream, embeddedFileStreamRef, fileSpecDict;
+        return __generator(this, function(_b3) {
+          _a3 = this.options, mimeType = _a3.mimeType, description = _a3.description, creationDate = _a3.creationDate, modificationDate = _a3.modificationDate, afRelationship = _a3.afRelationship;
           embeddedFileStream = context.flateStream(this.fileData, {
             Type: "EmbeddedFile",
             Subtype: mimeType !== null && mimeType !== void 0 ? mimeType : void 0,
@@ -8898,7 +8942,7 @@ var JpegEmbedder = (
     JpegEmbedder2.for = function(imageData) {
       return __awaiter(this, void 0, void 0, function() {
         var dataView, soi, pos, marker, bitsPerComponent, height, width, channelByte, channelName, colorSpace;
-        return __generator(this, function(_a) {
+        return __generator(this, function(_a3) {
           dataView = new DataView(imageData.buffer);
           soi = dataView.getUint16(0);
           if (soi !== 65496)
@@ -8931,7 +8975,7 @@ var JpegEmbedder = (
     JpegEmbedder2.prototype.embedIntoContext = function(context, ref) {
       return __awaiter(this, void 0, void 0, function() {
         var xObject;
-        return __generator(this, function(_a) {
+        return __generator(this, function(_a3) {
           xObject = context.stream(this.imageData, {
             Type: "XObject",
             Subtype: "Image",
@@ -9158,8 +9202,8 @@ UPNG.decode = function(buff) {
       if (out.tabs[type] == null) out.tabs[type] = {};
       var nz = bin.nextZero(data, offset);
       var keyw = bin.readASCII(data, offset, nz - offset);
-      var text = bin.readASCII(data, nz + 1, offset + len - nz - 1);
-      out.tabs[type][keyw] = text;
+      var text2 = bin.readASCII(data, nz + 1, offset + len - nz - 1);
+      out.tabs[type][keyw] = text2;
     } else if (type == "iTXt") {
       if (out.tabs[type] == null) out.tabs[type] = {};
       var nz = 0, off = offset;
@@ -9174,8 +9218,8 @@ UPNG.decode = function(buff) {
       nz = bin.nextZero(data, off);
       var tkeyw = bin.readUTF8(data, off, nz - off);
       off = nz + 1;
-      var text = bin.readUTF8(data, off, len - (off - offset));
-      out.tabs[type][keyw] = text;
+      var text2 = bin.readUTF8(data, off, len - (off - offset));
+      out.tabs[type][keyw] = text2;
     } else if (type == "PLTE") {
       out.tabs[type] = bin.readBytes(data, offset, len);
     } else if (type == "hIST") {
@@ -9272,12 +9316,12 @@ UPNG.inflateRaw = function() {
         v = b.w;
         C = b.d;
         d = l(b.u, (1 << j) - 1, J + h, N, d, b.v);
-        var r = V.V(b.v, 0, J, b.C);
-        X = (1 << r) - 1;
+        var r2 = V.V(b.v, 0, J, b.C);
+        X = (1 << r2) - 1;
         var S = V.V(b.v, J, h, b.D);
         u = (1 << S) - 1;
-        M(b.C, r);
-        I(b.C, r, v);
+        M(b.C, r2);
+        I(b.C, r2, v);
         M(b.D, S);
         I(b.D, S, C);
       }
@@ -9779,8 +9823,8 @@ UPNG.encode._main = function(nimg, w, h, dels, tabs) {
     wAs(data, offset, "PLTE");
     offset += 4;
     for (var i = 0; i < dl; i++) {
-      var ti = i * 3, c = nimg.plte[i], r = c & 255, g = c >>> 8 & 255, b = c >>> 16 & 255;
-      data[offset + ti + 0] = r;
+      var ti = i * 3, c = nimg.plte[i], r2 = c & 255, g = c >>> 8 & 255, b = c >>> 16 & 255;
+      data[offset + ti + 0] = r2;
       data[offset + ti + 1] = g;
       data[offset + ti + 2] = b;
     }
@@ -10001,11 +10045,11 @@ UPNG.encode.framize = function(bufs, w, h, alwaysBlend, evenCrd, forbidPrev) {
     var r0 = frm.rect, r1 = frms[j - 1].rect;
     var miX = Math.min(r0.x, r1.x), miY = Math.min(r0.y, r1.y);
     var maX = Math.max(r0.x + r0.width, r1.x + r1.width), maY = Math.max(r0.y + r0.height, r1.y + r1.height);
-    var r = { x: miX, y: miY, width: maX - miX, height: maY - miY };
+    var r2 = { x: miX, y: miY, width: maX - miX, height: maY - miY };
     frms[j - 1].dispose = 1;
     if (j - 1 != 0)
-      UPNG.encode._updateFrame(bufs, w, h, frms, j - 1, r, evenCrd);
-    UPNG.encode._updateFrame(bufs, w, h, frms, j, r, evenCrd);
+      UPNG.encode._updateFrame(bufs, w, h, frms, j - 1, r2, evenCrd);
+    UPNG.encode._updateFrame(bufs, w, h, frms, j, r2, evenCrd);
   }
   var area = 0;
   if (bufs.length != 1) for (var i = 0; i < frms.length; i++) {
@@ -10014,13 +10058,13 @@ UPNG.encode.framize = function(bufs, w, h, alwaysBlend, evenCrd, forbidPrev) {
   }
   return frms;
 };
-UPNG.encode._updateFrame = function(bufs, w, h, frms, i, r, evenCrd) {
+UPNG.encode._updateFrame = function(bufs, w, h, frms, i, r2, evenCrd) {
   var U8 = Uint8Array, U32 = Uint32Array;
   var pimg = new U8(bufs[i - 1]), pimg32 = new U32(bufs[i - 1]), nimg = i + 1 < bufs.length ? new U8(bufs[i + 1]) : null;
   var cimg = new U8(bufs[i]), cimg32 = new U32(cimg.buffer);
   var mix = w, miy = h, max = -1, may = -1;
-  for (var y = 0; y < r.height; y++) for (var x = 0; x < r.width; x++) {
-    var cx2 = r.x + x, cy2 = r.y + y;
+  for (var y = 0; y < r2.height; y++) for (var x = 0; x < r2.width; x++) {
+    var cx2 = r2.x + x, cy2 = r2.y + y;
     var j = cy2 * w + cx2, cc = cimg32[j];
     if (cc == 0 || frms[i - 1].dispose == 0 && pimg32[j] == cc && (nimg == null || nimg[j * 4 + 3] != 0)) {
     } else {
@@ -10035,16 +10079,16 @@ UPNG.encode._updateFrame = function(bufs, w, h, frms, i, r, evenCrd) {
     if ((mix & 1) == 1) mix--;
     if ((miy & 1) == 1) miy--;
   }
-  r = { x: mix, y: miy, width: max - mix + 1, height: may - miy + 1 };
+  r2 = { x: mix, y: miy, width: max - mix + 1, height: may - miy + 1 };
   var fr = frms[i];
-  fr.rect = r;
+  fr.rect = r2;
   fr.blend = 1;
-  fr.img = new Uint8Array(r.width * r.height * 4);
+  fr.img = new Uint8Array(r2.width * r2.height * 4);
   if (frms[i - 1].dispose == 0) {
-    UPNG._copyTile(pimg, w, h, fr.img, r.width, r.height, -r.x, -r.y, 0);
-    UPNG.encode._prepareDiff(cimg, w, h, fr.img, r);
+    UPNG._copyTile(pimg, w, h, fr.img, r2.width, r2.height, -r2.x, -r2.y, 0);
+    UPNG.encode._prepareDiff(cimg, w, h, fr.img, r2);
   } else
-    UPNG._copyTile(cimg, w, h, fr.img, r.width, r.height, -r.x, -r.y, 0);
+    UPNG._copyTile(cimg, w, h, fr.img, r2.width, r2.height, -r2.x, -r2.y, 0);
 };
 UPNG.encode._prepareDiff = function(cimg, w, h, nimg, rec) {
   UPNG._copyTile(cimg, w, h, nimg, rec.width, rec.height, -rec.x, -rec.y, 2);
@@ -10120,13 +10164,13 @@ UPNG.crc = {
 UPNG.quantize = function(abuf, ps) {
   var oimg = new Uint8Array(abuf), nimg = oimg.slice(0), nimg32 = new Uint32Array(nimg.buffer);
   var KD = UPNG.quantize.getKDtree(nimg, ps);
-  var root = KD[0], leafs = KD[1];
+  var root3 = KD[0], leafs = KD[1];
   var planeDst = UPNG.quantize.planeDst;
   var sb = oimg, tb = nimg32, len = sb.length;
   var inds = new Uint8Array(oimg.length >> 2);
   for (var i = 0; i < len; i += 4) {
-    var r = sb[i] * (1 / 255), g = sb[i + 1] * (1 / 255), b = sb[i + 2] * (1 / 255), a = sb[i + 3] * (1 / 255);
-    var nd = UPNG.quantize.getNearest(root, r, g, b, a);
+    var r2 = sb[i] * (1 / 255), g = sb[i + 1] * (1 / 255), b = sb[i + 2] * (1 / 255), a = sb[i + 3] * (1 / 255);
+    var nd = UPNG.quantize.getNearest(root3, r2, g, b, a);
     inds[i >> 2] = nd.ind;
     tb[i >> 2] = nd.est.rgba;
   }
@@ -10135,10 +10179,10 @@ UPNG.quantize = function(abuf, ps) {
 UPNG.quantize.getKDtree = function(nimg, ps, err) {
   if (err == null) err = 1e-4;
   var nimg32 = new Uint32Array(nimg.buffer);
-  var root = { i0: 0, i1: nimg.length, bst: null, est: null, tdst: 0, left: null, right: null };
-  root.bst = UPNG.quantize.stats(nimg, root.i0, root.i1);
-  root.est = UPNG.quantize.estats(root.bst);
-  var leafs = [root];
+  var root3 = { i0: 0, i1: nimg.length, bst: null, est: null, tdst: 0, left: null, right: null };
+  root3.bst = UPNG.quantize.stats(nimg, root3.i0, root3.i1);
+  root3.est = UPNG.quantize.estats(root3.bst);
+  var leafs = [root3];
   while (leafs.length < ps) {
     var maxL = 0, mi = 0;
     for (var i = 0; i < leafs.length; i++) if (leafs[i].est.L > maxL) {
@@ -10170,30 +10214,30 @@ UPNG.quantize.getKDtree = function(nimg, ps, err) {
     return b.bst.N - a.bst.N;
   });
   for (var i = 0; i < leafs.length; i++) leafs[i].ind = i;
-  return [root, leafs];
+  return [root3, leafs];
 };
-UPNG.quantize.getNearest = function(nd, r, g, b, a) {
+UPNG.quantize.getNearest = function(nd, r2, g, b, a) {
   if (nd.left == null) {
-    nd.tdst = UPNG.quantize.dist(nd.est.q, r, g, b, a);
+    nd.tdst = UPNG.quantize.dist(nd.est.q, r2, g, b, a);
     return nd;
   }
-  var planeDst = UPNG.quantize.planeDst(nd.est, r, g, b, a);
+  var planeDst = UPNG.quantize.planeDst(nd.est, r2, g, b, a);
   var node0 = nd.left, node1 = nd.right;
   if (planeDst > 0) {
     node0 = nd.right;
     node1 = nd.left;
   }
-  var ln = UPNG.quantize.getNearest(node0, r, g, b, a);
+  var ln = UPNG.quantize.getNearest(node0, r2, g, b, a);
   if (ln.tdst <= planeDst * planeDst) return ln;
-  var rn = UPNG.quantize.getNearest(node1, r, g, b, a);
+  var rn = UPNG.quantize.getNearest(node1, r2, g, b, a);
   return rn.tdst < ln.tdst ? rn : ln;
 };
-UPNG.quantize.planeDst = function(est, r, g, b, a) {
+UPNG.quantize.planeDst = function(est, r2, g, b, a) {
   var e = est.e;
-  return e[0] * r + e[1] * g + e[2] * b + e[3] * a - est.eMq;
+  return e[0] * r2 + e[1] * g + e[2] * b + e[3] * a - est.eMq;
 };
-UPNG.quantize.dist = function(q, r, g, b, a) {
-  var d0 = r - q[0], d1 = g - q[1], d2 = b - q[2], d3 = a - q[3];
+UPNG.quantize.dist = function(q, r2, g, b, a) {
+  var d0 = r2 - q[0], d1 = g - q[1], d2 = b - q[2], d3 = a - q[3];
   return d0 * d0 + d1 * d1 + d2 * d2 + d3 * d3;
 };
 UPNG.quantize.splitPixels = function(nimg, nimg32, i0, i1, e, eMq) {
@@ -10221,15 +10265,15 @@ UPNG.quantize.stats = function(nimg, i0, i1) {
   var m = [0, 0, 0, 0];
   var N = i1 - i0 >> 2;
   for (var i = i0; i < i1; i += 4) {
-    var r = nimg[i] * (1 / 255), g = nimg[i + 1] * (1 / 255), b = nimg[i + 2] * (1 / 255), a = nimg[i + 3] * (1 / 255);
-    m[0] += r;
+    var r2 = nimg[i] * (1 / 255), g = nimg[i + 1] * (1 / 255), b = nimg[i + 2] * (1 / 255), a = nimg[i + 3] * (1 / 255);
+    m[0] += r2;
     m[1] += g;
     m[2] += b;
     m[3] += a;
-    R[0] += r * r;
-    R[1] += r * g;
-    R[2] += r * b;
-    R[3] += r * a;
+    R[0] += r2 * r2;
+    R[1] += r2 * g;
+    R[2] += r2 * b;
+    R[3] += r2 * a;
     R[5] += g * g;
     R[6] += g * b;
     R[7] += g * a;
@@ -10311,9 +10355,9 @@ UPNG.encode.concatRGBA = function(bufs) {
   for (var i = 0; i < bufs.length; i++) {
     var img = new Uint8Array(bufs[i]), il = img.length;
     for (var j = 0; j < il; j += 4) {
-      var r = img[j], g = img[j + 1], b = img[j + 2], a = img[j + 3];
-      if (a == 0) r = g = b = 0;
-      nimg[noff + j] = r;
+      var r2 = img[j], g = img[j + 1], b = img[j + 2], a = img[j + 3];
+      if (a == 0) r2 = g = b = 0;
+      nimg[noff + j] = r2;
       nimg[noff + j + 1] = g;
       nimg[noff + j + 2] = b;
       nimg[noff + j + 3] = a;
@@ -10370,7 +10414,7 @@ var PNG = (
       if (frames.length > 1)
         throw new Error("Animated PNGs are not supported");
       var frame = new Uint8Array(frames[0]);
-      var _a = splitAlphaChannel(frame), rgbChannel = _a.rgbChannel, alphaChannel = _a.alphaChannel;
+      var _a3 = splitAlphaChannel(frame), rgbChannel = _a3.rgbChannel, alphaChannel = _a3.alphaChannel;
       this.rgbChannel = rgbChannel;
       var hasAlphaValues = alphaChannel.some(function(a) {
         return a < 255;
@@ -10403,7 +10447,7 @@ var PngEmbedder = (
     PngEmbedder2.for = function(imageData) {
       return __awaiter(this, void 0, void 0, function() {
         var png;
-        return __generator(this, function(_a) {
+        return __generator(this, function(_a3) {
           png = PNG.load(imageData);
           return [2, new PngEmbedder2(png)];
         });
@@ -10412,7 +10456,7 @@ var PngEmbedder = (
     PngEmbedder2.prototype.embedIntoContext = function(context, ref) {
       return __awaiter(this, void 0, void 0, function() {
         var SMask, xObject;
-        return __generator(this, function(_a) {
+        return __generator(this, function(_a3) {
           SMask = this.embedAlphaChannel(context);
           xObject = context.flateStream(this.image.rgbChannel, {
             Type: "XObject",
@@ -11851,8 +11895,8 @@ var RunLengthStream = (
         buffer = this.ensureBuffer(bufferLength + n + 1);
         buffer[bufferLength++] = repeatHeader[1];
         if (n > 0) {
-          var source = this.stream.getBytes(n);
-          buffer.set(source, bufferLength);
+          var source2 = this.stream.getBytes(n);
+          buffer.set(source2, bufferLength);
           bufferLength += n;
         }
       } else {
@@ -11896,8 +11940,8 @@ var decodeStream = function(stream2, encoding, params) {
   }
   throw new UnsupportedEncodingError(encoding.asString());
 };
-var decodePDFRawStream = function(_a) {
-  var dict = _a.dict, contents = _a.contents;
+var decodePDFRawStream = function(_a3) {
+  var dict = _a3.dict, contents = _a3.contents;
   var stream2 = new Stream_default(contents);
   var Filter = dict.lookup(PDFName_default.of("Filter"));
   var DecodeParms = dict.lookup(PDFName_default.of("DecodeParms"));
@@ -11936,20 +11980,20 @@ var PDFPageEmbedder = (
     }
     PDFPageEmbedder2.for = function(page, boundingBox, transformationMatrix) {
       return __awaiter(this, void 0, void 0, function() {
-        return __generator(this, function(_a) {
+        return __generator(this, function(_a3) {
           return [2, new PDFPageEmbedder2(page, boundingBox, transformationMatrix)];
         });
       });
     };
     PDFPageEmbedder2.prototype.embedIntoContext = function(context, ref) {
       return __awaiter(this, void 0, void 0, function() {
-        var _a, Contents, Resources, decodedContents, _b, left, bottom, right, top, xObject;
-        return __generator(this, function(_c) {
-          _a = this.page.normalizedEntries(), Contents = _a.Contents, Resources = _a.Resources;
+        var _a3, Contents, Resources, decodedContents, _b3, left, bottom, right, top, xObject;
+        return __generator(this, function(_c2) {
+          _a3 = this.page.normalizedEntries(), Contents = _a3.Contents, Resources = _a3.Resources;
           if (!Contents)
             throw new MissingPageContentsEmbeddingError();
           decodedContents = this.decodeContents(Contents);
-          _b = this.boundingBox, left = _b.left, bottom = _b.bottom, right = _b.right, top = _b.top;
+          _b3 = this.boundingBox, left = _b3.left, bottom = _b3.bottom, right = _b3.right, top = _b3.top;
           xObject = context.flateStream(decodedContents, {
             Type: "XObject",
             Subtype: "Form",
@@ -12086,52 +12130,52 @@ var ViewerPreferences = (
       return void 0;
     };
     ViewerPreferences2.prototype.getHideToolbar = function() {
-      var _a, _b;
-      return (_b = (_a = this.HideToolbar()) === null || _a === void 0 ? void 0 : _a.asBoolean()) !== null && _b !== void 0 ? _b : false;
+      var _a3, _b3;
+      return (_b3 = (_a3 = this.HideToolbar()) === null || _a3 === void 0 ? void 0 : _a3.asBoolean()) !== null && _b3 !== void 0 ? _b3 : false;
     };
     ViewerPreferences2.prototype.getHideMenubar = function() {
-      var _a, _b;
-      return (_b = (_a = this.HideMenubar()) === null || _a === void 0 ? void 0 : _a.asBoolean()) !== null && _b !== void 0 ? _b : false;
+      var _a3, _b3;
+      return (_b3 = (_a3 = this.HideMenubar()) === null || _a3 === void 0 ? void 0 : _a3.asBoolean()) !== null && _b3 !== void 0 ? _b3 : false;
     };
     ViewerPreferences2.prototype.getHideWindowUI = function() {
-      var _a, _b;
-      return (_b = (_a = this.HideWindowUI()) === null || _a === void 0 ? void 0 : _a.asBoolean()) !== null && _b !== void 0 ? _b : false;
+      var _a3, _b3;
+      return (_b3 = (_a3 = this.HideWindowUI()) === null || _a3 === void 0 ? void 0 : _a3.asBoolean()) !== null && _b3 !== void 0 ? _b3 : false;
     };
     ViewerPreferences2.prototype.getFitWindow = function() {
-      var _a, _b;
-      return (_b = (_a = this.FitWindow()) === null || _a === void 0 ? void 0 : _a.asBoolean()) !== null && _b !== void 0 ? _b : false;
+      var _a3, _b3;
+      return (_b3 = (_a3 = this.FitWindow()) === null || _a3 === void 0 ? void 0 : _a3.asBoolean()) !== null && _b3 !== void 0 ? _b3 : false;
     };
     ViewerPreferences2.prototype.getCenterWindow = function() {
-      var _a, _b;
-      return (_b = (_a = this.CenterWindow()) === null || _a === void 0 ? void 0 : _a.asBoolean()) !== null && _b !== void 0 ? _b : false;
+      var _a3, _b3;
+      return (_b3 = (_a3 = this.CenterWindow()) === null || _a3 === void 0 ? void 0 : _a3.asBoolean()) !== null && _b3 !== void 0 ? _b3 : false;
     };
     ViewerPreferences2.prototype.getDisplayDocTitle = function() {
-      var _a, _b;
-      return (_b = (_a = this.DisplayDocTitle()) === null || _a === void 0 ? void 0 : _a.asBoolean()) !== null && _b !== void 0 ? _b : false;
+      var _a3, _b3;
+      return (_b3 = (_a3 = this.DisplayDocTitle()) === null || _a3 === void 0 ? void 0 : _a3.asBoolean()) !== null && _b3 !== void 0 ? _b3 : false;
     };
     ViewerPreferences2.prototype.getNonFullScreenPageMode = function() {
-      var _a, _b;
-      var mode = (_a = this.NonFullScreenPageMode()) === null || _a === void 0 ? void 0 : _a.decodeText();
-      return (_b = asEnum(mode, NonFullScreenPageMode)) !== null && _b !== void 0 ? _b : NonFullScreenPageMode.UseNone;
+      var _a3, _b3;
+      var mode = (_a3 = this.NonFullScreenPageMode()) === null || _a3 === void 0 ? void 0 : _a3.decodeText();
+      return (_b3 = asEnum(mode, NonFullScreenPageMode)) !== null && _b3 !== void 0 ? _b3 : NonFullScreenPageMode.UseNone;
     };
     ViewerPreferences2.prototype.getReadingDirection = function() {
-      var _a, _b;
-      var direction = (_a = this.Direction()) === null || _a === void 0 ? void 0 : _a.decodeText();
-      return (_b = asEnum(direction, ReadingDirection)) !== null && _b !== void 0 ? _b : ReadingDirection.L2R;
+      var _a3, _b3;
+      var direction = (_a3 = this.Direction()) === null || _a3 === void 0 ? void 0 : _a3.decodeText();
+      return (_b3 = asEnum(direction, ReadingDirection)) !== null && _b3 !== void 0 ? _b3 : ReadingDirection.L2R;
     };
     ViewerPreferences2.prototype.getPrintScaling = function() {
-      var _a, _b;
-      var scaling = (_a = this.PrintScaling()) === null || _a === void 0 ? void 0 : _a.decodeText();
-      return (_b = asEnum(scaling, PrintScaling)) !== null && _b !== void 0 ? _b : PrintScaling.AppDefault;
+      var _a3, _b3;
+      var scaling = (_a3 = this.PrintScaling()) === null || _a3 === void 0 ? void 0 : _a3.decodeText();
+      return (_b3 = asEnum(scaling, PrintScaling)) !== null && _b3 !== void 0 ? _b3 : PrintScaling.AppDefault;
     };
     ViewerPreferences2.prototype.getDuplex = function() {
-      var _a;
-      var duplex = (_a = this.Duplex()) === null || _a === void 0 ? void 0 : _a.decodeText();
+      var _a3;
+      var duplex = (_a3 = this.Duplex()) === null || _a3 === void 0 ? void 0 : _a3.decodeText();
       return asEnum(duplex, Duplex);
     };
     ViewerPreferences2.prototype.getPickTrayByPDFSize = function() {
-      var _a;
-      return (_a = this.PickTrayByPDFSize()) === null || _a === void 0 ? void 0 : _a.asBoolean();
+      var _a3;
+      return (_a3 = this.PickTrayByPDFSize()) === null || _a3 === void 0 ? void 0 : _a3.asBoolean();
     };
     ViewerPreferences2.prototype.getPrintPageRange = function() {
       var rng = this.PrintPageRange();
@@ -12146,8 +12190,8 @@ var ViewerPreferences = (
       return pageRanges;
     };
     ViewerPreferences2.prototype.getNumCopies = function() {
-      var _a, _b;
-      return (_b = (_a = this.NumCopies()) === null || _a === void 0 ? void 0 : _a.asNumber()) !== null && _b !== void 0 ? _b : 1;
+      var _a3, _b3;
+      return (_b3 = (_a3 = this.NumCopies()) === null || _a3 === void 0 ? void 0 : _a3.asNumber()) !== null && _b3 !== void 0 ? _b3 : 1;
     };
     ViewerPreferences2.prototype.setHideToolbar = function(hideToolbar) {
       var HideToolbar = this.dict.context.obj(hideToolbar);
@@ -12280,8 +12324,8 @@ var PDFAcroField = (
       return parent.getFullyQualifiedName() + "." + this.getPartialName();
     };
     PDFAcroField2.prototype.getPartialName = function() {
-      var _a;
-      return (_a = this.T()) === null || _a === void 0 ? void 0 : _a.decodeText();
+      var _a3;
+      return (_a3 = this.T()) === null || _a3 === void 0 ? void 0 : _a3.decodeText();
     };
     PDFAcroField2.prototype.setPartialName = function(partialName) {
       if (!partialName)
@@ -12300,8 +12344,8 @@ var PDFAcroField = (
       return DA === null || DA === void 0 ? void 0 : DA.asString();
     };
     PDFAcroField2.prototype.setFontSize = function(fontSize) {
-      var _a;
-      var name = (_a = this.getFullyQualifiedName()) !== null && _a !== void 0 ? _a : "";
+      var _a3;
+      var name = (_a3 = this.getFullyQualifiedName()) !== null && _a3 !== void 0 ? _a3 : "";
       var da = this.getDefaultAppearance();
       if (!da)
         throw new MissingDAEntryError(name);
@@ -12315,8 +12359,8 @@ var PDFAcroField = (
       this.setDefaultAppearance(modifiedDa);
     };
     PDFAcroField2.prototype.getFlags = function() {
-      var _a, _b;
-      return (_b = (_a = this.Ff()) === null || _a === void 0 ? void 0 : _a.asNumber()) !== null && _b !== void 0 ? _b : 0;
+      var _a3, _b3;
+      return (_b3 = (_a3 = this.Ff()) === null || _a3 === void 0 ? void 0 : _a3.asNumber()) !== null && _b3 !== void 0 ? _b3 : 0;
     };
     PDFAcroField2.prototype.setFlags = function(flags) {
       this.dict.set(PDFName_default.of("Ff"), PDFNumber_default.of(flags));
@@ -12372,8 +12416,8 @@ var BorderStyle = (
       return void 0;
     };
     BorderStyle2.prototype.getWidth = function() {
-      var _a, _b;
-      return (_b = (_a = this.W()) === null || _a === void 0 ? void 0 : _a.asNumber()) !== null && _b !== void 0 ? _b : 1;
+      var _a3, _b3;
+      return (_b3 = (_a3 = this.W()) === null || _a3 === void 0 ? void 0 : _a3.asNumber()) !== null && _b3 !== void 0 ? _b3 : 1;
     };
     BorderStyle2.prototype.setWidth = function(width) {
       var W = this.dict.context.obj(width);
@@ -12405,9 +12449,9 @@ var PDFAnnotation = (
       return this.dict.context.lookupMaybe(numberOrRef, PDFNumber_default);
     };
     PDFAnnotation2.prototype.getRectangle = function() {
-      var _a;
+      var _a3;
       var Rect = this.Rect();
-      return (_a = Rect === null || Rect === void 0 ? void 0 : Rect.asRectangle()) !== null && _a !== void 0 ? _a : { x: 0, y: 0, width: 0, height: 0 };
+      return (_a3 = Rect === null || Rect === void 0 ? void 0 : Rect.asRectangle()) !== null && _a3 !== void 0 ? _a3 : { x: 0, y: 0, width: 0, height: 0 };
     };
     PDFAnnotation2.prototype.setRectangle = function(rect) {
       var x = rect.x, y = rect.y, width = rect.width, height = rect.height;
@@ -12420,8 +12464,8 @@ var PDFAnnotation = (
         return AS;
       return void 0;
     };
-    PDFAnnotation2.prototype.setAppearanceState = function(state) {
-      this.dict.set(PDFName_default.of("AS"), state);
+    PDFAnnotation2.prototype.setAppearanceState = function(state2) {
+      this.dict.set(PDFName_default.of("AS"), state2);
     };
     PDFAnnotation2.prototype.setAppearances = function(appearances) {
       this.dict.set(PDFName_default.of("AP"), appearances);
@@ -12471,8 +12515,8 @@ var PDFAnnotation = (
       return { normal: N, rollover: R, down: D };
     };
     PDFAnnotation2.prototype.getFlags = function() {
-      var _a, _b;
-      return (_b = (_a = this.F()) === null || _a === void 0 ? void 0 : _a.asNumber()) !== null && _b !== void 0 ? _b : 0;
+      var _a3, _b3;
+      return (_b3 = (_a3 = this.F()) === null || _a3 === void 0 ? void 0 : _a3.asNumber()) !== null && _b3 !== void 0 ? _b3 : 0;
     };
     PDFAnnotation2.prototype.setFlags = function(flags) {
       this.dict.set(PDFName_default.of("F"), PDFNumber_default.of(flags));
@@ -12547,8 +12591,8 @@ var AppearanceCharacteristics = (
       return void 0;
     };
     AppearanceCharacteristics2.prototype.getRotation = function() {
-      var _a;
-      return (_a = this.R()) === null || _a === void 0 ? void 0 : _a.asNumber();
+      var _a3;
+      return (_a3 = this.R()) === null || _a3 === void 0 ? void 0 : _a3.asNumber();
     };
     AppearanceCharacteristics2.prototype.getBorderColor = function() {
       var BC = this.BC();
@@ -12556,9 +12600,9 @@ var AppearanceCharacteristics = (
         return void 0;
       var components = [];
       for (var idx = 0, len = BC === null || BC === void 0 ? void 0 : BC.size(); idx < len; idx++) {
-        var component = BC.get(idx);
-        if (component instanceof PDFNumber_default)
-          components.push(component.asNumber());
+        var component2 = BC.get(idx);
+        if (component2 instanceof PDFNumber_default)
+          components.push(component2.asNumber());
       }
       return components;
     };
@@ -12568,9 +12612,9 @@ var AppearanceCharacteristics = (
         return void 0;
       var components = [];
       for (var idx = 0, len = BG === null || BG === void 0 ? void 0 : BG.size(); idx < len; idx++) {
-        var component = BG.get(idx);
-        if (component instanceof PDFNumber_default)
-          components.push(component.asNumber());
+        var component2 = BG.get(idx);
+        if (component2 instanceof PDFNumber_default)
+          components.push(component2.asNumber());
       }
       return components;
     };
@@ -12694,10 +12738,10 @@ var PDFWidgetAnnotation = (
       return bs;
     };
     PDFWidgetAnnotation2.prototype.getOnValue = function() {
-      var _a;
-      var normal = (_a = this.getAppearances()) === null || _a === void 0 ? void 0 : _a.normal;
-      if (normal instanceof PDFDict_default) {
-        var keys = normal.keys();
+      var _a3;
+      var normal2 = (_a3 = this.getAppearances()) === null || _a3 === void 0 ? void 0 : _a3.normal;
+      if (normal2 instanceof PDFDict_default) {
+        var keys = normal2.keys();
         for (var idx = 0, len = keys.length; idx < len; idx++) {
           var key = keys[idx];
           if (key !== PDFName_default.of("Off"))
@@ -12825,24 +12869,24 @@ var PDFAcroButton = (
       }
     };
     PDFAcroButton2.prototype.normalizeExportValues = function() {
-      var _a, _b, _c, _d;
-      var exportValues = (_a = this.getExportValues()) !== null && _a !== void 0 ? _a : [];
+      var _a3, _b3, _c2, _d;
+      var exportValues = (_a3 = this.getExportValues()) !== null && _a3 !== void 0 ? _a3 : [];
       var Opt = [];
       var widgets = this.getWidgets();
       for (var idx = 0, len = widgets.length; idx < len; idx++) {
         var widget = widgets[idx];
-        var exportVal = (_b = exportValues[idx]) !== null && _b !== void 0 ? _b : PDFHexString_default.fromText((_d = (_c = widget.getOnValue()) === null || _c === void 0 ? void 0 : _c.decodeText()) !== null && _d !== void 0 ? _d : "");
+        var exportVal = (_b3 = exportValues[idx]) !== null && _b3 !== void 0 ? _b3 : PDFHexString_default.fromText((_d = (_c2 = widget.getOnValue()) === null || _c2 === void 0 ? void 0 : _c2.decodeText()) !== null && _d !== void 0 ? _d : "");
         Opt.push(exportVal);
       }
       this.setOpt(Opt);
     };
     PDFAcroButton2.prototype.addOpt = function(opt, useExistingOptIdx) {
-      var _a;
+      var _a3;
       this.normalizeExportValues();
       var optText = opt.decodeText();
       var existingIdx;
       if (useExistingOptIdx) {
-        var exportValues = (_a = this.getExportValues()) !== null && _a !== void 0 ? _a : [];
+        var exportValues = (_a3 = this.getExportValues()) !== null && _a3 !== void 0 ? _a3 : [];
         for (var idx = 0, len = exportValues.length; idx < len; idx++) {
           var exportVal = exportValues[idx];
           if (exportVal.decodeText() === optText)
@@ -12873,8 +12917,8 @@ var PDFAcroCheckBox = (
       return _super !== null && _super.apply(this, arguments) || this;
     }
     PDFAcroCheckBox2.prototype.setValue = function(value) {
-      var _a;
-      var onValue = (_a = this.getOnValue()) !== null && _a !== void 0 ? _a : PDFName_default.of("Yes");
+      var _a3;
+      var onValue = (_a3 = this.getOnValue()) !== null && _a3 !== void 0 ? _a3 : PDFName_default.of("Yes");
       if (value !== onValue && value !== PDFName_default.of("Off")) {
         throw new InvalidAcroFieldValueError();
       }
@@ -12882,8 +12926,8 @@ var PDFAcroCheckBox = (
       var widgets = this.getWidgets();
       for (var idx = 0, len = widgets.length; idx < len; idx++) {
         var widget = widgets[idx];
-        var state = widget.getOnValue() === value ? value : PDFName_default.of("Off");
-        widget.setAppearanceState(state);
+        var state2 = widget.getOnValue() === value ? value : PDFName_default.of("Off");
+        widget.setAppearanceState(state2);
       }
     };
     PDFAcroCheckBox2.prototype.getValue = function() {
@@ -13032,7 +13076,7 @@ var PDFAcroChoice = (
     PDFAcroChoice2.prototype.setOptions = function(options) {
       var newOpt = new Array(options.length);
       for (var idx = 0, len = options.length; idx < len; idx++) {
-        var _a = options[idx], value = _a.value, display = _a.display;
+        var _a3 = options[idx], value = _a3.value, display = _a3.display;
         newOpt[idx] = this.dict.context.obj([value, display || value]);
       }
       this.dict.set(PDFName_default.of("Opt"), this.dict.context.obj(newOpt));
@@ -13167,15 +13211,15 @@ var PDFAcroText = (
       this.dict.delete(PDFName_default.of("MaxLen"));
     };
     PDFAcroText2.prototype.getMaxLength = function() {
-      var _a;
-      return (_a = this.MaxLen()) === null || _a === void 0 ? void 0 : _a.asNumber();
+      var _a3;
+      return (_a3 = this.MaxLen()) === null || _a3 === void 0 ? void 0 : _a3.asNumber();
     };
     PDFAcroText2.prototype.setQuadding = function(quadding) {
       this.dict.set(PDFName_default.of("Q"), PDFNumber_default.of(quadding));
     };
     PDFAcroText2.prototype.getQuadding = function() {
-      var _a;
-      return (_a = this.Q()) === null || _a === void 0 ? void 0 : _a.asNumber();
+      var _a3;
+      return (_a3 = this.Q()) === null || _a3 === void 0 ? void 0 : _a3.asNumber();
     };
     PDFAcroText2.prototype.setValue = function(value) {
       this.dict.set(PDFName_default.of("V"), value);
@@ -13247,8 +13291,8 @@ var PDFAcroRadioButton = (
       var widgets = this.getWidgets();
       for (var idx = 0, len = widgets.length; idx < len; idx++) {
         var widget = widgets[idx];
-        var state = widget.getOnValue() === value ? value : PDFName_default.of("Off");
-        widget.setAppearanceState(state);
+        var state2 = widget.getOnValue() === value ? value : PDFName_default.of("Off");
+        widget.setAppearanceState(state2);
       }
     };
     PDFAcroRadioButton2.prototype.getValue = function() {
@@ -13354,10 +13398,10 @@ var createPDFAcroTerminal = function(dict, ref) {
   return PDFAcroTerminal_default.fromDict(dict, ref);
 };
 var createPDFAcroButton = function(dict, ref) {
-  var _a;
+  var _a3;
   var ffNumberOrRef = getInheritableAttribute(dict, PDFName_default.of("Ff"));
   var ffNumber = dict.context.lookupMaybe(ffNumberOrRef, PDFNumber_default);
-  var flags = (_a = ffNumber === null || ffNumber === void 0 ? void 0 : ffNumber.asNumber()) !== null && _a !== void 0 ? _a : 0;
+  var flags = (_a3 = ffNumber === null || ffNumber === void 0 ? void 0 : ffNumber.asNumber()) !== null && _a3 !== void 0 ? _a3 : 0;
   if (flagIsSet(flags, AcroButtonFlags.PushButton)) {
     return PDFAcroPushButton_default.fromDict(dict, ref);
   } else if (flagIsSet(flags, AcroButtonFlags.Radio)) {
@@ -13367,10 +13411,10 @@ var createPDFAcroButton = function(dict, ref) {
   }
 };
 var createPDFAcroChoice = function(dict, ref) {
-  var _a;
+  var _a3;
   var ffNumberOrRef = getInheritableAttribute(dict, PDFName_default.of("Ff"));
   var ffNumber = dict.context.lookupMaybe(ffNumberOrRef, PDFNumber_default);
-  var flags = (_a = ffNumber === null || ffNumber === void 0 ? void 0 : ffNumber.asNumber()) !== null && _a !== void 0 ? _a : 0;
+  var flags = (_a3 = ffNumber === null || ffNumber === void 0 ? void 0 : ffNumber.asNumber()) !== null && _a3 !== void 0 ? _a3 : 0;
   if (flagIsSet(flags, AcroChoiceFlags.Combo)) {
     return PDFAcroComboBox_default.fromDict(dict, ref);
   } else {
@@ -13442,11 +13486,11 @@ var PDFAcroForm = (
     PDFAcroForm2.prototype.removeField = function(field) {
       var parent = field.getParent();
       var fields = parent === void 0 ? this.normalizedEntries().Fields : parent.Kids();
-      var index = fields === null || fields === void 0 ? void 0 : fields.indexOf(field.ref);
-      if (fields === void 0 || index === void 0) {
+      var index2 = fields === null || fields === void 0 ? void 0 : fields.indexOf(field.ref);
+      if (fields === void 0 || index2 === void 0) {
         throw new Error("Tried to remove inexistent field " + field.getFullyQualifiedName());
       }
-      fields.remove(index);
+      fields.remove(index2);
       if (parent !== void 0 && fields.size() === 0) {
         this.removeField(parent);
       }
@@ -13518,13 +13562,13 @@ var PDFCatalog = (
       }
       return viewerPrefs;
     };
-    PDFCatalog2.prototype.insertLeafNode = function(leafRef, index) {
+    PDFCatalog2.prototype.insertLeafNode = function(leafRef, index2) {
       var pagesRef = this.get(PDFName_default.of("Pages"));
-      var maybeParentRef = this.Pages().insertLeafNode(leafRef, index);
+      var maybeParentRef = this.Pages().insertLeafNode(leafRef, index2);
       return maybeParentRef || pagesRef;
     };
-    PDFCatalog2.prototype.removeLeafNode = function(index) {
-      this.Pages().removeLeafNode(index);
+    PDFCatalog2.prototype.removeLeafNode = function(index2) {
+      this.Pages().removeLeafNode(index2);
     };
     PDFCatalog2.withContextAndPages = function(context, pages) {
       var dict = /* @__PURE__ */ new Map();
@@ -14054,8 +14098,8 @@ var PDFObjectParser = (
       this.skipWhitespaceAndComments();
       var pdfArray = PDFArray_default.withContext(this.context);
       while (this.bytes.peek() !== CharCodes_default.RightSquareBracket) {
-        var element = this.parseObject();
-        pdfArray.push(element);
+        var element2 = this.parseObject();
+        pdfArray.push(element2);
         this.skipWhitespaceAndComments();
       }
       this.bytes.assertNext(CharCodes_default.RightSquareBracket);
@@ -14161,9 +14205,9 @@ var PDFObjectStreamParser = (
     }
     PDFObjectStreamParser2.prototype.parseIntoContext = function() {
       return __awaiter(this, void 0, void 0, function() {
-        var offsetsAndObjectNumbers, idx, len, _a, objectNumber, offset, object, ref;
-        return __generator(this, function(_b) {
-          switch (_b.label) {
+        var offsetsAndObjectNumbers, idx, len, _a3, objectNumber, offset, object, ref;
+        return __generator(this, function(_b3) {
+          switch (_b3.label) {
             case 0:
               if (this.alreadyParsed) {
                 throw new ReparseError("PDFObjectStreamParser", "parseIntoContext");
@@ -14171,10 +14215,10 @@ var PDFObjectStreamParser = (
               this.alreadyParsed = true;
               offsetsAndObjectNumbers = this.parseOffsetsAndObjectNumbers();
               idx = 0, len = offsetsAndObjectNumbers.length;
-              _b.label = 1;
+              _b3.label = 1;
             case 1:
               if (!(idx < len)) return [3, 4];
-              _a = offsetsAndObjectNumbers[idx], objectNumber = _a.objectNumber, offset = _a.offset;
+              _a3 = offsetsAndObjectNumbers[idx], objectNumber = _a3.objectNumber, offset = _a3.offset;
               this.bytes.moveTo(this.firstOffset + offset);
               object = this.parseObject();
               ref = PDFRef_default.of(objectNumber, 0);
@@ -14182,8 +14226,8 @@ var PDFObjectStreamParser = (
               if (!this.shouldWaitForTick()) return [3, 3];
               return [4, waitForTick()];
             case 2:
-              _b.sent();
-              _b.label = 3;
+              _b3.sent();
+              _b3.label = 3;
             case 3:
               idx++;
               return [3, 1];
@@ -14258,9 +14302,9 @@ var PDFXRefStreamParser = (
     };
     PDFXRefStreamParser2.prototype.parseEntries = function() {
       var entries = [];
-      var _a = this.byteWidths, typeFieldWidth = _a[0], offsetFieldWidth = _a[1], genFieldWidth = _a[2];
+      var _a3 = this.byteWidths, typeFieldWidth = _a3[0], offsetFieldWidth = _a3[1], genFieldWidth = _a3[2];
       for (var subsectionIdx = 0, subsectionLen = this.subsections.length; subsectionIdx < subsectionLen; subsectionIdx++) {
-        var _b = this.subsections[subsectionIdx], firstObjectNumber = _b.firstObjectNumber, length_2 = _b.length;
+        var _b3 = this.subsections[subsectionIdx], firstObjectNumber = _b3.firstObjectNumber, length_2 = _b3.length;
         for (var objIdx = 0; objIdx < length_2; objIdx++) {
           var type = 0;
           for (var idx = 0, len = typeFieldWidth; idx < len; idx++) {
@@ -14325,20 +14369,20 @@ var PDFParser = (
     PDFParser2.prototype.parseDocument = function() {
       return __awaiter(this, void 0, void 0, function() {
         var prevOffset, offset;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               if (this.alreadyParsed) {
                 throw new ReparseError("PDFParser", "parseDocument");
               }
               this.alreadyParsed = true;
               this.context.header = this.parseHeader();
-              _a.label = 1;
+              _a3.label = 1;
             case 1:
               if (!!this.bytes.done()) return [3, 3];
               return [4, this.parseDocumentSection()];
             case 2:
-              _a.sent();
+              _a3.sent();
               offset = this.bytes.offset();
               if (offset === prevOffset) {
                 throw new StalledParserError(this.bytes.position());
@@ -14364,7 +14408,7 @@ var PDFParser = (
       if (!isValidCatalog(catalog)) {
         var indirectObjects = this.context.enumerateIndirectObjects();
         for (var idx = 0, len = indirectObjects.length; idx < len; idx++) {
-          var _a = indirectObjects[idx], ref = _a[0], object = _a[1];
+          var _a3 = indirectObjects[idx], ref = _a3[0], object = _a3[1];
           if (isValidCatalog(object)) {
             this.context.trailerInfo.Root = ref;
           }
@@ -14409,8 +14453,8 @@ var PDFParser = (
     PDFParser2.prototype.parseIndirectObject = function() {
       return __awaiter(this, void 0, void 0, function() {
         var ref, object;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               ref = this.parseIndirectObjectHeader();
               this.skipWhitespaceAndComments();
@@ -14420,7 +14464,7 @@ var PDFParser = (
               if (!(object instanceof PDFRawStream_default && object.dict.lookup(PDFName_default.of("Type")) === PDFName_default.of("ObjStm"))) return [3, 2];
               return [4, PDFObjectStreamParser_default.forStream(object, this.shouldWaitForTick).parseIntoContext()];
             case 1:
-              _a.sent();
+              _a3.sent();
               return [3, 3];
             case 2:
               if (object instanceof PDFRawStream_default && object.dict.lookup(PDFName_default.of("Type")) === PDFName_default.of("XRef")) {
@@ -14428,7 +14472,7 @@ var PDFParser = (
               } else {
                 this.context.assign(ref, object);
               }
-              _a.label = 3;
+              _a3.label = 3;
             case 3:
               return [2, ref];
           }
@@ -14464,23 +14508,23 @@ var PDFParser = (
     PDFParser2.prototype.parseIndirectObjects = function() {
       return __awaiter(this, void 0, void 0, function() {
         var initialOffset, e_1;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               this.skipWhitespaceAndComments();
-              _a.label = 1;
+              _a3.label = 1;
             case 1:
               if (!(!this.bytes.done() && IsDigit[this.bytes.peek()])) return [3, 8];
               initialOffset = this.bytes.offset();
-              _a.label = 2;
+              _a3.label = 2;
             case 2:
-              _a.trys.push([2, 4, , 5]);
+              _a3.trys.push([2, 4, , 5]);
               return [4, this.parseIndirectObject()];
             case 3:
-              _a.sent();
+              _a3.sent();
               return [3, 5];
             case 4:
-              e_1 = _a.sent();
+              e_1 = _a3.sent();
               this.bytes.moveTo(initialOffset);
               this.tryToParseInvalidIndirectObject();
               return [3, 5];
@@ -14490,8 +14534,8 @@ var PDFParser = (
               if (!this.shouldWaitForTick()) return [3, 7];
               return [4, waitForTick()];
             case 6:
-              _a.sent();
-              _a.label = 7;
+              _a3.sent();
+              _a3.label = 7;
             case 7:
               return [3, 1];
             case 8:
@@ -14560,12 +14604,12 @@ var PDFParser = (
     };
     PDFParser2.prototype.parseDocumentSection = function() {
       return __awaiter(this, void 0, void 0, function() {
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               return [4, this.parseIndirectObjects()];
             case 1:
-              _a.sent();
+              _a3.sent();
               this.maybeParseCrossRefSection();
               this.maybeParseTrailerDict();
               this.maybeParseTrailer();
@@ -14695,15 +14739,15 @@ var rotateRectangle = function(rectangle, borderWidth, degreeAngle) {
     degreeAngle = 0;
   }
   var x = rectangle.x, y = rectangle.y, w = rectangle.width, h = rectangle.height;
-  var r = reduceRotation(degreeAngle);
+  var r2 = reduceRotation(degreeAngle);
   var b = borderWidth / 2;
-  if (r === 0)
+  if (r2 === 0)
     return { x: x - b, y: y - b, width: w, height: h };
-  else if (r === 90)
+  else if (r2 === 90)
     return { x: x - h + b, y: y - b, width: h, height: w };
-  else if (r === 180)
+  else if (r2 === 180)
     return { x: x - w + b, y: y - h + b, width: w, height: h };
-  else if (r === 270)
+  else if (r2 === 270)
     return { x: x - b, y: y - w + b, width: h, height: w };
   else
     return { x: x - b, y: y - b, width: w, height: h };
@@ -14762,8 +14806,8 @@ var LineJoinStyle;
   LineJoinStyle2[LineJoinStyle2["Round"] = 1] = "Round";
   LineJoinStyle2[LineJoinStyle2["Bevel"] = 2] = "Bevel";
 })(LineJoinStyle || (LineJoinStyle = {}));
-var setGraphicsState = function(state) {
-  return PDFOperator_default.of(PDFOperatorNames_default.SetGraphicsStateParams, [asPDFName(state)]);
+var setGraphicsState = function(state2) {
+  return PDFOperator_default.of(PDFOperatorNames_default.SetGraphicsStateParams, [asPDFName(state2)]);
 };
 var pushGraphicsState = function() {
   return PDFOperator_default.of(PDFOperatorNames_default.PushGraphicsState);
@@ -14816,8 +14860,8 @@ var endPath = function() {
 var nextLine = function() {
   return PDFOperator_default.of(PDFOperatorNames_default.NextLine);
 };
-var showText = function(text) {
-  return PDFOperator_default.of(PDFOperatorNames_default.ShowText, [text]);
+var showText = function(text2) {
+  return PDFOperator_default.of(PDFOperatorNames_default.ShowText, [text2]);
 };
 var beginText = function() {
   return PDFOperator_default.of(PDFOperatorNames_default.BeginText);
@@ -15340,13 +15384,13 @@ var drawPage = function(name, options) {
   ].filter(Boolean);
 };
 var drawLine = function(options) {
-  var _a, _b;
+  var _a3, _b3;
   return [
     pushGraphicsState(),
     options.graphicsState && setGraphicsState(options.graphicsState),
     options.color && setStrokingColor(options.color),
     setLineWidth(options.thickness),
-    setDashPattern((_a = options.dashArray) !== null && _a !== void 0 ? _a : [], (_b = options.dashPhase) !== null && _b !== void 0 ? _b : 0),
+    setDashPattern((_a3 = options.dashArray) !== null && _a3 !== void 0 ? _a3 : [], (_b3 = options.dashPhase) !== null && _b3 !== void 0 ? _b3 : 0),
     moveTo(options.start.x, options.start.y),
     options.lineCap && setLineCap(options.lineCap),
     moveTo(options.start.x, options.start.y),
@@ -15356,7 +15400,7 @@ var drawLine = function(options) {
   ].filter(Boolean);
 };
 var drawRectangle = function(options) {
-  var _a, _b;
+  var _a3, _b3;
   return [
     pushGraphicsState(),
     options.graphicsState && setGraphicsState(options.graphicsState),
@@ -15364,7 +15408,7 @@ var drawRectangle = function(options) {
     options.borderColor && setStrokingColor(options.borderColor),
     setLineWidth(options.borderWidth),
     options.borderLineCap && setLineCap(options.borderLineCap),
-    setDashPattern((_a = options.borderDashArray) !== null && _a !== void 0 ? _a : [], (_b = options.borderDashPhase) !== null && _b !== void 0 ? _b : 0),
+    setDashPattern((_a3 = options.borderDashArray) !== null && _a3 !== void 0 ? _a3 : [], (_b3 = options.borderDashPhase) !== null && _b3 !== void 0 ? _b3 : 0),
     translate(options.x, options.y),
     rotateRadians(toRadians(options.rotate)),
     skewRadians(toRadians(options.xSkew), toRadians(options.ySkew)),
@@ -15426,7 +15470,7 @@ var drawEllipseCurves = function(config) {
   ];
 };
 var drawEllipse = function(options) {
-  var _a, _b, _c;
+  var _a3, _b3, _c2;
   return __spreadArrays([
     pushGraphicsState(),
     options.graphicsState && setGraphicsState(options.graphicsState),
@@ -15434,7 +15478,7 @@ var drawEllipse = function(options) {
     options.borderColor && setStrokingColor(options.borderColor),
     setLineWidth(options.borderWidth),
     options.borderLineCap && setLineCap(options.borderLineCap),
-    setDashPattern((_a = options.borderDashArray) !== null && _a !== void 0 ? _a : [], (_b = options.borderDashPhase) !== null && _b !== void 0 ? _b : 0)
+    setDashPattern((_a3 = options.borderDashArray) !== null && _a3 !== void 0 ? _a3 : [], (_b3 = options.borderDashPhase) !== null && _b3 !== void 0 ? _b3 : 0)
   ], options.rotate === void 0 ? drawEllipsePath({
     x: options.x,
     y: options.y,
@@ -15445,7 +15489,7 @@ var drawEllipse = function(options) {
     y: options.y,
     xScale: options.xScale,
     yScale: options.yScale,
-    rotate: (_c = options.rotate) !== null && _c !== void 0 ? _c : degrees(0)
+    rotate: (_c2 = options.rotate) !== null && _c2 !== void 0 ? _c2 : degrees(0)
   }), [
     // prettier-ignore
     options.color && options.borderWidth ? fillAndStroke() : options.color ? fill() : options.borderColor ? stroke() : closePath(),
@@ -15453,19 +15497,19 @@ var drawEllipse = function(options) {
   ]).filter(Boolean);
 };
 var drawSvgPath = function(path3, options) {
-  var _a, _b, _c;
+  var _a3, _b3, _c2;
   return __spreadArrays([
     pushGraphicsState(),
     options.graphicsState && setGraphicsState(options.graphicsState),
     translate(options.x, options.y),
-    rotateRadians(toRadians((_a = options.rotate) !== null && _a !== void 0 ? _a : degrees(0))),
+    rotateRadians(toRadians((_a3 = options.rotate) !== null && _a3 !== void 0 ? _a3 : degrees(0))),
     // SVG path Y axis is opposite pdf-lib's
     options.scale ? scale(options.scale, -options.scale) : scale(1, -1),
     options.color && setFillingColor(options.color),
     options.borderColor && setStrokingColor(options.borderColor),
     options.borderWidth && setLineWidth(options.borderWidth),
     options.borderLineCap && setLineCap(options.borderLineCap),
-    setDashPattern((_b = options.borderDashArray) !== null && _b !== void 0 ? _b : [], (_c = options.borderDashPhase) !== null && _c !== void 0 ? _c : 0)
+    setDashPattern((_b3 = options.borderDashArray) !== null && _b3 !== void 0 ? _b3 : [], (_c2 = options.borderDashPhase) !== null && _c2 !== void 0 ? _c2 : 0)
   ], svgPathToOperators(path3), [
     // prettier-ignore
     options.color && options.borderWidth ? fillAndStroke() : options.color ? fill() : options.borderColor ? stroke() : closePath(),
@@ -15594,7 +15638,7 @@ var drawTextLines = function(lines, options) {
     setFontAndSize(options.font, options.size)
   ];
   for (var idx = 0, len = lines.length; idx < len; idx++) {
-    var _a = lines[idx], encoded = _a.encoded, x = _a.x, y = _a.y;
+    var _a3 = lines[idx], encoded = _a3.encoded, x = _a3.x, y = _a3.y;
     operators.push(rotateAndSkewTextRadiansAndTranslate(toRadians(options.rotate), toRadians(options.xSkew), toRadians(options.ySkew), x, y), showText(encoded));
   }
   operators.push(endText());
@@ -15795,10 +15839,10 @@ var UnexpectedFieldTypeError = (
   function(_super) {
     __extends(UnexpectedFieldTypeError2, _super);
     function UnexpectedFieldTypeError2(name, expected, actual) {
-      var _a, _b;
+      var _a3, _b3;
       var _this = this;
       var expectedType = expected === null || expected === void 0 ? void 0 : expected.name;
-      var actualType = (_b = (_a = actual === null || actual === void 0 ? void 0 : actual.constructor) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : actual;
+      var actualType = (_b3 = (_a3 = actual === null || actual === void 0 ? void 0 : actual.constructor) === null || _a3 === void 0 ? void 0 : _a3.name) !== null && _b3 !== void 0 ? _b3 : actual;
       var msg = 'Expected field "' + name + '" to be of type ' + expectedType + ", " + ("but it is actually of type " + actualType);
       _this = _super.call(this, msg) || this;
       return _this;
@@ -15983,7 +16027,7 @@ var lastIndexOfWhitespace = function(line) {
   return void 0;
 };
 var splitOutLines = function(input, maxWidth, font, fontSize) {
-  var _a;
+  var _a3;
   var lastWhitespaceIdx = input.length;
   while (lastWhitespaceIdx > 0) {
     var line = input.substring(0, lastWhitespaceIdx);
@@ -15993,7 +16037,7 @@ var splitOutLines = function(input, maxWidth, font, fontSize) {
       var remainder = input.substring(lastWhitespaceIdx) || void 0;
       return { line, encoded, width, remainder };
     }
-    lastWhitespaceIdx = (_a = lastIndexOfWhitespace(line)) !== null && _a !== void 0 ? _a : 0;
+    lastWhitespaceIdx = (_a3 = lastIndexOfWhitespace(line)) !== null && _a3 !== void 0 ? _a3 : 0;
   }
   return {
     line: input,
@@ -16002,9 +16046,9 @@ var splitOutLines = function(input, maxWidth, font, fontSize) {
     remainder: void 0
   };
 };
-var layoutMultilineText = function(text, _a) {
-  var alignment = _a.alignment, fontSize = _a.fontSize, font = _a.font, bounds = _a.bounds;
-  var lines = lineSplit(cleanText(text));
+var layoutMultilineText = function(text2, _a3) {
+  var alignment = _a3.alignment, fontSize = _a3.fontSize, font = _a3.font, bounds = _a3.bounds;
+  var lines = lineSplit(cleanText(text2));
   if (fontSize === void 0 || fontSize === 0) {
     fontSize = computeFontSize(lines, font, bounds, true);
   }
@@ -16019,7 +16063,7 @@ var layoutMultilineText = function(text, _a) {
   for (var idx = 0, len = lines.length; idx < len; idx++) {
     var prevRemainder = lines[idx];
     while (prevRemainder !== void 0) {
-      var _b = splitOutLines(prevRemainder, bounds.width, font, fontSize), line = _b.line, encoded = _b.encoded, width = _b.width, remainder = _b.remainder;
+      var _b3 = splitOutLines(prevRemainder, bounds.width, font, fontSize), line = _b3.line, encoded = _b3.encoded, width = _b3.width, remainder = _b3.remainder;
       var x = alignment === TextAlignment.Left ? bounds.x : alignment === TextAlignment.Center ? bounds.x + bounds.width / 2 - width / 2 : alignment === TextAlignment.Right ? bounds.x + bounds.width - width : bounds.x;
       y -= lineHeight;
       if (x < minX)
@@ -16046,9 +16090,9 @@ var layoutMultilineText = function(text, _a) {
     }
   };
 };
-var layoutCombedText = function(text, _a) {
-  var fontSize = _a.fontSize, font = _a.font, bounds = _a.bounds, cellCount = _a.cellCount;
-  var line = mergeLines(cleanText(text));
+var layoutCombedText = function(text2, _a3) {
+  var fontSize = _a3.fontSize, font = _a3.font, bounds = _a3.bounds, cellCount = _a3.cellCount;
+  var line = mergeLines(cleanText(text2));
   if (line.length > cellCount) {
     throw new CombedTextLayoutError(line.length, cellCount);
   }
@@ -16066,7 +16110,7 @@ var layoutCombedText = function(text, _a) {
   var cellOffset = 0;
   var charOffset = 0;
   while (cellOffset < cellCount) {
-    var _b = charAtIndex(line, charOffset), char = _b[0], charLength = _b[1];
+    var _b3 = charAtIndex(line, charOffset), char = _b3[0], charLength = _b3[1];
     var encoded = font.encodeText(char);
     var width = font.widthOfTextAtSize(char, fontSize);
     var cellCenter = bounds.x + (cellWidth * cellOffset + cellWidth / 2);
@@ -16094,9 +16138,9 @@ var layoutCombedText = function(text, _a) {
     }
   };
 };
-var layoutSinglelineText = function(text, _a) {
-  var alignment = _a.alignment, fontSize = _a.fontSize, font = _a.font, bounds = _a.bounds;
-  var line = mergeLines(cleanText(text));
+var layoutSinglelineText = function(text2, _a3) {
+  var alignment = _a3.alignment, fontSize = _a3.fontSize, font = _a3.font, bounds = _a3.bounds;
+  var line = mergeLines(cleanText(text2));
   if (fontSize === void 0 || fontSize === 0) {
     fontSize = computeFontSize([line], font, bounds);
   }
@@ -16120,18 +16164,18 @@ var normalizeAppearance = function(appearance) {
 };
 var tfRegex2 = /\/([^\0\t\n\f\r\ ]+)[\0\t\n\f\r\ ]+(\d*\.\d+|\d+)[\0\t\n\f\r\ ]+Tf/;
 var getDefaultFontSize = function(field) {
-  var _a, _b;
-  var da = (_a = field.getDefaultAppearance()) !== null && _a !== void 0 ? _a : "";
-  var daMatch = (_b = findLastMatch(da, tfRegex2).match) !== null && _b !== void 0 ? _b : [];
+  var _a3, _b3;
+  var da = (_a3 = field.getDefaultAppearance()) !== null && _a3 !== void 0 ? _a3 : "";
+  var daMatch = (_b3 = findLastMatch(da, tfRegex2).match) !== null && _b3 !== void 0 ? _b3 : [];
   var defaultFontSize = Number(daMatch[2]);
   return isFinite(defaultFontSize) ? defaultFontSize : void 0;
 };
 var colorRegex = /(\d*\.\d+|\d+)[\0\t\n\f\r\ ]*(\d*\.\d+|\d+)?[\0\t\n\f\r\ ]*(\d*\.\d+|\d+)?[\0\t\n\f\r\ ]*(\d*\.\d+|\d+)?[\0\t\n\f\r\ ]+(g|rg|k)/;
 var getDefaultColor = function(field) {
-  var _a;
-  var da = (_a = field.getDefaultAppearance()) !== null && _a !== void 0 ? _a : "";
+  var _a3;
+  var da = (_a3 = field.getDefaultAppearance()) !== null && _a3 !== void 0 ? _a3 : "";
   var daMatch = findLastMatch(da, colorRegex).match;
-  var _b = daMatch !== null && daMatch !== void 0 ? daMatch : [], c1 = _b[1], c2 = _b[2], c3 = _b[3], c4 = _b[4], colorSpace = _b[5];
+  var _b3 = daMatch !== null && daMatch !== void 0 ? daMatch : [], c1 = _b3[1], c2 = _b3[2], c3 = _b3[3], c4 = _b3[4], colorSpace = _b3[5];
   if (colorSpace === "g" && c1) {
     return grayscale(Number(c1));
   }
@@ -16144,32 +16188,32 @@ var getDefaultColor = function(field) {
   return void 0;
 };
 var updateDefaultAppearance = function(field, color, font, fontSize) {
-  var _a;
+  var _a3;
   if (fontSize === void 0) {
     fontSize = 0;
   }
   var da = [
     setFillingColor(color).toString(),
-    setFontAndSize((_a = font === null || font === void 0 ? void 0 : font.name) !== null && _a !== void 0 ? _a : "dummy__noop", fontSize).toString()
+    setFontAndSize((_a3 = font === null || font === void 0 ? void 0 : font.name) !== null && _a3 !== void 0 ? _a3 : "dummy__noop", fontSize).toString()
   ].join("\n");
   field.setDefaultAppearance(da);
 };
 var defaultCheckBoxAppearanceProvider = function(checkBox, widget) {
-  var _a, _b, _c;
+  var _a3, _b3, _c2;
   var widgetColor = getDefaultColor(widget);
   var fieldColor = getDefaultColor(checkBox.acroField);
   var rectangle = widget.getRectangle();
   var ap = widget.getAppearanceCharacteristics();
   var bs = widget.getBorderStyle();
-  var borderWidth = (_a = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _a !== void 0 ? _a : 0;
+  var borderWidth = (_a3 = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _a3 !== void 0 ? _a3 : 0;
   var rotation = reduceRotation(ap === null || ap === void 0 ? void 0 : ap.getRotation());
   var _d = adjustDimsForRotation(rectangle, rotation), width = _d.width, height = _d.height;
   var rotate = rotateInPlace(__assign(__assign({}, rectangle), { rotation }));
   var black = rgb(0, 0, 0);
-  var borderColor = (_b = componentsToColor(ap === null || ap === void 0 ? void 0 : ap.getBorderColor())) !== null && _b !== void 0 ? _b : black;
+  var borderColor = (_b3 = componentsToColor(ap === null || ap === void 0 ? void 0 : ap.getBorderColor())) !== null && _b3 !== void 0 ? _b3 : black;
   var normalBackgroundColor = componentsToColor(ap === null || ap === void 0 ? void 0 : ap.getBackgroundColor());
   var downBackgroundColor = componentsToColor(ap === null || ap === void 0 ? void 0 : ap.getBackgroundColor(), 0.8);
-  var textColor = (_c = widgetColor !== null && widgetColor !== void 0 ? widgetColor : fieldColor) !== null && _c !== void 0 ? _c : black;
+  var textColor = (_c2 = widgetColor !== null && widgetColor !== void 0 ? widgetColor : fieldColor) !== null && _c2 !== void 0 ? _c2 : black;
   if (widgetColor) {
     updateDefaultAppearance(widget, textColor);
   } else {
@@ -16197,21 +16241,21 @@ var defaultCheckBoxAppearanceProvider = function(checkBox, widget) {
   };
 };
 var defaultRadioGroupAppearanceProvider = function(radioGroup, widget) {
-  var _a, _b, _c;
+  var _a3, _b3, _c2;
   var widgetColor = getDefaultColor(widget);
   var fieldColor = getDefaultColor(radioGroup.acroField);
   var rectangle = widget.getRectangle();
   var ap = widget.getAppearanceCharacteristics();
   var bs = widget.getBorderStyle();
-  var borderWidth = (_a = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _a !== void 0 ? _a : 0;
+  var borderWidth = (_a3 = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _a3 !== void 0 ? _a3 : 0;
   var rotation = reduceRotation(ap === null || ap === void 0 ? void 0 : ap.getRotation());
   var _d = adjustDimsForRotation(rectangle, rotation), width = _d.width, height = _d.height;
   var rotate = rotateInPlace(__assign(__assign({}, rectangle), { rotation }));
   var black = rgb(0, 0, 0);
-  var borderColor = (_b = componentsToColor(ap === null || ap === void 0 ? void 0 : ap.getBorderColor())) !== null && _b !== void 0 ? _b : black;
+  var borderColor = (_b3 = componentsToColor(ap === null || ap === void 0 ? void 0 : ap.getBorderColor())) !== null && _b3 !== void 0 ? _b3 : black;
   var normalBackgroundColor = componentsToColor(ap === null || ap === void 0 ? void 0 : ap.getBackgroundColor());
   var downBackgroundColor = componentsToColor(ap === null || ap === void 0 ? void 0 : ap.getBackgroundColor(), 0.8);
-  var textColor = (_c = widgetColor !== null && widgetColor !== void 0 ? widgetColor : fieldColor) !== null && _c !== void 0 ? _c : black;
+  var textColor = (_c2 = widgetColor !== null && widgetColor !== void 0 ? widgetColor : fieldColor) !== null && _c2 !== void 0 ? _c2 : black;
   if (widgetColor) {
     updateDefaultAppearance(widget, textColor);
   } else {
@@ -16238,7 +16282,7 @@ var defaultRadioGroupAppearanceProvider = function(radioGroup, widget) {
   };
 };
 var defaultButtonAppearanceProvider = function(button, widget, font) {
-  var _a, _b, _c, _d, _e;
+  var _a3, _b3, _c2, _d, _e;
   var widgetColor = getDefaultColor(widget);
   var fieldColor = getDefaultColor(button.acroField);
   var widgetFontSize = getDefaultFontSize(widget);
@@ -16247,8 +16291,8 @@ var defaultButtonAppearanceProvider = function(button, widget, font) {
   var ap = widget.getAppearanceCharacteristics();
   var bs = widget.getBorderStyle();
   var captions = ap === null || ap === void 0 ? void 0 : ap.getCaptions();
-  var normalText = (_a = captions === null || captions === void 0 ? void 0 : captions.normal) !== null && _a !== void 0 ? _a : "";
-  var downText = (_c = (_b = captions === null || captions === void 0 ? void 0 : captions.down) !== null && _b !== void 0 ? _b : normalText) !== null && _c !== void 0 ? _c : "";
+  var normalText = (_a3 = captions === null || captions === void 0 ? void 0 : captions.normal) !== null && _a3 !== void 0 ? _a3 : "";
+  var downText = (_c2 = (_b3 = captions === null || captions === void 0 ? void 0 : captions.down) !== null && _b3 !== void 0 ? _b3 : normalText) !== null && _c2 !== void 0 ? _c2 : "";
   var borderWidth = (_d = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _d !== void 0 ? _d : 0;
   var rotation = reduceRotation(ap === null || ap === void 0 ? void 0 : ap.getRotation());
   var _f = adjustDimsForRotation(rectangle, rotation), width = _f.width, height = _f.height;
@@ -16299,7 +16343,7 @@ var defaultButtonAppearanceProvider = function(button, widget, font) {
   };
 };
 var defaultTextFieldAppearanceProvider = function(textField, widget, font) {
-  var _a, _b, _c, _d;
+  var _a3, _b3, _c2, _d;
   var widgetColor = getDefaultColor(widget);
   var fieldColor = getDefaultColor(textField.acroField);
   var widgetFontSize = getDefaultFontSize(widget);
@@ -16307,8 +16351,8 @@ var defaultTextFieldAppearanceProvider = function(textField, widget, font) {
   var rectangle = widget.getRectangle();
   var ap = widget.getAppearanceCharacteristics();
   var bs = widget.getBorderStyle();
-  var text = (_a = textField.getText()) !== null && _a !== void 0 ? _a : "";
-  var borderWidth = (_b = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _b !== void 0 ? _b : 0;
+  var text2 = (_a3 = textField.getText()) !== null && _a3 !== void 0 ? _a3 : "";
+  var borderWidth = (_b3 = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _b3 !== void 0 ? _b3 : 0;
   var rotation = reduceRotation(ap === null || ap === void 0 ? void 0 : ap.getRotation());
   var _e = adjustDimsForRotation(rectangle, rotation), width = _e.width, height = _e.height;
   var rotate = rotateInPlace(__assign(__assign({}, rectangle), { rotation }));
@@ -16325,7 +16369,7 @@ var defaultTextFieldAppearanceProvider = function(textField, widget, font) {
     height: height - (borderWidth + padding) * 2
   };
   if (textField.isMultiline()) {
-    var layout = layoutMultilineText(text, {
+    var layout = layoutMultilineText(text2, {
       alignment: textField.getAlignment(),
       fontSize: widgetFontSize !== null && widgetFontSize !== void 0 ? widgetFontSize : fieldFontSize,
       font,
@@ -16334,16 +16378,16 @@ var defaultTextFieldAppearanceProvider = function(textField, widget, font) {
     textLines = layout.lines;
     fontSize = layout.fontSize;
   } else if (textField.isCombed()) {
-    var layout = layoutCombedText(text, {
+    var layout = layoutCombedText(text2, {
       fontSize: widgetFontSize !== null && widgetFontSize !== void 0 ? widgetFontSize : fieldFontSize,
       font,
       bounds,
-      cellCount: (_c = textField.getMaxLength()) !== null && _c !== void 0 ? _c : 0
+      cellCount: (_c2 = textField.getMaxLength()) !== null && _c2 !== void 0 ? _c2 : 0
     });
     textLines = layout.cells;
     fontSize = layout.fontSize;
   } else {
-    var layout = layoutSinglelineText(text, {
+    var layout = layoutSinglelineText(text2, {
       alignment: textField.getAlignment(),
       fontSize: widgetFontSize !== null && widgetFontSize !== void 0 ? widgetFontSize : fieldFontSize,
       font,
@@ -16375,7 +16419,7 @@ var defaultTextFieldAppearanceProvider = function(textField, widget, font) {
   return __spreadArrays(rotate, drawTextField(options));
 };
 var defaultDropdownAppearanceProvider = function(dropdown, widget, font) {
-  var _a, _b, _c;
+  var _a3, _b3, _c2;
   var widgetColor = getDefaultColor(widget);
   var fieldColor = getDefaultColor(dropdown.acroField);
   var widgetFontSize = getDefaultFontSize(widget);
@@ -16383,8 +16427,8 @@ var defaultDropdownAppearanceProvider = function(dropdown, widget, font) {
   var rectangle = widget.getRectangle();
   var ap = widget.getAppearanceCharacteristics();
   var bs = widget.getBorderStyle();
-  var text = (_a = dropdown.getSelected()[0]) !== null && _a !== void 0 ? _a : "";
-  var borderWidth = (_b = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _b !== void 0 ? _b : 0;
+  var text2 = (_a3 = dropdown.getSelected()[0]) !== null && _a3 !== void 0 ? _a3 : "";
+  var borderWidth = (_b3 = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _b3 !== void 0 ? _b3 : 0;
   var rotation = reduceRotation(ap === null || ap === void 0 ? void 0 : ap.getRotation());
   var _d = adjustDimsForRotation(rectangle, rotation), width = _d.width, height = _d.height;
   var rotate = rotateInPlace(__assign(__assign({}, rectangle), { rotation }));
@@ -16398,13 +16442,13 @@ var defaultDropdownAppearanceProvider = function(dropdown, widget, font) {
     width: width - (borderWidth + padding) * 2,
     height: height - (borderWidth + padding) * 2
   };
-  var _e = layoutSinglelineText(text, {
+  var _e = layoutSinglelineText(text2, {
     alignment: TextAlignment.Left,
     fontSize: widgetFontSize !== null && widgetFontSize !== void 0 ? widgetFontSize : fieldFontSize,
     font,
     bounds
   }), line = _e.line, fontSize = _e.fontSize;
-  var textColor = (_c = widgetColor !== null && widgetColor !== void 0 ? widgetColor : fieldColor) !== null && _c !== void 0 ? _c : black;
+  var textColor = (_c2 = widgetColor !== null && widgetColor !== void 0 ? widgetColor : fieldColor) !== null && _c2 !== void 0 ? _c2 : black;
   if (widgetColor || widgetFontSize !== void 0) {
     updateDefaultAppearance(widget, textColor, font, fontSize);
   } else {
@@ -16427,7 +16471,7 @@ var defaultDropdownAppearanceProvider = function(dropdown, widget, font) {
   return __spreadArrays(rotate, drawTextField(options));
 };
 var defaultOptionListAppearanceProvider = function(optionList, widget, font) {
-  var _a, _b;
+  var _a3, _b3;
   var widgetColor = getDefaultColor(widget);
   var fieldColor = getDefaultColor(optionList.acroField);
   var widgetFontSize = getDefaultFontSize(widget);
@@ -16435,9 +16479,9 @@ var defaultOptionListAppearanceProvider = function(optionList, widget, font) {
   var rectangle = widget.getRectangle();
   var ap = widget.getAppearanceCharacteristics();
   var bs = widget.getBorderStyle();
-  var borderWidth = (_a = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _a !== void 0 ? _a : 0;
+  var borderWidth = (_a3 = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _a3 !== void 0 ? _a3 : 0;
   var rotation = reduceRotation(ap === null || ap === void 0 ? void 0 : ap.getRotation());
-  var _c = adjustDimsForRotation(rectangle, rotation), width = _c.width, height = _c.height;
+  var _c2 = adjustDimsForRotation(rectangle, rotation), width = _c2.width, height = _c2.height;
   var rotate = rotateInPlace(__assign(__assign({}, rectangle), { rotation }));
   var black = rgb(0, 0, 0);
   var borderColor = componentsToColor(ap === null || ap === void 0 ? void 0 : ap.getBorderColor());
@@ -16446,11 +16490,11 @@ var defaultOptionListAppearanceProvider = function(optionList, widget, font) {
   var selected = optionList.getSelected();
   if (optionList.isSorted())
     options.sort();
-  var text = "";
+  var text2 = "";
   for (var idx = 0, len = options.length; idx < len; idx++) {
-    text += options[idx];
+    text2 += options[idx];
     if (idx < len - 1)
-      text += "\n";
+      text2 += "\n";
   }
   var padding = 1;
   var bounds = {
@@ -16459,7 +16503,7 @@ var defaultOptionListAppearanceProvider = function(optionList, widget, font) {
     width: width - (borderWidth + padding) * 2,
     height: height - (borderWidth + padding) * 2
   };
-  var _d = layoutMultilineText(text, {
+  var _d = layoutMultilineText(text2, {
     alignment: TextAlignment.Left,
     fontSize: widgetFontSize !== null && widgetFontSize !== void 0 ? widgetFontSize : fieldFontSize,
     font,
@@ -16472,7 +16516,7 @@ var defaultOptionListAppearanceProvider = function(optionList, widget, font) {
       selectedLines.push(idx);
   }
   var blue = rgb(153 / 255, 193 / 255, 218 / 255);
-  var textColor = (_b = widgetColor !== null && widgetColor !== void 0 ? widgetColor : fieldColor) !== null && _b !== void 0 ? _b : black;
+  var textColor = (_b3 = widgetColor !== null && widgetColor !== void 0 ? widgetColor : fieldColor) !== null && _b3 !== void 0 ? _b3 : black;
   if (widgetColor || widgetFontSize !== void 0) {
     updateDefaultAppearance(widget, textColor, font, fontSize);
   } else {
@@ -16521,15 +16565,15 @@ var PDFEmbeddedPage = (
     };
     PDFEmbeddedPage2.prototype.embed = function() {
       return __awaiter(this, void 0, void 0, function() {
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               if (!!this.alreadyEmbedded) return [3, 2];
               return [4, this.embedder.embedIntoContext(this.doc.context, this.ref)];
             case 1:
-              _a.sent();
+              _a3.sent();
               this.alreadyEmbedded = true;
-              _a.label = 2;
+              _a3.label = 2;
             case 2:
               return [
                 2
@@ -16564,22 +16608,22 @@ var PDFFont = (
       this.name = embedder.fontName;
       this.embedder = embedder;
     }
-    PDFFont2.prototype.encodeText = function(text) {
-      assertIs(text, "text", ["string"]);
+    PDFFont2.prototype.encodeText = function(text2) {
+      assertIs(text2, "text", ["string"]);
       this.modified = true;
-      return this.embedder.encodeText(text);
+      return this.embedder.encodeText(text2);
     };
-    PDFFont2.prototype.widthOfTextAtSize = function(text, size) {
-      assertIs(text, "text", ["string"]);
+    PDFFont2.prototype.widthOfTextAtSize = function(text2, size) {
+      assertIs(text2, "text", ["string"]);
       assertIs(size, "size", ["number"]);
-      return this.embedder.widthOfTextAtSize(text, size);
+      return this.embedder.widthOfTextAtSize(text2, size);
     };
     PDFFont2.prototype.heightAtSize = function(size, options) {
-      var _a;
+      var _a3;
       assertIs(size, "size", ["number"]);
       assertOrUndefined(options === null || options === void 0 ? void 0 : options.descender, "options.descender", ["boolean"]);
       return this.embedder.heightOfFontAtSize(size, {
-        descender: (_a = options === null || options === void 0 ? void 0 : options.descender) !== null && _a !== void 0 ? _a : true
+        descender: (_a3 = options === null || options === void 0 ? void 0 : options.descender) !== null && _a3 !== void 0 ? _a3 : true
       });
     };
     PDFFont2.prototype.sizeAtHeight = function(height) {
@@ -16595,15 +16639,15 @@ var PDFFont = (
     };
     PDFFont2.prototype.embed = function() {
       return __awaiter(this, void 0, void 0, function() {
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               if (!this.modified) return [3, 2];
               return [4, this.embedder.embedIntoContext(this.doc.context, this.ref)];
             case 1:
-              _a.sent();
+              _a3.sent();
               this.modified = false;
-              _a.label = 2;
+              _a3.label = 2;
             case 2:
               return [
                 2
@@ -16655,9 +16699,9 @@ var PDFImage = (
     };
     PDFImage2.prototype.embed = function() {
       return __awaiter(this, void 0, void 0, function() {
-        var _a, doc, ref;
-        return __generator(this, function(_b) {
-          switch (_b.label) {
+        var _a3, doc, ref;
+        return __generator(this, function(_b3) {
+          switch (_b3.label) {
             case 0:
               if (!this.embedder)
                 return [
@@ -16665,12 +16709,12 @@ var PDFImage = (
                   /*return*/
                 ];
               if (!this.embedTask) {
-                _a = this, doc = _a.doc, ref = _a.ref;
+                _a3 = this, doc = _a3.doc, ref = _a3.ref;
                 this.embedTask = this.embedder.embedIntoContext(doc.context, ref);
               }
               return [4, this.embedTask];
             case 1:
-              _b.sent();
+              _b3.sent();
               this.embedder = void 0;
               return [
                 2
@@ -16726,8 +16770,8 @@ var PDFField = (
       this.doc = doc;
     }
     PDFField2.prototype.getName = function() {
-      var _a;
-      return (_a = this.acroField.getFullyQualifiedName()) !== null && _a !== void 0 ? _a : "";
+      var _a3;
+      return (_a3 = this.acroField.getFullyQualifiedName()) !== null && _a3 !== void 0 ? _a3 : "";
     };
     PDFField2.prototype.isReadOnly = function() {
       return this.acroField.hasFlag(AcroFieldFlags.ReadOnly);
@@ -16772,7 +16816,7 @@ var PDFField = (
       return this.doc.getForm().fieldIsDirty(this.ref);
     };
     PDFField2.prototype.createWidget = function(options) {
-      var _a;
+      var _a3;
       var textColor = options.textColor;
       var backgroundColor = options.backgroundColor;
       var borderColor = options.borderColor;
@@ -16807,31 +16851,31 @@ var PDFField = (
       widget.setFlagTo(AnnotationFlags.Hidden, hidden);
       widget.setFlagTo(AnnotationFlags.Invisible, false);
       if (textColor) {
-        var da = (_a = this.acroField.getDefaultAppearance()) !== null && _a !== void 0 ? _a : "";
+        var da = (_a3 = this.acroField.getDefaultAppearance()) !== null && _a3 !== void 0 ? _a3 : "";
         var newDa = da + "\n" + setFillingColor(textColor).toString();
         this.acroField.setDefaultAppearance(newDa);
       }
       return widget;
     };
-    PDFField2.prototype.updateWidgetAppearanceWithFont = function(widget, font, _a) {
-      var normal = _a.normal, rollover = _a.rollover, down = _a.down;
+    PDFField2.prototype.updateWidgetAppearanceWithFont = function(widget, font, _a3) {
+      var normal2 = _a3.normal, rollover = _a3.rollover, down = _a3.down;
       this.updateWidgetAppearances(widget, {
-        normal: this.createAppearanceStream(widget, normal, font),
+        normal: this.createAppearanceStream(widget, normal2, font),
         rollover: rollover && this.createAppearanceStream(widget, rollover, font),
         down: down && this.createAppearanceStream(widget, down, font)
       });
     };
-    PDFField2.prototype.updateOnOffWidgetAppearance = function(widget, onValue, _a) {
-      var normal = _a.normal, rollover = _a.rollover, down = _a.down;
+    PDFField2.prototype.updateOnOffWidgetAppearance = function(widget, onValue, _a3) {
+      var normal2 = _a3.normal, rollover = _a3.rollover, down = _a3.down;
       this.updateWidgetAppearances(widget, {
-        normal: this.createAppearanceDict(widget, normal, onValue),
+        normal: this.createAppearanceDict(widget, normal2, onValue),
         rollover: rollover && this.createAppearanceDict(widget, rollover, onValue),
         down: down && this.createAppearanceDict(widget, down, onValue)
       });
     };
-    PDFField2.prototype.updateWidgetAppearances = function(widget, _a) {
-      var normal = _a.normal, rollover = _a.rollover, down = _a.down;
-      widget.setNormalAppearance(normal);
+    PDFField2.prototype.updateWidgetAppearances = function(widget, _a3) {
+      var normal2 = _a3.normal, rollover = _a3.rollover, down = _a3.down;
+      widget.setNormalAppearance(normal2);
       if (rollover) {
         widget.setRolloverAppearance(rollover);
       } else {
@@ -16844,10 +16888,10 @@ var PDFField = (
       }
     };
     PDFField2.prototype.createAppearanceStream = function(widget, appearance, font) {
-      var _a;
+      var _a3;
       var context = this.acroField.dict.context;
-      var _b = widget.getRectangle(), width = _b.width, height = _b.height;
-      var Resources = font && { Font: (_a = {}, _a[font.name] = font.ref, _a) };
+      var _b3 = widget.getRectangle(), width = _b3.width, height = _b3.height;
+      var Resources = font && { Font: (_a3 = {}, _a3[font.name] = font.ref, _a3) };
       var stream2 = context.formXObject(appearance, {
         Resources,
         BBox: context.obj([0, 0, width, height]),
@@ -16857,13 +16901,13 @@ var PDFField = (
       return streamRef;
     };
     PDFField2.prototype.createImageAppearanceStream = function(widget, image, alignment) {
-      var _a;
-      var _b;
+      var _a3;
+      var _b3;
       var context = this.acroField.dict.context;
       var rectangle = widget.getRectangle();
       var ap = widget.getAppearanceCharacteristics();
       var bs = widget.getBorderStyle();
-      var borderWidth = (_b = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _b !== void 0 ? _b : 0;
+      var borderWidth = (_b3 = bs === null || bs === void 0 ? void 0 : bs.getWidth()) !== null && _b3 !== void 0 ? _b3 : 0;
       var rotation = reduceRotation(ap === null || ap === void 0 ? void 0 : ap.getRotation());
       var rotate = rotateInPlace(__assign(__assign({}, rectangle), { rotation }));
       var adj = adjustDimsForRotation(rectangle, rotation);
@@ -16887,7 +16931,7 @@ var PDFField = (
       }
       var imageName = this.doc.context.addRandomSuffix("Image", 10);
       var appearance = __spreadArrays(rotate, drawImage(imageName, options));
-      var Resources = { XObject: (_a = {}, _a[imageName] = image.ref, _a) };
+      var Resources = { XObject: (_a3 = {}, _a3[imageName] = image.ref, _a3) };
       var stream2 = context.formXObject(appearance, {
         Resources,
         BBox: context.obj([0, 0, rectangle.width, rectangle.height]),
@@ -16923,8 +16967,8 @@ var PDFCheckBox = (
       return _this;
     }
     PDFCheckBox2.prototype.check = function() {
-      var _a;
-      var onValue = (_a = this.acroField.getOnValue()) !== null && _a !== void 0 ? _a : PDFName_default.of("Yes");
+      var _a3;
+      var onValue = (_a3 = this.acroField.getOnValue()) !== null && _a3 !== void 0 ? _a3 : PDFName_default.of("Yes");
       this.markAsDirty();
       this.acroField.setValue(onValue);
     };
@@ -16937,7 +16981,7 @@ var PDFCheckBox = (
       return !!onValue && onValue === this.acroField.getValue();
     };
     PDFCheckBox2.prototype.addToPage = function(page, options) {
-      var _a, _b, _c, _d, _e, _f;
+      var _a3, _b3, _c2, _d, _e, _f;
       assertIs(page, "page", [[PDFPage_default, "PDFPage"]]);
       assertFieldAppearanceOptions(options);
       if (!options)
@@ -16951,9 +16995,9 @@ var PDFCheckBox = (
       if (!("borderWidth" in options))
         options.borderWidth = 1;
       var widget = this.createWidget({
-        x: (_a = options.x) !== null && _a !== void 0 ? _a : 0,
-        y: (_b = options.y) !== null && _b !== void 0 ? _b : 0,
-        width: (_c = options.width) !== null && _c !== void 0 ? _c : 50,
+        x: (_a3 = options.x) !== null && _a3 !== void 0 ? _a3 : 0,
+        y: (_b3 = options.y) !== null && _b3 !== void 0 ? _b3 : 0,
+        width: (_c2 = options.width) !== null && _c2 !== void 0 ? _c2 : 50,
         height: (_d = options.height) !== null && _d !== void 0 ? _d : 50,
         textColor: options.textColor,
         backgroundColor: options.backgroundColor,
@@ -16970,15 +17014,15 @@ var PDFCheckBox = (
       page.node.addAnnot(widgetRef);
     };
     PDFCheckBox2.prototype.needsAppearancesUpdate = function() {
-      var _a;
+      var _a3;
       var widgets = this.acroField.getWidgets();
       for (var idx = 0, len = widgets.length; idx < len; idx++) {
         var widget = widgets[idx];
-        var state = widget.getAppearanceState();
-        var normal = (_a = widget.getAppearances()) === null || _a === void 0 ? void 0 : _a.normal;
-        if (!(normal instanceof PDFDict_default))
+        var state2 = widget.getAppearanceState();
+        var normal2 = (_a3 = widget.getAppearances()) === null || _a3 === void 0 ? void 0 : _a3.normal;
+        if (!(normal2 instanceof PDFDict_default))
           return true;
-        if (state && !normal.has(state))
+        if (state2 && !normal2.has(state2))
           return true;
       }
       return false;
@@ -16987,12 +17031,12 @@ var PDFCheckBox = (
       this.updateAppearances();
     };
     PDFCheckBox2.prototype.updateAppearances = function(provider) {
-      var _a;
+      var _a3;
       assertOrUndefined(provider, "provider", [Function]);
       var widgets = this.acroField.getWidgets();
       for (var idx = 0, len = widgets.length; idx < len; idx++) {
         var widget = widgets[idx];
-        var onValue = (_a = widget.getOnValue()) !== null && _a !== void 0 ? _a : PDFName_default.of("Yes");
+        var onValue = (_a3 = widget.getOnValue()) !== null && _a3 !== void 0 ? _a3 : PDFName_default.of("Yes");
         if (!onValue)
           continue;
         this.updateWidgetAppearance(widget, onValue, provider);
@@ -17029,7 +17073,7 @@ var PDFDropdown = (
       var rawOptions = this.acroField.getOptions();
       var options = new Array(rawOptions.length);
       for (var idx = 0, len = options.length; idx < len; idx++) {
-        var _a = rawOptions[idx], display = _a.display, value = _a.value;
+        var _a3 = rawOptions[idx], display = _a3.display, value = _a3.value;
         options[idx] = (display !== null && display !== void 0 ? display : value).decodeText();
       }
       return options;
@@ -17143,7 +17187,7 @@ var PDFDropdown = (
       this.acroField.setFlagTo(AcroChoiceFlags.CommitOnSelChange, false);
     };
     PDFDropdown2.prototype.addToPage = function(page, options) {
-      var _a, _b, _c, _d, _e, _f, _g;
+      var _a3, _b3, _c2, _d, _e, _f, _g;
       assertIs(page, "page", [[PDFPage_default, "PDFPage"]]);
       assertFieldAppearanceOptions(options);
       if (!options)
@@ -17157,9 +17201,9 @@ var PDFDropdown = (
       if (!("borderWidth" in options))
         options.borderWidth = 1;
       var widget = this.createWidget({
-        x: (_a = options.x) !== null && _a !== void 0 ? _a : 0,
-        y: (_b = options.y) !== null && _b !== void 0 ? _b : 0,
-        width: (_c = options.width) !== null && _c !== void 0 ? _c : 200,
+        x: (_a3 = options.x) !== null && _a3 !== void 0 ? _a3 : 0,
+        y: (_b3 = options.y) !== null && _b3 !== void 0 ? _b3 : 0,
+        width: (_c2 = options.width) !== null && _c2 !== void 0 ? _c2 : 200,
         height: (_d = options.height) !== null && _d !== void 0 ? _d : 50,
         textColor: options.textColor,
         backgroundColor: options.backgroundColor,
@@ -17176,13 +17220,13 @@ var PDFDropdown = (
       page.node.addAnnot(widgetRef);
     };
     PDFDropdown2.prototype.needsAppearancesUpdate = function() {
-      var _a;
+      var _a3;
       if (this.isDirty())
         return true;
       var widgets = this.acroField.getWidgets();
       for (var idx = 0, len = widgets.length; idx < len; idx++) {
         var widget = widgets[idx];
-        var hasAppearances = ((_a = widget.getAppearances()) === null || _a === void 0 ? void 0 : _a.normal) instanceof PDFStream_default;
+        var hasAppearances = ((_a3 = widget.getAppearances()) === null || _a3 === void 0 ? void 0 : _a3.normal) instanceof PDFStream_default;
         if (!hasAppearances)
           return true;
       }
@@ -17230,7 +17274,7 @@ var PDFOptionList = (
       var rawOptions = this.acroField.getOptions();
       var options = new Array(rawOptions.length);
       for (var idx = 0, len = options.length; idx < len; idx++) {
-        var _a = rawOptions[idx], display = _a.display, value = _a.value;
+        var _a3 = rawOptions[idx], display = _a3.display, value = _a3.value;
         options[idx] = (display !== null && display !== void 0 ? display : value).decodeText();
       }
       return options;
@@ -17324,7 +17368,7 @@ var PDFOptionList = (
       this.acroField.setFlagTo(AcroChoiceFlags.CommitOnSelChange, false);
     };
     PDFOptionList2.prototype.addToPage = function(page, options) {
-      var _a, _b, _c, _d, _e, _f, _g;
+      var _a3, _b3, _c2, _d, _e, _f, _g;
       assertIs(page, "page", [[PDFPage_default, "PDFPage"]]);
       assertFieldAppearanceOptions(options);
       if (!options)
@@ -17338,9 +17382,9 @@ var PDFOptionList = (
       if (!("borderWidth" in options))
         options.borderWidth = 1;
       var widget = this.createWidget({
-        x: (_a = options.x) !== null && _a !== void 0 ? _a : 0,
-        y: (_b = options.y) !== null && _b !== void 0 ? _b : 0,
-        width: (_c = options.width) !== null && _c !== void 0 ? _c : 200,
+        x: (_a3 = options.x) !== null && _a3 !== void 0 ? _a3 : 0,
+        y: (_b3 = options.y) !== null && _b3 !== void 0 ? _b3 : 0,
+        width: (_c2 = options.width) !== null && _c2 !== void 0 ? _c2 : 200,
         height: (_d = options.height) !== null && _d !== void 0 ? _d : 100,
         textColor: options.textColor,
         backgroundColor: options.backgroundColor,
@@ -17357,13 +17401,13 @@ var PDFOptionList = (
       page.node.addAnnot(widgetRef);
     };
     PDFOptionList2.prototype.needsAppearancesUpdate = function() {
-      var _a;
+      var _a3;
       if (this.isDirty())
         return true;
       var widgets = this.acroField.getWidgets();
       for (var idx = 0, len = widgets.length; idx < len; idx++) {
         var widget = widgets[idx];
-        var hasAppearances = ((_a = widget.getAppearances()) === null || _a === void 0 ? void 0 : _a.normal) instanceof PDFStream_default;
+        var hasAppearances = ((_a3 = widget.getAppearances()) === null || _a3 === void 0 ? void 0 : _a3.normal) instanceof PDFStream_default;
         if (!hasAppearances)
           return true;
       }
@@ -17483,14 +17527,14 @@ var PDFRadioGroup = (
       this.acroField.setFlagTo(AcroButtonFlags.RadiosInUnison, true);
     };
     PDFRadioGroup2.prototype.addOptionToPage = function(option, page, options) {
-      var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+      var _a3, _b3, _c2, _d, _e, _f, _g, _h, _j;
       assertIs(option, "option", ["string"]);
       assertIs(page, "page", [[PDFPage_default, "PDFPage"]]);
       assertFieldAppearanceOptions(options);
       var widget = this.createWidget({
-        x: (_a = options === null || options === void 0 ? void 0 : options.x) !== null && _a !== void 0 ? _a : 0,
-        y: (_b = options === null || options === void 0 ? void 0 : options.y) !== null && _b !== void 0 ? _b : 0,
-        width: (_c = options === null || options === void 0 ? void 0 : options.width) !== null && _c !== void 0 ? _c : 50,
+        x: (_a3 = options === null || options === void 0 ? void 0 : options.x) !== null && _a3 !== void 0 ? _a3 : 0,
+        y: (_b3 = options === null || options === void 0 ? void 0 : options.y) !== null && _b3 !== void 0 ? _b3 : 0,
+        width: (_c2 = options === null || options === void 0 ? void 0 : options.width) !== null && _c2 !== void 0 ? _c2 : 50,
         height: (_d = options === null || options === void 0 ? void 0 : options.height) !== null && _d !== void 0 ? _d : 50,
         textColor: (_e = options === null || options === void 0 ? void 0 : options.textColor) !== null && _e !== void 0 ? _e : rgb(0, 0, 0),
         backgroundColor: (_f = options === null || options === void 0 ? void 0 : options.backgroundColor) !== null && _f !== void 0 ? _f : rgb(1, 1, 1),
@@ -17507,15 +17551,15 @@ var PDFRadioGroup = (
       page.node.addAnnot(widgetRef);
     };
     PDFRadioGroup2.prototype.needsAppearancesUpdate = function() {
-      var _a;
+      var _a3;
       var widgets = this.acroField.getWidgets();
       for (var idx = 0, len = widgets.length; idx < len; idx++) {
         var widget = widgets[idx];
-        var state = widget.getAppearanceState();
-        var normal = (_a = widget.getAppearances()) === null || _a === void 0 ? void 0 : _a.normal;
-        if (!(normal instanceof PDFDict_default))
+        var state2 = widget.getAppearanceState();
+        var normal2 = (_a3 = widget.getAppearances()) === null || _a3 === void 0 ? void 0 : _a3.normal;
+        if (!(normal2 instanceof PDFDict_default))
           return true;
-        if (state && !normal.has(state))
+        if (state2 && !normal2.has(state2))
           return true;
       }
       return false;
@@ -17589,16 +17633,16 @@ var PDFTextField = (
       }
       return value === null || value === void 0 ? void 0 : value.decodeText();
     };
-    PDFTextField2.prototype.setText = function(text) {
-      assertOrUndefined(text, "text", ["string"]);
+    PDFTextField2.prototype.setText = function(text2) {
+      assertOrUndefined(text2, "text", ["string"]);
       var maxLength = this.getMaxLength();
-      if (maxLength !== void 0 && text && text.length > maxLength) {
-        throw new ExceededMaxLengthError(text.length, maxLength, this.getName());
+      if (maxLength !== void 0 && text2 && text2.length > maxLength) {
+        throw new ExceededMaxLengthError(text2.length, maxLength, this.getName());
       }
       this.markAsDirty();
       this.disableRichFormatting();
-      if (text) {
-        this.acroField.setValue(PDFHexString_default.fromText(text));
+      if (text2) {
+        this.acroField.setValue(PDFHexString_default.fromText(text2));
       } else {
         this.acroField.removeValue();
       }
@@ -17621,9 +17665,9 @@ var PDFTextField = (
       if (maxLength === void 0) {
         this.acroField.removeMaxLength();
       } else {
-        var text = this.getText();
-        if (text && text.length > maxLength) {
-          throw new InvalidMaxLengthError(text.length, maxLength, this.getName());
+        var text2 = this.getText();
+        if (text2 && text2.length > maxLength) {
+          throw new InvalidMaxLengthError(text2.length, maxLength, this.getName());
         }
         this.acroField.setMaxLength(maxLength);
       }
@@ -17723,7 +17767,7 @@ var PDFTextField = (
       this.acroField.setFlagTo(AcroTextFlags.RichText, false);
     };
     PDFTextField2.prototype.addToPage = function(page, options) {
-      var _a, _b, _c, _d, _e, _f, _g;
+      var _a3, _b3, _c2, _d, _e, _f, _g;
       assertIs(page, "page", [[PDFPage_default, "PDFPage"]]);
       assertFieldAppearanceOptions(options);
       if (!options)
@@ -17737,9 +17781,9 @@ var PDFTextField = (
       if (!("borderWidth" in options))
         options.borderWidth = 1;
       var widget = this.createWidget({
-        x: (_a = options.x) !== null && _a !== void 0 ? _a : 0,
-        y: (_b = options.y) !== null && _b !== void 0 ? _b : 0,
-        width: (_c = options.width) !== null && _c !== void 0 ? _c : 200,
+        x: (_a3 = options.x) !== null && _a3 !== void 0 ? _a3 : 0,
+        y: (_b3 = options.y) !== null && _b3 !== void 0 ? _b3 : 0,
+        width: (_c2 = options.width) !== null && _c2 !== void 0 ? _c2 : 200,
         height: (_d = options.height) !== null && _d !== void 0 ? _d : 50,
         textColor: options.textColor,
         backgroundColor: options.backgroundColor,
@@ -17756,13 +17800,13 @@ var PDFTextField = (
       page.node.addAnnot(widgetRef);
     };
     PDFTextField2.prototype.needsAppearancesUpdate = function() {
-      var _a;
+      var _a3;
       if (this.isDirty())
         return true;
       var widgets = this.acroField.getWidgets();
       for (var idx = 0, len = widgets.length; idx < len; idx++) {
         var widget = widgets[idx];
-        var hasAppearances = ((_a = widget.getAppearances()) === null || _a === void 0 ? void 0 : _a.normal) instanceof PDFStream_default;
+        var hasAppearances = ((_a3 = widget.getAppearances()) === null || _a3 === void 0 ? void 0 : _a3.normal) instanceof PDFStream_default;
         if (!hasAppearances)
           return true;
       }
@@ -17840,7 +17884,7 @@ var PDFForm = (
       var allFields = this.acroForm.getAllFields();
       var fields = [];
       for (var idx = 0, len = allFields.length; idx < len; idx++) {
-        var _a = allFields[idx], acroField = _a[0], ref = _a[1];
+        var _a3 = allFields[idx], acroField = _a3[0], ref = _a3[1];
         var field = convertToPDFField(acroField, ref, this.doc);
         if (field)
           fields.push(field);
@@ -17962,10 +18006,10 @@ var PDFForm = (
       assertIs(name, "name", ["string"]);
       var nameParts = splitFieldName(name);
       var parent = this.findOrCreateNonTerminals(nameParts.nonTerminal);
-      var text = PDFAcroText_default.create(this.doc.context);
-      text.setPartialName(nameParts.terminal);
-      addFieldToParent(parent, [text, text.ref], nameParts.terminal);
-      return PDFTextField_default.of(text, text.ref, this.doc);
+      var text2 = PDFAcroText_default.create(this.doc.context);
+      text2.setPartialName(nameParts.terminal);
+      addFieldToParent(parent, [text2, text2.ref], nameParts.terminal);
+      return PDFTextField_default.of(text2, text2.ref, this.doc);
     };
     PDFForm2.prototype.flatten = function(options) {
       if (options === void 0) {
@@ -18013,9 +18057,9 @@ var PDFForm = (
       var fieldKids = field.acroField.normalizedEntries().Kids;
       var kidsCount = fieldKids.size();
       for (var childIndex = 0; childIndex < kidsCount; childIndex++) {
-        var child = fieldKids.get(childIndex);
-        if (child instanceof PDFRef_default) {
-          this.doc.context.delete(child);
+        var child2 = fieldKids.get(childIndex);
+        if (child2 instanceof PDFRef_default) {
+          this.doc.context.delete(child2);
         }
       }
       this.doc.context.delete(field.ref);
@@ -18064,11 +18108,11 @@ var PDFForm = (
       return page;
     };
     PDFForm2.prototype.findWidgetAppearanceRef = function(field, widget) {
-      var _a;
+      var _a3;
       var refOrDict = widget.getNormalAppearance();
       if (refOrDict instanceof PDFDict_default && (field instanceof PDFCheckBox_default || field instanceof PDFRadioGroup_default)) {
         var value = field.acroField.getValue();
-        var ref = (_a = refOrDict.get(value)) !== null && _a !== void 0 ? _a : refOrDict.get(PDFName_default.of("Off"));
+        var ref = (_a3 = refOrDict.get(value)) !== null && _a3 !== void 0 ? _a3 : refOrDict.get(PDFName_default.of("Off"));
         if (ref instanceof PDFRef_default) {
           refOrDict = ref;
         }
@@ -18105,7 +18149,7 @@ var PDFForm = (
     PDFForm2.prototype.findNonTerminal = function(partialName, parent) {
       var fields = parent instanceof PDFAcroForm_default ? this.acroForm.getFields() : createPDFAcroFields(parent.Kids());
       for (var idx = 0, len = fields.length; idx < len; idx++) {
-        var _a = fields[idx], field = _a[0], ref = _a[1];
+        var _a3 = fields[idx], field = _a3[0], ref = _a3[1];
         if (field.getPartialName() === partialName) {
           if (field instanceof PDFAcroNonTerminal_default)
             return [field, ref];
@@ -18157,9 +18201,9 @@ var splitFieldName = function(fullyQualifiedName) {
     terminal: parts[parts.length - 1]
   };
 };
-var addFieldToParent = function(_a, _b, partialName) {
-  var parent = _a[0], parentRef = _a[1];
-  var field = _b[0], fieldRef = _b[1];
+var addFieldToParent = function(_a3, _b3, partialName) {
+  var parent = _a3[0], parentRef = _a3[1];
+  var field = _b3[0], fieldRef = _b3[1];
   var entries = parent.normalizedEntries();
   var fields = createPDFAcroFields("Kids" in entries ? entries.Kids : entries.Fields);
   for (var idx = 0, len = fields.length; idx < len; idx++) {
@@ -18247,13 +18291,13 @@ var PDFEmbeddedFile = (
     PDFEmbeddedFile2.prototype.embed = function() {
       return __awaiter(this, void 0, void 0, function() {
         var ref, Names, EmbeddedFiles, EFNames, AF;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               if (!!this.alreadyEmbedded) return [3, 2];
               return [4, this.embedder.embedIntoContext(this.doc.context, this.ref)];
             case 1:
-              ref = _a.sent();
+              ref = _a3.sent();
               if (!this.doc.catalog.has(PDFName_default.of("Names"))) {
                 this.doc.catalog.set(PDFName_default.of("Names"), this.doc.context.obj({}));
               }
@@ -18274,7 +18318,7 @@ var PDFEmbeddedFile = (
               AF = this.doc.catalog.lookup(PDFName_default.of("AF"), PDFArray_default);
               AF.push(ref);
               this.alreadyEmbedded = true;
-              _a.label = 2;
+              _a3.label = 2;
             case 2:
               return [
                 2
@@ -18304,15 +18348,15 @@ var PDFJavaScript = (
     }
     PDFJavaScript2.prototype.embed = function() {
       return __awaiter(this, void 0, void 0, function() {
-        var _a, catalog, context, ref, Names, Javascript, JSNames;
-        return __generator(this, function(_b) {
-          switch (_b.label) {
+        var _a3, catalog, context, ref, Names, Javascript, JSNames;
+        return __generator(this, function(_b3) {
+          switch (_b3.label) {
             case 0:
               if (!!this.alreadyEmbedded) return [3, 2];
-              _a = this.doc, catalog = _a.catalog, context = _a.context;
+              _a3 = this.doc, catalog = _a3.catalog, context = _a3.context;
               return [4, this.embedder.embedIntoContext(this.doc.context, this.ref)];
             case 1:
-              ref = _b.sent();
+              ref = _b3.sent();
               if (!catalog.has(PDFName_default.of("Names"))) {
                 catalog.set(PDFName_default.of("Names"), context.obj({}));
               }
@@ -18328,7 +18372,7 @@ var PDFJavaScript = (
               JSNames.push(PDFHexString_default.fromText(this.embedder.scriptName));
               JSNames.push(ref);
               this.alreadyEmbedded = true;
-              _b.label = 2;
+              _b3.label = 2;
             case 2:
               return [
                 2
@@ -18360,7 +18404,7 @@ var JavaScriptEmbedder = (
     JavaScriptEmbedder2.prototype.embedIntoContext = function(context, ref) {
       return __awaiter(this, void 0, void 0, function() {
         var jsActionDict;
-        return __generator(this, function(_a) {
+        return __generator(this, function(_a3) {
           jsActionDict = context.obj({
             Type: "Action",
             S: "JavaScript",
@@ -18432,11 +18476,11 @@ var PDFDocument = (
         options = {};
       }
       return __awaiter(this, void 0, void 0, function() {
-        var _a, ignoreEncryption, _b, parseSpeed, _c, throwOnInvalidObject, _d, updateMetadata, _e, capNumbers, bytes, context;
+        var _a3, ignoreEncryption, _b3, parseSpeed, _c2, throwOnInvalidObject, _d, updateMetadata, _e, capNumbers, bytes, context;
         return __generator(this, function(_f) {
           switch (_f.label) {
             case 0:
-              _a = options.ignoreEncryption, ignoreEncryption = _a === void 0 ? false : _a, _b = options.parseSpeed, parseSpeed = _b === void 0 ? ParseSpeeds.Slow : _b, _c = options.throwOnInvalidObject, throwOnInvalidObject = _c === void 0 ? false : _c, _d = options.updateMetadata, updateMetadata = _d === void 0 ? true : _d, _e = options.capNumbers, capNumbers = _e === void 0 ? false : _e;
+              _a3 = options.ignoreEncryption, ignoreEncryption = _a3 === void 0 ? false : _a3, _b3 = options.parseSpeed, parseSpeed = _b3 === void 0 ? ParseSpeeds.Slow : _b3, _c2 = options.throwOnInvalidObject, throwOnInvalidObject = _c2 === void 0 ? false : _c2, _d = options.updateMetadata, updateMetadata = _d === void 0 ? true : _d, _e = options.capNumbers, capNumbers = _e === void 0 ? false : _e;
               assertIs(pdf, "pdf", ["string", Uint8Array, ArrayBuffer]);
               assertIs(ignoreEncryption, "ignoreEncryption", ["boolean"]);
               assertIs(parseSpeed, "parseSpeed", ["number"]);
@@ -18455,9 +18499,9 @@ var PDFDocument = (
         options = {};
       }
       return __awaiter(this, void 0, void 0, function() {
-        var _a, updateMetadata, context, pageTree, pageTreeRef, catalog;
-        return __generator(this, function(_b) {
-          _a = options.updateMetadata, updateMetadata = _a === void 0 ? true : _a;
+        var _a3, updateMetadata, context, pageTree, pageTreeRef, catalog;
+        return __generator(this, function(_b3) {
+          _a3 = options.updateMetadata, updateMetadata = _a3 === void 0 ? true : _a3;
           context = PDFContext_default.create();
           pageTree = PDFPageTree_default.withContext(context);
           pageTreeRef = context.register(pageTree);
@@ -18591,29 +18635,29 @@ var PDFDocument = (
     PDFDocument2.prototype.getPages = function() {
       return this.pageCache.access();
     };
-    PDFDocument2.prototype.getPage = function(index) {
+    PDFDocument2.prototype.getPage = function(index2) {
       var pages = this.getPages();
-      assertRange(index, "index", 0, pages.length - 1);
-      return pages[index];
+      assertRange(index2, "index", 0, pages.length - 1);
+      return pages[index2];
     };
     PDFDocument2.prototype.getPageIndices = function() {
       return range(0, this.getPageCount());
     };
-    PDFDocument2.prototype.removePage = function(index) {
+    PDFDocument2.prototype.removePage = function(index2) {
       var pageCount = this.getPageCount();
       if (this.pageCount === 0)
         throw new RemovePageFromEmptyDocumentError();
-      assertRange(index, "index", 0, pageCount - 1);
-      this.catalog.removeLeafNode(index);
+      assertRange(index2, "index", 0, pageCount - 1);
+      this.catalog.removeLeafNode(index2);
       this.pageCount = pageCount - 1;
     };
     PDFDocument2.prototype.addPage = function(page) {
       assertIs(page, "page", ["undefined", [PDFPage_default, "PDFPage"], Array]);
       return this.insertPage(this.getPageCount(), page);
     };
-    PDFDocument2.prototype.insertPage = function(index, page) {
+    PDFDocument2.prototype.insertPage = function(index2, page) {
       var pageCount = this.getPageCount();
-      assertRange(index, "index", 0, pageCount);
+      assertRange(index2, "index", 0, pageCount);
       assertIs(page, "page", ["undefined", [PDFPage_default, "PDFPage"], Array]);
       if (!page || Array.isArray(page)) {
         var dims = Array.isArray(page) ? page : PageSizes.A4;
@@ -18622,7 +18666,7 @@ var PDFDocument = (
       } else if (page.doc !== this) {
         throw new ForeignPageError();
       }
-      var parentRef = this.catalog.insertLeafNode(page.ref, index);
+      var parentRef = this.catalog.insertLeafNode(page.ref, index2);
       page.node.setParent(parentRef);
       this.pageMap.set(page.node, page);
       this.pageCache.invalidate();
@@ -18632,14 +18676,14 @@ var PDFDocument = (
     PDFDocument2.prototype.copyPages = function(srcDoc, indices) {
       return __awaiter(this, void 0, void 0, function() {
         var copier, srcPages, copiedPages, idx, len, srcPage, copiedPage, ref;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               assertIs(srcDoc, "srcDoc", [[PDFDocument2, "PDFDocument"]]);
               assertIs(indices, "indices", [Array]);
               return [4, srcDoc.flush()];
             case 1:
-              _a.sent();
+              _a3.sent();
               copier = PDFObjectCopier_default.for(srcDoc.context, this.context);
               srcPages = srcDoc.getPages();
               copiedPages = new Array(indices.length);
@@ -18657,15 +18701,15 @@ var PDFDocument = (
     PDFDocument2.prototype.copy = function() {
       return __awaiter(this, void 0, void 0, function() {
         var pdfCopy, contentPages, idx, len;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               return [4, PDFDocument2.create()];
             case 1:
-              pdfCopy = _a.sent();
+              pdfCopy = _a3.sent();
               return [4, pdfCopy.copyPages(this, this.getPageIndices())];
             case 2:
-              contentPages = _a.sent();
+              contentPages = _a3.sent();
               for (idx = 0, len = contentPages.length; idx < len; idx++) {
                 pdfCopy.addPage(contentPages[idx]);
               }
@@ -18710,7 +18754,7 @@ var PDFDocument = (
       }
       return __awaiter(this, void 0, void 0, function() {
         var bytes, embedder, ref, embeddedFile;
-        return __generator(this, function(_a) {
+        return __generator(this, function(_a3) {
           assertIs(attachment, "attachment", ["string", Uint8Array, ArrayBuffer]);
           assertIs(name, "name", ["string"]);
           assertOrUndefined(options.mimeType, "mimeType", ["string"]);
@@ -18737,11 +18781,11 @@ var PDFDocument = (
         options = {};
       }
       return __awaiter(this, void 0, void 0, function() {
-        var _a, subset, customName, features, embedder, bytes, fontkit, _b, ref, pdfFont;
-        return __generator(this, function(_c) {
-          switch (_c.label) {
+        var _a3, subset, customName, features, embedder, bytes, fontkit, _b3, ref, pdfFont;
+        return __generator(this, function(_c2) {
+          switch (_c2.label) {
             case 0:
-              _a = options.subset, subset = _a === void 0 ? false : _a, customName = options.customName, features = options.features;
+              _a3 = options.subset, subset = _a3 === void 0 ? false : _a3, customName = options.customName, features = options.features;
               assertIs(font, "font", ["string", Uint8Array, ArrayBuffer]);
               assertIs(subset, "subset", ["boolean"]);
               if (!isStandardFont(font)) return [3, 1];
@@ -18754,15 +18798,15 @@ var PDFDocument = (
               if (!subset) return [3, 3];
               return [4, CustomFontSubsetEmbedder_default.for(fontkit, bytes, customName, features)];
             case 2:
-              _b = _c.sent();
+              _b3 = _c2.sent();
               return [3, 5];
             case 3:
               return [4, CustomFontEmbedder_default.for(fontkit, bytes, customName, features)];
             case 4:
-              _b = _c.sent();
-              _c.label = 5;
+              _b3 = _c2.sent();
+              _c2.label = 5;
             case 5:
-              embedder = _b;
+              embedder = _b3;
               return [3, 7];
             case 6:
               throw new TypeError("`font` must be one of `StandardFonts | string | Uint8Array | ArrayBuffer`");
@@ -18789,14 +18833,14 @@ var PDFDocument = (
     PDFDocument2.prototype.embedJpg = function(jpg) {
       return __awaiter(this, void 0, void 0, function() {
         var bytes, embedder, ref, pdfImage;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               assertIs(jpg, "jpg", ["string", Uint8Array, ArrayBuffer]);
               bytes = toUint8Array(jpg);
               return [4, JpegEmbedder_default.for(bytes)];
             case 1:
-              embedder = _a.sent();
+              embedder = _a3.sent();
               ref = this.context.nextRef();
               pdfImage = PDFImage_default.of(ref, this, embedder);
               this.images.push(pdfImage);
@@ -18808,14 +18852,14 @@ var PDFDocument = (
     PDFDocument2.prototype.embedPng = function(png) {
       return __awaiter(this, void 0, void 0, function() {
         var bytes, embedder, ref, pdfImage;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               assertIs(png, "png", ["string", Uint8Array, ArrayBuffer]);
               bytes = toUint8Array(png);
               return [4, PngEmbedder_default.for(bytes)];
             case 1:
-              embedder = _a.sent();
+              embedder = _a3.sent();
               ref = this.context.nextRef();
               pdfImage = PDFImage_default.of(ref, this, embedder);
               this.images.push(pdfImage);
@@ -18829,9 +18873,9 @@ var PDFDocument = (
         indices = [0];
       }
       return __awaiter(this, void 0, void 0, function() {
-        var srcDoc, _a, srcPages;
-        return __generator(this, function(_b) {
-          switch (_b.label) {
+        var srcDoc, _a3, srcPages;
+        return __generator(this, function(_b3) {
+          switch (_b3.label) {
             case 0:
               assertIs(pdf, "pdf", [
                 "string",
@@ -18841,15 +18885,15 @@ var PDFDocument = (
               ]);
               assertIs(indices, "indices", [Array]);
               if (!(pdf instanceof PDFDocument2)) return [3, 1];
-              _a = pdf;
+              _a3 = pdf;
               return [3, 3];
             case 1:
               return [4, PDFDocument2.load(pdf)];
             case 2:
-              _a = _b.sent();
-              _b.label = 3;
+              _a3 = _b3.sent();
+              _b3.label = 3;
             case 3:
-              srcDoc = _a;
+              srcDoc = _a3;
               srcPages = pluckIndices(srcDoc.getPages(), indices);
               return [2, this.embedPages(srcPages)];
           }
@@ -18859,13 +18903,13 @@ var PDFDocument = (
     PDFDocument2.prototype.embedPage = function(page, boundingBox, transformationMatrix) {
       return __awaiter(this, void 0, void 0, function() {
         var embeddedPage;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               assertIs(page, "page", [[PDFPage_default, "PDFPage"]]);
               return [4, this.embedPages([page], [boundingBox], [transformationMatrix])];
             case 1:
-              embeddedPage = _a.sent()[0];
+              embeddedPage = _a3.sent()[0];
               return [2, embeddedPage];
           }
         });
@@ -18880,9 +18924,9 @@ var PDFDocument = (
       }
       return __awaiter(this, void 0, void 0, function() {
         var idx, len, currPage, nextPage, context, maybeCopyPage, embeddedPages, idx, len, page, box, matrix, embedder, ref;
-        var _a;
-        return __generator(this, function(_b) {
-          switch (_b.label) {
+        var _a3;
+        return __generator(this, function(_b3) {
+          switch (_b3.label) {
             case 0:
               if (pages.length === 0)
                 return [2, []];
@@ -18899,7 +18943,7 @@ var PDFDocument = (
               } : PDFObjectCopier_default.for(context, this.context).copy;
               embeddedPages = new Array(pages.length);
               idx = 0, len = pages.length;
-              _b.label = 1;
+              _b3.label = 1;
             case 1:
               if (!(idx < len)) return [3, 4];
               page = maybeCopyPage(pages[idx].node);
@@ -18907,15 +18951,15 @@ var PDFDocument = (
               matrix = transformationMatrices[idx];
               return [4, PDFPageEmbedder_default.for(page, box, matrix)];
             case 2:
-              embedder = _b.sent();
+              embedder = _b3.sent();
               ref = this.context.nextRef();
               embeddedPages[idx] = PDFEmbeddedPage_default.of(ref, this, embedder);
-              _b.label = 3;
+              _b3.label = 3;
             case 3:
               idx++;
               return [3, 1];
             case 4:
-              (_a = this.embeddedPages).push.apply(_a, embeddedPages);
+              (_a3 = this.embeddedPages).push.apply(_a3, embeddedPages);
               return [2, embeddedPages];
           }
         });
@@ -18923,24 +18967,24 @@ var PDFDocument = (
     };
     PDFDocument2.prototype.flush = function() {
       return __awaiter(this, void 0, void 0, function() {
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               return [4, this.embedAll(this.fonts)];
             case 1:
-              _a.sent();
+              _a3.sent();
               return [4, this.embedAll(this.images)];
             case 2:
-              _a.sent();
+              _a3.sent();
               return [4, this.embedAll(this.embeddedPages)];
             case 3:
-              _a.sent();
+              _a3.sent();
               return [4, this.embedAll(this.embeddedFiles)];
             case 4:
-              _a.sent();
+              _a3.sent();
               return [4, this.embedAll(this.javaScripts)];
             case 5:
-              _a.sent();
+              _a3.sent();
               return [
                 2
                 /*return*/
@@ -18954,11 +18998,11 @@ var PDFDocument = (
         options = {};
       }
       return __awaiter(this, void 0, void 0, function() {
-        var _a, useObjectStreams, _b, addDefaultPage, _c, objectsPerTick, _d, updateFieldAppearances, form, Writer;
+        var _a3, useObjectStreams, _b3, addDefaultPage, _c2, objectsPerTick, _d, updateFieldAppearances, form, Writer;
         return __generator(this, function(_e) {
           switch (_e.label) {
             case 0:
-              _a = options.useObjectStreams, useObjectStreams = _a === void 0 ? true : _a, _b = options.addDefaultPage, addDefaultPage = _b === void 0 ? true : _b, _c = options.objectsPerTick, objectsPerTick = _c === void 0 ? 50 : _c, _d = options.updateFieldAppearances, updateFieldAppearances = _d === void 0 ? true : _d;
+              _a3 = options.useObjectStreams, useObjectStreams = _a3 === void 0 ? true : _a3, _b3 = options.addDefaultPage, addDefaultPage = _b3 === void 0 ? true : _b3, _c2 = options.objectsPerTick, objectsPerTick = _c2 === void 0 ? 50 : _c2, _d = options.updateFieldAppearances, updateFieldAppearances = _d === void 0 ? true : _d;
               assertIs(useObjectStreams, "useObjectStreams", ["boolean"]);
               assertIs(addDefaultPage, "addDefaultPage", ["boolean"]);
               assertIs(objectsPerTick, "objectsPerTick", ["number"]);
@@ -18984,15 +19028,15 @@ var PDFDocument = (
         options = {};
       }
       return __awaiter(this, void 0, void 0, function() {
-        var _a, dataUri, otherOptions, bytes, base64;
-        return __generator(this, function(_b) {
-          switch (_b.label) {
+        var _a3, dataUri, otherOptions, bytes, base64;
+        return __generator(this, function(_b3) {
+          switch (_b3.label) {
             case 0:
-              _a = options.dataUri, dataUri = _a === void 0 ? false : _a, otherOptions = __rest(options, ["dataUri"]);
+              _a3 = options.dataUri, dataUri = _a3 === void 0 ? false : _a3, otherOptions = __rest(options, ["dataUri"]);
               assertIs(dataUri, "dataUri", ["boolean"]);
               return [4, this.save(otherOptions)];
             case 1:
-              bytes = _b.sent();
+              bytes = _b3.sent();
               base64 = encodeToBase64(bytes);
               return [2, dataUri ? "data:application/pdf;base64," + base64 : base64];
           }
@@ -19013,17 +19057,17 @@ var PDFDocument = (
     PDFDocument2.prototype.embedAll = function(embeddables) {
       return __awaiter(this, void 0, void 0, function() {
         var idx, len;
-        return __generator(this, function(_a) {
-          switch (_a.label) {
+        return __generator(this, function(_a3) {
+          switch (_a3.label) {
             case 0:
               idx = 0, len = embeddables.length;
-              _a.label = 1;
+              _a3.label = 1;
             case 1:
               if (!(idx < len)) return [3, 4];
               return [4, embeddables[idx].embed()];
             case 2:
-              _a.sent();
-              _a.label = 3;
+              _a3.sent();
+              _a3.label = 3;
             case 3:
               idx++;
               return [3, 1];
@@ -19188,7 +19232,7 @@ var PDFPage = (
       this.node.set(PDFName_default.ArtBox, artBox);
     };
     PDFPage2.prototype.getSize = function() {
-      var _a = this.getMediaBox(), width = _a.width, height = _a.height;
+      var _a3 = this.getMediaBox(), width = _a3.width, height = _a3.height;
       return { width, height };
     };
     PDFPage2.prototype.getWidth = function() {
@@ -19202,24 +19246,24 @@ var PDFPage = (
       return mediaBox.asRectangle();
     };
     PDFPage2.prototype.getCropBox = function() {
-      var _a;
+      var _a3;
       var cropBox = this.node.CropBox();
-      return (_a = cropBox === null || cropBox === void 0 ? void 0 : cropBox.asRectangle()) !== null && _a !== void 0 ? _a : this.getMediaBox();
+      return (_a3 = cropBox === null || cropBox === void 0 ? void 0 : cropBox.asRectangle()) !== null && _a3 !== void 0 ? _a3 : this.getMediaBox();
     };
     PDFPage2.prototype.getBleedBox = function() {
-      var _a;
+      var _a3;
       var bleedBox = this.node.BleedBox();
-      return (_a = bleedBox === null || bleedBox === void 0 ? void 0 : bleedBox.asRectangle()) !== null && _a !== void 0 ? _a : this.getCropBox();
+      return (_a3 = bleedBox === null || bleedBox === void 0 ? void 0 : bleedBox.asRectangle()) !== null && _a3 !== void 0 ? _a3 : this.getCropBox();
     };
     PDFPage2.prototype.getTrimBox = function() {
-      var _a;
+      var _a3;
       var trimBox = this.node.TrimBox();
-      return (_a = trimBox === null || trimBox === void 0 ? void 0 : trimBox.asRectangle()) !== null && _a !== void 0 ? _a : this.getCropBox();
+      return (_a3 = trimBox === null || trimBox === void 0 ? void 0 : trimBox.asRectangle()) !== null && _a3 !== void 0 ? _a3 : this.getCropBox();
     };
     PDFPage2.prototype.getArtBox = function() {
-      var _a;
+      var _a3;
       var artBox = this.node.ArtBox();
-      return (_a = artBox === null || artBox === void 0 ? void 0 : artBox.asRectangle()) !== null && _a !== void 0 ? _a : this.getCropBox();
+      return (_a3 = artBox === null || artBox === void 0 ? void 0 : artBox.asRectangle()) !== null && _a3 !== void 0 ? _a3 : this.getCropBox();
     };
     PDFPage2.prototype.translateContent = function(x, y) {
       assertIs(x, "x", ["number"]);
@@ -19324,12 +19368,12 @@ var PDFPage = (
       var contentStream = this.getContentStream();
       contentStream.push.apply(contentStream, operator);
     };
-    PDFPage2.prototype.drawText = function(text, options) {
-      var _a, _b, _c, _d, _e, _f, _g;
+    PDFPage2.prototype.drawText = function(text2, options) {
+      var _a3, _b3, _c2, _d, _e, _f, _g;
       if (options === void 0) {
         options = {};
       }
-      assertIs(text, "text", ["string"]);
+      assertIs(text2, "text", ["string"]);
       assertOrUndefined(options.color, "options.color", [[Object, "Color"]]);
       assertRangeOrUndefined(options.opacity, "opacity.opacity", 0, 1);
       assertOrUndefined(options.font, "options.font", [[PDFFont_default, "PDFFont"]]);
@@ -19349,7 +19393,7 @@ var PDFPage = (
       var textWidth = function(t) {
         return newFont.widthOfTextAtSize(t, fontSize);
       };
-      var lines = options.maxWidth === void 0 ? lineSplit(cleanText(text)) : breakTextIntoLines(text, wordBreaks, options.maxWidth, textWidth);
+      var lines = options.maxWidth === void 0 ? lineSplit(cleanText(text2)) : breakTextIntoLines(text2, wordBreaks, options.maxWidth, textWidth);
       var encodedLines = new Array(lines.length);
       for (var idx = 0, len = lines.length; idx < len; idx++) {
         encodedLines[idx] = newFont.encodeText(lines[idx]);
@@ -19360,11 +19404,11 @@ var PDFPage = (
       });
       var contentStream = this.getContentStream();
       contentStream.push.apply(contentStream, drawLinesOfText(encodedLines, {
-        color: (_a = options.color) !== null && _a !== void 0 ? _a : this.fontColor,
+        color: (_a3 = options.color) !== null && _a3 !== void 0 ? _a3 : this.fontColor,
         font: newFontKey,
         size: fontSize,
-        rotate: (_b = options.rotate) !== null && _b !== void 0 ? _b : degrees(0),
-        xSkew: (_c = options.xSkew) !== null && _c !== void 0 ? _c : degrees(0),
+        rotate: (_b3 = options.rotate) !== null && _b3 !== void 0 ? _b3 : degrees(0),
+        xSkew: (_c2 = options.xSkew) !== null && _c2 !== void 0 ? _c2 : degrees(0),
         ySkew: (_d = options.ySkew) !== null && _d !== void 0 ? _d : degrees(0),
         x: (_e = options.x) !== null && _e !== void 0 ? _e : this.x,
         y: (_f = options.y) !== null && _f !== void 0 ? _f : this.y,
@@ -19379,7 +19423,7 @@ var PDFPage = (
       }
     };
     PDFPage2.prototype.drawImage = function(image, options) {
-      var _a, _b, _c, _d, _e, _f, _g;
+      var _a3, _b3, _c2, _d, _e, _f, _g;
       if (options === void 0) {
         options = {};
       }
@@ -19400,9 +19444,9 @@ var PDFPage = (
       });
       var contentStream = this.getContentStream();
       contentStream.push.apply(contentStream, drawImage(xObjectKey, {
-        x: (_a = options.x) !== null && _a !== void 0 ? _a : this.x,
-        y: (_b = options.y) !== null && _b !== void 0 ? _b : this.y,
-        width: (_c = options.width) !== null && _c !== void 0 ? _c : image.size().width,
+        x: (_a3 = options.x) !== null && _a3 !== void 0 ? _a3 : this.x,
+        y: (_b3 = options.y) !== null && _b3 !== void 0 ? _b3 : this.y,
+        width: (_c2 = options.width) !== null && _c2 !== void 0 ? _c2 : image.size().width,
         height: (_d = options.height) !== null && _d !== void 0 ? _d : image.size().height,
         rotate: (_e = options.rotate) !== null && _e !== void 0 ? _e : degrees(0),
         xSkew: (_f = options.xSkew) !== null && _f !== void 0 ? _f : degrees(0),
@@ -19411,7 +19455,7 @@ var PDFPage = (
       }));
     };
     PDFPage2.prototype.drawPage = function(embeddedPage, options) {
-      var _a, _b, _c, _d, _e;
+      var _a3, _b3, _c2, _d, _e;
       if (options === void 0) {
         options = {};
       }
@@ -19438,18 +19482,18 @@ var PDFPage = (
       var yScale = options.height !== void 0 ? options.height / embeddedPage.height : options.yScale !== void 0 ? options.yScale : 1;
       var contentStream = this.getContentStream();
       contentStream.push.apply(contentStream, drawPage(xObjectKey, {
-        x: (_a = options.x) !== null && _a !== void 0 ? _a : this.x,
-        y: (_b = options.y) !== null && _b !== void 0 ? _b : this.y,
+        x: (_a3 = options.x) !== null && _a3 !== void 0 ? _a3 : this.x,
+        y: (_b3 = options.y) !== null && _b3 !== void 0 ? _b3 : this.y,
         xScale,
         yScale,
-        rotate: (_c = options.rotate) !== null && _c !== void 0 ? _c : degrees(0),
+        rotate: (_c2 = options.rotate) !== null && _c2 !== void 0 ? _c2 : degrees(0),
         xSkew: (_d = options.xSkew) !== null && _d !== void 0 ? _d : degrees(0),
         ySkew: (_e = options.ySkew) !== null && _e !== void 0 ? _e : degrees(0),
         graphicsState: graphicsStateKey
       }));
     };
     PDFPage2.prototype.drawSvgPath = function(path3, options) {
-      var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+      var _a3, _b3, _c2, _d, _e, _f, _g, _h, _j;
       if (options === void 0) {
         options = {};
       }
@@ -19483,10 +19527,10 @@ var PDFPage = (
       }
       var contentStream = this.getContentStream();
       contentStream.push.apply(contentStream, drawSvgPath(path3, {
-        x: (_a = options.x) !== null && _a !== void 0 ? _a : this.x,
-        y: (_b = options.y) !== null && _b !== void 0 ? _b : this.y,
+        x: (_a3 = options.x) !== null && _a3 !== void 0 ? _a3 : this.x,
+        y: (_b3 = options.y) !== null && _b3 !== void 0 ? _b3 : this.y,
         scale: options.scale,
-        rotate: (_c = options.rotate) !== null && _c !== void 0 ? _c : degrees(0),
+        rotate: (_c2 = options.rotate) !== null && _c2 !== void 0 ? _c2 : degrees(0),
         color: (_d = options.color) !== null && _d !== void 0 ? _d : void 0,
         borderColor: (_e = options.borderColor) !== null && _e !== void 0 ? _e : void 0,
         borderWidth: (_f = options.borderWidth) !== null && _f !== void 0 ? _f : 0,
@@ -19497,7 +19541,7 @@ var PDFPage = (
       }));
     };
     PDFPage2.prototype.drawLine = function(options) {
-      var _a, _b, _c, _d, _e;
+      var _a3, _b3, _c2, _d, _e;
       assertIs(options.start, "options.start", [
         [Object, "{ x: number, y: number }"]
       ]);
@@ -19526,16 +19570,16 @@ var PDFPage = (
       contentStream.push.apply(contentStream, drawLine({
         start: options.start,
         end: options.end,
-        thickness: (_a = options.thickness) !== null && _a !== void 0 ? _a : 1,
-        color: (_b = options.color) !== null && _b !== void 0 ? _b : void 0,
-        dashArray: (_c = options.dashArray) !== null && _c !== void 0 ? _c : void 0,
+        thickness: (_a3 = options.thickness) !== null && _a3 !== void 0 ? _a3 : 1,
+        color: (_b3 = options.color) !== null && _b3 !== void 0 ? _b3 : void 0,
+        dashArray: (_c2 = options.dashArray) !== null && _c2 !== void 0 ? _c2 : void 0,
         dashPhase: (_d = options.dashPhase) !== null && _d !== void 0 ? _d : void 0,
         lineCap: (_e = options.lineCap) !== null && _e !== void 0 ? _e : void 0,
         graphicsState: graphicsStateKey
       }));
     };
     PDFPage2.prototype.drawRectangle = function(options) {
-      var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+      var _a3, _b3, _c2, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
       if (options === void 0) {
         options = {};
       }
@@ -19571,9 +19615,9 @@ var PDFPage = (
       }
       var contentStream = this.getContentStream();
       contentStream.push.apply(contentStream, drawRectangle({
-        x: (_a = options.x) !== null && _a !== void 0 ? _a : this.x,
-        y: (_b = options.y) !== null && _b !== void 0 ? _b : this.y,
-        width: (_c = options.width) !== null && _c !== void 0 ? _c : 150,
+        x: (_a3 = options.x) !== null && _a3 !== void 0 ? _a3 : this.x,
+        y: (_b3 = options.y) !== null && _b3 !== void 0 ? _b3 : this.y,
+        width: (_c2 = options.width) !== null && _c2 !== void 0 ? _c2 : 150,
         height: (_d = options.height) !== null && _d !== void 0 ? _d : 100,
         rotate: (_e = options.rotate) !== null && _e !== void 0 ? _e : degrees(0),
         xSkew: (_f = options.xSkew) !== null && _f !== void 0 ? _f : degrees(0),
@@ -19596,7 +19640,7 @@ var PDFPage = (
       this.drawRectangle(__assign(__assign({}, options), { width: size, height: size }));
     };
     PDFPage2.prototype.drawEllipse = function(options) {
-      var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+      var _a3, _b3, _c2, _d, _e, _f, _g, _h, _j, _k, _l;
       if (options === void 0) {
         options = {};
       }
@@ -19630,9 +19674,9 @@ var PDFPage = (
       }
       var contentStream = this.getContentStream();
       contentStream.push.apply(contentStream, drawEllipse({
-        x: (_a = options.x) !== null && _a !== void 0 ? _a : this.x,
-        y: (_b = options.y) !== null && _b !== void 0 ? _b : this.y,
-        xScale: (_c = options.xScale) !== null && _c !== void 0 ? _c : 100,
+        x: (_a3 = options.x) !== null && _a3 !== void 0 ? _a3 : this.x,
+        y: (_b3 = options.y) !== null && _b3 !== void 0 ? _b3 : this.y,
+        xScale: (_c2 = options.xScale) !== null && _c2 !== void 0 ? _c2 : 100,
         yScale: (_d = options.yScale) !== null && _d !== void 0 ? _d : 100,
         rotate: (_e = options.rotate) !== null && _e !== void 0 ? _e : void 0,
         color: (_f = options.color) !== null && _f !== void 0 ? _f : void 0,
@@ -19648,7 +19692,7 @@ var PDFPage = (
       if (options === void 0) {
         options = {};
       }
-      var _a = options.size, size = _a === void 0 ? 100 : _a;
+      var _a3 = options.size, size = _a3 === void 0 ? 100 : _a3;
       assertOrUndefined(size, "size", ["number"]);
       this.drawEllipse(__assign(__assign({}, options), { xScale: size, yScale: size }));
     };
@@ -19769,14 +19813,14 @@ var PDFButton = (
       this.acroField.setFontSize(fontSize);
       this.markAsDirty();
     };
-    PDFButton2.prototype.addToPage = function(text, page, options) {
-      var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
-      assertOrUndefined(text, "text", ["string"]);
+    PDFButton2.prototype.addToPage = function(text2, page, options) {
+      var _a3, _b3, _c2, _d, _e, _f, _g, _h, _j, _k, _l;
+      assertOrUndefined(text2, "text", ["string"]);
       assertOrUndefined(page, "page", [[PDFPage_default, "PDFPage"]]);
       assertFieldAppearanceOptions(options);
       var widget = this.createWidget({
-        x: ((_a = options === null || options === void 0 ? void 0 : options.x) !== null && _a !== void 0 ? _a : 0) - ((_b = options === null || options === void 0 ? void 0 : options.borderWidth) !== null && _b !== void 0 ? _b : 0) / 2,
-        y: ((_c = options === null || options === void 0 ? void 0 : options.y) !== null && _c !== void 0 ? _c : 0) - ((_d = options === null || options === void 0 ? void 0 : options.borderWidth) !== null && _d !== void 0 ? _d : 0) / 2,
+        x: ((_a3 = options === null || options === void 0 ? void 0 : options.x) !== null && _a3 !== void 0 ? _a3 : 0) - ((_b3 = options === null || options === void 0 ? void 0 : options.borderWidth) !== null && _b3 !== void 0 ? _b3 : 0) / 2,
+        y: ((_c2 = options === null || options === void 0 ? void 0 : options.y) !== null && _c2 !== void 0 ? _c2 : 0) - ((_d = options === null || options === void 0 ? void 0 : options.borderWidth) !== null && _d !== void 0 ? _d : 0) / 2,
         width: (_e = options === null || options === void 0 ? void 0 : options.width) !== null && _e !== void 0 ? _e : 100,
         height: (_f = options === null || options === void 0 ? void 0 : options.height) !== null && _f !== void 0 ? _f : 50,
         textColor: (_g = options === null || options === void 0 ? void 0 : options.textColor) !== null && _g !== void 0 ? _g : rgb(0, 0, 0),
@@ -19784,7 +19828,7 @@ var PDFButton = (
         borderColor: options === null || options === void 0 ? void 0 : options.borderColor,
         borderWidth: (_j = options === null || options === void 0 ? void 0 : options.borderWidth) !== null && _j !== void 0 ? _j : 0,
         rotate: (_k = options === null || options === void 0 ? void 0 : options.rotate) !== null && _k !== void 0 ? _k : degrees(0),
-        caption: text,
+        caption: text2,
         hidden: options === null || options === void 0 ? void 0 : options.hidden,
         page: page.ref
       });
@@ -19795,13 +19839,13 @@ var PDFButton = (
       page.node.addAnnot(widgetRef);
     };
     PDFButton2.prototype.needsAppearancesUpdate = function() {
-      var _a;
+      var _a3;
       if (this.isDirty())
         return true;
       var widgets = this.acroField.getWidgets();
       for (var idx = 0, len = widgets.length; idx < len; idx++) {
         var widget = widgets[idx];
-        var hasAppearances = ((_a = widget.getAppearances()) === null || _a === void 0 ? void 0 : _a.normal) instanceof PDFStream_default;
+        var hasAppearances = ((_a3 = widget.getAppearances()) === null || _a3 === void 0 ? void 0 : _a3.normal) instanceof PDFStream_default;
         if (!hasAppearances)
           return true;
       }
@@ -19846,16 +19890,16 @@ var TreeNode = class {
 };
 function getHeadingTree(doc = document) {
   const headings = doc.querySelectorAll("h1, h2, h3, h4, h5, h6");
-  const root = new TreeNode("", "Root", 0);
-  let prev = root;
+  const root3 = new TreeNode("", "Root", 0);
+  let prev = root3;
   headings.forEach((heading) => {
-    var _a;
+    var _a3;
     if (heading.style.display == "none") {
       return;
     }
     const level = parseInt(heading.tagName.slice(1));
-    const link = heading.querySelector("a.md-print-anchor");
-    const regexMatch = /^af:\/\/(.+)$/.exec((_a = link == null ? void 0 : link.href) != null ? _a : "");
+    const link2 = heading.querySelector("a.md-print-anchor");
+    const regexMatch = /^af:\/\/(.+)$/.exec((_a3 = link2 == null ? void 0 : link2.href) != null ? _a3 : "");
     if (!regexMatch) {
       return;
     }
@@ -19867,16 +19911,16 @@ function getHeadingTree(doc = document) {
     newNode.parent = prev;
     prev = newNode;
   });
-  return root;
+  return root3;
 }
 function modifyDest(doc) {
   const data = /* @__PURE__ */ new Map();
   doc.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((heading, i) => {
-    const link = document.createElement("a");
+    const link2 = document.createElement("a");
     const flag3 = `${heading.tagName.toLowerCase()}-${i}`;
-    link.href = `af://${flag3}`;
-    link.className = "md-print-anchor";
-    heading.appendChild(link);
+    link2.href = `af://${flag3}`;
+    link2.className = "md-print-anchor";
+    heading.appendChild(link2);
     data.set(heading.dataset.heading, flag3);
   });
   return data;
@@ -19887,10 +19931,10 @@ function convertMapKeysToLowercase(map) {
 function fixAnchors(doc, dest, basename) {
   const lowerDest = convertMapKeysToLowercase(dest);
   doc.querySelectorAll("a.internal-link").forEach((el, i) => {
-    var _a, _b, _c;
-    const [title, anchor] = (_b = (_a = el.dataset.href) == null ? void 0 : _a.split("#")) != null ? _b : [];
+    var _a3, _b3, _c2;
+    const [title, anchor] = (_b3 = (_a3 = el.dataset.href) == null ? void 0 : _a3.split("#")) != null ? _b3 : [];
     if (anchor == null ? void 0 : anchor.startsWith("^")) {
-      el.href = (_c = el.dataset.href) == null ? void 0 : _c.toLowerCase();
+      el.href = (_c2 = el.dataset.href) == null ? void 0 : _c2.toLowerCase();
     }
     if ((anchor == null ? void 0 : anchor.length) > 0) {
       if ((title == null ? void 0 : title.length) > 0 && title != basename) {
@@ -19924,9 +19968,28 @@ function traverseFolder(path3) {
   return arr;
 }
 function copyAttributes(node, attributes) {
-  Array.from(attributes).forEach((attr) => {
-    node.setAttribute(attr.name, attr.value);
+  Array.from(attributes).forEach((attr2) => {
+    node.setAttribute(attr2.name, attr2.value);
   });
+}
+function isNumber(str) {
+  return !isNaN(parseFloat(str));
+}
+function safeParseInt(str, default_ = 0) {
+  try {
+    const num = parseInt(String(str));
+    return isNaN(num) ? default_ : num;
+  } catch (e) {
+    return default_;
+  }
+}
+function safeParseFloat(str, default_ = 0) {
+  try {
+    const num = parseFloat(String(str));
+    return isNaN(num) ? default_ : num;
+  } catch (e) {
+    return default_;
+  }
 }
 
 // src/pdf.ts
@@ -19934,12 +19997,12 @@ async function getDestPosition(pdfDoc) {
   const pages = pdfDoc.getPages();
   const links = {};
   pages.forEach((page, pageIndex) => {
-    var _a, _b;
+    var _a3, _b3;
     const annotations = page.node.Annots();
     if (!annotations) {
       return;
     }
-    const numAnnotations = (_a = annotations == null ? void 0 : annotations.size()) != null ? _a : 0;
+    const numAnnotations = (_a3 = annotations == null ? void 0 : annotations.size()) != null ? _a3 : 0;
     for (let annotIndex = 0; annotIndex < numAnnotations; annotIndex++) {
       try {
         const annotation = annotations.lookup(annotIndex, PDFDict_default);
@@ -19950,7 +20013,7 @@ async function getDestPosition(pdfDoc) {
           console.debug("uri", uri);
           const regexMatch = /^\(af:\/\/(.+)\)$/.exec(uri || "");
           if (regexMatch) {
-            const rect = (_b = annotation.get(PDFName_default.of("Rect"))) == null ? void 0 : _b.asRectangle();
+            const rect = (_b3 = annotation.get(PDFName_default.of("Rect"))) == null ? void 0 : _b3.asRectangle();
             const linkUrl = regexMatch[1];
             const yPos = rect.y;
             links[linkUrl] = [pageIndex, yPos];
@@ -19966,12 +20029,12 @@ async function getDestPosition(pdfDoc) {
 async function setAnchors(pdfDoc, links) {
   const pages = pdfDoc.getPages();
   pages.forEach((page, _) => {
-    var _a;
+    var _a3;
     const annots = page.node.Annots();
     if (!annots) {
       return;
     }
-    const numAnnotations = (_a = annots == null ? void 0 : annots.size()) != null ? _a : 0;
+    const numAnnotations = (_a3 = annots == null ? void 0 : annots.size()) != null ? _a3 : 0;
     for (let idx = 0; idx < numAnnotations; idx++) {
       try {
         const linkAnnotRef = annots.get(idx);
@@ -20003,31 +20066,31 @@ async function setAnchors(pdfDoc, links) {
   });
   return links;
 }
-function generateOutlines(root, positions, maxLevel = 6) {
-  var _a, _b;
+function generateOutlines(root3, positions, maxLevel = 6) {
+  var _a3, _b3;
   const _outline = (node) => {
-    var _a2, _b2;
+    var _a4, _b4;
     if (node.level > maxLevel) {
       return;
     }
-    const [pageIdx, pos] = (_a2 = positions == null ? void 0 : positions[node.key]) != null ? _a2 : [0, 0];
+    const [pageIdx, pos] = (_a4 = positions == null ? void 0 : positions[node.key]) != null ? _a4 : [0, 0];
     const outline = {
       title: node.title,
       to: [pageIdx, 0, pos],
       open: false,
       children: []
     };
-    if (((_b2 = node.children) == null ? void 0 : _b2.length) > 0) {
+    if (((_b4 = node.children) == null ? void 0 : _b4.length) > 0) {
       for (const item of node.children) {
-        const child = _outline(item);
-        if (child) {
-          outline.children.push(child);
+        const child2 = _outline(item);
+        if (child2) {
+          outline.children.push(child2);
         }
       }
     }
     return outline;
   };
-  return (_b = (_a = _outline(root)) == null ? void 0 : _a.children) != null ? _b : [];
+  return (_b3 = (_a3 = _outline(root3)) == null ? void 0 : _a3.children) != null ? _b3 : [];
 }
 var walk = (outlines, callback) => {
   for (const outline of outlines) {
@@ -20057,8 +20120,8 @@ var setOutline = async (doc, outlines) => {
   const pageRefs = (() => {
     const refs = [];
     doc.catalog.Pages().traverse((kid, ref) => {
-      var _a;
-      if (((_a = kid.get(kid.context.obj("Type"))) == null ? void 0 : _a.toString()) === "/Page") {
+      var _a3;
+      if (((_a3 = kid.get(kid.context.obj("Type"))) == null ? void 0 : _a3.toString()) === "/Page") {
         refs.push(ref);
       }
     });
@@ -20154,27 +20217,31 @@ function setMetadata(pdfDoc, { title, author, keywords, subject, creator, create
   pdfDoc.setModificationDate(new Date(updated_at != null ? updated_at : /* @__PURE__ */ new Date()));
 }
 async function exportToPDF(outputFile, config, w, { doc, frontMatter }) {
-  var _a, _b, _c, _d, _e, _f, _g, _h, _i;
+  var _a3, _b3, _c2;
   console.log("output pdf:", outputFile);
   let pageSize = config["pageSize"];
   if (config["pageSize"] == "Custom" && config["pageWidth"] && config["pageHeight"]) {
     pageSize = {
-      width: parseFloat((_a = config["pageWidth"]) != null ? _a : "0") / 25.4,
-      height: parseFloat((_b = config["pageHeight"]) != null ? _b : "0") / 25.4
+      width: safeParseFloat(config["pageWidth"], 210) / 25.4,
+      height: safeParseFloat(config["pageHeight"], 297) / 25.4
     };
+  }
+  let scale2 = (_a3 = config == null ? void 0 : config["scale"]) != null ? _a3 : 100;
+  if (scale2 > 200 || scale2 < 10) {
+    scale2 = 100;
   }
   const printOptions = {
     landscape: config == null ? void 0 : config["landscape"],
     printBackground: config == null ? void 0 : config["printBackground"],
     generateTaggedPDF: config == null ? void 0 : config["generateTaggedPDF"],
     pageSize,
-    scale: config["scale"] / 100,
+    scale: scale2 / 100,
     margins: {
       marginType: "default"
     },
     displayHeaderFooter: config["displayHeader"] || config["displayFooter"],
-    headerTemplate: config["displayHeader"] ? (_c = frontMatter == null ? void 0 : frontMatter["headerTemplate"]) != null ? _c : config["headerTemplate"] : "<span></span>",
-    footerTemplate: config["displayFooter"] ? (_d = frontMatter == null ? void 0 : frontMatter["footerTemplate"]) != null ? _d : config["footerTemplate"] : "<span></span>"
+    headerTemplate: config["displayHeader"] ? (_b3 = frontMatter == null ? void 0 : frontMatter["headerTemplate"]) != null ? _b3 : config["headerTemplate"] : "<span></span>",
+    footerTemplate: config["displayFooter"] ? (_c2 = frontMatter == null ? void 0 : frontMatter["footerTemplate"]) != null ? _c2 : config["footerTemplate"] : "<span></span>"
   };
   if (config.marginType == "0") {
     printOptions["margins"] = {
@@ -20199,10 +20266,10 @@ async function exportToPDF(outputFile, config, w, { doc, frontMatter }) {
   } else if (config.marginType == "3") {
     printOptions["margins"] = {
       marginType: "custom",
-      top: parseFloat((_e = config["marginTop"]) != null ? _e : "0") / 25.4,
-      bottom: parseFloat((_f = config["marginBottom"]) != null ? _f : "0") / 25.4,
-      left: parseFloat((_g = config["marginLeft"]) != null ? _g : "0") / 25.4,
-      right: parseFloat((_h = config["marginRight"]) != null ? _h : "0") / 25.4
+      top: safeParseFloat(config["marginTop"], 0) / 25.4,
+      bottom: safeParseFloat(config["marginBottom"], 0) / 25.4,
+      left: safeParseFloat(config["marginLeft"], 0) / 25.4,
+      right: safeParseFloat(config["marginRight"], 0) / 25.4
     };
   }
   try {
@@ -20211,7 +20278,7 @@ async function exportToPDF(outputFile, config, w, { doc, frontMatter }) {
       headings: getHeadingTree(doc),
       frontMatter,
       displayMetadata: config == null ? void 0 : config.displayMetadata,
-      maxLevel: parseInt((_i = config == null ? void 0 : config.maxLevel) != null ? _i : "6")
+      maxLevel: safeParseInt(config == null ? void 0 : config.maxLevel, 6)
     });
     await fs.writeFile(outputFile, data);
     if (config.open) {
@@ -20249,20 +20316,20 @@ async function getOutputPath(filename, isTimestamp) {
 }
 
 // src/render.ts
-var import_obsidian2 = require("obsidian");
+var import_obsidian3 = require("obsidian");
 function getAllStyles() {
   const cssTexts = [];
   Array.from(document.styleSheets).forEach((sheet) => {
-    var _a, _b, _c;
-    const id = (_a = sheet.ownerNode) == null ? void 0 : _a.id;
+    var _a3, _b3, _c2;
+    const id = (_a3 = sheet.ownerNode) == null ? void 0 : _a3.id;
     if (id == null ? void 0 : id.startsWith("svelte-")) {
       return;
     }
-    const href = (_b = sheet.ownerNode) == null ? void 0 : _b.href;
+    const href = (_b3 = sheet.ownerNode) == null ? void 0 : _b3.href;
     const division = `/* ----------${id ? `id:${id}` : href ? `href:${href}` : ""}---------- */`;
     cssTexts.push(division);
     try {
-      Array.from((_c = sheet == null ? void 0 : sheet.cssRules) != null ? _c : []).forEach((rule) => {
+      Array.from((_c2 = sheet == null ? void 0 : sheet.cssRules) != null ? _c2 : []).forEach((rule) => {
         cssTexts.push(rule.cssText);
       });
     } catch (error2) {
@@ -20308,6 +20375,11 @@ body {
     break-after: auto;
   }
 }
+
+img.__canvas__ {
+  width: 100% !important;
+  height: 100% !important;
+}
 `;
 function getPatchStyle() {
   return [CSS_PATCH, ...getPrintStyle()];
@@ -20315,9 +20387,9 @@ function getPatchStyle() {
 function getPrintStyle() {
   const cssTexts = [];
   Array.from(document.styleSheets).forEach((sheet) => {
-    var _a;
+    var _a3;
     try {
-      const cssRules = (_a = sheet == null ? void 0 : sheet.cssRules) != null ? _a : [];
+      const cssRules = (_a3 = sheet == null ? void 0 : sheet.cssRules) != null ? _a3 : [];
       Array.from(cssRules).forEach((rule) => {
         if (rule.constructor.name == "CSSMediaRule") {
           if (rule.conditionText === "print") {
@@ -20336,22 +20408,20 @@ function generateDocId(n) {
   return Array.from({ length: n }, () => (16 * Math.random() | 0).toString(16)).join("");
 }
 function getFrontMatter(app, file) {
-  var _a;
+  var _a3;
   const cache = app.metadataCache.getFileCache(file);
-  return (_a = cache == null ? void 0 : cache.frontmatter) != null ? _a : {};
+  return (_a3 = cache == null ? void 0 : cache.frontmatter) != null ? _a3 : {};
 }
-async function renderMarkdown(app, file, config, extra) {
-  var _a, _b, _c, _d, _e, _f, _g, _h, _i;
+async function renderMarkdown({ app, file, config, extra }) {
+  var _a3, _b3, _c2, _d, _e, _f, _g, _h;
   const startTime = (/* @__PURE__ */ new Date()).getTime();
   const ws = app.workspace;
-  if (((_a = ws.getActiveFile()) == null ? void 0 : _a.path) != file.path) {
-    const leaf = ws.getLeaf();
-    await leaf.openFile(file);
-  }
-  const view = ws.getActiveViewOfType(import_obsidian2.MarkdownView);
-  const data = (_e = (_c = view == null ? void 0 : view.data) != null ? _c : (_b = ws == null ? void 0 : ws.getActiveFileView()) == null ? void 0 : _b.data) != null ? _e : (_d = ws.activeEditor) == null ? void 0 : _d.data;
+  const leaf = ws.getLeaf(true);
+  await leaf.openFile(file);
+  const view = leaf.view;
+  const data = (_d = (_b3 = view == null ? void 0 : view.data) != null ? _b3 : (_a3 = ws == null ? void 0 : ws.getActiveFileView()) == null ? void 0 : _a3.data) != null ? _d : (_c2 = ws.activeEditor) == null ? void 0 : _c2.data;
   if (!data) {
-    new import_obsidian2.Notice("data is empty!");
+    new import_obsidian3.Notice("data is empty!");
   }
   const frontMatter = getFrontMatter(app, file);
   const cssclasses = [];
@@ -20364,7 +20434,7 @@ async function renderMarkdown(app, file, config, extra) {
       }
     }
   }
-  const comp = new import_obsidian2.Component();
+  const comp = new import_obsidian3.Component();
   comp.load();
   const printEl = document.body.createDiv("print");
   const viewEl = printEl.createDiv({
@@ -20373,16 +20443,16 @@ async function renderMarkdown(app, file, config, extra) {
   app.vault.cachedRead(file);
   viewEl.toggleClass("rtl", app.vault.getConfig("rightToLeft"));
   viewEl.toggleClass("show-properties", "hidden" !== app.vault.getConfig("propertiesInDocument"));
-  const title = (_g = (_f = extra == null ? void 0 : extra.title) != null ? _f : frontMatter == null ? void 0 : frontMatter.title) != null ? _g : file.basename;
+  const title = (_f = (_e = extra == null ? void 0 : extra.title) != null ? _e : frontMatter == null ? void 0 : frontMatter.title) != null ? _f : file.basename;
   viewEl.createEl("h1", { text: title }, (e) => {
-    var _a2;
+    var _a4;
     e.addClass("__title__");
     e.style.display = config.showTitle ? "block" : "none";
-    e.id = (_a2 = extra == null ? void 0 : extra.id) != null ? _a2 : "";
+    e.id = (_a4 = extra == null ? void 0 : extra.id) != null ? _a4 : "";
   });
   const cache = app.metadataCache.getFileCache(file);
-  const blocks = new Map(Object.entries((_h = cache == null ? void 0 : cache.blocks) != null ? _h : {}));
-  const lines = ((_i = data == null ? void 0 : data.split("\n")) != null ? _i : []).map((line, i) => {
+  const blocks = new Map(Object.entries((_g = cache == null ? void 0 : cache.blocks) != null ? _g : {}));
+  const lines = ((_h = data == null ? void 0 : data.split("\n")) != null ? _h : []).map((line, i) => {
     for (const {
       id,
       position: { start, end }
@@ -20410,7 +20480,7 @@ async function renderMarkdown(app, file, config, extra) {
   };
   const promises = [];
   try {
-    await import_obsidian2.MarkdownRenderer.render(app, lines.join("\n"), fragment, file.path, comp);
+    await import_obsidian3.MarkdownRenderer.render(app, lines.join("\n"), fragment, file.path, comp);
   } catch (error2) {
   }
   const el = createFragment();
@@ -20420,7 +20490,7 @@ async function renderMarkdown(app, file, config, extra) {
     });
   });
   viewEl.appendChild(el);
-  await import_obsidian2.MarkdownRenderer.postProcess(app, {
+  await import_obsidian3.MarkdownRenderer.postProcess(app, {
     docId: generateDocId(16),
     sourcePath: file.path,
     frontmatter: {},
@@ -20437,8 +20507,8 @@ async function renderMarkdown(app, file, config, extra) {
   });
   await Promise.all(promises);
   printEl.findAll("a.internal-link").forEach((el2) => {
-    var _a2, _b2;
-    const [title2, anchor] = (_b2 = (_a2 = el2.dataset.href) == null ? void 0 : _a2.split("#")) != null ? _b2 : [];
+    var _a4, _b4;
+    const [title2, anchor] = (_b4 = (_a4 = el2.dataset.href) == null ? void 0 : _a4.split("#")) != null ? _b4 : [];
     if ((!title2 || (title2 == null ? void 0 : title2.length) == 0 || title2 == file.basename) && (anchor == null ? void 0 : anchor.startsWith("^"))) {
       return;
     }
@@ -20456,6 +20526,7 @@ async function renderMarkdown(app, file, config, extra) {
   comp.unload();
   printEl.remove();
   doc.title = title;
+  leaf.detach();
   console.log(`md render time:${(/* @__PURE__ */ new Date()).getTime() - startTime}ms`);
   return { doc, frontMatter, file };
 }
@@ -20527,6 +20598,4476 @@ function waitForDomChange(target, timeout = 2e3, interval = 200) {
   });
 }
 
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/version.js
+var PUBLIC_VERSION = "5";
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/disclose-version.js
+var _a, _b, _c;
+if (typeof window !== "undefined") {
+  ((_c = (_b = (_a = window.__svelte) != null ? _a : window.__svelte = {}).v) != null ? _c : _b.v = /* @__PURE__ */ new Set()).add(PUBLIC_VERSION);
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/constants.js
+var EACH_ITEM_REACTIVE = 1;
+var EACH_INDEX_REACTIVE = 1 << 1;
+var EACH_IS_CONTROLLED = 1 << 2;
+var EACH_IS_ANIMATED = 1 << 3;
+var EACH_ITEM_IMMUTABLE = 1 << 4;
+var PROPS_IS_IMMUTABLE = 1;
+var PROPS_IS_RUNES = 1 << 1;
+var PROPS_IS_UPDATED = 1 << 2;
+var PROPS_IS_BINDABLE = 1 << 3;
+var PROPS_IS_LAZY_INITIAL = 1 << 4;
+var TRANSITION_OUT = 1 << 1;
+var TRANSITION_GLOBAL = 1 << 2;
+var TEMPLATE_FRAGMENT = 1;
+var TEMPLATE_USE_IMPORT_NODE = 1 << 1;
+var HYDRATION_START = "[";
+var HYDRATION_START_ELSE = "[!";
+var HYDRATION_END = "]";
+var HYDRATION_ERROR = {};
+var ELEMENT_PRESERVE_ATTRIBUTE_CASE = 1 << 1;
+var UNINITIALIZED = Symbol();
+var FILENAME = Symbol("filename");
+var HMR = Symbol("hmr");
+var NAMESPACE_HTML = "http://www.w3.org/1999/xhtml";
+var NAMESPACE_SVG = "http://www.w3.org/2000/svg";
+
+// node_modules/.pnpm/esm-env@1.2.2/node_modules/esm-env/dev-fallback.js
+var _a2, _b2;
+var node_env = (_b2 = (_a2 = globalThis.process) == null ? void 0 : _a2.env) == null ? void 0 : _b2.NODE_ENV;
+var dev_fallback_default = node_env && !node_env.toLowerCase().startsWith("prod");
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/shared/utils.js
+var is_array = Array.isArray;
+var index_of = Array.prototype.indexOf;
+var array_from = Array.from;
+var object_keys = Object.keys;
+var define_property = Object.defineProperty;
+var get_descriptor = Object.getOwnPropertyDescriptor;
+var get_descriptors = Object.getOwnPropertyDescriptors;
+var object_prototype = Object.prototype;
+var array_prototype = Array.prototype;
+var get_prototype_of = Object.getPrototypeOf;
+var is_extensible = Object.isExtensible;
+function is_function(thing) {
+  return typeof thing === "function";
+}
+var noop = () => {
+};
+function run_all(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    arr[i]();
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/constants.js
+var DERIVED = 1 << 1;
+var EFFECT = 1 << 2;
+var RENDER_EFFECT = 1 << 3;
+var BLOCK_EFFECT = 1 << 4;
+var BRANCH_EFFECT = 1 << 5;
+var ROOT_EFFECT = 1 << 6;
+var BOUNDARY_EFFECT = 1 << 7;
+var UNOWNED = 1 << 8;
+var DISCONNECTED = 1 << 9;
+var CLEAN = 1 << 10;
+var DIRTY = 1 << 11;
+var MAYBE_DIRTY = 1 << 12;
+var INERT = 1 << 13;
+var DESTROYED = 1 << 14;
+var EFFECT_RAN = 1 << 15;
+var EFFECT_TRANSPARENT = 1 << 16;
+var LEGACY_DERIVED_PROP = 1 << 17;
+var INSPECT_EFFECT = 1 << 18;
+var HEAD_EFFECT = 1 << 19;
+var EFFECT_HAS_DERIVED = 1 << 20;
+var EFFECT_IS_UPDATING = 1 << 21;
+var STATE_SYMBOL = Symbol("$state");
+var LEGACY_PROPS = Symbol("legacy props");
+var LOADING_ATTR_SYMBOL = Symbol("");
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/errors.js
+function derived_references_self() {
+  if (dev_fallback_default) {
+    const error2 = new Error(`derived_references_self
+A derived value cannot reference itself recursively
+https://svelte.dev/e/derived_references_self`);
+    error2.name = "Svelte error";
+    throw error2;
+  } else {
+    throw new Error(`https://svelte.dev/e/derived_references_self`);
+  }
+}
+function effect_update_depth_exceeded() {
+  if (dev_fallback_default) {
+    const error2 = new Error(`effect_update_depth_exceeded
+Maximum update depth exceeded. This can happen when a reactive block or effect repeatedly sets a new value. Svelte limits the number of nested updates to prevent infinite loops
+https://svelte.dev/e/effect_update_depth_exceeded`);
+    error2.name = "Svelte error";
+    throw error2;
+  } else {
+    throw new Error(`https://svelte.dev/e/effect_update_depth_exceeded`);
+  }
+}
+function hydration_failed() {
+  if (dev_fallback_default) {
+    const error2 = new Error(`hydration_failed
+Failed to hydrate the application
+https://svelte.dev/e/hydration_failed`);
+    error2.name = "Svelte error";
+    throw error2;
+  } else {
+    throw new Error(`https://svelte.dev/e/hydration_failed`);
+  }
+}
+function invalid_snippet() {
+  if (dev_fallback_default) {
+    const error2 = new Error(`invalid_snippet
+Could not \`{@render}\` snippet due to the expression being \`null\` or \`undefined\`. Consider using optional chaining \`{@render snippet?.()}\`
+https://svelte.dev/e/invalid_snippet`);
+    error2.name = "Svelte error";
+    throw error2;
+  } else {
+    throw new Error(`https://svelte.dev/e/invalid_snippet`);
+  }
+}
+function props_invalid_value(key) {
+  if (dev_fallback_default) {
+    const error2 = new Error(`props_invalid_value
+Cannot do \`bind:${key}={undefined}\` when \`${key}\` has a fallback value
+https://svelte.dev/e/props_invalid_value`);
+    error2.name = "Svelte error";
+    throw error2;
+  } else {
+    throw new Error(`https://svelte.dev/e/props_invalid_value`);
+  }
+}
+function props_rest_readonly(property) {
+  if (dev_fallback_default) {
+    const error2 = new Error(`props_rest_readonly
+Rest element properties of \`$props()\` such as \`${property}\` are readonly
+https://svelte.dev/e/props_rest_readonly`);
+    error2.name = "Svelte error";
+    throw error2;
+  } else {
+    throw new Error(`https://svelte.dev/e/props_rest_readonly`);
+  }
+}
+function rune_outside_svelte(rune) {
+  if (dev_fallback_default) {
+    const error2 = new Error(`rune_outside_svelte
+The \`${rune}\` rune is only available inside \`.svelte\` and \`.svelte.js/ts\` files
+https://svelte.dev/e/rune_outside_svelte`);
+    error2.name = "Svelte error";
+    throw error2;
+  } else {
+    throw new Error(`https://svelte.dev/e/rune_outside_svelte`);
+  }
+}
+function state_descriptors_fixed() {
+  if (dev_fallback_default) {
+    const error2 = new Error(`state_descriptors_fixed
+Property descriptors defined on \`$state\` objects must contain \`value\` and always be \`enumerable\`, \`configurable\` and \`writable\`.
+https://svelte.dev/e/state_descriptors_fixed`);
+    error2.name = "Svelte error";
+    throw error2;
+  } else {
+    throw new Error(`https://svelte.dev/e/state_descriptors_fixed`);
+  }
+}
+function state_prototype_fixed() {
+  if (dev_fallback_default) {
+    const error2 = new Error(`state_prototype_fixed
+Cannot set prototype of \`$state\` object
+https://svelte.dev/e/state_prototype_fixed`);
+    error2.name = "Svelte error";
+    throw error2;
+  } else {
+    throw new Error(`https://svelte.dev/e/state_prototype_fixed`);
+  }
+}
+function state_unsafe_mutation() {
+  if (dev_fallback_default) {
+    const error2 = new Error(`state_unsafe_mutation
+Updating state inside a derived or a template expression is forbidden. If the value should not be reactive, declare it without \`$state\`
+https://svelte.dev/e/state_unsafe_mutation`);
+    error2.name = "Svelte error";
+    throw error2;
+  } else {
+    throw new Error(`https://svelte.dev/e/state_unsafe_mutation`);
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/warnings.js
+var bold = "font-weight: bold";
+var normal = "font-weight: normal";
+function hydration_attribute_changed(attribute, html2, value) {
+  if (dev_fallback_default) {
+    console.warn(`%c[svelte] hydration_attribute_changed
+%cThe \`${attribute}\` attribute on \`${html2}\` changed its value between server and client renders. The client value, \`${value}\`, will be ignored in favour of the server value
+https://svelte.dev/e/hydration_attribute_changed`, bold, normal);
+  } else {
+    console.warn(`https://svelte.dev/e/hydration_attribute_changed`);
+  }
+}
+function hydration_mismatch(location) {
+  if (dev_fallback_default) {
+    console.warn(`%c[svelte] hydration_mismatch
+%c${location ? `Hydration failed because the initial UI does not match what was rendered on the server. The error occurred near ${location}` : "Hydration failed because the initial UI does not match what was rendered on the server"}
+https://svelte.dev/e/hydration_mismatch`, bold, normal);
+  } else {
+    console.warn(`https://svelte.dev/e/hydration_mismatch`);
+  }
+}
+function lifecycle_double_unmount() {
+  if (dev_fallback_default) {
+    console.warn(`%c[svelte] lifecycle_double_unmount
+%cTried to unmount a component that was not mounted
+https://svelte.dev/e/lifecycle_double_unmount`, bold, normal);
+  } else {
+    console.warn(`https://svelte.dev/e/lifecycle_double_unmount`);
+  }
+}
+function state_proxy_equality_mismatch(operator) {
+  if (dev_fallback_default) {
+    console.warn(`%c[svelte] state_proxy_equality_mismatch
+%cReactive \`$state(...)\` proxies and the values they proxy have different identities. Because of this, comparisons with \`${operator}\` will produce unexpected results
+https://svelte.dev/e/state_proxy_equality_mismatch`, bold, normal);
+  } else {
+    console.warn(`https://svelte.dev/e/state_proxy_equality_mismatch`);
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/hydration.js
+var hydrating = false;
+function set_hydrating(value) {
+  hydrating = value;
+}
+var hydrate_node;
+function set_hydrate_node(node) {
+  if (node === null) {
+    hydration_mismatch();
+    throw HYDRATION_ERROR;
+  }
+  return hydrate_node = node;
+}
+function hydrate_next() {
+  return set_hydrate_node(
+    /** @type {TemplateNode} */
+    get_next_sibling(hydrate_node)
+  );
+}
+function reset(node) {
+  if (!hydrating) return;
+  if (get_next_sibling(hydrate_node) !== null) {
+    hydration_mismatch();
+    throw HYDRATION_ERROR;
+  }
+  hydrate_node = node;
+}
+function remove_nodes() {
+  var depth = 0;
+  var node = hydrate_node;
+  while (true) {
+    if (node.nodeType === 8) {
+      var data = (
+        /** @type {Comment} */
+        node.data
+      );
+      if (data === HYDRATION_END) {
+        if (depth === 0) return node;
+        depth -= 1;
+      } else if (data === HYDRATION_START || data === HYDRATION_START_ELSE) {
+        depth += 1;
+      }
+    }
+    var next2 = (
+      /** @type {TemplateNode} */
+      get_next_sibling(node)
+    );
+    node.remove();
+    node = next2;
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dev/tracing.js
+var tracing_expressions = null;
+function get_stack(label) {
+  let error2 = Error();
+  const stack2 = error2.stack;
+  if (stack2) {
+    const lines = stack2.split("\n");
+    const new_lines = ["\n"];
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      if (line === "Error") {
+        continue;
+      }
+      if (line.includes("validate_each_keys")) {
+        return null;
+      }
+      if (line.includes("svelte/src/internal")) {
+        continue;
+      }
+      new_lines.push(line);
+    }
+    if (new_lines.length === 1) {
+      return null;
+    }
+    define_property(error2, "stack", {
+      value: new_lines.join("\n")
+    });
+    define_property(error2, "name", {
+      // 'Error' suffix is required for stack traces to be rendered properly
+      value: `${label}Error`
+    });
+  }
+  return error2;
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/flags/index.js
+var legacy_mode_flag = false;
+var tracing_mode_flag = false;
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/proxy.js
+function proxy(value) {
+  if (typeof value !== "object" || value === null || STATE_SYMBOL in value) {
+    return value;
+  }
+  const prototype = get_prototype_of(value);
+  if (prototype !== object_prototype && prototype !== array_prototype) {
+    return value;
+  }
+  var sources = /* @__PURE__ */ new Map();
+  var is_proxied_array = is_array(value);
+  var version = state(0);
+  var stack2 = dev_fallback_default && tracing_mode_flag ? get_stack("CreatedAt") : null;
+  var reaction = active_reaction;
+  var with_parent = (fn) => {
+    var previous_reaction = active_reaction;
+    set_active_reaction(reaction);
+    var result = fn();
+    set_active_reaction(previous_reaction);
+    return result;
+  };
+  if (is_proxied_array) {
+    sources.set("length", state(
+      /** @type {any[]} */
+      value.length,
+      stack2
+    ));
+  }
+  return new Proxy(
+    /** @type {any} */
+    value,
+    {
+      defineProperty(_, prop2, descriptor) {
+        if (!("value" in descriptor) || descriptor.configurable === false || descriptor.enumerable === false || descriptor.writable === false) {
+          state_descriptors_fixed();
+        }
+        var s = sources.get(prop2);
+        if (s === void 0) {
+          s = with_parent(() => state(descriptor.value, stack2));
+          sources.set(prop2, s);
+        } else {
+          set(
+            s,
+            with_parent(() => proxy(descriptor.value))
+          );
+        }
+        return true;
+      },
+      deleteProperty(target, prop2) {
+        var s = sources.get(prop2);
+        if (s === void 0) {
+          if (prop2 in target) {
+            sources.set(
+              prop2,
+              with_parent(() => state(UNINITIALIZED, stack2))
+            );
+          }
+        } else {
+          if (is_proxied_array && typeof prop2 === "string") {
+            var ls = (
+              /** @type {Source<number>} */
+              sources.get("length")
+            );
+            var n = Number(prop2);
+            if (Number.isInteger(n) && n < ls.v) {
+              set(ls, n);
+            }
+          }
+          set(s, UNINITIALIZED);
+          update_version(version);
+        }
+        return true;
+      },
+      get(target, prop2, receiver) {
+        var _a3;
+        if (prop2 === STATE_SYMBOL) {
+          return value;
+        }
+        var s = sources.get(prop2);
+        var exists = prop2 in target;
+        if (s === void 0 && (!exists || ((_a3 = get_descriptor(target, prop2)) == null ? void 0 : _a3.writable))) {
+          s = with_parent(() => state(proxy(exists ? target[prop2] : UNINITIALIZED), stack2));
+          sources.set(prop2, s);
+        }
+        if (s !== void 0) {
+          var v = get(s);
+          return v === UNINITIALIZED ? void 0 : v;
+        }
+        return Reflect.get(target, prop2, receiver);
+      },
+      getOwnPropertyDescriptor(target, prop2) {
+        var descriptor = Reflect.getOwnPropertyDescriptor(target, prop2);
+        if (descriptor && "value" in descriptor) {
+          var s = sources.get(prop2);
+          if (s) descriptor.value = get(s);
+        } else if (descriptor === void 0) {
+          var source2 = sources.get(prop2);
+          var value2 = source2 == null ? void 0 : source2.v;
+          if (source2 !== void 0 && value2 !== UNINITIALIZED) {
+            return {
+              enumerable: true,
+              configurable: true,
+              value: value2,
+              writable: true
+            };
+          }
+        }
+        return descriptor;
+      },
+      has(target, prop2) {
+        var _a3;
+        if (prop2 === STATE_SYMBOL) {
+          return true;
+        }
+        var s = sources.get(prop2);
+        var has = s !== void 0 && s.v !== UNINITIALIZED || Reflect.has(target, prop2);
+        if (s !== void 0 || active_effect !== null && (!has || ((_a3 = get_descriptor(target, prop2)) == null ? void 0 : _a3.writable))) {
+          if (s === void 0) {
+            s = with_parent(() => state(has ? proxy(target[prop2]) : UNINITIALIZED, stack2));
+            sources.set(prop2, s);
+          }
+          var value2 = get(s);
+          if (value2 === UNINITIALIZED) {
+            return false;
+          }
+        }
+        return has;
+      },
+      set(target, prop2, value2, receiver) {
+        var _a3;
+        var s = sources.get(prop2);
+        var has = prop2 in target;
+        if (is_proxied_array && prop2 === "length") {
+          for (var i = value2; i < /** @type {Source<number>} */
+          s.v; i += 1) {
+            var other_s = sources.get(i + "");
+            if (other_s !== void 0) {
+              set(other_s, UNINITIALIZED);
+            } else if (i in target) {
+              other_s = with_parent(() => state(UNINITIALIZED, stack2));
+              sources.set(i + "", other_s);
+            }
+          }
+        }
+        if (s === void 0) {
+          if (!has || ((_a3 = get_descriptor(target, prop2)) == null ? void 0 : _a3.writable)) {
+            s = with_parent(() => state(void 0, stack2));
+            set(
+              s,
+              with_parent(() => proxy(value2))
+            );
+            sources.set(prop2, s);
+          }
+        } else {
+          has = s.v !== UNINITIALIZED;
+          set(
+            s,
+            with_parent(() => proxy(value2))
+          );
+        }
+        var descriptor = Reflect.getOwnPropertyDescriptor(target, prop2);
+        if (descriptor == null ? void 0 : descriptor.set) {
+          descriptor.set.call(receiver, value2);
+        }
+        if (!has) {
+          if (is_proxied_array && typeof prop2 === "string") {
+            var ls = (
+              /** @type {Source<number>} */
+              sources.get("length")
+            );
+            var n = Number(prop2);
+            if (Number.isInteger(n) && n >= ls.v) {
+              set(ls, n + 1);
+            }
+          }
+          update_version(version);
+        }
+        return true;
+      },
+      ownKeys(target) {
+        get(version);
+        var own_keys = Reflect.ownKeys(target).filter((key2) => {
+          var source3 = sources.get(key2);
+          return source3 === void 0 || source3.v !== UNINITIALIZED;
+        });
+        for (var [key, source2] of sources) {
+          if (source2.v !== UNINITIALIZED && !(key in target)) {
+            own_keys.push(key);
+          }
+        }
+        return own_keys;
+      },
+      setPrototypeOf() {
+        state_prototype_fixed();
+      }
+    }
+  );
+}
+function update_version(signal, d = 1) {
+  set(signal, signal.v + d);
+}
+function get_proxied_value(value) {
+  try {
+    if (value !== null && typeof value === "object" && STATE_SYMBOL in value) {
+      return value[STATE_SYMBOL];
+    }
+  } catch (e) {
+  }
+  return value;
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dev/equality.js
+function init_array_prototype_warnings() {
+  const array_prototype2 = Array.prototype;
+  const cleanup = Array.__svelte_cleanup;
+  if (cleanup) {
+    cleanup();
+  }
+  const { indexOf, lastIndexOf, includes } = array_prototype2;
+  array_prototype2.indexOf = function(item, from_index) {
+    const index2 = indexOf.call(this, item, from_index);
+    if (index2 === -1) {
+      for (let i = from_index != null ? from_index : 0; i < this.length; i += 1) {
+        if (get_proxied_value(this[i]) === item) {
+          state_proxy_equality_mismatch("array.indexOf(...)");
+          break;
+        }
+      }
+    }
+    return index2;
+  };
+  array_prototype2.lastIndexOf = function(item, from_index) {
+    const index2 = lastIndexOf.call(this, item, from_index != null ? from_index : this.length - 1);
+    if (index2 === -1) {
+      for (let i = 0; i <= (from_index != null ? from_index : this.length - 1); i += 1) {
+        if (get_proxied_value(this[i]) === item) {
+          state_proxy_equality_mismatch("array.lastIndexOf(...)");
+          break;
+        }
+      }
+    }
+    return index2;
+  };
+  array_prototype2.includes = function(item, from_index) {
+    const has = includes.call(this, item, from_index);
+    if (!has) {
+      for (let i = 0; i < this.length; i += 1) {
+        if (get_proxied_value(this[i]) === item) {
+          state_proxy_equality_mismatch("array.includes(...)");
+          break;
+        }
+      }
+    }
+    return has;
+  };
+  Array.__svelte_cleanup = () => {
+    array_prototype2.indexOf = indexOf;
+    array_prototype2.lastIndexOf = lastIndexOf;
+    array_prototype2.includes = includes;
+  };
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/operations.js
+var $window;
+var $document;
+var is_firefox;
+var first_child_getter;
+var next_sibling_getter;
+function init_operations() {
+  if ($window !== void 0) {
+    return;
+  }
+  $window = window;
+  $document = document;
+  is_firefox = /Firefox/.test(navigator.userAgent);
+  var element_prototype = Element.prototype;
+  var node_prototype = Node.prototype;
+  var text_prototype = Text.prototype;
+  first_child_getter = get_descriptor(node_prototype, "firstChild").get;
+  next_sibling_getter = get_descriptor(node_prototype, "nextSibling").get;
+  if (is_extensible(element_prototype)) {
+    element_prototype.__click = void 0;
+    element_prototype.__className = void 0;
+    element_prototype.__attributes = null;
+    element_prototype.__style = void 0;
+    element_prototype.__e = void 0;
+  }
+  if (is_extensible(text_prototype)) {
+    text_prototype.__t = void 0;
+  }
+  if (dev_fallback_default) {
+    element_prototype.__svelte_meta = null;
+    init_array_prototype_warnings();
+  }
+}
+function create_text(value = "") {
+  return document.createTextNode(value);
+}
+// @__NO_SIDE_EFFECTS__
+function get_first_child(node) {
+  return first_child_getter.call(node);
+}
+// @__NO_SIDE_EFFECTS__
+function get_next_sibling(node) {
+  return next_sibling_getter.call(node);
+}
+function child(node, is_text) {
+  if (!hydrating) {
+    return /* @__PURE__ */ get_first_child(node);
+  }
+  var child2 = (
+    /** @type {TemplateNode} */
+    /* @__PURE__ */ get_first_child(hydrate_node)
+  );
+  if (child2 === null) {
+    child2 = hydrate_node.appendChild(create_text());
+  } else if (is_text && child2.nodeType !== 3) {
+    var text2 = create_text();
+    child2 == null ? void 0 : child2.before(text2);
+    set_hydrate_node(text2);
+    return text2;
+  }
+  set_hydrate_node(child2);
+  return child2;
+}
+function first_child(fragment, is_text) {
+  var _a3, _b3;
+  if (!hydrating) {
+    var first = (
+      /** @type {DocumentFragment} */
+      /* @__PURE__ */ get_first_child(
+        /** @type {Node} */
+        fragment
+      )
+    );
+    if (first instanceof Comment && first.data === "") return /* @__PURE__ */ get_next_sibling(first);
+    return first;
+  }
+  if (is_text && ((_a3 = hydrate_node) == null ? void 0 : _a3.nodeType) !== 3) {
+    var text2 = create_text();
+    (_b3 = hydrate_node) == null ? void 0 : _b3.before(text2);
+    set_hydrate_node(text2);
+    return text2;
+  }
+  return hydrate_node;
+}
+function sibling(node, count = 1, is_text = false) {
+  let next_sibling = hydrating ? hydrate_node : node;
+  var last_sibling;
+  while (count--) {
+    last_sibling = next_sibling;
+    next_sibling = /** @type {TemplateNode} */
+    /* @__PURE__ */ get_next_sibling(next_sibling);
+  }
+  if (!hydrating) {
+    return next_sibling;
+  }
+  var type = next_sibling == null ? void 0 : next_sibling.nodeType;
+  if (is_text && type !== 3) {
+    var text2 = create_text();
+    if (next_sibling === null) {
+      last_sibling == null ? void 0 : last_sibling.after(text2);
+    } else {
+      next_sibling.before(text2);
+    }
+    set_hydrate_node(text2);
+    return text2;
+  }
+  set_hydrate_node(next_sibling);
+  return (
+    /** @type {TemplateNode} */
+    next_sibling
+  );
+}
+function clear_text_content(node) {
+  node.textContent = "";
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/reactivity/equality.js
+function equals(value) {
+  return value === this.v;
+}
+function safe_not_equal(a, b) {
+  return a != a ? b == b : a !== b || a !== null && typeof a === "object" || typeof a === "function";
+}
+function safe_equals(value) {
+  return !safe_not_equal(value, this.v);
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/reactivity/deriveds.js
+// @__NO_SIDE_EFFECTS__
+function derived(fn) {
+  var flags = DERIVED | DIRTY;
+  var parent_derived = active_reaction !== null && (active_reaction.f & DERIVED) !== 0 ? (
+    /** @type {Derived} */
+    active_reaction
+  ) : null;
+  if (active_effect === null || parent_derived !== null && (parent_derived.f & UNOWNED) !== 0) {
+    flags |= UNOWNED;
+  } else {
+    active_effect.f |= EFFECT_HAS_DERIVED;
+  }
+  const signal = {
+    ctx: component_context,
+    deps: null,
+    effects: null,
+    equals,
+    f: flags,
+    fn,
+    reactions: null,
+    rv: 0,
+    v: (
+      /** @type {V} */
+      null
+    ),
+    wv: 0,
+    parent: parent_derived != null ? parent_derived : active_effect
+  };
+  if (dev_fallback_default && tracing_mode_flag) {
+    signal.created = get_stack("CreatedAt");
+  }
+  return signal;
+}
+// @__NO_SIDE_EFFECTS__
+function derived_safe_equal(fn) {
+  const signal = /* @__PURE__ */ derived(fn);
+  signal.equals = safe_equals;
+  return signal;
+}
+function destroy_derived_effects(derived2) {
+  var effects = derived2.effects;
+  if (effects !== null) {
+    derived2.effects = null;
+    for (var i = 0; i < effects.length; i += 1) {
+      destroy_effect(
+        /** @type {Effect} */
+        effects[i]
+      );
+    }
+  }
+}
+var stack = [];
+function get_derived_parent_effect(derived2) {
+  var parent = derived2.parent;
+  while (parent !== null) {
+    if ((parent.f & DERIVED) === 0) {
+      return (
+        /** @type {Effect} */
+        parent
+      );
+    }
+    parent = parent.parent;
+  }
+  return null;
+}
+function execute_derived(derived2) {
+  var value;
+  var prev_active_effect = active_effect;
+  set_active_effect(get_derived_parent_effect(derived2));
+  if (dev_fallback_default) {
+    let prev_inspect_effects = inspect_effects;
+    set_inspect_effects(/* @__PURE__ */ new Set());
+    try {
+      if (stack.includes(derived2)) {
+        derived_references_self();
+      }
+      stack.push(derived2);
+      destroy_derived_effects(derived2);
+      value = update_reaction(derived2);
+    } finally {
+      set_active_effect(prev_active_effect);
+      set_inspect_effects(prev_inspect_effects);
+      stack.pop();
+    }
+  } else {
+    try {
+      destroy_derived_effects(derived2);
+      value = update_reaction(derived2);
+    } finally {
+      set_active_effect(prev_active_effect);
+    }
+  }
+  return value;
+}
+function update_derived(derived2) {
+  var value = execute_derived(derived2);
+  var status = (skip_reaction || (derived2.f & UNOWNED) !== 0) && derived2.deps !== null ? MAYBE_DIRTY : CLEAN;
+  set_signal_status(derived2, status);
+  if (!derived2.equals(value)) {
+    derived2.v = value;
+    derived2.wv = increment_write_version();
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/reactivity/effects.js
+function push_effect(effect2, parent_effect) {
+  var parent_last = parent_effect.last;
+  if (parent_last === null) {
+    parent_effect.last = parent_effect.first = effect2;
+  } else {
+    parent_last.next = effect2;
+    effect2.prev = parent_last;
+    parent_effect.last = effect2;
+  }
+}
+function create_effect(type, fn, sync, push2 = true) {
+  var _a3;
+  var parent = active_effect;
+  if (dev_fallback_default) {
+    while (parent !== null && (parent.f & INSPECT_EFFECT) !== 0) {
+      parent = parent.parent;
+    }
+  }
+  var effect2 = {
+    ctx: component_context,
+    deps: null,
+    nodes_start: null,
+    nodes_end: null,
+    f: type | DIRTY,
+    first: null,
+    fn,
+    last: null,
+    next: null,
+    parent,
+    prev: null,
+    teardown: null,
+    transitions: null,
+    wv: 0
+  };
+  if (dev_fallback_default) {
+    effect2.component_function = dev_current_component_function;
+  }
+  if (sync) {
+    try {
+      update_effect(effect2);
+      effect2.f |= EFFECT_RAN;
+    } catch (e) {
+      destroy_effect(effect2);
+      throw e;
+    }
+  } else if (fn !== null) {
+    schedule_effect(effect2);
+  }
+  var inert = sync && effect2.deps === null && effect2.first === null && effect2.nodes_start === null && effect2.teardown === null && (effect2.f & (EFFECT_HAS_DERIVED | BOUNDARY_EFFECT)) === 0;
+  if (!inert && push2) {
+    if (parent !== null) {
+      push_effect(effect2, parent);
+    }
+    if (active_reaction !== null && (active_reaction.f & DERIVED) !== 0) {
+      var derived2 = (
+        /** @type {Derived} */
+        active_reaction
+      );
+      ((_a3 = derived2.effects) != null ? _a3 : derived2.effects = []).push(effect2);
+    }
+  }
+  return effect2;
+}
+function teardown(fn) {
+  const effect2 = create_effect(RENDER_EFFECT, null, false);
+  set_signal_status(effect2, CLEAN);
+  effect2.teardown = fn;
+  return effect2;
+}
+function effect_root(fn) {
+  const effect2 = create_effect(ROOT_EFFECT, fn, true);
+  return () => {
+    destroy_effect(effect2);
+  };
+}
+function component_root(fn) {
+  const effect2 = create_effect(ROOT_EFFECT, fn, true);
+  return (options = {}) => {
+    return new Promise((fulfil) => {
+      if (options.outro) {
+        pause_effect(effect2, () => {
+          destroy_effect(effect2);
+          fulfil(void 0);
+        });
+      } else {
+        destroy_effect(effect2);
+        fulfil(void 0);
+      }
+    });
+  };
+}
+function effect(fn) {
+  return create_effect(EFFECT, fn, false);
+}
+function render_effect(fn) {
+  return create_effect(RENDER_EFFECT, fn, true);
+}
+function template_effect(fn, thunks = [], d = derived) {
+  const deriveds = thunks.map(d);
+  const effect2 = () => fn(...deriveds.map(get));
+  if (dev_fallback_default) {
+    define_property(effect2, "name", {
+      value: "{expression}"
+    });
+  }
+  return block(effect2);
+}
+function block(fn, flags = 0) {
+  return create_effect(RENDER_EFFECT | BLOCK_EFFECT | flags, fn, true);
+}
+function branch(fn, push2 = true) {
+  return create_effect(RENDER_EFFECT | BRANCH_EFFECT, fn, true, push2);
+}
+function execute_effect_teardown(effect2) {
+  var teardown2 = effect2.teardown;
+  if (teardown2 !== null) {
+    const previously_destroying_effect = is_destroying_effect;
+    const previous_reaction = active_reaction;
+    set_is_destroying_effect(true);
+    set_active_reaction(null);
+    try {
+      teardown2.call(null);
+    } finally {
+      set_is_destroying_effect(previously_destroying_effect);
+      set_active_reaction(previous_reaction);
+    }
+  }
+}
+function destroy_effect_children(signal, remove_dom = false) {
+  var effect2 = signal.first;
+  signal.first = signal.last = null;
+  while (effect2 !== null) {
+    var next2 = effect2.next;
+    if ((effect2.f & ROOT_EFFECT) !== 0) {
+      effect2.parent = null;
+    } else {
+      destroy_effect(effect2, remove_dom);
+    }
+    effect2 = next2;
+  }
+}
+function destroy_block_effect_children(signal) {
+  var effect2 = signal.first;
+  while (effect2 !== null) {
+    var next2 = effect2.next;
+    if ((effect2.f & BRANCH_EFFECT) === 0) {
+      destroy_effect(effect2);
+    }
+    effect2 = next2;
+  }
+}
+function destroy_effect(effect2, remove_dom = true) {
+  var removed = false;
+  if ((remove_dom || (effect2.f & HEAD_EFFECT) !== 0) && effect2.nodes_start !== null) {
+    var node = effect2.nodes_start;
+    var end = effect2.nodes_end;
+    while (node !== null) {
+      var next2 = node === end ? null : (
+        /** @type {TemplateNode} */
+        get_next_sibling(node)
+      );
+      node.remove();
+      node = next2;
+    }
+    removed = true;
+  }
+  destroy_effect_children(effect2, remove_dom && !removed);
+  remove_reactions(effect2, 0);
+  set_signal_status(effect2, DESTROYED);
+  var transitions = effect2.transitions;
+  if (transitions !== null) {
+    for (const transition2 of transitions) {
+      transition2.stop();
+    }
+  }
+  execute_effect_teardown(effect2);
+  var parent = effect2.parent;
+  if (parent !== null && parent.first !== null) {
+    unlink_effect(effect2);
+  }
+  if (dev_fallback_default) {
+    effect2.component_function = null;
+  }
+  effect2.next = effect2.prev = effect2.teardown = effect2.ctx = effect2.deps = effect2.fn = effect2.nodes_start = effect2.nodes_end = null;
+}
+function unlink_effect(effect2) {
+  var parent = effect2.parent;
+  var prev = effect2.prev;
+  var next2 = effect2.next;
+  if (prev !== null) prev.next = next2;
+  if (next2 !== null) next2.prev = prev;
+  if (parent !== null) {
+    if (parent.first === effect2) parent.first = next2;
+    if (parent.last === effect2) parent.last = prev;
+  }
+}
+function pause_effect(effect2, callback) {
+  var transitions = [];
+  pause_children(effect2, transitions, true);
+  run_out_transitions(transitions, () => {
+    destroy_effect(effect2);
+    if (callback) callback();
+  });
+}
+function run_out_transitions(transitions, fn) {
+  var remaining = transitions.length;
+  if (remaining > 0) {
+    var check = () => --remaining || fn();
+    for (var transition2 of transitions) {
+      transition2.out(check);
+    }
+  } else {
+    fn();
+  }
+}
+function pause_children(effect2, transitions, local) {
+  if ((effect2.f & INERT) !== 0) return;
+  effect2.f ^= INERT;
+  if (effect2.transitions !== null) {
+    for (const transition2 of effect2.transitions) {
+      if (transition2.is_global || local) {
+        transitions.push(transition2);
+      }
+    }
+  }
+  var child2 = effect2.first;
+  while (child2 !== null) {
+    var sibling2 = child2.next;
+    var transparent = (child2.f & EFFECT_TRANSPARENT) !== 0 || (child2.f & BRANCH_EFFECT) !== 0;
+    pause_children(child2, transitions, transparent ? local : false);
+    child2 = sibling2;
+  }
+}
+function resume_effect(effect2) {
+  resume_children(effect2, true);
+}
+function resume_children(effect2, local) {
+  if ((effect2.f & INERT) === 0) return;
+  effect2.f ^= INERT;
+  if ((effect2.f & CLEAN) === 0) {
+    effect2.f ^= CLEAN;
+  }
+  if (check_dirtiness(effect2)) {
+    set_signal_status(effect2, DIRTY);
+    schedule_effect(effect2);
+  }
+  var child2 = effect2.first;
+  while (child2 !== null) {
+    var sibling2 = child2.next;
+    var transparent = (child2.f & EFFECT_TRANSPARENT) !== 0 || (child2.f & BRANCH_EFFECT) !== 0;
+    resume_children(child2, transparent ? local : false);
+    child2 = sibling2;
+  }
+  if (effect2.transitions !== null) {
+    for (const transition2 of effect2.transitions) {
+      if (transition2.is_global || local) {
+        transition2.in();
+      }
+    }
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/task.js
+var micro_tasks = [];
+var idle_tasks = [];
+function run_micro_tasks() {
+  var tasks = micro_tasks;
+  micro_tasks = [];
+  run_all(tasks);
+}
+function run_idle_tasks() {
+  var tasks = idle_tasks;
+  idle_tasks = [];
+  run_all(tasks);
+}
+function queue_micro_task(fn) {
+  if (micro_tasks.length === 0) {
+    queueMicrotask(run_micro_tasks);
+  }
+  micro_tasks.push(fn);
+}
+function flush_tasks() {
+  if (micro_tasks.length > 0) {
+    run_micro_tasks();
+  }
+  if (idle_tasks.length > 0) {
+    run_idle_tasks();
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/runtime.js
+var handled_errors = /* @__PURE__ */ new WeakSet();
+var is_throwing_error = false;
+var is_flushing = false;
+var last_scheduled_effect = null;
+var is_updating_effect = false;
+var is_destroying_effect = false;
+function set_is_destroying_effect(value) {
+  is_destroying_effect = value;
+}
+var queued_root_effects = [];
+var dev_effect_stack = [];
+var active_reaction = null;
+var untracking = false;
+function set_active_reaction(reaction) {
+  active_reaction = reaction;
+}
+var active_effect = null;
+function set_active_effect(effect2) {
+  active_effect = effect2;
+}
+var reaction_sources = null;
+function push_reaction_value(value) {
+  if (active_reaction !== null && active_reaction.f & EFFECT_IS_UPDATING) {
+    if (reaction_sources === null) {
+      reaction_sources = [value];
+    } else {
+      reaction_sources.push(value);
+    }
+  }
+}
+var new_deps = null;
+var skipped_deps = 0;
+var untracked_writes = null;
+function set_untracked_writes(value) {
+  untracked_writes = value;
+}
+var write_version = 1;
+var read_version = 0;
+var skip_reaction = false;
+var captured_signals = null;
+function increment_write_version() {
+  return ++write_version;
+}
+function check_dirtiness(reaction) {
+  var _a3, _b3;
+  var flags = reaction.f;
+  if ((flags & DIRTY) !== 0) {
+    return true;
+  }
+  if ((flags & MAYBE_DIRTY) !== 0) {
+    var dependencies = reaction.deps;
+    var is_unowned = (flags & UNOWNED) !== 0;
+    if (dependencies !== null) {
+      var i;
+      var dependency;
+      var is_disconnected = (flags & DISCONNECTED) !== 0;
+      var is_unowned_connected = is_unowned && active_effect !== null && !skip_reaction;
+      var length = dependencies.length;
+      if (is_disconnected || is_unowned_connected) {
+        var derived2 = (
+          /** @type {Derived} */
+          reaction
+        );
+        var parent = derived2.parent;
+        for (i = 0; i < length; i++) {
+          dependency = dependencies[i];
+          if (is_disconnected || !((_a3 = dependency == null ? void 0 : dependency.reactions) == null ? void 0 : _a3.includes(derived2))) {
+            ((_b3 = dependency.reactions) != null ? _b3 : dependency.reactions = []).push(derived2);
+          }
+        }
+        if (is_disconnected) {
+          derived2.f ^= DISCONNECTED;
+        }
+        if (is_unowned_connected && parent !== null && (parent.f & UNOWNED) === 0) {
+          derived2.f ^= UNOWNED;
+        }
+      }
+      for (i = 0; i < length; i++) {
+        dependency = dependencies[i];
+        if (check_dirtiness(
+          /** @type {Derived} */
+          dependency
+        )) {
+          update_derived(
+            /** @type {Derived} */
+            dependency
+          );
+        }
+        if (dependency.wv > reaction.wv) {
+          return true;
+        }
+      }
+    }
+    if (!is_unowned || active_effect !== null && !skip_reaction) {
+      set_signal_status(reaction, CLEAN);
+    }
+  }
+  return false;
+}
+function propagate_error(error2, effect2) {
+  var current = effect2;
+  while (current !== null) {
+    if ((current.f & BOUNDARY_EFFECT) !== 0) {
+      try {
+        current.fn(error2);
+        return;
+      } catch (e) {
+        current.f ^= BOUNDARY_EFFECT;
+      }
+    }
+    current = current.parent;
+  }
+  is_throwing_error = false;
+  throw error2;
+}
+function should_rethrow_error(effect2) {
+  return (effect2.f & DESTROYED) === 0 && (effect2.parent === null || (effect2.parent.f & BOUNDARY_EFFECT) === 0);
+}
+function handle_error(error2, effect2, previous_effect, component_context2) {
+  var _a3, _b3;
+  if (is_throwing_error) {
+    if (previous_effect === null) {
+      is_throwing_error = false;
+    }
+    if (should_rethrow_error(effect2)) {
+      throw error2;
+    }
+    return;
+  }
+  if (previous_effect !== null) {
+    is_throwing_error = true;
+  }
+  if (!dev_fallback_default || component_context2 === null || !(error2 instanceof Error) || handled_errors.has(error2)) {
+    propagate_error(error2, effect2);
+    return;
+  }
+  handled_errors.add(error2);
+  const component_stack = [];
+  const effect_name = (_a3 = effect2.fn) == null ? void 0 : _a3.name;
+  if (effect_name) {
+    component_stack.push(effect_name);
+  }
+  let current_context = component_context2;
+  while (current_context !== null) {
+    if (dev_fallback_default) {
+      var filename = (_b3 = current_context.function) == null ? void 0 : _b3[FILENAME];
+      if (filename) {
+        const file = filename.split("/").pop();
+        component_stack.push(file);
+      }
+    }
+    current_context = current_context.p;
+  }
+  const indent = is_firefox ? "  " : "	";
+  define_property(error2, "message", {
+    value: error2.message + `
+${component_stack.map((name) => `
+${indent}in ${name}`).join("")}
+`
+  });
+  define_property(error2, "component_stack", {
+    value: component_stack
+  });
+  const stack2 = error2.stack;
+  if (stack2) {
+    const lines = stack2.split("\n");
+    const new_lines = [];
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      if (line.includes("svelte/src/internal")) {
+        continue;
+      }
+      new_lines.push(line);
+    }
+    define_property(error2, "stack", {
+      value: new_lines.join("\n")
+    });
+  }
+  propagate_error(error2, effect2);
+  if (should_rethrow_error(effect2)) {
+    throw error2;
+  }
+}
+function schedule_possible_effect_self_invalidation(signal, effect2, root3 = true) {
+  var reactions = signal.reactions;
+  if (reactions === null) return;
+  for (var i = 0; i < reactions.length; i++) {
+    var reaction = reactions[i];
+    if (reaction_sources == null ? void 0 : reaction_sources.includes(signal)) continue;
+    if ((reaction.f & DERIVED) !== 0) {
+      schedule_possible_effect_self_invalidation(
+        /** @type {Derived} */
+        reaction,
+        effect2,
+        false
+      );
+    } else if (effect2 === reaction) {
+      if (root3) {
+        set_signal_status(reaction, DIRTY);
+      } else if ((reaction.f & CLEAN) !== 0) {
+        set_signal_status(reaction, MAYBE_DIRTY);
+      }
+      schedule_effect(
+        /** @type {Effect} */
+        reaction
+      );
+    }
+  }
+}
+function update_reaction(reaction) {
+  var _a3, _b3;
+  var previous_deps = new_deps;
+  var previous_skipped_deps = skipped_deps;
+  var previous_untracked_writes = untracked_writes;
+  var previous_reaction = active_reaction;
+  var previous_skip_reaction = skip_reaction;
+  var previous_reaction_sources = reaction_sources;
+  var previous_component_context = component_context;
+  var previous_untracking = untracking;
+  var flags = reaction.f;
+  new_deps = /** @type {null | Value[]} */
+  null;
+  skipped_deps = 0;
+  untracked_writes = null;
+  skip_reaction = (flags & UNOWNED) !== 0 && (untracking || !is_updating_effect || active_reaction === null);
+  active_reaction = (flags & (BRANCH_EFFECT | ROOT_EFFECT)) === 0 ? reaction : null;
+  reaction_sources = null;
+  set_component_context(reaction.ctx);
+  untracking = false;
+  read_version++;
+  reaction.f |= EFFECT_IS_UPDATING;
+  try {
+    var result = (
+      /** @type {Function} */
+      (0, reaction.fn)()
+    );
+    var deps = reaction.deps;
+    if (new_deps !== null) {
+      var i;
+      remove_reactions(reaction, skipped_deps);
+      if (deps !== null && skipped_deps > 0) {
+        deps.length = skipped_deps + new_deps.length;
+        for (i = 0; i < new_deps.length; i++) {
+          deps[skipped_deps + i] = new_deps[i];
+        }
+      } else {
+        reaction.deps = deps = new_deps;
+      }
+      if (!skip_reaction) {
+        for (i = skipped_deps; i < deps.length; i++) {
+          ((_b3 = (_a3 = deps[i]).reactions) != null ? _b3 : _a3.reactions = []).push(reaction);
+        }
+      }
+    } else if (deps !== null && skipped_deps < deps.length) {
+      remove_reactions(reaction, skipped_deps);
+      deps.length = skipped_deps;
+    }
+    if (is_runes() && untracked_writes !== null && !untracking && deps !== null && (reaction.f & (DERIVED | MAYBE_DIRTY | DIRTY)) === 0) {
+      for (i = 0; i < /** @type {Source[]} */
+      untracked_writes.length; i++) {
+        schedule_possible_effect_self_invalidation(
+          untracked_writes[i],
+          /** @type {Effect} */
+          reaction
+        );
+      }
+    }
+    if (previous_reaction !== reaction) {
+      read_version++;
+      if (untracked_writes !== null) {
+        if (previous_untracked_writes === null) {
+          previous_untracked_writes = untracked_writes;
+        } else {
+          previous_untracked_writes.push(.../** @type {Source[]} */
+          untracked_writes);
+        }
+      }
+    }
+    return result;
+  } finally {
+    new_deps = previous_deps;
+    skipped_deps = previous_skipped_deps;
+    untracked_writes = previous_untracked_writes;
+    active_reaction = previous_reaction;
+    skip_reaction = previous_skip_reaction;
+    reaction_sources = previous_reaction_sources;
+    set_component_context(previous_component_context);
+    untracking = previous_untracking;
+    reaction.f ^= EFFECT_IS_UPDATING;
+  }
+}
+function remove_reaction(signal, dependency) {
+  let reactions = dependency.reactions;
+  if (reactions !== null) {
+    var index2 = index_of.call(reactions, signal);
+    if (index2 !== -1) {
+      var new_length = reactions.length - 1;
+      if (new_length === 0) {
+        reactions = dependency.reactions = null;
+      } else {
+        reactions[index2] = reactions[new_length];
+        reactions.pop();
+      }
+    }
+  }
+  if (reactions === null && (dependency.f & DERIVED) !== 0 && // Destroying a child effect while updating a parent effect can cause a dependency to appear
+  // to be unused, when in fact it is used by the currently-updating parent. Checking `new_deps`
+  // allows us to skip the expensive work of disconnecting and immediately reconnecting it
+  (new_deps === null || !new_deps.includes(dependency))) {
+    set_signal_status(dependency, MAYBE_DIRTY);
+    if ((dependency.f & (UNOWNED | DISCONNECTED)) === 0) {
+      dependency.f ^= DISCONNECTED;
+    }
+    destroy_derived_effects(
+      /** @type {Derived} **/
+      dependency
+    );
+    remove_reactions(
+      /** @type {Derived} **/
+      dependency,
+      0
+    );
+  }
+}
+function remove_reactions(signal, start_index) {
+  var dependencies = signal.deps;
+  if (dependencies === null) return;
+  for (var i = start_index; i < dependencies.length; i++) {
+    remove_reaction(signal, dependencies[i]);
+  }
+}
+function update_effect(effect2) {
+  var flags = effect2.f;
+  if ((flags & DESTROYED) !== 0) {
+    return;
+  }
+  set_signal_status(effect2, CLEAN);
+  var previous_effect = active_effect;
+  var previous_component_context = component_context;
+  var was_updating_effect = is_updating_effect;
+  active_effect = effect2;
+  is_updating_effect = true;
+  if (dev_fallback_default) {
+    var previous_component_fn = dev_current_component_function;
+    set_dev_current_component_function(effect2.component_function);
+  }
+  try {
+    if ((flags & BLOCK_EFFECT) !== 0) {
+      destroy_block_effect_children(effect2);
+    } else {
+      destroy_effect_children(effect2);
+    }
+    execute_effect_teardown(effect2);
+    var teardown2 = update_reaction(effect2);
+    effect2.teardown = typeof teardown2 === "function" ? teardown2 : null;
+    effect2.wv = write_version;
+    var deps = effect2.deps;
+    if (dev_fallback_default && tracing_mode_flag && (effect2.f & DIRTY) !== 0 && deps !== null) {
+      for (let i = 0; i < deps.length; i++) {
+        var dep = deps[i];
+        if (dep.trace_need_increase) {
+          dep.wv = increment_write_version();
+          dep.trace_need_increase = void 0;
+          dep.trace_v = void 0;
+        }
+      }
+    }
+    if (dev_fallback_default) {
+      dev_effect_stack.push(effect2);
+    }
+  } catch (error2) {
+    handle_error(error2, effect2, previous_effect, previous_component_context || effect2.ctx);
+  } finally {
+    is_updating_effect = was_updating_effect;
+    active_effect = previous_effect;
+    if (dev_fallback_default) {
+      set_dev_current_component_function(previous_component_fn);
+    }
+  }
+}
+function log_effect_stack() {
+  console.error(
+    "Last ten effects were: ",
+    dev_effect_stack.slice(-10).map((d) => d.fn)
+  );
+  dev_effect_stack = [];
+}
+function infinite_loop_guard() {
+  try {
+    effect_update_depth_exceeded();
+  } catch (error2) {
+    if (dev_fallback_default) {
+      define_property(error2, "stack", {
+        value: ""
+      });
+    }
+    if (last_scheduled_effect !== null) {
+      if (dev_fallback_default) {
+        try {
+          handle_error(error2, last_scheduled_effect, null, null);
+        } catch (e) {
+          log_effect_stack();
+          throw e;
+        }
+      } else {
+        handle_error(error2, last_scheduled_effect, null, null);
+      }
+    } else {
+      if (dev_fallback_default) {
+        log_effect_stack();
+      }
+      throw error2;
+    }
+  }
+}
+function flush_queued_root_effects() {
+  var was_updating_effect = is_updating_effect;
+  try {
+    var flush_count = 0;
+    is_updating_effect = true;
+    while (queued_root_effects.length > 0) {
+      if (flush_count++ > 1e3) {
+        infinite_loop_guard();
+      }
+      var root_effects = queued_root_effects;
+      var length = root_effects.length;
+      queued_root_effects = [];
+      for (var i = 0; i < length; i++) {
+        var collected_effects = process_effects(root_effects[i]);
+        flush_queued_effects(collected_effects);
+      }
+      old_values.clear();
+    }
+  } finally {
+    is_flushing = false;
+    is_updating_effect = was_updating_effect;
+    last_scheduled_effect = null;
+    if (dev_fallback_default) {
+      dev_effect_stack = [];
+    }
+  }
+}
+function flush_queued_effects(effects) {
+  var length = effects.length;
+  if (length === 0) return;
+  for (var i = 0; i < length; i++) {
+    var effect2 = effects[i];
+    if ((effect2.f & (DESTROYED | INERT)) === 0) {
+      try {
+        if (check_dirtiness(effect2)) {
+          update_effect(effect2);
+          if (effect2.deps === null && effect2.first === null && effect2.nodes_start === null) {
+            if (effect2.teardown === null) {
+              unlink_effect(effect2);
+            } else {
+              effect2.fn = null;
+            }
+          }
+        }
+      } catch (error2) {
+        handle_error(error2, effect2, null, effect2.ctx);
+      }
+    }
+  }
+}
+function schedule_effect(signal) {
+  if (!is_flushing) {
+    is_flushing = true;
+    queueMicrotask(flush_queued_root_effects);
+  }
+  var effect2 = last_scheduled_effect = signal;
+  while (effect2.parent !== null) {
+    effect2 = effect2.parent;
+    var flags = effect2.f;
+    if ((flags & (ROOT_EFFECT | BRANCH_EFFECT)) !== 0) {
+      if ((flags & CLEAN) === 0) return;
+      effect2.f ^= CLEAN;
+    }
+  }
+  queued_root_effects.push(effect2);
+}
+function process_effects(root3) {
+  var effects = [];
+  var effect2 = root3;
+  while (effect2 !== null) {
+    var flags = effect2.f;
+    var is_branch = (flags & (BRANCH_EFFECT | ROOT_EFFECT)) !== 0;
+    var is_skippable_branch = is_branch && (flags & CLEAN) !== 0;
+    if (!is_skippable_branch && (flags & INERT) === 0) {
+      if ((flags & EFFECT) !== 0) {
+        effects.push(effect2);
+      } else if (is_branch) {
+        effect2.f ^= CLEAN;
+      } else {
+        var previous_active_reaction = active_reaction;
+        try {
+          active_reaction = effect2;
+          if (check_dirtiness(effect2)) {
+            update_effect(effect2);
+          }
+        } catch (error2) {
+          handle_error(error2, effect2, null, effect2.ctx);
+        } finally {
+          active_reaction = previous_active_reaction;
+        }
+      }
+      var child2 = effect2.first;
+      if (child2 !== null) {
+        effect2 = child2;
+        continue;
+      }
+    }
+    var parent = effect2.parent;
+    effect2 = effect2.next;
+    while (effect2 === null && parent !== null) {
+      effect2 = parent.next;
+      parent = parent.parent;
+    }
+  }
+  return effects;
+}
+function flushSync(fn) {
+  var result;
+  if (fn) {
+    is_flushing = true;
+    flush_queued_root_effects();
+    result = fn();
+  }
+  flush_tasks();
+  while (queued_root_effects.length > 0) {
+    is_flushing = true;
+    flush_queued_root_effects();
+    flush_tasks();
+  }
+  return (
+    /** @type {T} */
+    result
+  );
+}
+function get(signal) {
+  var flags = signal.f;
+  var is_derived = (flags & DERIVED) !== 0;
+  if (captured_signals !== null) {
+    captured_signals.add(signal);
+  }
+  if (active_reaction !== null && !untracking) {
+    if (!(reaction_sources == null ? void 0 : reaction_sources.includes(signal))) {
+      var deps = active_reaction.deps;
+      if (signal.rv < read_version) {
+        signal.rv = read_version;
+        if (new_deps === null && deps !== null && deps[skipped_deps] === signal) {
+          skipped_deps++;
+        } else if (new_deps === null) {
+          new_deps = [signal];
+        } else if (!skip_reaction || !new_deps.includes(signal)) {
+          new_deps.push(signal);
+        }
+      }
+    }
+  } else if (is_derived && /** @type {Derived} */
+  signal.deps === null && /** @type {Derived} */
+  signal.effects === null) {
+    var derived2 = (
+      /** @type {Derived} */
+      signal
+    );
+    var parent = derived2.parent;
+    if (parent !== null && (parent.f & UNOWNED) === 0) {
+      derived2.f ^= UNOWNED;
+    }
+  }
+  if (is_derived) {
+    derived2 = /** @type {Derived} */
+    signal;
+    if (check_dirtiness(derived2)) {
+      update_derived(derived2);
+    }
+  }
+  if (dev_fallback_default && tracing_mode_flag && tracing_expressions !== null && active_reaction !== null && tracing_expressions.reaction === active_reaction) {
+    if (signal.debug) {
+      signal.debug();
+    } else if (signal.created) {
+      var entry = tracing_expressions.entries.get(signal);
+      if (entry === void 0) {
+        entry = { read: [] };
+        tracing_expressions.entries.set(signal, entry);
+      }
+      entry.read.push(get_stack("TracedAt"));
+    }
+  }
+  if (is_destroying_effect && old_values.has(signal)) {
+    return old_values.get(signal);
+  }
+  return signal.v;
+}
+function untrack(fn) {
+  var previous_untracking = untracking;
+  try {
+    untracking = true;
+    return fn();
+  } finally {
+    untracking = previous_untracking;
+  }
+}
+var STATUS_MASK = ~(DIRTY | MAYBE_DIRTY | CLEAN);
+function set_signal_status(signal, status) {
+  signal.f = signal.f & STATUS_MASK | status;
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/reactivity/sources.js
+var inspect_effects = /* @__PURE__ */ new Set();
+var old_values = /* @__PURE__ */ new Map();
+function set_inspect_effects(v) {
+  inspect_effects = v;
+}
+function source(v, stack2) {
+  var signal = {
+    f: 0,
+    // TODO ideally we could skip this altogether, but it causes type errors
+    v,
+    reactions: null,
+    equals,
+    rv: 0,
+    wv: 0
+  };
+  if (dev_fallback_default && tracing_mode_flag) {
+    signal.created = stack2 != null ? stack2 : get_stack("CreatedAt");
+    signal.debug = null;
+  }
+  return signal;
+}
+// @__NO_SIDE_EFFECTS__
+function state(v, stack2) {
+  const s = source(v, stack2);
+  push_reaction_value(s);
+  return s;
+}
+// @__NO_SIDE_EFFECTS__
+function mutable_source(initial_value, immutable = false) {
+  var _a3, _b3;
+  const s = source(initial_value);
+  if (!immutable) {
+    s.equals = safe_equals;
+  }
+  if (legacy_mode_flag && component_context !== null && component_context.l !== null) {
+    ((_b3 = (_a3 = component_context.l).s) != null ? _b3 : _a3.s = []).push(s);
+  }
+  return s;
+}
+function set(source2, value, should_proxy = false) {
+  var _a3;
+  if (active_reaction !== null && !untracking && is_runes() && (active_reaction.f & (DERIVED | BLOCK_EFFECT)) !== 0 && !((_a3 = reaction_sources) == null ? void 0 : _a3.includes(source2))) {
+    state_unsafe_mutation();
+  }
+  let new_value = should_proxy ? proxy(value) : value;
+  return internal_set(source2, new_value);
+}
+function internal_set(source2, value) {
+  var _a3;
+  if (!source2.equals(value)) {
+    var old_value = source2.v;
+    if (is_destroying_effect) {
+      old_values.set(source2, value);
+    } else {
+      old_values.set(source2, old_value);
+    }
+    source2.v = value;
+    if (dev_fallback_default && tracing_mode_flag) {
+      source2.updated = get_stack("UpdatedAt");
+      if (active_effect != null) {
+        source2.trace_need_increase = true;
+        (_a3 = source2.trace_v) != null ? _a3 : source2.trace_v = old_value;
+      }
+    }
+    if ((source2.f & DERIVED) !== 0) {
+      if ((source2.f & DIRTY) !== 0) {
+        execute_derived(
+          /** @type {Derived} */
+          source2
+        );
+      }
+      set_signal_status(source2, (source2.f & UNOWNED) === 0 ? CLEAN : MAYBE_DIRTY);
+    }
+    source2.wv = increment_write_version();
+    mark_reactions(source2, DIRTY);
+    if (is_runes() && active_effect !== null && (active_effect.f & CLEAN) !== 0 && (active_effect.f & (BRANCH_EFFECT | ROOT_EFFECT)) === 0) {
+      if (untracked_writes === null) {
+        set_untracked_writes([source2]);
+      } else {
+        untracked_writes.push(source2);
+      }
+    }
+    if (dev_fallback_default && inspect_effects.size > 0) {
+      const inspects = Array.from(inspect_effects);
+      for (const effect2 of inspects) {
+        if ((effect2.f & CLEAN) !== 0) {
+          set_signal_status(effect2, MAYBE_DIRTY);
+        }
+        if (check_dirtiness(effect2)) {
+          update_effect(effect2);
+        }
+      }
+      inspect_effects.clear();
+    }
+  }
+  return value;
+}
+function mark_reactions(signal, status) {
+  var reactions = signal.reactions;
+  if (reactions === null) return;
+  var runes = is_runes();
+  var length = reactions.length;
+  for (var i = 0; i < length; i++) {
+    var reaction = reactions[i];
+    var flags = reaction.f;
+    if ((flags & DIRTY) !== 0) continue;
+    if (!runes && reaction === active_effect) continue;
+    if (dev_fallback_default && (flags & INSPECT_EFFECT) !== 0) {
+      inspect_effects.add(reaction);
+      continue;
+    }
+    set_signal_status(reaction, status);
+    if ((flags & (CLEAN | UNOWNED)) !== 0) {
+      if ((flags & DERIVED) !== 0) {
+        mark_reactions(
+          /** @type {Derived} */
+          reaction,
+          MAYBE_DIRTY
+        );
+      } else {
+        schedule_effect(
+          /** @type {Effect} */
+          reaction
+        );
+      }
+    }
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/context.js
+var component_context = null;
+function set_component_context(context) {
+  component_context = context;
+}
+var dev_current_component_function = null;
+function set_dev_current_component_function(fn) {
+  dev_current_component_function = fn;
+}
+function push(props, runes = false, fn) {
+  var ctx = component_context = {
+    p: component_context,
+    c: null,
+    d: false,
+    e: null,
+    m: false,
+    s: props,
+    x: null,
+    l: null
+  };
+  if (legacy_mode_flag && !runes) {
+    component_context.l = {
+      s: null,
+      u: null,
+      r1: [],
+      r2: source(false)
+    };
+  }
+  teardown(() => {
+    ctx.d = true;
+  });
+  if (dev_fallback_default) {
+    component_context.function = fn;
+    dev_current_component_function = fn;
+  }
+}
+function pop(component2) {
+  var _a3, _b3;
+  const context_stack_item = component_context;
+  if (context_stack_item !== null) {
+    if (component2 !== void 0) {
+      context_stack_item.x = component2;
+    }
+    const component_effects = context_stack_item.e;
+    if (component_effects !== null) {
+      var previous_effect = active_effect;
+      var previous_reaction = active_reaction;
+      context_stack_item.e = null;
+      try {
+        for (var i = 0; i < component_effects.length; i++) {
+          var component_effect = component_effects[i];
+          set_active_effect(component_effect.effect);
+          set_active_reaction(component_effect.reaction);
+          effect(component_effect.fn);
+        }
+      } finally {
+        set_active_effect(previous_effect);
+        set_active_reaction(previous_reaction);
+      }
+    }
+    component_context = context_stack_item.p;
+    if (dev_fallback_default) {
+      dev_current_component_function = (_b3 = (_a3 = context_stack_item.p) == null ? void 0 : _a3.function) != null ? _b3 : null;
+    }
+    context_stack_item.m = true;
+  }
+  return component2 || /** @type {T} */
+  {};
+}
+function is_runes() {
+  return !legacy_mode_flag || component_context !== null && component_context.l === null;
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/utils.js
+function is_capture_event(name) {
+  return name.endsWith("capture") && name !== "gotpointercapture" && name !== "lostpointercapture";
+}
+var DELEGATED_EVENTS = [
+  "beforeinput",
+  "click",
+  "change",
+  "dblclick",
+  "contextmenu",
+  "focusin",
+  "focusout",
+  "input",
+  "keydown",
+  "keyup",
+  "mousedown",
+  "mousemove",
+  "mouseout",
+  "mouseover",
+  "mouseup",
+  "pointerdown",
+  "pointermove",
+  "pointerout",
+  "pointerover",
+  "pointerup",
+  "touchend",
+  "touchmove",
+  "touchstart"
+];
+function is_delegated(event_name) {
+  return DELEGATED_EVENTS.includes(event_name);
+}
+var DOM_BOOLEAN_ATTRIBUTES = [
+  "allowfullscreen",
+  "async",
+  "autofocus",
+  "autoplay",
+  "checked",
+  "controls",
+  "default",
+  "disabled",
+  "formnovalidate",
+  "hidden",
+  "indeterminate",
+  "inert",
+  "ismap",
+  "loop",
+  "multiple",
+  "muted",
+  "nomodule",
+  "novalidate",
+  "open",
+  "playsinline",
+  "readonly",
+  "required",
+  "reversed",
+  "seamless",
+  "selected",
+  "webkitdirectory",
+  "defer",
+  "disablepictureinpicture",
+  "disableremoteplayback"
+];
+var ATTRIBUTE_ALIASES = {
+  // no `class: 'className'` because we handle that separately
+  formnovalidate: "formNoValidate",
+  ismap: "isMap",
+  nomodule: "noModule",
+  playsinline: "playsInline",
+  readonly: "readOnly",
+  defaultvalue: "defaultValue",
+  defaultchecked: "defaultChecked",
+  srcobject: "srcObject",
+  novalidate: "noValidate",
+  allowfullscreen: "allowFullscreen",
+  disablepictureinpicture: "disablePictureInPicture",
+  disableremoteplayback: "disableRemotePlayback"
+};
+function normalize_attribute(name) {
+  var _a3;
+  name = name.toLowerCase();
+  return (_a3 = ATTRIBUTE_ALIASES[name]) != null ? _a3 : name;
+}
+var DOM_PROPERTIES = [
+  ...DOM_BOOLEAN_ATTRIBUTES,
+  "formNoValidate",
+  "isMap",
+  "noModule",
+  "playsInline",
+  "readOnly",
+  "value",
+  "volume",
+  "defaultValue",
+  "defaultChecked",
+  "srcObject",
+  "noValidate",
+  "allowFullscreen",
+  "disablePictureInPicture",
+  "disableRemotePlayback"
+];
+var PASSIVE_EVENTS = ["touchstart", "touchmove"];
+function is_passive_event(name) {
+  return PASSIVE_EVENTS.includes(name);
+}
+var RAW_TEXT_ELEMENTS = (
+  /** @type {const} */
+  ["textarea", "script", "style", "title"]
+);
+function is_raw_text_element(name) {
+  return RAW_TEXT_ELEMENTS.includes(
+    /** @type {RAW_TEXT_ELEMENTS[number]} */
+    name
+  );
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dev/css.js
+var all_styles = /* @__PURE__ */ new Map();
+function register_style(hash2, style) {
+  var styles = all_styles.get(hash2);
+  if (!styles) {
+    styles = /* @__PURE__ */ new Set();
+    all_styles.set(hash2, styles);
+  }
+  styles.add(style);
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/elements/misc.js
+function autofocus(dom, value) {
+  if (value) {
+    const body = document.body;
+    dom.autofocus = true;
+    queue_micro_task(() => {
+      if (document.activeElement === body) {
+        dom.focus();
+      }
+    });
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/elements/bindings/shared.js
+function without_reactive_context(fn) {
+  var previous_reaction = active_reaction;
+  var previous_effect = active_effect;
+  set_active_reaction(null);
+  set_active_effect(null);
+  try {
+    return fn();
+  } finally {
+    set_active_reaction(previous_reaction);
+    set_active_effect(previous_effect);
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/elements/events.js
+var all_registered_events = /* @__PURE__ */ new Set();
+var root_event_handles = /* @__PURE__ */ new Set();
+function create_event(event_name, dom, handler, options = {}) {
+  function target_handler(event2) {
+    if (!options.capture) {
+      handle_event_propagation.call(dom, event2);
+    }
+    if (!event2.cancelBubble) {
+      return without_reactive_context(() => {
+        return handler == null ? void 0 : handler.call(this, event2);
+      });
+    }
+  }
+  if (event_name.startsWith("pointer") || event_name.startsWith("touch") || event_name === "wheel") {
+    queue_micro_task(() => {
+      dom.addEventListener(event_name, target_handler, options);
+    });
+  } else {
+    dom.addEventListener(event_name, target_handler, options);
+  }
+  return target_handler;
+}
+function delegate(events) {
+  for (var i = 0; i < events.length; i++) {
+    all_registered_events.add(events[i]);
+  }
+  for (var fn of root_event_handles) {
+    fn(events);
+  }
+}
+function handle_event_propagation(event2) {
+  var _a3;
+  var handler_element = this;
+  var owner_document = (
+    /** @type {Node} */
+    handler_element.ownerDocument
+  );
+  var event_name = event2.type;
+  var path3 = ((_a3 = event2.composedPath) == null ? void 0 : _a3.call(event2)) || [];
+  var current_target = (
+    /** @type {null | Element} */
+    path3[0] || event2.target
+  );
+  var path_idx = 0;
+  var handled_at = event2.__root;
+  if (handled_at) {
+    var at_idx = path3.indexOf(handled_at);
+    if (at_idx !== -1 && (handler_element === document || handler_element === /** @type {any} */
+    window)) {
+      event2.__root = handler_element;
+      return;
+    }
+    var handler_idx = path3.indexOf(handler_element);
+    if (handler_idx === -1) {
+      return;
+    }
+    if (at_idx <= handler_idx) {
+      path_idx = at_idx;
+    }
+  }
+  current_target = /** @type {Element} */
+  path3[path_idx] || event2.target;
+  if (current_target === handler_element) return;
+  define_property(event2, "currentTarget", {
+    configurable: true,
+    get() {
+      return current_target || owner_document;
+    }
+  });
+  var previous_reaction = active_reaction;
+  var previous_effect = active_effect;
+  set_active_reaction(null);
+  set_active_effect(null);
+  try {
+    var throw_error;
+    var other_errors = [];
+    while (current_target !== null) {
+      var parent_element = current_target.assignedSlot || current_target.parentNode || /** @type {any} */
+      current_target.host || null;
+      try {
+        var delegated = current_target["__" + event_name];
+        if (delegated != null && (!/** @type {any} */
+        current_target.disabled || // DOM could've been updated already by the time this is reached, so we check this as well
+        // -> the target could not have been disabled because it emits the event in the first place
+        event2.target === current_target)) {
+          if (is_array(delegated)) {
+            var [fn, ...data] = delegated;
+            fn.apply(current_target, [event2, ...data]);
+          } else {
+            delegated.call(current_target, event2);
+          }
+        }
+      } catch (error2) {
+        if (throw_error) {
+          other_errors.push(error2);
+        } else {
+          throw_error = error2;
+        }
+      }
+      if (event2.cancelBubble || parent_element === handler_element || parent_element === null) {
+        break;
+      }
+      current_target = parent_element;
+    }
+    if (throw_error) {
+      for (let error2 of other_errors) {
+        queueMicrotask(() => {
+          throw error2;
+        });
+      }
+      throw throw_error;
+    }
+  } finally {
+    event2.__root = handler_element;
+    delete event2.currentTarget;
+    set_active_reaction(previous_reaction);
+    set_active_effect(previous_effect);
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/blocks/svelte-head.js
+var head_anchor;
+function reset_head_anchor() {
+  head_anchor = void 0;
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/reconciler.js
+function create_fragment_from_html(html2) {
+  var elem = document.createElement("template");
+  elem.innerHTML = html2;
+  return elem.content;
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/template.js
+function assign_nodes(start, end) {
+  var effect2 = (
+    /** @type {Effect} */
+    active_effect
+  );
+  if (effect2.nodes_start === null) {
+    effect2.nodes_start = start;
+    effect2.nodes_end = end;
+  }
+}
+// @__NO_SIDE_EFFECTS__
+function template(content, flags) {
+  var is_fragment = (flags & TEMPLATE_FRAGMENT) !== 0;
+  var use_import_node = (flags & TEMPLATE_USE_IMPORT_NODE) !== 0;
+  var node;
+  var has_start = !content.startsWith("<!>");
+  return () => {
+    if (hydrating) {
+      assign_nodes(hydrate_node, null);
+      return hydrate_node;
+    }
+    if (node === void 0) {
+      node = create_fragment_from_html(has_start ? content : "<!>" + content);
+      if (!is_fragment) node = /** @type {Node} */
+      get_first_child(node);
+    }
+    var clone = (
+      /** @type {TemplateNode} */
+      use_import_node || is_firefox ? document.importNode(node, true) : node.cloneNode(true)
+    );
+    if (is_fragment) {
+      var start = (
+        /** @type {TemplateNode} */
+        get_first_child(clone)
+      );
+      var end = (
+        /** @type {TemplateNode} */
+        clone.lastChild
+      );
+      assign_nodes(start, end);
+    } else {
+      assign_nodes(clone, clone);
+    }
+    return clone;
+  };
+}
+// @__NO_SIDE_EFFECTS__
+function ns_template(content, flags, ns = "svg") {
+  var has_start = !content.startsWith("<!>");
+  var is_fragment = (flags & TEMPLATE_FRAGMENT) !== 0;
+  var wrapped = `<${ns}>${has_start ? content : "<!>" + content}</${ns}>`;
+  var node;
+  return () => {
+    if (hydrating) {
+      assign_nodes(hydrate_node, null);
+      return hydrate_node;
+    }
+    if (!node) {
+      var fragment = (
+        /** @type {DocumentFragment} */
+        create_fragment_from_html(wrapped)
+      );
+      var root3 = (
+        /** @type {Element} */
+        get_first_child(fragment)
+      );
+      if (is_fragment) {
+        node = document.createDocumentFragment();
+        while (get_first_child(root3)) {
+          node.appendChild(
+            /** @type {Node} */
+            get_first_child(root3)
+          );
+        }
+      } else {
+        node = /** @type {Element} */
+        get_first_child(root3);
+      }
+    }
+    var clone = (
+      /** @type {TemplateNode} */
+      node.cloneNode(true)
+    );
+    if (is_fragment) {
+      var start = (
+        /** @type {TemplateNode} */
+        get_first_child(clone)
+      );
+      var end = (
+        /** @type {TemplateNode} */
+        clone.lastChild
+      );
+      assign_nodes(start, end);
+    } else {
+      assign_nodes(clone, clone);
+    }
+    return clone;
+  };
+}
+function comment() {
+  if (hydrating) {
+    assign_nodes(hydrate_node, null);
+    return hydrate_node;
+  }
+  var frag = document.createDocumentFragment();
+  var start = document.createComment("");
+  var anchor = create_text();
+  frag.append(start, anchor);
+  assign_nodes(start, anchor);
+  return frag;
+}
+function append(anchor, dom) {
+  if (hydrating) {
+    active_effect.nodes_end = hydrate_node;
+    hydrate_next();
+    return;
+  }
+  if (anchor === null) {
+    return;
+  }
+  anchor.before(
+    /** @type {Node} */
+    dom
+  );
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/render.js
+var should_intro = true;
+function set_should_intro(value) {
+  should_intro = value;
+}
+function set_text(text2, value) {
+  var _a3;
+  var str = value == null ? "" : typeof value === "object" ? value + "" : value;
+  if (str !== ((_a3 = text2.__t) != null ? _a3 : text2.__t = text2.nodeValue)) {
+    text2.__t = str;
+    text2.nodeValue = str + "";
+  }
+}
+function mount(component2, options) {
+  return _mount(component2, options);
+}
+function hydrate(component2, options) {
+  var _a3;
+  init_operations();
+  options.intro = (_a3 = options.intro) != null ? _a3 : false;
+  const target = options.target;
+  const was_hydrating = hydrating;
+  const previous_hydrate_node = hydrate_node;
+  try {
+    var anchor = (
+      /** @type {TemplateNode} */
+      get_first_child(target)
+    );
+    while (anchor && (anchor.nodeType !== 8 || /** @type {Comment} */
+    anchor.data !== HYDRATION_START)) {
+      anchor = /** @type {TemplateNode} */
+      get_next_sibling(anchor);
+    }
+    if (!anchor) {
+      throw HYDRATION_ERROR;
+    }
+    set_hydrating(true);
+    set_hydrate_node(
+      /** @type {Comment} */
+      anchor
+    );
+    hydrate_next();
+    const instance = _mount(component2, { ...options, anchor });
+    if (hydrate_node === null || hydrate_node.nodeType !== 8 || /** @type {Comment} */
+    hydrate_node.data !== HYDRATION_END) {
+      hydration_mismatch();
+      throw HYDRATION_ERROR;
+    }
+    set_hydrating(false);
+    return (
+      /**  @type {Exports} */
+      instance
+    );
+  } catch (error2) {
+    if (error2 === HYDRATION_ERROR) {
+      if (options.recover === false) {
+        hydration_failed();
+      }
+      init_operations();
+      clear_text_content(target);
+      set_hydrating(false);
+      return mount(component2, options);
+    }
+    throw error2;
+  } finally {
+    set_hydrating(was_hydrating);
+    set_hydrate_node(previous_hydrate_node);
+    reset_head_anchor();
+  }
+}
+var document_listeners = /* @__PURE__ */ new Map();
+function _mount(Component2, { target, anchor, props = {}, events, context, intro = true }) {
+  init_operations();
+  var registered_events = /* @__PURE__ */ new Set();
+  var event_handle = (events2) => {
+    for (var i = 0; i < events2.length; i++) {
+      var event_name = events2[i];
+      if (registered_events.has(event_name)) continue;
+      registered_events.add(event_name);
+      var passive2 = is_passive_event(event_name);
+      target.addEventListener(event_name, handle_event_propagation, { passive: passive2 });
+      var n = document_listeners.get(event_name);
+      if (n === void 0) {
+        document.addEventListener(event_name, handle_event_propagation, { passive: passive2 });
+        document_listeners.set(event_name, 1);
+      } else {
+        document_listeners.set(event_name, n + 1);
+      }
+    }
+  };
+  event_handle(array_from(all_registered_events));
+  root_event_handles.add(event_handle);
+  var component2 = void 0;
+  var unmount2 = component_root(() => {
+    var anchor_node = anchor != null ? anchor : target.appendChild(create_text());
+    branch(() => {
+      if (context) {
+        push({});
+        var ctx = (
+          /** @type {ComponentContext} */
+          component_context
+        );
+        ctx.c = context;
+      }
+      if (events) {
+        props.$$events = events;
+      }
+      if (hydrating) {
+        assign_nodes(
+          /** @type {TemplateNode} */
+          anchor_node,
+          null
+        );
+      }
+      should_intro = intro;
+      component2 = Component2(anchor_node, props) || {};
+      should_intro = true;
+      if (hydrating) {
+        active_effect.nodes_end = hydrate_node;
+      }
+      if (context) {
+        pop();
+      }
+    });
+    return () => {
+      var _a3;
+      for (var event_name of registered_events) {
+        target.removeEventListener(event_name, handle_event_propagation);
+        var n = (
+          /** @type {number} */
+          document_listeners.get(event_name)
+        );
+        if (--n === 0) {
+          document.removeEventListener(event_name, handle_event_propagation);
+          document_listeners.delete(event_name);
+        } else {
+          document_listeners.set(event_name, n);
+        }
+      }
+      root_event_handles.delete(event_handle);
+      if (anchor_node !== anchor) {
+        (_a3 = anchor_node.parentNode) == null ? void 0 : _a3.removeChild(anchor_node);
+      }
+    };
+  });
+  mounted_components.set(component2, unmount2);
+  return component2;
+}
+var mounted_components = /* @__PURE__ */ new WeakMap();
+function unmount(component2, options) {
+  const fn = mounted_components.get(component2);
+  if (fn) {
+    mounted_components.delete(component2);
+    return fn(options);
+  }
+  if (dev_fallback_default) {
+    lifecycle_double_unmount();
+  }
+  return Promise.resolve();
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/blocks/if.js
+function if_block(node, fn, [root_index, hydrate_index] = [0, 0]) {
+  if (hydrating && root_index === 0) {
+    hydrate_next();
+  }
+  var anchor = node;
+  var consequent_effect = null;
+  var alternate_effect = null;
+  var condition = UNINITIALIZED;
+  var flags = root_index > 0 ? EFFECT_TRANSPARENT : 0;
+  var has_branch = false;
+  const set_branch = (fn2, flag3 = true) => {
+    has_branch = true;
+    update_branch(flag3, fn2);
+  };
+  const update_branch = (new_condition, fn2) => {
+    if (condition === (condition = new_condition)) return;
+    let mismatch = false;
+    if (hydrating && hydrate_index !== -1) {
+      if (root_index === 0) {
+        const data = (
+          /** @type {Comment} */
+          anchor.data
+        );
+        if (data === HYDRATION_START) {
+          hydrate_index = 0;
+        } else if (data === HYDRATION_START_ELSE) {
+          hydrate_index = Infinity;
+        } else {
+          hydrate_index = parseInt(data.substring(1));
+          if (hydrate_index !== hydrate_index) {
+            hydrate_index = condition ? Infinity : -1;
+          }
+        }
+      }
+      const is_else = hydrate_index > root_index;
+      if (!!condition === is_else) {
+        anchor = remove_nodes();
+        set_hydrate_node(anchor);
+        set_hydrating(false);
+        mismatch = true;
+        hydrate_index = -1;
+      }
+    }
+    if (condition) {
+      if (consequent_effect) {
+        resume_effect(consequent_effect);
+      } else if (fn2) {
+        consequent_effect = branch(() => fn2(anchor));
+      }
+      if (alternate_effect) {
+        pause_effect(alternate_effect, () => {
+          alternate_effect = null;
+        });
+      }
+    } else {
+      if (alternate_effect) {
+        resume_effect(alternate_effect);
+      } else if (fn2) {
+        alternate_effect = branch(() => fn2(anchor, [root_index + 1, hydrate_index]));
+      }
+      if (consequent_effect) {
+        pause_effect(consequent_effect, () => {
+          consequent_effect = null;
+        });
+      }
+    }
+    if (mismatch) {
+      set_hydrating(true);
+    }
+  };
+  block(() => {
+    has_branch = false;
+    fn(set_branch);
+    if (!has_branch) {
+      update_branch(null, null);
+    }
+  }, flags);
+  if (hydrating) {
+    anchor = hydrate_node;
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/blocks/each.js
+var current_each_item = null;
+function set_current_each_item(item) {
+  current_each_item = item;
+}
+function index(_, i) {
+  return i;
+}
+function pause_effects(state2, items, controlled_anchor, items_map) {
+  var transitions = [];
+  var length = items.length;
+  for (var i = 0; i < length; i++) {
+    pause_children(items[i].e, transitions, true);
+  }
+  var is_controlled = length > 0 && transitions.length === 0 && controlled_anchor !== null;
+  if (is_controlled) {
+    var parent_node = (
+      /** @type {Element} */
+      /** @type {Element} */
+      controlled_anchor.parentNode
+    );
+    clear_text_content(parent_node);
+    parent_node.append(
+      /** @type {Element} */
+      controlled_anchor
+    );
+    items_map.clear();
+    link(state2, items[0].prev, items[length - 1].next);
+  }
+  run_out_transitions(transitions, () => {
+    for (var i2 = 0; i2 < length; i2++) {
+      var item = items[i2];
+      if (!is_controlled) {
+        items_map.delete(item.k);
+        link(state2, item.prev, item.next);
+      }
+      destroy_effect(item.e, !is_controlled);
+    }
+  });
+}
+function each(node, flags, get_collection, get_key, render_fn, fallback_fn = null) {
+  var anchor = node;
+  var state2 = { flags, items: /* @__PURE__ */ new Map(), first: null };
+  var is_controlled = (flags & EACH_IS_CONTROLLED) !== 0;
+  if (is_controlled) {
+    var parent_node = (
+      /** @type {Element} */
+      node
+    );
+    anchor = hydrating ? set_hydrate_node(
+      /** @type {Comment | Text} */
+      get_first_child(parent_node)
+    ) : parent_node.appendChild(create_text());
+  }
+  if (hydrating) {
+    hydrate_next();
+  }
+  var fallback2 = null;
+  var was_empty = false;
+  var each_array = derived_safe_equal(() => {
+    var collection = get_collection();
+    return is_array(collection) ? collection : collection == null ? [] : array_from(collection);
+  });
+  block(() => {
+    var array = get(each_array);
+    var length = array.length;
+    if (was_empty && length === 0) {
+      return;
+    }
+    was_empty = length === 0;
+    let mismatch = false;
+    if (hydrating) {
+      var is_else = (
+        /** @type {Comment} */
+        anchor.data === HYDRATION_START_ELSE
+      );
+      if (is_else !== (length === 0)) {
+        anchor = remove_nodes();
+        set_hydrate_node(anchor);
+        set_hydrating(false);
+        mismatch = true;
+      }
+    }
+    if (hydrating) {
+      var prev = null;
+      var item;
+      for (var i = 0; i < length; i++) {
+        if (hydrate_node.nodeType === 8 && /** @type {Comment} */
+        hydrate_node.data === HYDRATION_END) {
+          anchor = /** @type {Comment} */
+          hydrate_node;
+          mismatch = true;
+          set_hydrating(false);
+          break;
+        }
+        var value = array[i];
+        var key = get_key(value, i);
+        item = create_item(
+          hydrate_node,
+          state2,
+          prev,
+          null,
+          value,
+          key,
+          i,
+          render_fn,
+          flags,
+          get_collection
+        );
+        state2.items.set(key, item);
+        prev = item;
+      }
+      if (length > 0) {
+        set_hydrate_node(remove_nodes());
+      }
+    }
+    if (!hydrating) {
+      reconcile(array, state2, anchor, render_fn, flags, get_key, get_collection);
+    }
+    if (fallback_fn !== null) {
+      if (length === 0) {
+        if (fallback2) {
+          resume_effect(fallback2);
+        } else {
+          fallback2 = branch(() => fallback_fn(anchor));
+        }
+      } else if (fallback2 !== null) {
+        pause_effect(fallback2, () => {
+          fallback2 = null;
+        });
+      }
+    }
+    if (mismatch) {
+      set_hydrating(true);
+    }
+    get(each_array);
+  });
+  if (hydrating) {
+    anchor = hydrate_node;
+  }
+}
+function reconcile(array, state2, anchor, render_fn, flags, get_key, get_collection) {
+  var _a3, _b3, _c2, _d;
+  var is_animated = (flags & EACH_IS_ANIMATED) !== 0;
+  var should_update = (flags & (EACH_ITEM_REACTIVE | EACH_INDEX_REACTIVE)) !== 0;
+  var length = array.length;
+  var items = state2.items;
+  var first = state2.first;
+  var current = first;
+  var seen;
+  var prev = null;
+  var to_animate;
+  var matched = [];
+  var stashed = [];
+  var value;
+  var key;
+  var item;
+  var i;
+  if (is_animated) {
+    for (i = 0; i < length; i += 1) {
+      value = array[i];
+      key = get_key(value, i);
+      item = items.get(key);
+      if (item !== void 0) {
+        (_a3 = item.a) == null ? void 0 : _a3.measure();
+        (to_animate != null ? to_animate : to_animate = /* @__PURE__ */ new Set()).add(item);
+      }
+    }
+  }
+  for (i = 0; i < length; i += 1) {
+    value = array[i];
+    key = get_key(value, i);
+    item = items.get(key);
+    if (item === void 0) {
+      var child_anchor = current ? (
+        /** @type {TemplateNode} */
+        current.e.nodes_start
+      ) : anchor;
+      prev = create_item(
+        child_anchor,
+        state2,
+        prev,
+        prev === null ? state2.first : prev.next,
+        value,
+        key,
+        i,
+        render_fn,
+        flags,
+        get_collection
+      );
+      items.set(key, prev);
+      matched = [];
+      stashed = [];
+      current = prev.next;
+      continue;
+    }
+    if (should_update) {
+      update_item(item, value, i, flags);
+    }
+    if ((item.e.f & INERT) !== 0) {
+      resume_effect(item.e);
+      if (is_animated) {
+        (_b3 = item.a) == null ? void 0 : _b3.unfix();
+        (to_animate != null ? to_animate : to_animate = /* @__PURE__ */ new Set()).delete(item);
+      }
+    }
+    if (item !== current) {
+      if (seen !== void 0 && seen.has(item)) {
+        if (matched.length < stashed.length) {
+          var start = stashed[0];
+          var j;
+          prev = start.prev;
+          var a = matched[0];
+          var b = matched[matched.length - 1];
+          for (j = 0; j < matched.length; j += 1) {
+            move(matched[j], start, anchor);
+          }
+          for (j = 0; j < stashed.length; j += 1) {
+            seen.delete(stashed[j]);
+          }
+          link(state2, a.prev, b.next);
+          link(state2, prev, a);
+          link(state2, b, start);
+          current = start;
+          prev = b;
+          i -= 1;
+          matched = [];
+          stashed = [];
+        } else {
+          seen.delete(item);
+          move(item, current, anchor);
+          link(state2, item.prev, item.next);
+          link(state2, item, prev === null ? state2.first : prev.next);
+          link(state2, prev, item);
+          prev = item;
+        }
+        continue;
+      }
+      matched = [];
+      stashed = [];
+      while (current !== null && current.k !== key) {
+        if ((current.e.f & INERT) === 0) {
+          (seen != null ? seen : seen = /* @__PURE__ */ new Set()).add(current);
+        }
+        stashed.push(current);
+        current = current.next;
+      }
+      if (current === null) {
+        continue;
+      }
+      item = current;
+    }
+    matched.push(item);
+    prev = item;
+    current = item.next;
+  }
+  if (current !== null || seen !== void 0) {
+    var to_destroy = seen === void 0 ? [] : array_from(seen);
+    while (current !== null) {
+      if ((current.e.f & INERT) === 0) {
+        to_destroy.push(current);
+      }
+      current = current.next;
+    }
+    var destroy_length = to_destroy.length;
+    if (destroy_length > 0) {
+      var controlled_anchor = (flags & EACH_IS_CONTROLLED) !== 0 && length === 0 ? anchor : null;
+      if (is_animated) {
+        for (i = 0; i < destroy_length; i += 1) {
+          (_c2 = to_destroy[i].a) == null ? void 0 : _c2.measure();
+        }
+        for (i = 0; i < destroy_length; i += 1) {
+          (_d = to_destroy[i].a) == null ? void 0 : _d.fix();
+        }
+      }
+      pause_effects(state2, to_destroy, controlled_anchor, items);
+    }
+  }
+  if (is_animated) {
+    queue_micro_task(() => {
+      var _a4;
+      if (to_animate === void 0) return;
+      for (item of to_animate) {
+        (_a4 = item.a) == null ? void 0 : _a4.apply();
+      }
+    });
+  }
+  active_effect.first = state2.first && state2.first.e;
+  active_effect.last = prev && prev.e;
+}
+function update_item(item, value, index2, type) {
+  if ((type & EACH_ITEM_REACTIVE) !== 0) {
+    internal_set(item.v, value);
+  }
+  if ((type & EACH_INDEX_REACTIVE) !== 0) {
+    internal_set(
+      /** @type {Value<number>} */
+      item.i,
+      index2
+    );
+  } else {
+    item.i = index2;
+  }
+}
+function create_item(anchor, state2, prev, next2, value, key, index2, render_fn, flags, get_collection) {
+  var previous_each_item = current_each_item;
+  var reactive = (flags & EACH_ITEM_REACTIVE) !== 0;
+  var mutable = (flags & EACH_ITEM_IMMUTABLE) === 0;
+  var v = reactive ? mutable ? mutable_source(value) : source(value) : value;
+  var i = (flags & EACH_INDEX_REACTIVE) === 0 ? index2 : source(index2);
+  if (dev_fallback_default && reactive) {
+    v.debug = () => {
+      var collection_index = typeof i === "number" ? index2 : i.v;
+      get_collection()[collection_index];
+    };
+  }
+  var item = {
+    i,
+    v,
+    k: key,
+    a: null,
+    // @ts-expect-error
+    e: null,
+    prev,
+    next: next2
+  };
+  current_each_item = item;
+  try {
+    item.e = branch(() => render_fn(anchor, v, i, get_collection), hydrating);
+    item.e.prev = prev && prev.e;
+    item.e.next = next2 && next2.e;
+    if (prev === null) {
+      state2.first = item;
+    } else {
+      prev.next = item;
+      prev.e.next = item.e;
+    }
+    if (next2 !== null) {
+      next2.prev = item;
+      next2.e.prev = item.e;
+    }
+    return item;
+  } finally {
+    current_each_item = previous_each_item;
+  }
+}
+function move(item, next2, anchor) {
+  var end = item.next ? (
+    /** @type {TemplateNode} */
+    item.next.e.nodes_start
+  ) : anchor;
+  var dest = next2 ? (
+    /** @type {TemplateNode} */
+    next2.e.nodes_start
+  ) : anchor;
+  var node = (
+    /** @type {TemplateNode} */
+    item.e.nodes_start
+  );
+  while (node !== end) {
+    var next_node = (
+      /** @type {TemplateNode} */
+      get_next_sibling(node)
+    );
+    dest.before(node);
+    node = next_node;
+  }
+}
+function link(state2, prev, next2) {
+  if (prev === null) {
+    state2.first = next2;
+  } else {
+    prev.next = next2;
+    prev.e.next = next2 && next2.e;
+  }
+  if (next2 !== null) {
+    next2.prev = prev;
+    next2.e.prev = prev && prev.e;
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/blocks/snippet.js
+function snippet(node, get_snippet, ...args) {
+  var anchor = node;
+  var snippet2 = noop;
+  var snippet_effect;
+  block(() => {
+    if (snippet2 === (snippet2 = get_snippet())) return;
+    if (snippet_effect) {
+      destroy_effect(snippet_effect);
+      snippet_effect = null;
+    }
+    if (dev_fallback_default && snippet2 == null) {
+      invalid_snippet();
+    }
+    snippet_effect = branch(() => (
+      /** @type {SnippetFn} */
+      snippet2(anchor, ...args)
+    ));
+  }, EFFECT_TRANSPARENT);
+  if (hydrating) {
+    anchor = hydrate_node;
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/blocks/svelte-element.js
+function element(node, get_tag, is_svg, render_fn, get_namespace, location) {
+  var _a3;
+  let was_hydrating = hydrating;
+  if (hydrating) {
+    hydrate_next();
+  }
+  var filename = dev_fallback_default && location && ((_a3 = component_context) == null ? void 0 : _a3.function[FILENAME]);
+  var tag;
+  var current_tag;
+  var element2 = null;
+  if (hydrating && hydrate_node.nodeType === 1) {
+    element2 = /** @type {Element} */
+    hydrate_node;
+    hydrate_next();
+  }
+  var anchor = (
+    /** @type {TemplateNode} */
+    hydrating ? hydrate_node : node
+  );
+  var effect2;
+  var each_item_block = current_each_item;
+  block(() => {
+    const next_tag = get_tag() || null;
+    var ns = get_namespace ? get_namespace() : is_svg || next_tag === "svg" ? NAMESPACE_SVG : null;
+    if (next_tag === tag) return;
+    var previous_each_item = current_each_item;
+    set_current_each_item(each_item_block);
+    if (effect2) {
+      if (next_tag === null) {
+        pause_effect(effect2, () => {
+          effect2 = null;
+          current_tag = null;
+        });
+      } else if (next_tag === current_tag) {
+        resume_effect(effect2);
+      } else {
+        destroy_effect(effect2);
+        set_should_intro(false);
+      }
+    }
+    if (next_tag && next_tag !== current_tag) {
+      effect2 = branch(() => {
+        element2 = hydrating ? (
+          /** @type {Element} */
+          element2
+        ) : ns ? document.createElementNS(ns, next_tag) : document.createElement(next_tag);
+        if (dev_fallback_default && location) {
+          element2.__svelte_meta = {
+            loc: {
+              file: filename,
+              line: location[0],
+              column: location[1]
+            }
+          };
+        }
+        assign_nodes(element2, element2);
+        if (render_fn) {
+          if (hydrating && is_raw_text_element(next_tag)) {
+            element2.append(document.createComment(""));
+          }
+          var child_anchor = (
+            /** @type {TemplateNode} */
+            hydrating ? get_first_child(element2) : element2.appendChild(create_text())
+          );
+          if (hydrating) {
+            if (child_anchor === null) {
+              set_hydrating(false);
+            } else {
+              set_hydrate_node(child_anchor);
+            }
+          }
+          render_fn(element2, child_anchor);
+        }
+        active_effect.nodes_end = element2;
+        anchor.before(element2);
+      });
+    }
+    tag = next_tag;
+    if (tag) current_tag = tag;
+    set_should_intro(true);
+    set_current_each_item(previous_each_item);
+  }, EFFECT_TRANSPARENT);
+  if (was_hydrating) {
+    set_hydrating(true);
+    set_hydrate_node(anchor);
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/css.js
+function append_styles(anchor, css) {
+  queue_micro_task(() => {
+    var _a3;
+    var root3 = anchor.getRootNode();
+    var target = (
+      /** @type {ShadowRoot} */
+      root3.host ? (
+        /** @type {ShadowRoot} */
+        root3
+      ) : (
+        /** @type {Document} */
+        (_a3 = root3.head) != null ? _a3 : (
+          /** @type {Document} */
+          root3.ownerDocument.head
+        )
+      )
+    );
+    if (!target.querySelector("#" + css.hash)) {
+      const style = document.createElement("style");
+      style.id = css.hash;
+      style.textContent = css.code;
+      target.appendChild(style);
+      if (dev_fallback_default) {
+        register_style(css.hash, style);
+      }
+    }
+  });
+}
+
+// node_modules/.pnpm/clsx@2.1.1/node_modules/clsx/dist/clsx.mjs
+function r(e) {
+  var t, f, n = "";
+  if ("string" == typeof e || "number" == typeof e) n += e;
+  else if ("object" == typeof e) if (Array.isArray(e)) {
+    var o = e.length;
+    for (t = 0; t < o; t++) e[t] && (f = r(e[t])) && (n && (n += " "), n += f);
+  } else for (f in e) e[f] && (n && (n += " "), n += f);
+  return n;
+}
+function clsx() {
+  for (var e, t, f = 0, n = "", o = arguments.length; f < o; f++) (e = arguments[f]) && (t = r(e)) && (n && (n += " "), n += t);
+  return n;
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/shared/attributes.js
+function clsx2(value) {
+  if (typeof value === "object") {
+    return clsx(value);
+  } else {
+    return value != null ? value : "";
+  }
+}
+var whitespace = [..." 	\n\r\f\xA0\v\uFEFF"];
+function to_class(value, hash2, directives) {
+  var classname = value == null ? "" : "" + value;
+  if (hash2) {
+    classname = classname ? classname + " " + hash2 : hash2;
+  }
+  if (directives) {
+    for (var key in directives) {
+      if (directives[key]) {
+        classname = classname ? classname + " " + key : key;
+      } else if (classname.length) {
+        var len = key.length;
+        var a = 0;
+        while ((a = classname.indexOf(key, a)) >= 0) {
+          var b = a + len;
+          if ((a === 0 || whitespace.includes(classname[a - 1])) && (b === classname.length || whitespace.includes(classname[b]))) {
+            classname = (a === 0 ? "" : classname.substring(0, a)) + classname.substring(b + 1);
+          } else {
+            a = b;
+          }
+        }
+      }
+    }
+  }
+  return classname === "" ? null : classname;
+}
+function append_styles2(styles, important = false) {
+  var separator = important ? " !important;" : ";";
+  var css = "";
+  for (var key in styles) {
+    var value = styles[key];
+    if (value != null && value !== "") {
+      css += " " + key + ": " + value + separator;
+    }
+  }
+  return css;
+}
+function to_css_name(name) {
+  if (name[0] !== "-" || name[1] !== "-") {
+    return name.toLowerCase();
+  }
+  return name;
+}
+function to_style(value, styles) {
+  if (styles) {
+    var new_style = "";
+    var normal_styles;
+    var important_styles;
+    if (Array.isArray(styles)) {
+      normal_styles = styles[0];
+      important_styles = styles[1];
+    } else {
+      normal_styles = styles;
+    }
+    if (value) {
+      value = String(value).replaceAll(/\s*\/\*.*?\*\/\s*/g, "").trim();
+      var in_str = false;
+      var in_apo = 0;
+      var in_comment = false;
+      var reserved_names = [];
+      if (normal_styles) {
+        reserved_names.push(...Object.keys(normal_styles).map(to_css_name));
+      }
+      if (important_styles) {
+        reserved_names.push(...Object.keys(important_styles).map(to_css_name));
+      }
+      var start_index = 0;
+      var name_index = -1;
+      const len = value.length;
+      for (var i = 0; i < len; i++) {
+        var c = value[i];
+        if (in_comment) {
+          if (c === "/" && value[i - 1] === "*") {
+            in_comment = false;
+          }
+        } else if (in_str) {
+          if (in_str === c) {
+            in_str = false;
+          }
+        } else if (c === "/" && value[i + 1] === "*") {
+          in_comment = true;
+        } else if (c === '"' || c === "'") {
+          in_str = c;
+        } else if (c === "(") {
+          in_apo++;
+        } else if (c === ")") {
+          in_apo--;
+        }
+        if (!in_comment && in_str === false && in_apo === 0) {
+          if (c === ":" && name_index === -1) {
+            name_index = i;
+          } else if (c === ";" || i === len - 1) {
+            if (name_index !== -1) {
+              var name = to_css_name(value.substring(start_index, name_index).trim());
+              if (!reserved_names.includes(name)) {
+                if (c !== ";") {
+                  i++;
+                }
+                var property = value.substring(start_index, i).trim();
+                new_style += " " + property + ";";
+              }
+            }
+            start_index = i + 1;
+            name_index = -1;
+          }
+        }
+      }
+    }
+    if (normal_styles) {
+      new_style += append_styles2(normal_styles);
+    }
+    if (important_styles) {
+      new_style += append_styles2(important_styles, true);
+    }
+    new_style = new_style.trim();
+    return new_style === "" ? null : new_style;
+  }
+  return value == null ? null : String(value);
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/elements/class.js
+function set_class(dom, is_html, value, hash2, prev_classes, next_classes) {
+  var prev = dom.__className;
+  if (hydrating || prev !== value || prev === void 0) {
+    var next_class_name = to_class(value, hash2, next_classes);
+    if (!hydrating || next_class_name !== dom.getAttribute("class")) {
+      if (next_class_name == null) {
+        dom.removeAttribute("class");
+      } else if (is_html) {
+        dom.className = next_class_name;
+      } else {
+        dom.setAttribute("class", next_class_name);
+      }
+    }
+    dom.__className = value;
+  } else if (next_classes && prev_classes !== next_classes) {
+    for (var key in next_classes) {
+      var is_present = !!next_classes[key];
+      if (prev_classes == null || is_present !== !!prev_classes[key]) {
+        dom.classList.toggle(key, is_present);
+      }
+    }
+  }
+  return next_classes;
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/elements/style.js
+function update_styles(dom, prev = {}, next2, priority) {
+  for (var key in next2) {
+    var value = next2[key];
+    if (prev[key] !== value) {
+      if (next2[key] == null) {
+        dom.style.removeProperty(key);
+      } else {
+        dom.style.setProperty(key, value, priority);
+      }
+    }
+  }
+}
+function set_style(dom, value, prev_styles, next_styles) {
+  var prev = dom.__style;
+  if (hydrating || prev !== value) {
+    var next_style_attr = to_style(value, next_styles);
+    if (!hydrating || next_style_attr !== dom.getAttribute("style")) {
+      if (next_style_attr == null) {
+        dom.removeAttribute("style");
+      } else {
+        dom.style.cssText = next_style_attr;
+      }
+    }
+    dom.__style = value;
+  } else if (next_styles) {
+    if (Array.isArray(next_styles)) {
+      update_styles(dom, prev_styles == null ? void 0 : prev_styles[0], next_styles[0]);
+      update_styles(dom, prev_styles == null ? void 0 : prev_styles[1], next_styles[1], "important");
+    } else {
+      update_styles(dom, prev_styles, next_styles);
+    }
+  }
+  return next_styles;
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/elements/attributes.js
+var CLASS = Symbol("class");
+var STYLE = Symbol("style");
+var IS_CUSTOM_ELEMENT = Symbol("is custom element");
+var IS_HTML = Symbol("is html");
+function set_selected(element2, selected) {
+  if (selected) {
+    if (!element2.hasAttribute("selected")) {
+      element2.setAttribute("selected", "");
+    }
+  } else {
+    element2.removeAttribute("selected");
+  }
+}
+function set_attribute(element2, attribute, value, skip_warning) {
+  var attributes = get_attributes(element2);
+  if (hydrating) {
+    attributes[attribute] = element2.getAttribute(attribute);
+    if (attribute === "src" || attribute === "srcset" || attribute === "href" && element2.nodeName === "LINK") {
+      if (!skip_warning) {
+        check_src_in_dev_hydration(element2, attribute, value != null ? value : "");
+      }
+      return;
+    }
+  }
+  if (attributes[attribute] === (attributes[attribute] = value)) return;
+  if (attribute === "loading") {
+    element2[LOADING_ATTR_SYMBOL] = value;
+  }
+  if (value == null) {
+    element2.removeAttribute(attribute);
+  } else if (typeof value !== "string" && get_setters(element2).includes(attribute)) {
+    element2[attribute] = value;
+  } else {
+    element2.setAttribute(attribute, value);
+  }
+}
+function set_attributes(element2, prev, next2, css_hash, skip_warning = false) {
+  var _a3;
+  var attributes = get_attributes(element2);
+  var is_custom_element = attributes[IS_CUSTOM_ELEMENT];
+  var preserve_attribute_case = !attributes[IS_HTML];
+  let is_hydrating_custom_element = hydrating && is_custom_element;
+  if (is_hydrating_custom_element) {
+    set_hydrating(false);
+  }
+  var current = prev || {};
+  var is_option_element = element2.tagName === "OPTION";
+  for (var key in prev) {
+    if (!(key in next2)) {
+      next2[key] = null;
+    }
+  }
+  if (next2.class) {
+    next2.class = clsx2(next2.class);
+  } else if (css_hash || next2[CLASS]) {
+    next2.class = null;
+  }
+  if (next2[STYLE]) {
+    (_a3 = next2.style) != null ? _a3 : next2.style = null;
+  }
+  var setters = get_setters(element2);
+  for (const key2 in next2) {
+    let value = next2[key2];
+    if (is_option_element && key2 === "value" && value == null) {
+      element2.value = element2.__value = "";
+      current[key2] = value;
+      continue;
+    }
+    if (key2 === "class") {
+      var is_html = element2.namespaceURI === "http://www.w3.org/1999/xhtml";
+      set_class(element2, is_html, value, css_hash, prev == null ? void 0 : prev[CLASS], next2[CLASS]);
+      current[key2] = value;
+      current[CLASS] = next2[CLASS];
+      continue;
+    }
+    if (key2 === "style") {
+      set_style(element2, value, prev == null ? void 0 : prev[STYLE], next2[STYLE]);
+      current[key2] = value;
+      current[STYLE] = next2[STYLE];
+      continue;
+    }
+    var prev_value = current[key2];
+    if (value === prev_value) continue;
+    current[key2] = value;
+    var prefix = key2[0] + key2[1];
+    if (prefix === "$$") continue;
+    if (prefix === "on") {
+      const opts = {};
+      const event_handle_key = "$$" + key2;
+      let event_name = key2.slice(2);
+      var delegated = is_delegated(event_name);
+      if (is_capture_event(event_name)) {
+        event_name = event_name.slice(0, -7);
+        opts.capture = true;
+      }
+      if (!delegated && prev_value) {
+        if (value != null) continue;
+        element2.removeEventListener(event_name, current[event_handle_key], opts);
+        current[event_handle_key] = null;
+      }
+      if (value != null) {
+        if (!delegated) {
+          let handle = function(evt) {
+            current[key2].call(this, evt);
+          };
+          current[event_handle_key] = create_event(event_name, element2, handle, opts);
+        } else {
+          element2[`__${event_name}`] = value;
+          delegate([event_name]);
+        }
+      } else if (delegated) {
+        element2[`__${event_name}`] = void 0;
+      }
+    } else if (key2 === "style") {
+      set_attribute(element2, key2, value);
+    } else if (key2 === "autofocus") {
+      autofocus(
+        /** @type {HTMLElement} */
+        element2,
+        Boolean(value)
+      );
+    } else if (!is_custom_element && (key2 === "__value" || key2 === "value" && value != null)) {
+      element2.value = element2.__value = value;
+    } else if (key2 === "selected" && is_option_element) {
+      set_selected(
+        /** @type {HTMLOptionElement} */
+        element2,
+        value
+      );
+    } else {
+      var name = key2;
+      if (!preserve_attribute_case) {
+        name = normalize_attribute(name);
+      }
+      var is_default = name === "defaultValue" || name === "defaultChecked";
+      if (value == null && !is_custom_element && !is_default) {
+        attributes[key2] = null;
+        if (name === "value" || name === "checked") {
+          let input = (
+            /** @type {HTMLInputElement} */
+            element2
+          );
+          const use_default = prev === void 0;
+          if (name === "value") {
+            let previous = input.defaultValue;
+            input.removeAttribute(name);
+            input.defaultValue = previous;
+            input.value = input.__value = use_default ? previous : null;
+          } else {
+            let previous = input.defaultChecked;
+            input.removeAttribute(name);
+            input.defaultChecked = previous;
+            input.checked = use_default ? previous : false;
+          }
+        } else {
+          element2.removeAttribute(key2);
+        }
+      } else if (is_default || setters.includes(name) && (is_custom_element || typeof value !== "string")) {
+        element2[name] = value;
+      } else if (typeof value !== "function") {
+        set_attribute(element2, name, value, skip_warning);
+      }
+    }
+  }
+  if (is_hydrating_custom_element) {
+    set_hydrating(true);
+  }
+  return current;
+}
+function get_attributes(element2) {
+  var _a3;
+  return (
+    /** @type {Record<string | symbol, unknown>} **/
+    // @ts-expect-error
+    (_a3 = element2.__attributes) != null ? _a3 : element2.__attributes = {
+      [IS_CUSTOM_ELEMENT]: element2.nodeName.includes("-"),
+      [IS_HTML]: element2.namespaceURI === NAMESPACE_HTML
+    }
+  );
+}
+var setters_cache = /* @__PURE__ */ new Map();
+function get_setters(element2) {
+  var setters = setters_cache.get(element2.nodeName);
+  if (setters) return setters;
+  setters_cache.set(element2.nodeName, setters = []);
+  var descriptors;
+  var proto = element2;
+  var element_proto = Element.prototype;
+  while (element_proto !== proto) {
+    descriptors = get_descriptors(proto);
+    for (var key in descriptors) {
+      if (descriptors[key].set) {
+        setters.push(key);
+      }
+    }
+    proto = get_prototype_of(proto);
+  }
+  return setters;
+}
+function check_src_in_dev_hydration(element2, attribute, value) {
+  var _a3;
+  if (!dev_fallback_default) return;
+  if (attribute === "srcset" && srcset_url_equal(element2, value)) return;
+  if (src_url_equal((_a3 = element2.getAttribute(attribute)) != null ? _a3 : "", value)) return;
+  hydration_attribute_changed(
+    attribute,
+    element2.outerHTML.replace(element2.innerHTML, element2.innerHTML && "..."),
+    String(value)
+  );
+}
+function src_url_equal(element_src, url) {
+  if (element_src === url) return true;
+  return new URL(element_src, document.baseURI).href === new URL(url, document.baseURI).href;
+}
+function split_srcset(srcset) {
+  return srcset.split(",").map((src) => src.trim().split(" ").filter(Boolean));
+}
+function srcset_url_equal(element2, srcset) {
+  var element_urls = split_srcset(element2.srcset);
+  var urls = split_srcset(srcset);
+  return urls.length === element_urls.length && urls.every(
+    ([url, width], i) => width === element_urls[i][1] && // We need to test both ways because Vite will create an a full URL with
+    // `new URL(asset, import.meta.url).href` for the client when `base: './'`, and the
+    // relative URLs inside srcset are not automatically resolved to absolute URLs by
+    // browsers (in contrast to img.src). This means both SSR and DOM code could
+    // contain relative or absolute URLs.
+    (src_url_equal(element_urls[i][0], url) || src_url_equal(url, element_urls[i][0]))
+  );
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/index-client.js
+if (dev_fallback_default) {
+  let throw_rune_error = function(rune) {
+    if (!(rune in globalThis)) {
+      let value;
+      Object.defineProperty(globalThis, rune, {
+        configurable: true,
+        // eslint-disable-next-line getter-return
+        get: () => {
+          if (value !== void 0) {
+            return value;
+          }
+          rune_outside_svelte(rune);
+        },
+        set: (v) => {
+          value = v;
+        }
+      });
+    }
+  };
+  throw_rune_error("$state");
+  throw_rune_error("$effect");
+  throw_rune_error("$derived");
+  throw_rune_error("$inspect");
+  throw_rune_error("$props");
+  throw_rune_error("$bindable");
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/reactivity/store.js
+var is_store_binding = false;
+var IS_UNMOUNTED = Symbol();
+function capture_store_binding(fn) {
+  var previous_is_store_binding = is_store_binding;
+  try {
+    is_store_binding = false;
+    return [fn(), is_store_binding];
+  } finally {
+    is_store_binding = previous_is_store_binding;
+  }
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/reactivity/props.js
+var rest_props_handler = {
+  get(target, key) {
+    if (target.exclude.includes(key)) return;
+    return target.props[key];
+  },
+  set(target, key) {
+    if (dev_fallback_default) {
+      props_rest_readonly(`${target.name}.${String(key)}`);
+    }
+    return false;
+  },
+  getOwnPropertyDescriptor(target, key) {
+    if (target.exclude.includes(key)) return;
+    if (key in target.props) {
+      return {
+        enumerable: true,
+        configurable: true,
+        value: target.props[key]
+      };
+    }
+  },
+  has(target, key) {
+    if (target.exclude.includes(key)) return false;
+    return key in target.props;
+  },
+  ownKeys(target) {
+    return Reflect.ownKeys(target.props).filter((key) => !target.exclude.includes(key));
+  }
+};
+// @__NO_SIDE_EFFECTS__
+function rest_props(props, exclude, name) {
+  return new Proxy(
+    dev_fallback_default ? { props, exclude, name, other: {}, to_proxy: [] } : { props, exclude },
+    rest_props_handler
+  );
+}
+var spread_props_handler = {
+  get(target, key) {
+    let i = target.props.length;
+    while (i--) {
+      let p = target.props[i];
+      if (is_function(p)) p = p();
+      if (typeof p === "object" && p !== null && key in p) return p[key];
+    }
+  },
+  set(target, key, value) {
+    let i = target.props.length;
+    while (i--) {
+      let p = target.props[i];
+      if (is_function(p)) p = p();
+      const desc = get_descriptor(p, key);
+      if (desc && desc.set) {
+        desc.set(value);
+        return true;
+      }
+    }
+    return false;
+  },
+  getOwnPropertyDescriptor(target, key) {
+    let i = target.props.length;
+    while (i--) {
+      let p = target.props[i];
+      if (is_function(p)) p = p();
+      if (typeof p === "object" && p !== null && key in p) {
+        const descriptor = get_descriptor(p, key);
+        if (descriptor && !descriptor.configurable) {
+          descriptor.configurable = true;
+        }
+        return descriptor;
+      }
+    }
+  },
+  has(target, key) {
+    if (key === STATE_SYMBOL || key === LEGACY_PROPS) return false;
+    for (let p of target.props) {
+      if (is_function(p)) p = p();
+      if (p != null && key in p) return true;
+    }
+    return false;
+  },
+  ownKeys(target) {
+    const keys = [];
+    for (let p of target.props) {
+      if (is_function(p)) p = p();
+      for (const key in p) {
+        if (!keys.includes(key)) keys.push(key);
+      }
+    }
+    return keys;
+  }
+};
+function spread_props(...props) {
+  return new Proxy({ props }, spread_props_handler);
+}
+function has_destroyed_component_ctx(current_value) {
+  var _a3, _b3;
+  return (_b3 = (_a3 = current_value.ctx) == null ? void 0 : _a3.d) != null ? _b3 : false;
+}
+function prop(props, key, flags, fallback2) {
+  var _a3, _b3;
+  var immutable = (flags & PROPS_IS_IMMUTABLE) !== 0;
+  var runes = !legacy_mode_flag || (flags & PROPS_IS_RUNES) !== 0;
+  var bindable = (flags & PROPS_IS_BINDABLE) !== 0;
+  var lazy = (flags & PROPS_IS_LAZY_INITIAL) !== 0;
+  var is_store_sub = false;
+  var prop_value;
+  if (bindable) {
+    [prop_value, is_store_sub] = capture_store_binding(() => (
+      /** @type {V} */
+      props[key]
+    ));
+  } else {
+    prop_value = /** @type {V} */
+    props[key];
+  }
+  var is_entry_props = STATE_SYMBOL in props || LEGACY_PROPS in props;
+  var setter = bindable && ((_b3 = (_a3 = get_descriptor(props, key)) == null ? void 0 : _a3.set) != null ? _b3 : is_entry_props && key in props && ((v) => props[key] = v)) || void 0;
+  var fallback_value = (
+    /** @type {V} */
+    fallback2
+  );
+  var fallback_dirty = true;
+  var fallback_used = false;
+  var get_fallback = () => {
+    fallback_used = true;
+    if (fallback_dirty) {
+      fallback_dirty = false;
+      if (lazy) {
+        fallback_value = untrack(
+          /** @type {() => V} */
+          fallback2
+        );
+      } else {
+        fallback_value = /** @type {V} */
+        fallback2;
+      }
+    }
+    return fallback_value;
+  };
+  if (prop_value === void 0 && fallback2 !== void 0) {
+    if (setter && runes) {
+      props_invalid_value(key);
+    }
+    prop_value = get_fallback();
+    if (setter) setter(prop_value);
+  }
+  var getter;
+  if (runes) {
+    getter = () => {
+      var value = (
+        /** @type {V} */
+        props[key]
+      );
+      if (value === void 0) return get_fallback();
+      fallback_dirty = true;
+      fallback_used = false;
+      return value;
+    };
+  } else {
+    var derived_getter = (immutable ? derived : derived_safe_equal)(
+      () => (
+        /** @type {V} */
+        props[key]
+      )
+    );
+    derived_getter.f |= LEGACY_DERIVED_PROP;
+    getter = () => {
+      var value = get(derived_getter);
+      if (value !== void 0) fallback_value = /** @type {V} */
+      void 0;
+      return value === void 0 ? fallback_value : value;
+    };
+  }
+  if ((flags & PROPS_IS_UPDATED) === 0) {
+    return getter;
+  }
+  if (setter) {
+    var legacy_parent = props.$$legacy;
+    return function(value, mutation) {
+      if (arguments.length > 0) {
+        if (!runes || !mutation || legacy_parent || is_store_sub) {
+          setter(mutation ? getter() : value);
+        }
+        return value;
+      } else {
+        return getter();
+      }
+    };
+  }
+  var from_child = false;
+  var was_from_child = false;
+  var inner_current_value = mutable_source(prop_value);
+  var current_value = derived(() => {
+    var parent_value = getter();
+    var child_value = get(inner_current_value);
+    if (from_child) {
+      from_child = false;
+      was_from_child = true;
+      return child_value;
+    }
+    was_from_child = false;
+    return inner_current_value.v = parent_value;
+  });
+  if (bindable) {
+    get(current_value);
+  }
+  if (!immutable) current_value.equals = safe_equals;
+  return function(value, mutation) {
+    if (captured_signals !== null) {
+      from_child = was_from_child;
+      getter();
+      get(inner_current_value);
+    }
+    if (arguments.length > 0) {
+      const new_value = mutation ? get(current_value) : runes && bindable ? proxy(value) : value;
+      if (!current_value.equals(new_value)) {
+        from_child = true;
+        set(inner_current_value, new_value);
+        if (fallback_used && fallback_value !== void 0) {
+          fallback_value = new_value;
+        }
+        if (has_destroyed_component_ctx(current_value)) {
+          return value;
+        }
+        untrack(() => get(current_value));
+      }
+      return value;
+    }
+    if (has_destroyed_component_ctx(current_value)) {
+      return current_value.v;
+    }
+    return get(current_value);
+  };
+}
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/legacy/legacy-client.js
+function createClassComponent(options) {
+  return new Svelte4Component(options);
+}
+var _events, _instance;
+var Svelte4Component = class {
+  /**
+   * @param {ComponentConstructorOptions & {
+   *  component: any;
+   * }} options
+   */
+  constructor(options) {
+    /** @type {any} */
+    __privateAdd(this, _events);
+    /** @type {Record<string, any>} */
+    __privateAdd(this, _instance);
+    var _a3, _b3;
+    var sources = /* @__PURE__ */ new Map();
+    var add_source = (key, value) => {
+      var s = mutable_source(value);
+      sources.set(key, s);
+      return s;
+    };
+    const props = new Proxy(
+      { ...options.props || {}, $$events: {} },
+      {
+        get(target, prop2) {
+          var _a4;
+          return get((_a4 = sources.get(prop2)) != null ? _a4 : add_source(prop2, Reflect.get(target, prop2)));
+        },
+        has(target, prop2) {
+          var _a4;
+          if (prop2 === LEGACY_PROPS) return true;
+          get((_a4 = sources.get(prop2)) != null ? _a4 : add_source(prop2, Reflect.get(target, prop2)));
+          return Reflect.has(target, prop2);
+        },
+        set(target, prop2, value) {
+          var _a4;
+          set((_a4 = sources.get(prop2)) != null ? _a4 : add_source(prop2, value), value);
+          return Reflect.set(target, prop2, value);
+        }
+      }
+    );
+    __privateSet(this, _instance, (options.hydrate ? hydrate : mount)(options.component, {
+      target: options.target,
+      anchor: options.anchor,
+      props,
+      context: options.context,
+      intro: (_a3 = options.intro) != null ? _a3 : false,
+      recover: options.recover
+    }));
+    if (!((_b3 = options == null ? void 0 : options.props) == null ? void 0 : _b3.$$host) || options.sync === false) {
+      flushSync();
+    }
+    __privateSet(this, _events, props.$$events);
+    for (const key of Object.keys(__privateGet(this, _instance))) {
+      if (key === "$set" || key === "$destroy" || key === "$on") continue;
+      define_property(this, key, {
+        get() {
+          return __privateGet(this, _instance)[key];
+        },
+        /** @param {any} value */
+        set(value) {
+          __privateGet(this, _instance)[key] = value;
+        },
+        enumerable: true
+      });
+    }
+    __privateGet(this, _instance).$set = /** @param {Record<string, any>} next */
+    (next2) => {
+      Object.assign(props, next2);
+    };
+    __privateGet(this, _instance).$destroy = () => {
+      unmount(__privateGet(this, _instance));
+    };
+  }
+  /** @param {Record<string, any>} props */
+  $set(props) {
+    __privateGet(this, _instance).$set(props);
+  }
+  /**
+   * @param {string} event
+   * @param {(...args: any[]) => any} callback
+   * @returns {any}
+   */
+  $on(event2, callback) {
+    __privateGet(this, _events)[event2] = __privateGet(this, _events)[event2] || [];
+    const cb = (...args) => callback.call(this, ...args);
+    __privateGet(this, _events)[event2].push(cb);
+    return () => {
+      __privateGet(this, _events)[event2] = __privateGet(this, _events)[event2].filter(
+        /** @param {any} fn */
+        (fn) => fn !== cb
+      );
+    };
+  }
+  $destroy() {
+    __privateGet(this, _instance).$destroy();
+  }
+};
+_events = new WeakMap();
+_instance = new WeakMap();
+
+// node_modules/.pnpm/svelte@5.26.2/node_modules/svelte/src/internal/client/dom/elements/custom-element.js
+var SvelteElement;
+if (typeof HTMLElement === "function") {
+  SvelteElement = class extends HTMLElement {
+    /**
+     * @param {*} $$componentCtor
+     * @param {*} $$slots
+     * @param {*} use_shadow_dom
+     */
+    constructor($$componentCtor, $$slots, use_shadow_dom) {
+      super();
+      /** The Svelte component constructor */
+      __publicField(this, "$$ctor");
+      /** Slots */
+      __publicField(this, "$$s");
+      /** @type {any} The Svelte component instance */
+      __publicField(this, "$$c");
+      /** Whether or not the custom element is connected */
+      __publicField(this, "$$cn", false);
+      /** @type {Record<string, any>} Component props data */
+      __publicField(this, "$$d", {});
+      /** `true` if currently in the process of reflecting component props back to attributes */
+      __publicField(this, "$$r", false);
+      /** @type {Record<string, CustomElementPropDefinition>} Props definition (name, reflected, type etc) */
+      __publicField(this, "$$p_d", {});
+      /** @type {Record<string, EventListenerOrEventListenerObject[]>} Event listeners */
+      __publicField(this, "$$l", {});
+      /** @type {Map<EventListenerOrEventListenerObject, Function>} Event listener unsubscribe functions */
+      __publicField(this, "$$l_u", /* @__PURE__ */ new Map());
+      /** @type {any} The managed render effect for reflecting attributes */
+      __publicField(this, "$$me");
+      this.$$ctor = $$componentCtor;
+      this.$$s = $$slots;
+      if (use_shadow_dom) {
+        this.attachShadow({ mode: "open" });
+      }
+    }
+    /**
+     * @param {string} type
+     * @param {EventListenerOrEventListenerObject} listener
+     * @param {boolean | AddEventListenerOptions} [options]
+     */
+    addEventListener(type, listener, options) {
+      this.$$l[type] = this.$$l[type] || [];
+      this.$$l[type].push(listener);
+      if (this.$$c) {
+        const unsub = this.$$c.$on(type, listener);
+        this.$$l_u.set(listener, unsub);
+      }
+      super.addEventListener(type, listener, options);
+    }
+    /**
+     * @param {string} type
+     * @param {EventListenerOrEventListenerObject} listener
+     * @param {boolean | AddEventListenerOptions} [options]
+     */
+    removeEventListener(type, listener, options) {
+      super.removeEventListener(type, listener, options);
+      if (this.$$c) {
+        const unsub = this.$$l_u.get(listener);
+        if (unsub) {
+          unsub();
+          this.$$l_u.delete(listener);
+        }
+      }
+    }
+    async connectedCallback() {
+      this.$$cn = true;
+      if (!this.$$c) {
+        let create_slot = function(name) {
+          return (anchor) => {
+            const slot2 = document.createElement("slot");
+            if (name !== "default") slot2.name = name;
+            append(anchor, slot2);
+          };
+        };
+        await Promise.resolve();
+        if (!this.$$cn || this.$$c) {
+          return;
+        }
+        const $$slots = {};
+        const existing_slots = get_custom_elements_slots(this);
+        for (const name of this.$$s) {
+          if (name in existing_slots) {
+            if (name === "default" && !this.$$d.children) {
+              this.$$d.children = create_slot(name);
+              $$slots.default = true;
+            } else {
+              $$slots[name] = create_slot(name);
+            }
+          }
+        }
+        for (const attribute of this.attributes) {
+          const name = this.$$g_p(attribute.name);
+          if (!(name in this.$$d)) {
+            this.$$d[name] = get_custom_element_value(name, attribute.value, this.$$p_d, "toProp");
+          }
+        }
+        for (const key in this.$$p_d) {
+          if (!(key in this.$$d) && this[key] !== void 0) {
+            this.$$d[key] = this[key];
+            delete this[key];
+          }
+        }
+        this.$$c = createClassComponent({
+          component: this.$$ctor,
+          target: this.shadowRoot || this,
+          props: {
+            ...this.$$d,
+            $$slots,
+            $$host: this
+          }
+        });
+        this.$$me = effect_root(() => {
+          render_effect(() => {
+            var _a3;
+            this.$$r = true;
+            for (const key of object_keys(this.$$c)) {
+              if (!((_a3 = this.$$p_d[key]) == null ? void 0 : _a3.reflect)) continue;
+              this.$$d[key] = this.$$c[key];
+              const attribute_value = get_custom_element_value(
+                key,
+                this.$$d[key],
+                this.$$p_d,
+                "toAttribute"
+              );
+              if (attribute_value == null) {
+                this.removeAttribute(this.$$p_d[key].attribute || key);
+              } else {
+                this.setAttribute(this.$$p_d[key].attribute || key, attribute_value);
+              }
+            }
+            this.$$r = false;
+          });
+        });
+        for (const type in this.$$l) {
+          for (const listener of this.$$l[type]) {
+            const unsub = this.$$c.$on(type, listener);
+            this.$$l_u.set(listener, unsub);
+          }
+        }
+        this.$$l = {};
+      }
+    }
+    // We don't need this when working within Svelte code, but for compatibility of people using this outside of Svelte
+    // and setting attributes through setAttribute etc, this is helpful
+    /**
+     * @param {string} attr
+     * @param {string} _oldValue
+     * @param {string} newValue
+     */
+    attributeChangedCallback(attr2, _oldValue, newValue) {
+      var _a3;
+      if (this.$$r) return;
+      attr2 = this.$$g_p(attr2);
+      this.$$d[attr2] = get_custom_element_value(attr2, newValue, this.$$p_d, "toProp");
+      (_a3 = this.$$c) == null ? void 0 : _a3.$set({ [attr2]: this.$$d[attr2] });
+    }
+    disconnectedCallback() {
+      this.$$cn = false;
+      Promise.resolve().then(() => {
+        if (!this.$$cn && this.$$c) {
+          this.$$c.$destroy();
+          this.$$me();
+          this.$$c = void 0;
+        }
+      });
+    }
+    /**
+     * @param {string} attribute_name
+     */
+    $$g_p(attribute_name) {
+      return object_keys(this.$$p_d).find(
+        (key) => this.$$p_d[key].attribute === attribute_name || !this.$$p_d[key].attribute && key.toLowerCase() === attribute_name
+      ) || attribute_name;
+    }
+  };
+}
+function get_custom_element_value(prop2, value, props_definition, transform) {
+  var _a3;
+  const type = (_a3 = props_definition[prop2]) == null ? void 0 : _a3.type;
+  value = type === "Boolean" && typeof value !== "boolean" ? value != null : value;
+  if (!transform || !props_definition[prop2]) {
+    return value;
+  } else if (transform === "toAttribute") {
+    switch (type) {
+      case "Object":
+      case "Array":
+        return value == null ? null : JSON.stringify(value);
+      case "Boolean":
+        return value ? "" : null;
+      case "Number":
+        return value == null ? null : value;
+      default:
+        return value;
+    }
+  } else {
+    switch (type) {
+      case "Object":
+      case "Array":
+        return value && JSON.parse(value);
+      case "Boolean":
+        return value;
+      // conversion already handled above
+      case "Number":
+        return value != null ? +value : value;
+      default:
+        return value;
+    }
+  }
+}
+function get_custom_elements_slots(element2) {
+  const result = {};
+  element2.childNodes.forEach((node) => {
+    result[
+      /** @type {Element} node */
+      node.slot || "default"
+    ] = true;
+  });
+  return result;
+}
+
+// node_modules/.pnpm/@lucide+svelte@0.487.0_svelte@5.26.2/node_modules/@lucide/svelte/dist/defaultAttributes.js
+var defaultAttributes = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": 2,
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round"
+};
+var defaultAttributes_default = defaultAttributes;
+
+// node_modules/.pnpm/@lucide+svelte@0.487.0_svelte@5.26.2/node_modules/@lucide/svelte/dist/Icon.svelte
+var root = ns_template(`<svg><!><!></svg>`);
+function Icon($$anchor, $$props) {
+  push($$props, true);
+  const color = prop($$props, "color", 3, "currentColor"), size = prop($$props, "size", 3, 24), strokeWidth = prop($$props, "strokeWidth", 3, 2), absoluteStrokeWidth = prop($$props, "absoluteStrokeWidth", 3, false), iconNode = prop($$props, "iconNode", 19, () => []), props = rest_props($$props, [
+    "$$slots",
+    "$$events",
+    "$$legacy",
+    "name",
+    "color",
+    "size",
+    "strokeWidth",
+    "absoluteStrokeWidth",
+    "iconNode",
+    "children"
+  ]);
+  var svg = root();
+  let attributes;
+  var node = child(svg);
+  each(node, 17, iconNode, index, ($$anchor2, $$item) => {
+    let tag = () => get($$item)[0];
+    let attrs = () => get($$item)[1];
+    var fragment = comment();
+    var node_1 = first_child(fragment);
+    element(node_1, tag, true, ($$element, $$anchor3) => {
+      let attributes_1;
+      template_effect(() => attributes_1 = set_attributes($$element, attributes_1, { ...attrs() }));
+    });
+    append($$anchor2, fragment);
+  });
+  var node_2 = sibling(node);
+  snippet(node_2, () => {
+    var _a3;
+    return (_a3 = $$props.children) != null ? _a3 : noop;
+  });
+  reset(svg);
+  template_effect(
+    ($0) => attributes = set_attributes(svg, attributes, {
+      ...defaultAttributes_default,
+      ...props,
+      width: size(),
+      height: size(),
+      stroke: color(),
+      "stroke-width": $0,
+      class: [
+        "lucide-icon lucide",
+        $$props.name && `lucide-${$$props.name}`,
+        $$props.class
+      ]
+    }),
+    [
+      () => absoluteStrokeWidth() ? Number(strokeWidth()) * 24 / Number(size()) : strokeWidth()
+    ]
+  );
+  append($$anchor, svg);
+  pop();
+}
+
+// node_modules/.pnpm/@lucide+svelte@0.487.0_svelte@5.26.2/node_modules/@lucide/svelte/dist/icons/loader.svelte
+function Loader($$anchor, $$props) {
+  push($$props, true);
+  let props = rest_props($$props, ["$$slots", "$$events", "$$legacy"]);
+  const iconNode = [
+    ["path", { "d": "M12 2v4" }],
+    ["path", { "d": "m16.2 7.8 2.9-2.9" }],
+    ["path", { "d": "M18 12h4" }],
+    ["path", { "d": "m16.2 16.2 2.9 2.9" }],
+    ["path", { "d": "M12 18v4" }],
+    ["path", { "d": "m4.9 19.1 2.9-2.9" }],
+    ["path", { "d": "M2 12h4" }],
+    ["path", { "d": "m4.9 4.9 2.9 2.9" }]
+  ];
+  Icon($$anchor, spread_props({ name: "loader" }, () => props, {
+    iconNode,
+    children: ($$anchor2, $$slotProps) => {
+      var fragment_1 = comment();
+      var node = first_child(fragment_1);
+      snippet(node, () => {
+        var _a3;
+        return (_a3 = $$props.children) != null ? _a3 : noop;
+      });
+      append($$anchor2, fragment_1);
+    },
+    $$slots: { default: true }
+  }));
+  pop();
+}
+
+// node_modules/.pnpm/@lucide+svelte@0.487.0_svelte@5.26.2/node_modules/@lucide/svelte/dist/icons/square-check-big.svelte
+function Square_check_big($$anchor, $$props) {
+  push($$props, true);
+  let props = rest_props($$props, ["$$slots", "$$events", "$$legacy"]);
+  const iconNode = [
+    [
+      "path",
+      {
+        "d": "M21 10.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.5"
+      }
+    ],
+    ["path", { "d": "m9 11 3 3L22 4" }]
+  ];
+  Icon($$anchor, spread_props({ name: "square-check-big" }, () => props, {
+    iconNode,
+    children: ($$anchor2, $$slotProps) => {
+      var fragment_1 = comment();
+      var node = first_child(fragment_1);
+      snippet(node, () => {
+        var _a3;
+        return (_a3 = $$props.children) != null ? _a3 : noop;
+      });
+      append($$anchor2, fragment_1);
+    },
+    $$slots: { default: true }
+  }));
+  pop();
+}
+
+// src/Progress.svelte
+var root_1 = template(`<div><!> </div>`);
+var root2 = template(`<div class="progress svelte-1ynmm81"><div>Rendering...</div> <!></div>`);
+var $$css = {
+  hash: "svelte-1ynmm81",
+  code: ".progress.svelte-1ynmm81 {font-size:14px;}"
+};
+function Progress($$anchor, $$props) {
+  push($$props, true);
+  append_styles($$anchor, $$css);
+  let renderStates = proxy([]);
+  function initRenderStates(data) {
+    data.forEach((param) => {
+      renderStates.push({ status: 0, filename: param.file.name });
+    });
+  }
+  function updateRenderStates(i) {
+    renderStates[i].status = 1;
+  }
+  var div = root2();
+  var node = sibling(child(div), 2);
+  each(node, 17, () => renderStates, index, ($$anchor2, item) => {
+    var div_1 = root_1();
+    var node_1 = child(div_1);
+    {
+      var consequent = ($$anchor3) => {
+        Square_check_big($$anchor3, { size: "14" });
+      };
+      var alternate = ($$anchor3) => {
+        Loader($$anchor3, { size: "14" });
+      };
+      if_block(node_1, ($$render) => {
+        if (get(item).status) $$render(consequent);
+        else $$render(alternate, false);
+      });
+    }
+    var text2 = sibling(node_1);
+    reset(div_1);
+    template_effect(() => {
+      var _a3;
+      return set_text(text2, ` ${(_a3 = get(item).filename) != null ? _a3 : ""}`);
+    });
+    append($$anchor2, div_1);
+  });
+  reset(div);
+  append($$anchor, div);
+  return pop({ initRenderStates, updateRenderStates });
+}
+
+// node_modules/.pnpm/yocto-queue@1.2.1/node_modules/yocto-queue/index.js
+var Node2 = class {
+  constructor(value) {
+    __publicField(this, "value");
+    __publicField(this, "next");
+    this.value = value;
+  }
+};
+var _head, _tail, _size;
+var Queue = class {
+  constructor() {
+    __privateAdd(this, _head);
+    __privateAdd(this, _tail);
+    __privateAdd(this, _size);
+    this.clear();
+  }
+  enqueue(value) {
+    const node = new Node2(value);
+    if (__privateGet(this, _head)) {
+      __privateGet(this, _tail).next = node;
+      __privateSet(this, _tail, node);
+    } else {
+      __privateSet(this, _head, node);
+      __privateSet(this, _tail, node);
+    }
+    __privateWrapper(this, _size)._++;
+  }
+  dequeue() {
+    const current = __privateGet(this, _head);
+    if (!current) {
+      return;
+    }
+    __privateSet(this, _head, __privateGet(this, _head).next);
+    __privateWrapper(this, _size)._--;
+    return current.value;
+  }
+  peek() {
+    if (!__privateGet(this, _head)) {
+      return;
+    }
+    return __privateGet(this, _head).value;
+  }
+  clear() {
+    __privateSet(this, _head, void 0);
+    __privateSet(this, _tail, void 0);
+    __privateSet(this, _size, 0);
+  }
+  get size() {
+    return __privateGet(this, _size);
+  }
+  *[Symbol.iterator]() {
+    let current = __privateGet(this, _head);
+    while (current) {
+      yield current.value;
+      current = current.next;
+    }
+  }
+  *drain() {
+    while (__privateGet(this, _head)) {
+      yield this.dequeue();
+    }
+  }
+};
+_head = new WeakMap();
+_tail = new WeakMap();
+_size = new WeakMap();
+
+// node_modules/.pnpm/p-limit@6.2.0/node_modules/p-limit/index.js
+function pLimit(concurrency) {
+  validateConcurrency(concurrency);
+  const queue = new Queue();
+  let activeCount = 0;
+  const resumeNext = () => {
+    if (activeCount < concurrency && queue.size > 0) {
+      queue.dequeue()();
+      activeCount++;
+    }
+  };
+  const next2 = () => {
+    activeCount--;
+    resumeNext();
+  };
+  const run2 = async (function_, resolve, arguments_) => {
+    const result = (async () => function_(...arguments_))();
+    resolve(result);
+    try {
+      await result;
+    } catch (e) {
+    }
+    next2();
+  };
+  const enqueue = (function_, resolve, arguments_) => {
+    new Promise((internalResolve) => {
+      queue.enqueue(internalResolve);
+    }).then(
+      run2.bind(void 0, function_, resolve, arguments_)
+    );
+    (async () => {
+      await Promise.resolve();
+      if (activeCount < concurrency) {
+        resumeNext();
+      }
+    })();
+  };
+  const generator = (function_, ...arguments_) => new Promise((resolve) => {
+    enqueue(function_, resolve, arguments_);
+  });
+  Object.defineProperties(generator, {
+    activeCount: {
+      get: () => activeCount
+    },
+    pendingCount: {
+      get: () => queue.size
+    },
+    clearQueue: {
+      value() {
+        queue.clear();
+      }
+    },
+    concurrency: {
+      get: () => concurrency,
+      set(newConcurrency) {
+        validateConcurrency(newConcurrency);
+        concurrency = newConcurrency;
+        queueMicrotask(() => {
+          while (activeCount < concurrency && queue.size > 0) {
+            resumeNext();
+          }
+        });
+      }
+    }
+  });
+  return generator;
+}
+function validateConcurrency(concurrency) {
+  if (!((Number.isInteger(concurrency) || concurrency === Number.POSITIVE_INFINITY) && concurrency > 0)) {
+    throw new TypeError("Expected `concurrency` to be a number from 1 and up");
+  }
+}
+
 // src/modal.ts
 function fullWidthButton(button) {
   button.buttonEl.setAttribute("style", `margin: "0 auto"; width: -webkit-fill-available`);
@@ -20534,9 +25075,9 @@ function fullWidthButton(button) {
 function setInputWidth(inputEl) {
   inputEl.setAttribute("style", `width: 100px;`);
 }
-var ExportConfigModal = class extends import_obsidian3.Modal {
+var ExportConfigModal = class extends import_obsidian4.Modal {
   constructor(plugin, file, multiplePdf) {
-    var _a, _b, _c, _d, _e;
+    var _a3, _b3, _c2, _d, _e;
     super(plugin.app);
     this.canceled = true;
     this.plugin = plugin;
@@ -20550,7 +25091,7 @@ var ExportConfigModal = class extends import_obsidian3.Modal {
     this.config = {
       pageSize: "A4",
       marginType: "1",
-      showTitle: (_a = plugin.settings.showTitle) != null ? _a : true,
+      showTitle: (_a3 = plugin.settings.showTitle) != null ? _a3 : true,
       open: true,
       scale: 100,
       landscape: false,
@@ -20558,8 +25099,8 @@ var ExportConfigModal = class extends import_obsidian3.Modal {
       marginBottom: "10",
       marginLeft: "10",
       marginRight: "10",
-      displayHeader: (_b = plugin.settings.displayHeader) != null ? _b : true,
-      displayFooter: (_c = plugin.settings.displayHeader) != null ? _c : true,
+      displayHeader: (_b3 = plugin.settings.displayHeader) != null ? _b3 : true,
+      displayFooter: (_c2 = plugin.settings.displayHeader) != null ? _c2 : true,
       cssSnippet: "0",
       ...(_e = (_d = plugin.settings) == null ? void 0 : _d.prevConfig) != null ? _e : {}
     };
@@ -20567,76 +25108,102 @@ var ExportConfigModal = class extends import_obsidian3.Modal {
   getFileCache(file) {
     return this.app.metadataCache.getFileCache(file);
   }
-  async renderFiles() {
-    var _a, _b;
+  async getAllFiles() {
     const app = this.plugin.app;
-    let docs = [];
-    if (this.file instanceof import_obsidian3.TFolder) {
+    const data = [];
+    const docs = [];
+    if (this.file instanceof import_obsidian4.TFolder) {
       const files = traverseFolder(this.file);
       for (const file of files) {
-        docs.push(await renderMarkdown(app, file, this.config));
+        data.push({
+          app,
+          file,
+          config: this.config
+        });
       }
     } else {
-      const { doc, frontMatter, file } = await renderMarkdown(app, this.file, this.config);
+      const { doc, frontMatter, file } = await renderMarkdown({ app, file: this.file, config: this.config });
       docs.push({ doc, frontMatter, file });
       if (frontMatter.toc) {
-        const cache = this.getFileCache(this.file);
-        const files = (_b = (_a = cache == null ? void 0 : cache.links) == null ? void 0 : _a.map(({ link, displayText }) => {
-          const id = crypto.randomUUID();
-          const elem = doc.querySelector(`a[data-href="${link}"]`);
-          if (elem) {
-            elem.href = `#${id}`;
-          }
-          return {
-            title: displayText,
-            file: this.app.metadataCache.getFirstLinkpathDest(link, this.file.path),
-            id
-          };
-        }).filter((item) => item.file instanceof import_obsidian3.TFile)) != null ? _b : [];
+        const files = this.parseToc(doc);
         for (const item of files) {
-          docs.push(await renderMarkdown(app, item.file, this.config, item));
+          data.push({
+            app,
+            file: item.file,
+            config: this.config,
+            extra: item
+          });
         }
-        const leaf = this.app.workspace.getLeaf();
-        await leaf.openFile(this.file);
       }
     }
-    if (!this.multiplePdf) {
-      docs = this.mergeDoc(docs);
+    return { data, docs };
+  }
+  async renderFiles(data, docs, cb) {
+    const concurrency = safeParseInt(this.plugin.settings.concurrency) || 5;
+    const limit = pLimit(concurrency);
+    const inputs = data.map(
+      (param, i) => limit(async () => {
+        const res = await renderMarkdown(param);
+        cb == null ? void 0 : cb(i);
+        return res;
+      })
+    );
+    let _docs = [...docs != null ? docs : [], ...await Promise.all(inputs)];
+    if (this.file instanceof import_obsidian4.TFile) {
+      const leaf = this.app.workspace.getLeaf();
+      await leaf.openFile(this.file);
     }
-    this.docs = docs.map(({ doc, ...rest }) => {
+    if (!this.multiplePdf) {
+      _docs = this.mergeDoc(_docs);
+    }
+    this.docs = _docs.map(({ doc, ...rest }) => {
       return { ...rest, doc: fixDoc(doc, doc.title) };
     });
+  }
+  parseToc(doc) {
+    var _a3, _b3;
+    const cache = this.getFileCache(this.file);
+    const files = (_b3 = (_a3 = cache == null ? void 0 : cache.links) == null ? void 0 : _a3.map(({ link: link2, displayText }) => {
+      const id = crypto.randomUUID();
+      const elem = doc.querySelector(`a[data-href="${link2}"]`);
+      if (elem) {
+        elem.href = `#${id}`;
+      }
+      return {
+        title: displayText,
+        file: this.app.metadataCache.getFirstLinkpathDest(link2, this.file.path),
+        id
+      };
+    }).filter((item) => item.file instanceof import_obsidian4.TFile)) != null ? _b3 : [];
+    return files;
   }
   mergeDoc(docs) {
     const { doc: doc0, frontMatter, file } = docs[0];
     const sections = [];
     for (const { doc } of docs) {
-      const element = doc.querySelector(".markdown-preview-view");
-      if (element) {
+      const element2 = doc.querySelector(".markdown-preview-view");
+      if (element2) {
         const section = doc0.createElement("section");
-        Array.from(element.children).forEach((child) => {
-          section.appendChild(doc0.importNode(child, true));
+        Array.from(element2.children).forEach((child2) => {
+          section.appendChild(doc0.importNode(child2, true));
         });
         sections.push(section);
       }
     }
-    const root = doc0.querySelector(".markdown-preview-view");
-    if (root) {
-      root.innerHTML = "";
+    const root3 = doc0.querySelector(".markdown-preview-view");
+    if (root3) {
+      root3.innerHTML = "";
     }
     sections.forEach((section) => {
-      root == null ? void 0 : root.appendChild(section);
+      root3 == null ? void 0 : root3.appendChild(section);
     });
     return [{ doc: doc0, frontMatter, file }];
   }
-  calcPageSize(element, config) {
-    var _a, _b, _c;
+  calcPageSize(element2, config) {
+    var _a3, _b3, _c2;
     const { pageSize, pageWidth } = config != null ? config : this.config;
-    const el = element != null ? element : this.previewDiv;
-    let width = (_c = (_b = (_a = PageSize) == null ? void 0 : _a[pageSize]) == null ? void 0 : _b[0]) != null ? _c : parseFloat(pageWidth);
-    if (isNaN(width)) {
-      width = 210;
-    }
+    const el = element2 != null ? element2 : this.previewDiv;
+    const width = (_c2 = (_b3 = (_a3 = PageSize) == null ? void 0 : _a3[pageSize]) == null ? void 0 : _b3[0]) != null ? _c2 : safeParseFloat(pageWidth, 210);
     const scale2 = Math.floor(mm2px(width) / el.offsetWidth * 100) / 100;
     this.webviews.forEach((wb) => {
       wb.style.transform = `scale(${1 / scale2},${1 / scale2})`;
@@ -20649,9 +25216,9 @@ var ExportConfigModal = class extends import_obsidian3.Modal {
   async calcWebviewSize() {
     await sleep(500);
     this.webviews.forEach(async (e, i) => {
-      var _a;
+      var _a3;
       const [width, height] = await e.executeJavaScript("[document.body.offsetWidth, document.body.offsetHeight]");
-      const sizeEl = (_a = e.parentNode) == null ? void 0 : _a.querySelector(".print-size");
+      const sizeEl = (_a3 = e.parentNode) == null ? void 0 : _a3.querySelector(".print-size");
       if (sizeEl) {
         sizeEl.innerHTML = `${width}\xD7${height}px
 ${px2mm(width)}\xD7${px2mm(height)}mm`;
@@ -20659,8 +25226,8 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
     });
   }
   async togglePrintSize() {
-    var _a;
-    (_a = document.querySelectorAll(".print-size")) == null ? void 0 : _a.forEach((sizeEl) => {
+    var _a3;
+    (_a3 = document.querySelectorAll(".print-size")) == null ? void 0 : _a3.forEach((sizeEl) => {
       if (this.config["pageSize"] == "Custom") {
         sizeEl.style.visibility = "visible";
       } else {
@@ -20723,21 +25290,30 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
       });
     });
   }
-  async appendWebviews(e, render = true) {
-    var _a;
+  async appendWebviews(el, render = true) {
+    var _a3;
+    el.empty();
     if (render) {
-      await this.renderFiles();
+      this.svelte = mount(Progress, {
+        target: el,
+        props: {
+          startCount: 5
+        }
+      });
+      const { data, docs } = await this.getAllFiles();
+      this.svelte.initRenderStates(data);
+      await this.renderFiles(data, docs, this.svelte.updateRenderStates);
     }
-    e.empty();
+    el.empty();
     await Promise.all(
-      (_a = this.docs) == null ? void 0 : _a.map(async ({ doc }, i) => {
+      (_a3 = this.docs) == null ? void 0 : _a3.map(async ({ doc }, i) => {
         if (this.multiplePdf) {
-          e.createDiv({
+          el.createDiv({
             text: `${i + 1}-${doc.title}`,
             attr: { class: "filename" }
           });
         }
-        const div = e.createDiv({ attr: { class: "webview-wrapper" } });
+        const div = el.createDiv({ attr: { class: "webview-wrapper" } });
         div.createDiv({ attr: { class: "print-size" } });
         await this.appendWebview(div, doc);
       })
@@ -20745,12 +25321,12 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
     await this.calcWebviewSize();
   }
   async onOpen() {
-    var _a, _b, _c;
+    var _a3, _b3, _c2;
     this.contentEl.empty();
     this.containerEl.style.setProperty("--dialog-width", "60vw");
     this.titleEl.setText("Export to PDF");
     const wrapper = this.contentEl.createDiv({ attr: { id: "better-export-pdf" } });
-    const title = (_c = (_a = this.file) == null ? void 0 : _a.basename) != null ? _c : (_b = this.file) == null ? void 0 : _b.name;
+    const title = (_c2 = (_a3 = this.file) == null ? void 0 : _a3.basename) != null ? _c2 : (_b3 = this.file) == null ? void 0 : _b3.name;
     this.previewDiv = wrapper.createDiv({ attr: { class: "pdf-preview" } }, async (el) => {
       el.empty();
       const resizeObserver = new ResizeObserver(() => {
@@ -20760,17 +25336,23 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
       await this.appendWebviews(el);
       this.togglePrintSize();
     });
-    const contentEl = wrapper.createDiv();
-    contentEl.setAttribute("style", "width:320px;margin-left:16px;");
-    contentEl.addEventListener("keyup", (event) => {
-      if (event.key === "Enter") {
+    const contentEl = wrapper.createDiv({ attr: { class: "setting-wrapper" } });
+    contentEl.addEventListener("keyup", (event2) => {
+      if (event2.key === "Enter") {
         handleExport();
       }
     });
     this.generateForm(contentEl);
     const handleExport = async () => {
+      var _a4, _b4;
       this.plugin.settings.prevConfig = this.config;
       await this.plugin.saveSettings();
+      if (this.config["pageSize"] == "Custom") {
+        if (!isNumber((_a4 = this.config["pageWidth"]) != null ? _a4 : "") || !isNumber((_b4 = this.config["pageHeight"]) != null ? _b4 : "")) {
+          alert("When the page size is Custom, the Width/Height cannot be empty.");
+          return;
+        }
+      }
       if (this.multiplePdf) {
         const outputPath = await getOutputPath(title);
         console.log("output:", outputPath);
@@ -20795,39 +25377,39 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
         }
       }
     };
-    new import_obsidian3.Setting(contentEl).setHeading().addButton((button) => {
+    new import_obsidian4.Setting(contentEl).setHeading().addButton((button) => {
       button.setButtonText("Export").onClick(handleExport);
       button.setCta();
       fullWidthButton(button);
     });
-    new import_obsidian3.Setting(contentEl).setHeading().addButton((button) => {
+    new import_obsidian4.Setting(contentEl).setHeading().addButton((button) => {
       button.setButtonText("Refresh").onClick(async () => {
         await this.appendWebviews(this.previewDiv);
       });
       fullWidthButton(button);
     });
-    const debugEl = new import_obsidian3.Setting(contentEl).setHeading().addButton((button) => {
+    const debugEl = new import_obsidian4.Setting(contentEl).setHeading().addButton((button) => {
       button.setButtonText("Debug").onClick(async () => {
-        var _a2;
-        (_a2 = this.preview) == null ? void 0 : _a2.openDevTools();
+        var _a4;
+        (_a4 = this.preview) == null ? void 0 : _a4.openDevTools();
       });
       fullWidthButton(button);
     });
     debugEl.settingEl.hidden = !this.plugin.settings.debug;
   }
   generateForm(contentEl) {
-    new import_obsidian3.Setting(contentEl).setName(this.i18n.exportDialog.filenameAsTitle).addToggle(
+    new import_obsidian4.Setting(contentEl).setName(this.i18n.exportDialog.filenameAsTitle).addToggle(
       (toggle) => toggle.setTooltip("Include file name as title").setValue(this.config["showTitle"]).onChange(async (value) => {
         this.config["showTitle"] = value;
         this.webviews.forEach((wv, i) => {
-          var _a, _b;
+          var _a3, _b3;
           wv.executeJavaScript(`
               var _title = document.querySelector("h1.__title__");
               if (_title) {
               	_title.style.display = "${value ? "block" : "none"}";
               }
               `);
-          const _title = (_b = (_a = this.docs[i]) == null ? void 0 : _a.doc) == null ? void 0 : _b.querySelector("h1.__title__");
+          const _title = (_b3 = (_a3 = this.docs[i]) == null ? void 0 : _a3.doc) == null ? void 0 : _b3.querySelector("h1.__title__");
           if (_title) {
             _title.style.display = value ? "block" : "none";
           }
@@ -20848,7 +25430,7 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
       "Ledger",
       "Custom"
     ];
-    new import_obsidian3.Setting(contentEl).setName(this.i18n.exportDialog.pageSize).addDropdown((dropdown) => {
+    new import_obsidian4.Setting(contentEl).setName(this.i18n.exportDialog.pageSize).addDropdown((dropdown) => {
       dropdown.addOptions(Object.fromEntries(pageSizes.map((size) => [size, size]))).setValue(this.config.pageSize).onChange(async (value) => {
         this.config["pageSize"] = value;
         if (value == "Custom") {
@@ -20861,10 +25443,10 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
         await this.calcWebviewSize();
       });
     });
-    const sizeEl = new import_obsidian3.Setting(contentEl).setName("Width/Height").addText((text) => {
-      setInputWidth(text.inputEl);
-      text.setPlaceholder("width").setValue(this.config["pageWidth"]).onChange(
-        (0, import_obsidian3.debounce)(
+    const sizeEl = new import_obsidian4.Setting(contentEl).setName("Width/Height").addText((text2) => {
+      setInputWidth(text2.inputEl);
+      text2.setPlaceholder("width").setValue(this.config["pageWidth"]).onChange(
+        (0, import_obsidian4.debounce)(
           async (value) => {
             this.config["pageWidth"] = value;
             this.calcPageSize();
@@ -20874,14 +25456,14 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
           true
         )
       );
-    }).addText((text) => {
-      setInputWidth(text.inputEl);
-      text.setPlaceholder("height").setValue(this.config["pageHeight"]).onChange((value) => {
+    }).addText((text2) => {
+      setInputWidth(text2.inputEl);
+      text2.setPlaceholder("height").setValue(this.config["pageHeight"]).onChange((value) => {
         this.config["pageHeight"] = value;
       });
     });
     sizeEl.settingEl.hidden = this.config["pageSize"] !== "Custom";
-    new import_obsidian3.Setting(contentEl).setName(this.i18n.exportDialog.margin).setDesc("The unit is millimeters.").addDropdown((dropdown) => {
+    new import_obsidian4.Setting(contentEl).setName(this.i18n.exportDialog.margin).setDesc("The unit is millimeters.").addDropdown((dropdown) => {
       dropdown.addOption("0", "None").addOption("1", "Default").addOption("2", "Small").addOption("3", "Custom").setValue(this.config["marginType"]).onChange(async (value) => {
         this.config["marginType"] = value;
         if (value == "3") {
@@ -20893,59 +25475,59 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
         }
       });
     });
-    const topEl = new import_obsidian3.Setting(contentEl).setName("Top/Bottom").addText((text) => {
-      setInputWidth(text.inputEl);
-      text.setPlaceholder("margin top").setValue(this.config["marginTop"]).onChange((value) => {
+    const topEl = new import_obsidian4.Setting(contentEl).setName("Top/Bottom").addText((text2) => {
+      setInputWidth(text2.inputEl);
+      text2.setPlaceholder("margin top").setValue(this.config["marginTop"]).onChange((value) => {
         this.config["marginTop"] = value;
       });
-    }).addText((text) => {
-      setInputWidth(text.inputEl);
-      text.setPlaceholder("margin bottom").setValue(this.config["marginBottom"]).onChange((value) => {
+    }).addText((text2) => {
+      setInputWidth(text2.inputEl);
+      text2.setPlaceholder("margin bottom").setValue(this.config["marginBottom"]).onChange((value) => {
         this.config["marginBottom"] = value;
       });
     });
     topEl.settingEl.hidden = this.config["marginType"] != "3";
-    const btmEl = new import_obsidian3.Setting(contentEl).setName("Left/Right").addText((text) => {
-      setInputWidth(text.inputEl);
-      text.setPlaceholder("margin left").setValue(this.config["marginLeft"]).onChange((value) => {
+    const btmEl = new import_obsidian4.Setting(contentEl).setName("Left/Right").addText((text2) => {
+      setInputWidth(text2.inputEl);
+      text2.setPlaceholder("margin left").setValue(this.config["marginLeft"]).onChange((value) => {
         this.config["marginLeft"] = value;
       });
-    }).addText((text) => {
-      setInputWidth(text.inputEl);
-      text.setPlaceholder("margin right").setValue(this.config["marginRight"]).onChange((value) => {
+    }).addText((text2) => {
+      setInputWidth(text2.inputEl);
+      text2.setPlaceholder("margin right").setValue(this.config["marginRight"]).onChange((value) => {
         this.config["marginRight"] = value;
       });
     });
     btmEl.settingEl.hidden = this.config["marginType"] != "3";
-    new import_obsidian3.Setting(contentEl).setName(this.i18n.exportDialog.downscalePercent).addSlider((slider) => {
+    new import_obsidian4.Setting(contentEl).setName(this.i18n.exportDialog.downscalePercent).addSlider((slider) => {
       slider.setLimits(0, 100, 1).setValue(this.config["scale"]).onChange(async (value) => {
         this.config["scale"] = value;
         slider.showTooltip();
       });
     });
-    new import_obsidian3.Setting(contentEl).setName(this.i18n.exportDialog.landscape).addToggle(
+    new import_obsidian4.Setting(contentEl).setName(this.i18n.exportDialog.landscape).addToggle(
       (toggle) => toggle.setTooltip("landscape").setValue(this.config["landscape"]).onChange(async (value) => {
         this.config["landscape"] = value;
       })
     );
-    new import_obsidian3.Setting(contentEl).setName(this.i18n.exportDialog.displayHeader).addToggle(
+    new import_obsidian4.Setting(contentEl).setName(this.i18n.exportDialog.displayHeader).addToggle(
       (toggle) => toggle.setTooltip("Display header").setValue(this.config["displayHeader"]).onChange(async (value) => {
         this.config["displayHeader"] = value;
       })
     );
-    new import_obsidian3.Setting(contentEl).setName(this.i18n.exportDialog.displayFooter).addToggle(
+    new import_obsidian4.Setting(contentEl).setName(this.i18n.exportDialog.displayFooter).addToggle(
       (toggle) => toggle.setTooltip("Display footer").setValue(this.config["displayFooter"]).onChange(async (value) => {
         this.config["displayFooter"] = value;
       })
     );
-    new import_obsidian3.Setting(contentEl).setName(this.i18n.exportDialog.openAfterExport).addToggle(
+    new import_obsidian4.Setting(contentEl).setName(this.i18n.exportDialog.openAfterExport).addToggle(
       (toggle) => toggle.setTooltip("Open the exported file after exporting.").setValue(this.config["open"]).onChange(async (value) => {
         this.config["open"] = value;
       })
     );
     const snippets = this.cssSnippets();
     if (Object.keys(snippets).length > 0 && this.plugin.settings.enabledCss) {
-      new import_obsidian3.Setting(contentEl).setName(this.i18n.exportDialog.cssSnippets).addDropdown((dropdown) => {
+      new import_obsidian4.Setting(contentEl).setName(this.i18n.exportDialog.cssSnippets).addDropdown((dropdown) => {
         dropdown.addOption("0", "Not select").addOptions(snippets).setValue(this.config["cssSnippet"]).onChange(async (value) => {
           this.config["cssSnippet"] = value;
           await this.appendWebviews(this.previewDiv, false);
@@ -20956,10 +25538,13 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
   onClose() {
     const { contentEl } = this;
     contentEl.empty();
+    if (this.svelte) {
+      unmount(this.svelte);
+    }
   }
   cssSnippets() {
-    var _a, _b;
-    const { snippets, enabledSnippets } = (_b = (_a = this.app) == null ? void 0 : _a.customCss) != null ? _b : {};
+    var _a3, _b3;
+    const { snippets, enabledSnippets } = (_b3 = (_a3 = this.app) == null ? void 0 : _a3.customCss) != null ? _b3 : {};
     const basePath = this.app.vault.adapter.basePath;
     return Object.fromEntries(
       snippets == null ? void 0 : snippets.filter((item) => !enabledSnippets.has(item)).map((name) => {
@@ -20971,10 +25556,10 @@ ${px2mm(width)}\xD7${px2mm(height)}mm`;
 };
 
 // src/setting.ts
-var import_obsidian4 = require("obsidian");
-function setAttributes(element, attributes) {
+var import_obsidian5 = require("obsidian");
+function setAttributes(element2, attributes) {
   for (const key in attributes) {
-    element.setAttribute(key, attributes[key]);
+    element2.setAttribute(key, attributes[key]);
   }
 }
 var renderBuyMeACoffeeBadge = (contentEl, width = 175) => {
@@ -20986,7 +25571,7 @@ var renderBuyMeACoffeeBadge = (contentEl, width = 175) => {
   imgEl.alt = "Buy me a coffee";
   imgEl.width = width;
 };
-var ConfigSettingTab = class extends import_obsidian4.PluginSettingTab {
+var ConfigSettingTab = class extends import_obsidian5.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -20999,33 +25584,33 @@ var ConfigSettingTab = class extends import_obsidian4.PluginSettingTab {
     supportDesc.createDiv({
       text: "Support the continued development of this plugin."
     });
-    new import_obsidian4.Setting(containerEl).setDesc(supportDesc);
+    new import_obsidian5.Setting(containerEl).setDesc(supportDesc);
     renderBuyMeACoffeeBadge(containerEl);
-    new import_obsidian4.Setting(containerEl).setName(this.i18n.settings.showTitle).addToggle(
+    new import_obsidian5.Setting(containerEl).setName(this.i18n.settings.showTitle).addToggle(
       (toggle) => toggle.setTooltip(this.i18n.settings.showTitle).setValue(this.plugin.settings.showTitle).onChange(async (value) => {
         this.plugin.settings.showTitle = value;
         this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName(this.i18n.settings.displayHeader).addToggle(
+    new import_obsidian5.Setting(containerEl).setName(this.i18n.settings.displayHeader).addToggle(
       (toggle) => toggle.setTooltip("Display header").setValue(this.plugin.settings.displayHeader).onChange(async (value) => {
         this.plugin.settings.displayHeader = value;
         this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName(this.i18n.settings.displayFooter).addToggle(
+    new import_obsidian5.Setting(containerEl).setName(this.i18n.settings.displayFooter).addToggle(
       (toggle) => toggle.setTooltip("Display footer").setValue(this.plugin.settings.displayFooter).onChange(async (value) => {
         this.plugin.settings.displayFooter = value;
         this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName(this.i18n.settings.printBackground).setDesc("Whether to print background graphics").addToggle(
+    new import_obsidian5.Setting(containerEl).setName(this.i18n.settings.printBackground).setDesc("Whether to print background graphics").addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.printBackground).onChange(async (value) => {
         this.plugin.settings.printBackground = value;
         this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Generate tagged PDF").setDesc(
+    new import_obsidian5.Setting(containerEl).setName("Generate tagged PDF").setDesc(
       "Whether or not to generate a tagged (accessible) PDF. Defaults to false. As this property is experimental, the generated PDF may not adhere fully to PDF/UA and WCAG standards."
     ).addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.generateTaggedPDF).onChange(async (value) => {
@@ -21033,25 +25618,25 @@ var ConfigSettingTab = class extends import_obsidian4.PluginSettingTab {
         this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName(this.i18n.settings.maxLevel).addDropdown((dropdown) => {
+    new import_obsidian5.Setting(containerEl).setName(this.i18n.settings.maxLevel).addDropdown((dropdown) => {
       dropdown.addOptions(Object.fromEntries(["1", "2", "3", "4", "5", "6"].map((level) => [level, `h${level}`]))).setValue(this.plugin.settings.maxLevel).onChange(async (value) => {
         this.plugin.settings.maxLevel = value;
         this.plugin.saveSettings();
       });
     });
-    new import_obsidian4.Setting(containerEl).setName(this.i18n.settings.displayMetadata).setDesc("Add frontMatter(title, author, keywords, subject creator, etc) to pdf metadata").addToggle(
+    new import_obsidian5.Setting(containerEl).setName(this.i18n.settings.displayMetadata).setDesc("Add frontMatter(title, author, keywords, subject creator, etc) to pdf metadata").addToggle(
       (toggle) => toggle.setValue(this.plugin.settings.displayMetadata).onChange(async (value) => {
         this.plugin.settings.displayMetadata = value;
         this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Advanced").setHeading();
-    const headerContentAreaSetting = new import_obsidian4.Setting(containerEl);
+    new import_obsidian5.Setting(containerEl).setName("Advanced").setHeading();
+    const headerContentAreaSetting = new import_obsidian5.Setting(containerEl);
     headerContentAreaSetting.settingEl.setAttribute("style", "display: grid; grid-template-columns: 1fr;");
     headerContentAreaSetting.setName(this.i18n.settings.headerTemplate).setDesc(
       'HTML template for the print header. Should be valid HTML markup with following classes used to inject printing values into them: date (formatted print date), title (document title), url (document location), pageNumber (current page number) and totalPages (total pages in the document). For example, <span class="title"></span> would generate span containing the title.'
     );
-    const hederContentArea = new import_obsidian4.TextAreaComponent(headerContentAreaSetting.controlEl);
+    const hederContentArea = new import_obsidian5.TextAreaComponent(headerContentAreaSetting.controlEl);
     setAttributes(hederContentArea.inputEl, {
       style: "margin-top: 12px; width: 100%; height: 6vh;"
     });
@@ -21059,10 +25644,10 @@ var ConfigSettingTab = class extends import_obsidian4.PluginSettingTab {
       this.plugin.settings.headerTemplate = value;
       this.plugin.saveSettings();
     });
-    const footerContentAreaSetting = new import_obsidian4.Setting(containerEl);
+    const footerContentAreaSetting = new import_obsidian5.Setting(containerEl);
     footerContentAreaSetting.settingEl.setAttribute("style", "display: grid; grid-template-columns: 1fr;");
     footerContentAreaSetting.setName(this.i18n.settings.footerTemplate).setDesc("HTML template for the print footer. Should use the same format as the headerTemplate.");
-    const footerContentArea = new import_obsidian4.TextAreaComponent(footerContentAreaSetting.controlEl);
+    const footerContentArea = new import_obsidian5.TextAreaComponent(footerContentAreaSetting.controlEl);
     setAttributes(footerContentArea.inputEl, {
       style: "margin-top: 12px; width: 100%; height: 6vh;"
     });
@@ -21070,20 +25655,28 @@ var ConfigSettingTab = class extends import_obsidian4.PluginSettingTab {
       this.plugin.settings.footerTemplate = value;
       this.plugin.saveSettings();
     });
-    new import_obsidian4.Setting(containerEl).setName(this.i18n.settings.isTimestamp).setDesc("Add timestamp to output file name").addToggle((cb) => {
+    new import_obsidian5.Setting(containerEl).setName(this.i18n.settings.isTimestamp).setDesc("Add timestamp to output file name").addToggle((cb) => {
       cb.setValue(this.plugin.settings.isTimestamp).onChange(async (value) => {
         this.plugin.settings.isTimestamp = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian4.Setting(containerEl).setName(this.i18n.settings.enabledCss).setDesc("Select the css snippet that are not enabled").addToggle((cb) => {
+    new import_obsidian5.Setting(containerEl).setName(this.i18n.settings.enabledCss).setDesc("Select the css snippet that are not enabled").addToggle((cb) => {
       cb.setValue(this.plugin.settings.enabledCss).onChange(async (value) => {
         this.plugin.settings.enabledCss = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian4.Setting(containerEl).setName("Debug").setHeading();
-    new import_obsidian4.Setting(containerEl).setName(this.i18n.settings.debugMode).setDesc("This is useful for troubleshooting.").addToggle((cb) => {
+    new import_obsidian5.Setting(containerEl).setName(this.i18n.settings.concurrency).setDesc("Limit the number of concurrent renders").addText((cb) => {
+      var _a3;
+      const concurrency = (_a3 = this.plugin.settings) == null ? void 0 : _a3.concurrency;
+      cb.setValue((concurrency == null ? void 0 : concurrency.length) > 0 ? concurrency : "5").onChange(async (value) => {
+        this.plugin.settings.concurrency = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian5.Setting(containerEl).setName("Debug").setHeading();
+    new import_obsidian5.Setting(containerEl).setName(this.i18n.settings.debugMode).setDesc("This is useful for troubleshooting.").addToggle((cb) => {
       cb.setValue(this.plugin.settings.debug).onChange(async (value) => {
         this.plugin.settings.debug = value;
         await this.plugin.saveSettings();
@@ -21108,9 +25701,10 @@ var DEFAULT_SETTINGS = {
   displayMetadata: false,
   debug: false,
   isTimestamp: false,
-  enabledCss: false
+  enabledCss: false,
+  concurrency: "5"
 };
-var BetterExportPdfPlugin = class extends import_obsidian5.Plugin {
+var BetterExportPdfPlugin3 = class extends import_obsidian6.Plugin {
   constructor(app, manifest) {
     super(app, manifest);
     this.i18n = i18n_default.current;
@@ -21126,7 +25720,7 @@ var BetterExportPdfPlugin = class extends import_obsidian5.Plugin {
       id: "export-current-file-to-pdf",
       name: this.i18n.exportCurrentFile,
       checkCallback: (checking) => {
-        const view = this.app.workspace.getActiveViewOfType(import_obsidian5.MarkdownView);
+        const view = this.app.workspace.getActiveViewOfType(import_obsidian6.MarkdownView);
         const file = view == null ? void 0 : view.file;
         if (!file) {
           return false;
@@ -21145,7 +25739,7 @@ var BetterExportPdfPlugin = class extends import_obsidian5.Plugin {
   registerEvents() {
     this.registerEvent(
       this.app.workspace.on("file-menu", (menu, file) => {
-        let title = file instanceof import_obsidian5.TFolder ? "Export folder to PDF" : "Better Export PDF";
+        let title = file instanceof import_obsidian6.TFolder ? "Export folder to PDF" : "Better Export PDF";
         if (isDev) {
           title = `${title} (dev)`;
         }
@@ -21158,7 +25752,7 @@ var BetterExportPdfPlugin = class extends import_obsidian5.Plugin {
     );
     this.registerEvent(
       this.app.workspace.on("file-menu", (menu, file) => {
-        if (file instanceof import_obsidian5.TFolder) {
+        if (file instanceof import_obsidian6.TFolder) {
           let title = "Export to PDF...";
           if (isDev) {
             title = `${title} (dev)`;
@@ -21181,17 +25775,17 @@ var BetterExportPdfPlugin = class extends import_obsidian5.Plugin {
       })
     );
   }
-  async generateToc(root) {
+  async generateToc(root3) {
     const basePath = this.app.vault.adapter.basePath;
-    const toc = import_path2.default.join(basePath, root.path, "_TOC_.md");
+    const toc = import_path2.default.join(basePath, root3.path, "_TOC_.md");
     const content = `---
 toc: true
-title: ${root.name}
+title: ${root3.name}
 ---
 `;
     await fs3.writeFile(toc, content);
-    if (root instanceof import_obsidian5.TFolder) {
-      const files = traverseFolder(root);
+    if (root3 instanceof import_obsidian6.TFolder) {
+      const files = traverseFolder(root3);
       for (const file of files) {
         if (file.name == "_TOC_.md") {
           continue;
@@ -21210,22 +25804,22 @@ title: ${root.name}
     await this.saveData(this.settings);
   }
   changeConfig() {
-    var _a;
-    const theme = "obsidian" === ((_a = this.app.vault) == null ? void 0 : _a.getConfig("theme"));
+    var _a3;
+    const theme = "obsidian" === ((_a3 = this.app.vault) == null ? void 0 : _a3.getConfig("theme"));
     if (theme) {
       document.body.addClass("theme-light");
       document.body.removeClass("theme-dark");
     }
     document.body.removeClass("theme-dark");
     const node = document.body.createDiv("print");
-    const reset = function() {
+    const reset2 = function() {
       node.detach();
       if (theme) {
         document.body.removeClass("theme-light");
         document.body.addClass("theme-dark");
       }
     };
-    node.addEventListener("click", reset);
+    node.addEventListener("click", reset2);
     const el = document.body.createDiv("print");
     const el2 = el.createDiv("markdown-preview-view markdown-rendered");
     el2.toggleClass("rtl", this.app.vault.getConfig("rightToLeft"));
@@ -21253,6 +25847,94 @@ tslib/tslib.es6.js:
   OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
   PERFORMANCE OF THIS SOFTWARE.
   ***************************************************************************** *)
+
+@lucide/svelte/dist/defaultAttributes.js:
+  (**
+   * @license @lucide/svelte v0.487.0 - ISC
+   *
+   * ISC License
+   * 
+   * Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
+   * 
+   * Permission to use, copy, modify, and/or distribute this software for any
+   * purpose with or without fee is hereby granted, provided that the above
+   * copyright notice and this permission notice appear in all copies.
+   * 
+   * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+   * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+   * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+   * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+   * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+   * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+   * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+   * 
+   *)
+
+@lucide/svelte/dist/icons/loader.svelte:
+  (**
+   * @license @lucide/svelte v0.487.0 - ISC
+   *
+   * ISC License
+   *
+   * Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
+   *
+   * Permission to use, copy, modify, and/or distribute this software for any
+   * purpose with or without fee is hereby granted, provided that the above
+   * copyright notice and this permission notice appear in all copies.
+   *
+   * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+   * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+   * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+   * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+   * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+   * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+   * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+   *
+   *)
+
+@lucide/svelte/dist/icons/square-check-big.svelte:
+  (**
+   * @license @lucide/svelte v0.487.0 - ISC
+   *
+   * ISC License
+   *
+   * Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
+   *
+   * Permission to use, copy, modify, and/or distribute this software for any
+   * purpose with or without fee is hereby granted, provided that the above
+   * copyright notice and this permission notice appear in all copies.
+   *
+   * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+   * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+   * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+   * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+   * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+   * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+   * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+   *
+   *)
+
+@lucide/svelte/dist/icons/index.js:
+  (**
+   * @license @lucide/svelte v0.487.0 - ISC
+   *
+   * ISC License
+   * 
+   * Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
+   * 
+   * Permission to use, copy, modify, and/or distribute this software for any
+   * purpose with or without fee is hereby granted, provided that the above
+   * copyright notice and this permission notice appear in all copies.
+   * 
+   * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+   * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+   * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+   * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+   * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+   * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+   * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+   * 
+   *)
 */
 
 /* nosourcemap */

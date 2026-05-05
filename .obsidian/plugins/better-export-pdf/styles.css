@@ -36,6 +36,12 @@
   height: 100%;
   width: 100%;
 }
+#better-export-pdf .pdf-preview > div.progress {
+  flex: none;
+  height: auto;
+  width: 100%;
+  text-align: left;
+}
 
 #better-export-pdf .pdf-preview .filename {
   font-size: 0.75rem;
@@ -49,4 +55,13 @@
   flex: 1;
   height: 100%;
   width: 100%;
+}
+
+#better-export-pdf .setting-wrapper {
+  width: 320px;
+  margin-left: 16px;
+}
+
+#better-export-pdf .setting-wrapper .setting-item[hidden] {
+  display: none;
 }

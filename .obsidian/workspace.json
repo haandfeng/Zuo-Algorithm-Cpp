@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOP.md",
+                "file": "题目/0001-两数之和.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SOP"
+              "title": "0001-两数之和"
             }
           }
         ]
@@ -112,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Grind75.md",
+                "file": "题目/0001-两数之和.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +122,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Grind75 的反向链接列表"
+              "title": "0001-两数之和 的反向链接列表"
             }
           },
           {
@@ -131,12 +131,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Grind75.md",
+                "file": "题目/0001-两数之和.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Grind75 的出链列表"
+              "title": "0001-两数之和 的出链列表"
             }
           },
           {
@@ -160,23 +160,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SOP.md",
+                "file": "题目/0001-两数之和.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SOP 的大纲"
-            }
-          },
-          {
-            "id": "30f2e82588757fbc",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "git-view"
+              "title": "0001-两数之和 的大纲"
             }
           },
           {
@@ -193,37 +183,45 @@
               "title": "添加笔记属性"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 604.5,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
       "bases:新建数据库": false,
-      "obsidian-git:Open Git source control": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "241f8831a25118f5",
+  "active": "b1fd48310231ada3",
   "lastOpenFiles": [
+    "templates/公司面经模板.md",
+    "templates/综述模板.md",
+    "templates/周报模板.md",
+    "templates/复习记录模板.md",
+    "题目/INDEX.md",
+    "Untitled.md",
+    "templates/README.md",
+    "SOP.md",
+    "templates/题目模板.md",
+    "题目/0002-两数相加.md",
+    "Untitled 1.md",
+    "题目/2415-反转二叉树的奇数层.md",
+    "课程/灵茶山艾府和代码随想录/二叉树.md",
     "课程/labuladong/核心刷题框架/双指针-链表 和 链表代码实现.md",
     "题目/0160-相交链表.md",
     "题目/0707-设计链表.md",
     "课程/labuladong/核心刷题框架/双指针-数组.md",
     "课程/labuladong/核心刷题框架/二叉树.md",
-    "SOP.md",
-    "templates/README.md",
-    "templates/题目模板.md",
     "templates",
     "USAGE.md",
     "algorithm-wiki/README.md",
@@ -233,16 +231,6 @@
     "题目/1361-验证二叉树.md",
     "题目/0547-省份数量.md",
     "题目/0990-等式方程的可满足性.md",
-    "题目/0694-不同岛屿的数量.md",
-    "题目/1905-统计子岛屿.md",
-    "题目/1254-统计封闭岛屿的数目.md",
-    "题目/0797-所有可能的路径.md",
-    "题目/0365-水壶问题.md",
-    "题目/1091-二进制矩阵中的最短路径.md",
-    "题目/1926-迷宫中离入口最近的出口.md",
-    "题目/0433-最小基因变化.md",
-    "题目/0841-钥匙和房间.md",
-    "题目/0919-完全二叉树插入器.md",
     "algorithm-wiki/scripts/build_index.py",
     "algorithm-wiki/data",
     "algorithm-wiki/scripts/fill_frontmatter.py",

@@ -1,8 +1,36 @@
 {
   "recentFiles": [
     {
+      "basename": "0001-两数之和",
+      "path": "题目/0001-两数之和.md"
+    },
+    {
+      "basename": "INDEX",
+      "path": "题目/INDEX.md"
+    },
+    {
+      "basename": "README",
+      "path": "templates/README.md"
+    },
+    {
       "basename": "SOP",
       "path": "SOP.md"
+    },
+    {
+      "basename": "题目模板",
+      "path": "templates/题目模板.md"
+    },
+    {
+      "basename": "0002-两数相加",
+      "path": "题目/0002-两数相加.md"
+    },
+    {
+      "basename": "2415-反转二叉树的奇数层",
+      "path": "题目/2415-反转二叉树的奇数层.md"
+    },
+    {
+      "basename": "二叉树",
+      "path": "课程/灵茶山艾府和代码随想录/二叉树.md"
     },
     {
       "basename": "双指针-链表 和 链表代码实现",
@@ -171,37 +199,10 @@
     {
       "basename": "manacher",
       "path": "algorithm-wiki/wiki/algorithms/manacher.md"
-    },
-    {
-      "basename": "bfs-dfs",
-      "path": "algorithm-wiki/wiki/algorithms/bfs-dfs.md"
-    },
-    {
-      "basename": "karpathy-llm-knowledge-base",
-      "path": "algorithm-wiki/raw/articles/karpathy-llm-knowledge-base.md"
-    },
-    {
-      "basename": "README_EN",
-      "path": "README_EN.md"
-    },
-    {
-      "basename": "README",
-      "path": "algorithm-wiki/outputs/README.md"
-    },
-    {
-      "basename": "2026-05-03-monotonic-stack-vs-queue",
-      "path": "algorithm-wiki/outputs/reports/2026-05-03-monotonic-stack-vs-queue.md"
-    },
-    {
-      "basename": "lint-2026-05-03",
-      "path": "algorithm-wiki/outputs/reports/lint-2026-05-03.md"
-    },
-    {
-      "basename": "2026-05-03-binary-search-template",
-      "path": "algorithm-wiki/outputs/slides/2026-05-03-binary-search-template.md"
     }
   ],
   "omittedPaths": [],
   "omittedTags": [],
+  "updateOn": "file-open",
   "omitBookmarks": false
 }
