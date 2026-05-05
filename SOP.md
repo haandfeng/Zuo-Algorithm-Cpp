@@ -98,70 +98,81 @@ graph LR
 
 ### 场景 2：刷新题（最高频）⭐
 
-**完整流程**：
+**全程在 Obsidian 里做笔记**——只有最后的"刷新索引"几个命令需要终端。
+
+#### 一次性准备（5 分钟，做完一劳永逸）
+
+1. 装 **Templater 插件**：Obsidian → Settings → Community plugins → 搜 `Templater` → 安装并启用
+2. Settings → Templater → "Template folder location" 设为 `templates`
+3. Settings → Templater → 给 "Insert template" 绑快捷键 `Cmd+Shift+T`
+
+> 模板文件已放在 [`templates/题目模板.md`](templates/题目模板.md)。
+> 完整说明（含字段意义、covers slug 全集）见 [`templates/README.md`](templates/README.md)。
+> 不装 Templater 就用方式 B：手动复制粘贴模板。
+
+#### 日常流程（在 Obsidian 里做）
+
+```text
+1. LeetCode AC 完
+        ↓
+2. Cmd+P 搜 "0752"
+   → 已有 ✓ → 直接打开补充你的解法
+   → 没有 ✗ → 走第 3 步
+        ↓
+3. 左栏 题目/ 文件夹上 右键 → New note
+   → 命名：0752-打开转盘锁（4 位题号 + 中划线 + 题名）
+        ↓
+4. 按 Cmd+Shift+T → 选 "题目模板"
+   → frontmatter + 骨架自动填入；date_solved 自动是今天
+        ↓
+5. 修 frontmatter 5 个字段：
+   - leetcode: 752
+   - title: 打开转盘锁
+   - url: https://leetcode.cn/problems/open-the-lock/
+   - difficulty: medium
+   - tags: [bfs] / covers: [bfs-dfs]
+        ↓
+6. 写「思路」+ 粘 C++ 代码 + 写「易错点」
+        ↓
+7. Obsidian 自动保存，不用 Cmd+S
+```
+
+#### 已有的题怎么补充（不要覆盖原内容）
+
+很多题（如 LC 752）拆题时已经从灵神/labuladong 那里拷过来一段：
+
+```markdown
+## 来源：labuladong / BFS
+
+[labuladong 的笔记...]
+```
+
+**直接在文件末尾**追加你的（**不要**改原有「来源：xxx」段）：
+
+```markdown
+## 我的解法（2026-05-05）
+
+[你的思路 + 代码]
+```
+
+这样既保留 labuladong 原讲解，又有你自己的版本对照。
+
+#### 4 步收尾（终端里跑，每天结束一次即可）
+
+打开 iTerm / Terminal：
 
 ```bash
-# 1) 在 LeetCode AC
-# 2) 检查 题目/ 是否已存在
-ls 题目/ | grep -i "0752\|打开转盘锁"
-
-# 3a) 已存在 → 用 Edit 打开补充你的解法 + 加 metadata
-# 3b) 不存在 → 用下面模板新建
-
-cat > "题目/0XXX-题名.md" <<'EOF'
----
-leetcode: XXX
-title: 题名
-url: https://leetcode.cn/problems/...
-difficulty: medium
-tags: [...]
-covers: [bfs-dfs, ...]      # 对应 algorithm-wiki/wiki/ 里的概念 slug
-sources:
-  - 我的-自创                # 标识这是你新做的题
-date_solved: 2026-05-05
-solved: true
-time_to_solve: 30min        # 可选
-retry_needed: false         # 可选
----
-
-# XXX. 题名
-
-[LeetCode 链接](https://leetcode.cn/problems/...)
-
-## 思路
-…
-
-## C++ 代码
-
-```cpp
-// 你的代码
-```
-```
+algo                                                     # cd 到 vault（前提：你配了 alias，见第五节）
+python algorithm-wiki/scripts/ingest.py 题目/0752-*.md   # 登记到 MEMORY.md
+python algorithm-wiki/scripts/cross_link.py              # 刷新 wiki 末尾交叉链
+python algorithm-wiki/scripts/build_index.py             # 重建 INDEX.md
+python algorithm-wiki/scripts/lint.py                    # 体检
 ```
 
-## 复杂度
-
-时间 O(...)，空间 O(...)
-
-## 易错点 / 心得
-…
-EOF
-```
-
-**4 步收尾**（每天结束时跑一次也行）：
+或者一行命令（如果你配了 alias）：
 
 ```bash
-# 4) 登记到 MEMORY.md
-python algorithm-wiki/scripts/ingest.py "题目/0XXX-题名.md"
-
-# 5) 刷新 wiki 末尾交叉链
-python algorithm-wiki/scripts/cross_link.py
-
-# 6) 重建 INDEX.md
-python algorithm-wiki/scripts/build_index.py
-
-# 7) 体检
-python algorithm-wiki/scripts/lint.py
+algo-daily   # build_index + lint + git commit + git push
 ```
 
 ---
