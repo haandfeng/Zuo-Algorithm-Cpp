@@ -21,7 +21,7 @@ updated: 2026-05-04
 
 ## 题目
 
-> 用 [Prompt 1](../../../USAGE.md#1-把新题链入-wiki) 让 LLM 把每道刷过的 Meta 题登记到这里。
+> 用 [Prompt 1](../../../SOP.md#1-把新题链入-wiki) 让 LLM 把每道刷过的 Meta 题登记到这里。
 
 ## 资源
 

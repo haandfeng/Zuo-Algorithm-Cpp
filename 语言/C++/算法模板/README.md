@@ -106,4 +106,4 @@ vector<int> nextGreater(vector<int>& nums) {
 
 - [`algorithm-wiki/wiki/index.md`](../../../algorithm-wiki/wiki/index.md) — 概念入口
 - [`课程/左程云/010. 代码模板/`](../../../课程/左程云/010.%20代码模板/) — 现成模板
-- [`USAGE.md`](../../../USAGE.md) — 仓库使用指南
+- [`SOP.md`](../../../SOP.md) — 仓库使用指南

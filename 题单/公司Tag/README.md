@@ -22,7 +22,7 @@ updated: 2026-05-04
 └── 笔记.md             # 整体观察、tips、coding style 偏好
 ```
 
-每道题文件统一格式（参考 [`USAGE.md`](../../USAGE.md) 的"场景 1"）：
+每道题文件统一格式（参考 [`SOP.md`](../../SOP.md) 的"场景 1"）：
 
 ```yaml
 ---

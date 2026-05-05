@@ -11,10 +11,14 @@
             "id": "9acb99cf57f4b5f6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "SOP.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "SOP"
             }
           }
         ]
@@ -156,12 +160,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "SOP.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "SOP 的大纲"
             }
           },
           {
